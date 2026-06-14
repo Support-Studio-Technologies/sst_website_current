@@ -281,7 +281,7 @@ const HomeCard = () => {
   return (
     <>
       {/* Only show arrow on desktop screens (not mobile) */}
-      {!isMobile &&
+      {/* {!isMobile &&
         !isHoveringCard &&
         arrowPath &&
         isButtonVisible &&
@@ -453,7 +453,7 @@ const HomeCard = () => {
               />
             </motion.g>
           </motion.svg>
-        )}
+        )} */}
 
       <motion.div
         ref={ref}
