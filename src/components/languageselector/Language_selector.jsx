@@ -10,26 +10,17 @@ const regionalLocales = [
       {
         country: "United States",
         flag: "🇺🇸",
-        language: {
-          code: "en-US",
-          name: "English",
-        },
+        language: { code: "en-US", name: "English" },
       },
       {
         country: "Canada",
         flag: "🇨🇦",
-        language: {
-          code: "en-CA",
-          name: "English",
-        },
+        language: { code: "en-CA", name: "English" },
       },
       {
         country: "Brazil",
         flag: "🇧🇷",
-        language: {
-          code: "pt-BR",
-          name: "Português",
-        },
+        language: { code: "pt-BR", name: "Português" },
       },
     ],
   },
@@ -39,26 +30,17 @@ const regionalLocales = [
       {
         country: "United Kingdom",
         flag: "🇬🇧",
-        language: {
-          code: "en-GB",
-          name: "English",
-        },
+        language: { code: "en-GB", name: "English" },
       },
       {
         country: "France",
         flag: "🇫🇷",
-        language: {
-          code: "fr-FR",
-          name: "Français",
-        },
+        language: { code: "fr-FR", name: "Français" },
       },
       {
         country: "Germany",
         flag: "🇩🇪",
-        language: {
-          code: "de-DE",
-          name: "Deutsch",
-        },
+        language: { code: "de-DE", name: "Deutsch" },
       },
     ],
   },
@@ -68,32 +50,23 @@ const regionalLocales = [
       {
         country: "India",
         flag: "🇮🇳",
-        language: {
-          code: "en-IN",
-          name: "English",
-        },
+        language: { code: "en-IN", name: "English" },
       },
       {
         country: "Japan",
         flag: "🇯🇵",
-        language: {
-          code: "ja-JP",
-          name: "日本語",
-        },
+        language: { code: "ja-JP", name: "日本語" },
       },
       {
         country: "China",
         flag: "🇨🇳",
-        language: {
-          code: "zh-CN",
-          name: "简体中文",
-        },
+        language: { code: "zh-CN", name: "简体中文" },
       },
     ],
   },
 ];
 
-export default function LanguageSelector() {
+export default function LanguageSelector({ isNavbarLight }) {
   const dropdownRef = useRef(null);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -102,10 +75,7 @@ export default function LanguageSelector() {
     regionGroup: "Asia Pacific",
     country: "India",
     flag: "🇮🇳",
-    language: {
-      code: "en-IN",
-      name: "English",
-    },
+    language: { code: "en-IN", name: "English" },
   });
 
   const [openRegion, setOpenRegion] = useState("Asia Pacific");
@@ -121,74 +91,56 @@ export default function LanguageSelector() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener(
-        "mousedown",
-        handleClickOutside
-      );
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const handleSelect = (regionGroup, item) => {
-    setSelected({
-      regionGroup,
-      ...item,
-    });
-
+    setSelected({ regionGroup, ...item });
     setIsOpen(false);
-
-    // Add routing logic here
-    // router.push(...)
   };
 
   const toggleRegion = (region) => {
-    setOpenRegion((prev) =>
-      prev === region ? null : region
-    );
+    setOpenRegion((prev) => (prev === region ? null : region));
   };
 
+  const glassBase =
+    "backdrop-blur-md border transition-all duration-300 ease-in-out";
+
+  const themeClass = isNavbarLight
+    ? "bg-white/80 border-gray-200/30 text-gray-800 shadow-md"
+    : "bg-white/10 border-white/20 text-white";
+
   return (
-    <div
-      ref={dropdownRef}
-      className="relative inline-block"
-    >
+    <div ref={dropdownRef} className="relative inline-block">
       {/* Trigger Button */}
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="
+        className={`
           inline-flex items-center gap-2
-          rounded-full
-          border border-gray-200
-          bg-white
-          px-4 py-2
-          text-sm font-medium text-gray-700
-          shadow-sm
-          transition-all duration-200
-          hover:border-gray-300
-          hover:bg-gray-50
-          hover:shadow-md
-        "
+          px-4 py-2 rounded-xl
+          ${glassBase}
+          ${themeClass}
+          hover:scale-105 active:scale-95
+          hover:shadow-lg
+        `}
       >
-        <Globe className="h-4 w-4 text-gray-600" />
+        <Globe className="h-4 w-4" />
 
-        <span className="hidden sm:flex items-center gap-2">
+        <span className="hidden sm:flex items-center gap-2 text-sm">
           <span>{selected.country}</span>
-
-          <span className="text-gray-300">|</span>
-
-          <span className="uppercase text-gray-500 text-xs font-semibold">
+          <span className="opacity-40">|</span>
+          <span className="uppercase text-xs font-semibold opacity-70">
             {selected.language.code.split("-")[0]}
           </span>
         </span>
 
-        <span className="sm:hidden">
+        <span className="sm:hidden text-xs uppercase">
           {selected.language.code.split("-")[0]}
         </span>
 
         <ChevronDown
-          className={`h-4 w-4 text-gray-500 transition-transform duration-200 ${
+          className={`h-4 w-4 transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
@@ -197,63 +149,52 @@ export default function LanguageSelector() {
       {/* Dropdown */}
       {isOpen && (
         <div
-          className="
+          className={`
             absolute right-0 z-50 mt-3
             w-[380px]
             overflow-hidden
             rounded-2xl
-            border border-gray-200
-            bg-white
-            shadow-xl
-          "
+            ${glassBase}
+            ${themeClass}
+            shadow-2xl
+          `}
         >
           {/* Header */}
-          <div className="border-b border-gray-100 px-5 py-4">
-            <h3 className="text-sm font-semibold text-gray-900">
+          <div className="border-b border-white/10 px-5 py-4">
+            <h3 className="text-sm font-semibold">
               Select Region & Language
             </h3>
-            <p className="mt-1 text-xs text-gray-500">
+            <p className="text-xs opacity-70 mt-1">
               Choose your preferred locale
             </p>
           </div>
 
           <div className="max-h-[450px] overflow-y-auto">
             {regionalLocales.map((group) => {
-              const isExpanded =
-                openRegion === group.regionGroup;
+              const isExpanded = openRegion === group.regionGroup;
 
               return (
                 <div
                   key={group.regionGroup}
-                  className="border-b border-gray-100 last:border-0"
+                  className="border-b border-white/10 last:border-0"
                 >
-                  {/* Region Accordion Header */}
+                  {/* Region */}
                   <button
                     type="button"
-                    onClick={() =>
-                      toggleRegion(group.regionGroup)
-                    }
-                    className="
-                      flex w-full items-center justify-between
-                      bg-gray-50
-                      px-5 py-3
-                      text-left
-                      transition-colors
-                      hover:bg-gray-100
-                    "
+                    onClick={() => toggleRegion(group.regionGroup)}
+                    className="flex w-full justify-between px-5 py-3 hover:bg-white/10 transition"
                   >
                     <div>
-                      <p className="text-sm font-semibold text-gray-900">
+                      <p className="text-sm font-semibold">
                         {group.regionGroup}
                       </p>
-
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs opacity-60">
                         {group.items.length} countries
                       </p>
                     </div>
 
                     <ChevronDown
-                      className={`h-4 w-4 text-gray-500 transition-transform duration-200 ${
+                      className={`h-4 w-4 transition-transform duration-300 ${
                         isExpanded ? "rotate-180" : ""
                       }`}
                     />
@@ -264,30 +205,23 @@ export default function LanguageSelector() {
                     <div className="py-1">
                       {group.items.map((item) => {
                         const isSelected =
-                          selected.country ===
-                            item.country &&
-                          selected.language.code ===
-                            item.language.code;
+                          selected.country === item.country &&
+                          selected.language.code === item.language.code;
 
                         return (
                           <button
                             key={item.language.code}
-                            type="button"
                             onClick={() =>
-                              handleSelect(
-                                group.regionGroup,
-                                item
-                              )
+                              handleSelect(group.regionGroup, item)
                             }
                             className={`
                               flex w-full items-center justify-between
                               px-5 py-3
-                              text-left
-                              transition-colors
+                              transition-colors duration-200
                               ${
                                 isSelected
-                                  ? "bg-blue-50"
-                                  : "hover:bg-gray-50"
+                                  ? "bg-white/10"
+                                  : "hover:bg-white/5"
                               }
                             `}
                           >
@@ -300,21 +234,21 @@ export default function LanguageSelector() {
                                 <p
                                   className={`text-sm font-medium ${
                                     isSelected
-                                      ? "text-blue-700"
-                                      : "text-gray-900"
+                                      ? "opacity-100"
+                                      : "opacity-90"
                                   }`}
                                 >
                                   {item.country}
                                 </p>
 
-                                <p className="text-xs text-gray-500">
+                                <p className="text-xs opacity-60">
                                   {item.language.name}
                                 </p>
                               </div>
                             </div>
 
                             {isSelected && (
-                              <Check className="h-4 w-4 text-blue-600" />
+                              <Check className="h-4 w-4" />
                             )}
                           </button>
                         );
