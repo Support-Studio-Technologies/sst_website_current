@@ -7,6 +7,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import FBIcon from "../../assets/Footer/FacebookIcon.svg";
 import InstagramIcon from "../../assets/Footer/instagram.svg";
 import LinkedinIcon from "../../assets/Footer/LinkedinIcon.svg";
+// import CalendlyIcon from "../../assets/Footer/CalendlyIcon.svg";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -377,6 +378,21 @@ const Footer = () => {
                 height={24}
               />
             </a>
+            {/* <a
+              href="https://calendly.com/supportstudio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-white transition-colors duration-200 hover:scale-110 transform"
+              aria-label="Calendly"
+            >
+              <Image
+                src={CalendlyIcon}
+                alt="Calendly"
+                className="w-10 h-10"
+                width={24}
+                height={24}
+              />
+            </a> */}
           </div>
 
           <div className="flex space-x-3 md:col-span-1">

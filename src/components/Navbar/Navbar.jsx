@@ -8,8 +8,9 @@ import { usePathname } from "next/navigation";
 import logo from "../../assets/Navbar/SST_Updated_White.svg";
 import logo2 from "../../assets/Navbar/SST_Logo_Dark.svg";
 import logo3 from "../../assets/Navbar/SST.png";
-import logo4 from "../../assets/Navbar/SST_logo.svg";
+import logo4 from "../../assets/Navbar/SST_logo_black.svg";
 import { validRoutes } from "../Constants/Routes/routes";
+import LanguageSelector from "../languageselector/Language_selector.jsx";
  
  
 const Navbar = () => {
@@ -40,26 +41,22 @@ const Navbar = () => {
  
   return (
     <nav className={"w-full z-50 relative p-0"}>
-      <div className="max-w-full mx-auto">
-        <div className="hidden lg:flex">
+      <div className="max-w-full mx-auto mt-1.5  ">
+        <div className="hidden lg:flex ">
           <div
-            className={`
+            className="
               relative
               w-full
               flex items-center
               justify-between
               px-4 py-1.5
-              backdrop-blur-md
+              
               transition-colors duration-500 ease-in-out
-              ${
-                isLight
-                  ? "bg-gray-500/30 border-gray-200/30"
-                  : "bg-white/10 border-white/20"
-              }
-            `}
+              bg-slate-100
+            "
           >
             {/* Left Logo Area (Fixed Width) */}
-            <div className="w-[320px] flex items-center px-4 sm:px-8 lg:px-10">
+            <div className="w-[320px] flex items-center px-4 sm:px-8  lg:px-10">
               <Link
                 href="/"
                 onClick={closeMenu}
@@ -77,7 +74,7 @@ const Navbar = () => {
                 </div>
  
                 {/* Company Name Reveal */}
-                <div
+                {/* <div
                   className="
                     overflow-hidden
                     max-w-0
@@ -99,8 +96,19 @@ const Navbar = () => {
                     height={40}
                     className="h-10 w-auto"
                   />
-                </div>
+                </div> */}
               </Link>
+              <div className="flex items-center">
+                <Link href="/">
+                  <Image
+                    src="/sap-logo-svg.svg"
+                    alt="SAP Partner Logo"
+                    className="h-14 w-auto object-contain"
+                    width={180}
+                    height={50}
+                  />
+                </Link>
+              </div>
             </div>
  
             {/* Center Menu (Absolutely Centered) */}
@@ -112,9 +120,7 @@ const Navbar = () => {
                     className={`py-2 px-3 relative group transition-colors duration-300 text-[clamp(0.9rem,1vw,1rem)] ${
                       pathname === "/"
                         ? "text-[#2d8ec5]"
-                        : isLight
-                        ? "text-black hover:text-[#2d8ec5]"
-                        : "text-white hover:text-[#2d8ec5]"
+                        : "text-black hover:text-[#2d8ec5]"
                     }`}
                   >
                     Home
@@ -127,9 +133,7 @@ const Navbar = () => {
                     className={`py-2 px-3 relative flex items-center gap-1 transition-colors duration-300 text-[clamp(0.9rem,1vw,1rem)] ${
                       pathname === "/services"
                         ? "text-[#2d8ec5]"
-                        : isLight
-                        ? "text-black hover:text-[#2d8ec5]"
-                        : "text-white hover:text-[#2d8ec5]"
+                        : "text-black hover:text-[#2d8ec5]"
                     }`}
                   >
                     Services
@@ -263,12 +267,10 @@ const Navbar = () => {
                     className={`py-2 px-3 relative group transition-colors duration-300 text-[clamp(0.9rem,1vw,1rem)] ${
                       pathname === "/aboutus"
                         ? "text-[#2d8ec5]"
-                        : isLight
-                        ? "text-black hover:text-[#2d8ec5]"
-                        : "text-white hover:text-[#2d8ec5]"
+                        : "text-black hover:text-[#2d8ec5]"
                     }`}
                   >
-                    About us
+                    About
                   </Link>
                 </li>
  
@@ -278,35 +280,31 @@ const Navbar = () => {
                     className={`py-2 px-3 relative group transition-colors duration-300 text-[clamp(0.9rem,1vw,1rem)] ${
                       pathname === "/contact-us"
                         ? "text-[#2d8ec5]"
-                        : isLight
-                        ? "text-black hover:text-[#2d8ec5]"
-                        : "text-white hover:text-[#2d8ec5]"
+                        : "text-black hover:text-[#2d8ec5]"
                     }`}
                   >
-                    Contact us
+                    Contact
                   </Link>
                 </li>
               </ul>
             </div>
  
             {/* Right Logo Area (Fixed Width) */}
-            <div className="w-[180px] flex justify-end px-4 sm:px-8 lg:px-10">
-              <Link href="/">
-                <Image
-                  src="/PartnerLogos/SAPPartner.png"
-                  alt="SAP Partner Logo"
-                  className="h-14 w-auto"
-                  width={180}
-                  height={50}
-                />
-              </Link>
+           <div className="flex items-center gap-6 px-4 sm:px-8 lg:px-10 ml-auto">
+              {/* Region / Language Selector */}
+              <div className="flex items-center">
+                <LanguageSelector />
+              </div>
+
+              {/* SAP Logo */}
+              
             </div>
           </div>
         </div>  
        
  
 {/* Mobile Layout (UNCHANGED) */}
-<div className="flex justify-between items-center lg:hidden">
+<div className="flex justify-between items-center mr-3 ml-3 mt-2.5 lg:hidden">
   <Link href="/" onClick={closeMenu}>
     <Image
       src={isLight ? logo2 : logo}
@@ -543,5 +541,4 @@ const Navbar = () => {
 };
  
 export default Navbar;
- 
  

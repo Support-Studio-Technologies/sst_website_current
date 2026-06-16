@@ -38,7 +38,7 @@ const ContactHeader = () => {
   return (
     <div className="text-gray-800 relative overflow-x-hidden overflow-hidden">
       <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
-        <div className="relative h-[75vh] w-full flex flex-col">
+        <div className="relative h-[55vh] md:h-[75vh] w-full flex flex-col">
           {/* Background Image */}
           <Image
             src={RectangleHeader}
@@ -61,7 +61,7 @@ const ContactHeader = () => {
           <Navbar />
 
           {/* Content - Left Aligned */}
-          <div className="flex-1 flex items-center px-4 sm:px-8 lg:px-16 relative z-20 -mt-25">
+          <div className="flex-1 flex items-start justify-center px-4 sm:px-8 lg:px-16 relative z-20 pt-8 md:pt-16">
             <div className="w-full max-w-5xl">
               <motion.div
                 className="text-left"

@@ -4,6 +4,8 @@ import "./font.css";
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import BackgroundMusic from "@/components/BackgroundMusic/BackgroundMusic";
 import CookieConsent from "@/components/Cookies/CookieConsent";
+import ContactUsButton from "@/components/Contactusbutton/contact_us_button";
+import { Contact } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +30,8 @@ export default function RootLayout({ children }) {
     <html lang="en" style={{ "--lineWidth": "2px" }}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <main className="min-h-screen">{children}</main>
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
+        <ContactUsButton />
         {/* <BackgroundMusic /> */}
         <CookieConsent /> 
       </body>
