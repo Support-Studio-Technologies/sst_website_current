@@ -22,13 +22,13 @@ export const iconImages = [
     description:
       "The digital core for business transformation streamlining processes with intelligence. ",
   },
-  {
-    name: "MICROSOFT",
-    src: "/AboutusImages/Microsoft.jpg",
-    alt: "Microsoft",
-    description:
-      "Integration that connects systems, applications, and data for agility and efficiency. ",
-  },
+  // {
+  //   name: "MICROSOFT",
+  //   src: "/AboutusImages/Microsoft.jpg",
+  //   alt: "Microsoft",
+  //   description:
+  //     "Integration that connects systems, applications, and data for agility and efficiency. ",
+  // },
   {
     name: "MULESOFT",
     src: "/AboutusImages/Mulesoft.jpg",

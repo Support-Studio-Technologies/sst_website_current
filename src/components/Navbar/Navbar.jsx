@@ -9,6 +9,7 @@ import logo from "../../assets/Navbar/SST_Updated_White.svg";
 import logo2 from "../../assets/Navbar/SST_Logo_Dark.svg";
 import logo3 from "../../assets/Navbar/SST.png";
 import logo4 from "../../assets/Navbar/SST_logo.svg";
+import logo5 from "../../assets/Navbar/SST_logo_black.svg";
 import { validRoutes } from "../Constants/Routes/routes";
 import LanguageSelector from "../languageselector/Language_selector.jsx";
  
@@ -141,7 +142,7 @@ const Navbar = () => {
                     "
                   >
                     <Image
-                      src={isNavbarLight ? logo2 : logo4}
+                      src={isNavbarLight ? logo5 : logo4}
                       alt="Support Studio Technologies"
                       width={260}
                       height={40}
@@ -365,7 +366,7 @@ const Navbar = () => {
                           : "text-white hover:text-[#2d8ec5]"
                         }`}
                     >
-                      About us
+                      About
                     </Link>
                   </li>
  
@@ -379,7 +380,7 @@ const Navbar = () => {
                           : "text-white hover:text-[#2d8ec5]"
                         }`}
                     >
-                      Contact us
+                      Contact
                     </Link>
                   </li>
                 </ul>
@@ -609,7 +610,7 @@ const Navbar = () => {
                   }`}
                 onClick={closeMenu}
               >
-                About us
+                About
               </Link>
             </li>
  
@@ -622,7 +623,7 @@ const Navbar = () => {
                   }`}
                 onClick={closeMenu}
               >
-                Contact us
+                Contact
               </Link>
             </li>
           </ul>

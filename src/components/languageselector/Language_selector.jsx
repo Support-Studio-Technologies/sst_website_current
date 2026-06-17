@@ -157,10 +157,11 @@ export default function LanguageSelector({ isNavbarLight }) {
             ${glassBase}
             ${themeClass}
             shadow-2xl
+            
           `}
         >
           {/* Header */}
-          <div className="border-b border-white/10 px-5 py-4">
+          <div className="border-b border-white/10 px-5 py-4 ">
             <h3 className="text-sm font-semibold">
               Select Region & Language
             </h3>
@@ -169,7 +170,7 @@ export default function LanguageSelector({ isNavbarLight }) {
             </p>
           </div>
 
-          <div className="max-h-[450px] overflow-y-auto">
+          <div className="max-h-[450px] overflow-y-auto ">
             {regionalLocales.map((group) => {
               const isExpanded = openRegion === group.regionGroup;
 

@@ -360,80 +360,37 @@ const Home = () => {
             </motion.div>
           </motion.div>
 
-          {/* Desktop Layout (lg screens) */}
-          <motion.div
+         <motion.div
             className="hidden lg:block"
             variants={gridContainerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="flex justify-center items-end gap-6 mb-6">
-              {iconImages.slice(0, 4).map((image, index) => (
+            <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {iconImages.slice(0, 6).map((image, index) => (
                 <motion.div
                   key={index}
-                  className={`image-card ${
-                    index === 0
-                      ? "w-64 h-48"
-                      : index === 1
-                      ? "w-72 h-56"
-                      : index === 2
-                      ? "w-80 h-72"
-                      : "w-64 h-48"
-                  }`}
+                  className="image-card w-full h-72"
                   variants={cardVariants}
                   whileHover={{
                     scale: 1.05,
                     transition: { duration: 0.3 },
                   }}
                 >
-                  <div className="holographic-card">
+                  <div className="holographic-card h-full">
                     <Image
                       src={image.src}
                       alt={image.alt}
                       fill
-                      sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 25vw, 20vw"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
                       className="card-image object-cover"
                     />
-                    <div className="card-name">
-                      <h2>{image.name}</h2>
-                    </div>
-                    <div className="card-description">
-                      <p>{image.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
 
-            <div className="flex justify-center items-start gap-6 mb-6">
-              {iconImages.slice(4, 7).map((image, index) => (
-                <motion.div
-                  key={index + 4}
-                  className={`image-card ${
-                    index === 0
-                      ? "w-64 h-52"
-                      : index === 1
-                      ? "w-80 h-72"
-                      : "w-64 h-56"
-                  }`}
-                  variants={cardVariants}
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { duration: 0.3 },
-                  }}
-                >
-                  <div className="holographic-card">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 25vw, 20vw"
-                      className="card-image object-cover"
-                    />
                     <div className="card-name">
                       <h2>{image.name}</h2>
                     </div>
+
                     <div className="card-description">
                       <p>{image.description}</p>
                     </div>
@@ -522,17 +479,17 @@ const Home = () => {
               >
                 <div className="holographic-card">
                   <Image
-                    src={iconImages[6].src}
-                    alt={iconImages[6].alt}
+                    src={iconImages[5].src}
+                    alt={iconImages[5].alt}
                     fill
                     sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 25vw, 20vw"
                     className="card-image object-cover"
                   />
                   <div className="card-name">
-                    <h2>{iconImages[6].name}</h2>
+                    <h2>{iconImages[5].name}</h2>
                   </div>
                   <div className="card-description">
-                    <p>{iconImages[6].description}</p>
+                    <p>{iconImages[5].description}</p>
                   </div>
                 </div>
               </motion.div>
