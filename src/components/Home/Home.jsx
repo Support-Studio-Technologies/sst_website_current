@@ -315,7 +315,7 @@ const Home = () => {
       <div className="h-[40px]"></div>
 
       <motion.div
-        className="min-h-screen p-4 sm:p-6 px-6"
+        className="min-h-screen p-4 sm:p-6 lg:px-6 px-0"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -497,43 +497,78 @@ const Home = () => {
           </motion.div>
 
           {/* Mobile Layout */}
-          <motion.div
-            className="block md:hidden space-y-6"
-            variants={gridContainerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            {iconImages.map((image, index) => (
-              <motion.div
-                key={index}
-                className="flex justify-center"
-                variants={cardVariants}
-                whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.3 },
+          <div className="relative block md:hidden" style={{ clipPath: "inset(0)" }}>
+            {/* Fixed background layer clipped to parent bounds */}
+            <div className="fixed inset-0 pointer-events-none z-0">
+              {/* Sleek Enterprise Grid Pattern */}
+              <div
+                className="absolute inset-0 opacity-40"
+                style={{
+                  backgroundImage: `
+                    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)
+                  `,
+                  backgroundSize: '32px 32px',
                 }}
-              >
-                <div className="w-72 h-56 image-card">
-                  <div className="holographic-card">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      sizes="(max-width: 640px) 90vw, 288px"
-                      className="card-image object-cover"
-                    />
-                    <div className="card-name">
-                      <h2>{image.name}</h2>
-                    </div>
-                    <div className="card-description">
-                      <p>{image.description}</p>
+              />
+              {/* Dynamic glowing blobs */}
+              <div
+                className="absolute w-[280px] h-[280px] rounded-full blur-[100px] opacity-30 bg-[#2d8ec5] animate-pulse"
+                style={{
+                  top: '25%',
+                  left: '-10px',
+                  animationDuration: '6s',
+                }}
+              />``
+              <div
+                className="absolute w-[240px] h-[240px] rounded-full blur-[90px] opacity-20 bg-[#30cdb0] animate-pulse"
+                style={{
+                  bottom: '25%',
+                  right: '-10px',
+                  animationDuration: '9s',
+                }}
+              />
+            </div>
+ 
+            <motion.div
+              className="space-y-6 relative z-10 py-4"
+              variants={gridContainerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
+              {iconImages.map((image, index) => (
+                <motion.div
+                  key={index}
+                  className="flex justify-center"
+                  variants={cardVariants}
+                  whileHover={{
+                    scale: 1.02,
+                    transition: { duration: 0.3 },
+                  }}
+                >
+                  <div className="w-72 h-56 image-card">
+                    <div className="holographic-card">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        sizes="(max-width: 640px) 90vw, 288px"
+                        className="card-image object-cover"
+                      />
+                      <div className="card-name">
+                        <h2>{image.name}</h2>
+                      </div>
+                      <div className="card-description">
+                        <p>{image.description}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+ 
         </div>
       </motion.div>
     </>

@@ -81,6 +81,7 @@ const HowItWork = () => {
 
   const servicesToDisplay = allSteps[selectedService] || [];
   const serviceKeys = Object.keys(allSteps);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <motion.div
@@ -163,27 +164,57 @@ const HowItWork = () => {
               {/* Mobile: Dropdown/Select style */}
               <div className="block md:hidden">
                 <motion.div
-                  className="relative w-auto max-w-[200px] mx-auto"
+                  className="relative w-auto max-w-[240px] mx-auto"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1, duration: 0.4 }}
                 >
-                  <select
-                    value={selectedService}
-                    onChange={(e) => handleButtonClick(e.target.value)}
-                    className="w-full appearance-none bg-white border border-gray-300 rounded-lg px-4 py-3 pr-10 shadow-sm focus:outline-none focus:ring-2  text-gray-700 font-medium"
+                  {/* Trigger Button */}
+                  <motion.button
+                    onClick={() => setIsOpen((prev) => !prev)}
+                    className="w-full flex items-center justify-between bg-white border border-gray-300 rounded-xl px-4 py-3 shadow-sm text-gray-700 font-medium"
+                    whileTap={{ scale: 0.98 }}
                   >
-                    {serviceKeys.map((stepTitle) => (
-                      <option key={stepTitle} value={stepTitle}>
-                        {stepTitle}
-                      </option>
-                    ))}
-                  </select>
+                    <span>{selectedService}</span>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <HiChevronDown className="h-5 w-5 text-gray-500" />
+                    </motion.span>
+                  </motion.button>
 
-                  {/* Custom dropdown arrow */}
-                  <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
-                    <HiChevronDown className="h-5 w-5" />
-                  </div>
+                  {/* Dropdown List */}
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute z-50 mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden"
+                      >
+                        {serviceKeys.map((stepTitle, index) => (
+                          <motion.button
+                            key={index}
+                            onClick={() => {
+                              setSelectedService(stepTitle);
+                              setIsOpen(false);
+                            }}
+                            className={`w-full text-left px-4 py-3 text-sm transition-all ${
+                              selectedService === stepTitle
+                                ? "bg-blue-50 text-blue-600 font-medium"
+                                : "hover:bg-gray-50 text-gray-700"
+                            }`}
+                            whileHover={{ x: 4 }}
+                            transition={{ duration: 0.15 }}
+                          >
+                            {stepTitle}
+                          </motion.button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               </div>
 
