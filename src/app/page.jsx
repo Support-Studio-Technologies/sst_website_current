@@ -34,7 +34,7 @@ export default function Page() {
     { src: "/PartnerLogos/sophos.png", alt: "Sophos" },
     { src: "/PartnerLogos/uipath.png", alt: "UiPath" },
   ];
-
+ 
   return (
     <div className="relative overflow-x-hidden">
       <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
@@ -46,7 +46,7 @@ export default function Page() {
             priority
             className="object-cover object-top z-0"
           />
-
+ 
           <div
             className="absolute inset-0 z-10"
             style={{
@@ -54,10 +54,10 @@ export default function Page() {
               backgroundBlendMode: "overlay",
             }}
           />
-
+ 
           <Navbar />
-
-          <div className="flex min-h-screen items-center justify-center px-4 sm:px-8 lg:px-16 relative z-20 -mt-14">
+ 
+          <div className="flex min-h-screen items-center justify-center px-4 sm:px-8 lg:px-16 relative z-20 mt-8">
             <div className="flex-1 flex flex-col md:flex-row items-start justify-center">
               {/* Text Content */}
               <div className="flex-1 flex items-start justify-center py-8 md:py-0 -mt-2">
@@ -67,12 +67,12 @@ export default function Page() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="text-white
-            text-[clamp(1.6rem,3vw,2.4rem)]
-            md:text-[clamp(2rem,3.5vw,2.8rem)]
-            lg:text-[clamp(2.4rem,4vw,3.2rem)]
-            xl:text-[clamp(2.8rem,4.5vw,3.6rem)]
-            tracking-wide md:leading-tight
-            drop-shadow-[0_4px_10px_rgba(0,0,0,0.4)]"
+                                text-[clamp(1.6rem,3vw,2.4rem)]
+                                md:text-[clamp(2rem,3.5vw,2.8rem)]
+                                lg:text-[clamp(2.4rem,4vw,3.2rem)]
+                                xl:text-[clamp(2.8rem,4.5vw,3.6rem)]
+                                tracking-wide md:leading-tight
+                                drop-shadow-[0_4px_10px_rgba(0,0,0,0.4)]"
                   >
                     <span>From</span>{" "}
                     <span className="font-semibold">Challenges</span> to
@@ -93,7 +93,7 @@ export default function Page() {
                   </motion.p>
                 </div>
               </div>
-
+ 
               {/* Home Card */}
               <div className="flex-1 flex justify-center items-start py-8 md:py-0">
                 <HomeCard />
@@ -120,3 +120,5 @@ export default function Page() {
     </div>
   );
 }
+ 
+ 

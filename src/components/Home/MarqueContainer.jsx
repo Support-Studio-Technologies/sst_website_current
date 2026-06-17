@@ -53,7 +53,7 @@ const CyclingMarquee = ({ logos, logosPerSet, intervalTime }) => {
         </p>
 
         {/* Cycling Logo Container */}
-        <div className="flex justify-center items-center min-h-[50px] sm:min-h-[60px] lg:min-h-[100px] overflow-hidden">
+        <div className="flex items-center justify-center min-w-[90px] sm:min-w-[60px] lg:min-w-[120px] h-12 sm:h-5 lg:h-12 flex-shrink-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={`${currentSet}-${isMobile}`}
@@ -78,9 +78,9 @@ const CyclingMarquee = ({ logos, logosPerSet, intervalTime }) => {
                   <Image
                     src={logo.src}
                     alt={logo.alt}
-                    width={120}
-                    height={80}
-                    className="w-10 sm:w-14 lg:w-24 h-auto object-contain opacity-80 hover:opacity-100 transition-all duration-300"
+                    width={100}
+                    height={70}
+                    className="w-20 sm:w-14 lg:w-24 h-auto object-contain opacity-80 hover:opacity-100 transition-all duration-300"
                   />
                 </motion.div>
               ))}

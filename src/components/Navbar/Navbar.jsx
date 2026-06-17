@@ -24,6 +24,27 @@ const Navbar = () => {
  
   const lightThemeRoutes = ["/privacyPolicy", "/ssterrors", "/termsOfService"];
  
+  const navLinkClass = `
+                          relative py-2 px-3
+                          transition-colors duration-300
+                          text-[clamp(0.9rem,1vw,1rem)]
+ 
+                          after:absolute
+                          after:left-0
+                          after:-bottom-1
+                          after:h-[2px]
+                          after:w-full
+                          after:bg-[#2d8ec5]
+                          after:scale-x-0
+                          after:origin-left
+                          after:transition-transform
+                          after:duration-300
+                          after:content-['']
+ 
+                          hover:after:scale-x-100
+                          hover:text-[#2d8ec5]
+                        `;
+ 
   const isLight = lightThemeRoutes.includes(pathname) || !validRoutes.includes(pathname);
   const isNavbarLight = isLight || isScrolled;
  
@@ -93,22 +114,29 @@ const Navbar = () => {
         <div className="max-w-full mx-auto">
           <div className="hidden lg:flex">
             <div
-              className={`
+              className="
                 relative
+                lg:h-[60px]
                 w-full
                 flex items-center
                 justify-between
                 px-4 py-1.5
-                backdrop-blur-md
-                transition-colors duration-500 ease-in-out
-                ${isNavbarLight
-                  ? "bg-white/80 border-gray-200/20 shadow-md"
-                  : "bg-white/10 border-white/20"
-                }
-              `}
+              "
             >
+              {/* Sibling background layer to avoid nested backdrop-filter bug */}
+              <div
+                className={`
+                  absolute inset-0 -z-10
+                  backdrop-blur-md
+                  transition-all duration-500 ease-in-out
+                  ${isNavbarLight
+                    ? "bg-white/80 border-b border-gray-200/20 shadow-md"
+                    : "bg-white/10 border-b border-white/10"
+                  }
+                `}
+              />
               {/* Left Logo Area with SST and SAP logos */}
-              <div className="flex items-center gap-4 px-4 sm:px-8 lg:px-10">
+              <div className="flex items-center gap-3 px-4 sm:px-8 lg:px-10">
                 <Link
                   href="/"
                   onClick={closeMenu}
@@ -121,7 +149,7 @@ const Navbar = () => {
                       alt="SST Icon"
                       width={48}
                       height={48}
-                      className="w-11 h-11 hover:w-13 hover:h-13 transition-all duration-300 ease-out"
+                      className="w-10.5 h-10.5 transition-all duration-300 ease-out"
                     />
                   </div>
  
@@ -133,12 +161,12 @@ const Navbar = () => {
                       opacity-0
                       ml-0
                       transition-all
-                      duration-500
+                      duration-650
                       ease-out
  
                       group-hover:max-w-[250px]
                       group-hover:opacity-100
-                      group-hover:ml-0
+                      group-hover:-mr-7.5
                     "
                   >
                     <Image
@@ -162,7 +190,7 @@ const Navbar = () => {
                   <Image
                     src="/sap-logo-svg.svg"
                     alt="SAP Partner Logo"
-                    className="h-9 w-auto object-contain"
+                    className="h-8.5 w-auto object-contain"
                     width={140}
                     height={40}
                   />
@@ -172,28 +200,26 @@ const Navbar = () => {
               {/* Center Menu (Absolutely Centered) */}
               <div className="absolute left-1/2 -translate-x-1/2">
                 <ul className="flex items-center gap-3">
-                  <li>
-                    <Link
-                      href="/"
-                      className={`py-2 px-3 relative group transition-colors duration-300 text-[clamp(0.9rem,1vw,1rem)] ${pathname === "/"
-                        ? "text-[#2d8ec5]"
-                        : isNavbarLight
-                          ? "text-black hover:text-[#2d8ec5]"
-                          : "text-white hover:text-[#2d8ec5]"
-                        }`}
-                    >
-                      Home
-                    </Link>
-                  </li>
+                  <Link
+                    href="/"
+                    className={`${navLinkClass} ${pathname === "/"
+                      ? "text-[#2d8ec5] after:w-full"
+                      : isNavbarLight
+                        ? "text-black"
+                        : "text-white"
+                      }`}
+                  >
+                    Home
+                  </Link>
  
                   <li className="relative group">
                     <Link
                       href="/services"
-                      className={`py-2 px-3 relative flex items-center gap-1 transition-colors duration-300 text-[clamp(0.9rem,1vw,1rem)] ${pathname === "/services"
-                        ? "text-[#2d8ec5]"
+                      className={`${navLinkClass} flex items-center gap-1 ${pathname === "/services"
+                        ? "text-[#2d8ec5] after:w-full"
                         : isNavbarLight
-                          ? "text-black hover:text-[#2d8ec5]"
-                          : "text-white hover:text-[#2d8ec5]"
+                          ? "text-black"
+                          : "text-white"
                         }`}
                     >
                       Services
@@ -219,20 +245,20 @@ const Navbar = () => {
                         invisible opacity-0 translate-y-3
                         group-hover:visible group-hover:opacity-100 group-hover:translate-y-0
                         transition-all duration-300
-                        absolute left-1/2 -translate-x-1/2 top-full pt-6 z-50
+                        absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50
                       "
                     >
-                      <div
+                      {/* <div
                         className={`absolute top-[18px] left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 border-l border-t transition-colors duration-500 ${isNavbarLight
                           ? "bg-white/80 border-gray-200/30"
                           : "bg-neutral-900/85 border-white/10"
                           }`}
-                      />
+                      /> */}
  
                       <div
-                        className={`rounded-2xl shadow-2xl min-w-[700px] p-6 backdrop-blur-md border transition-colors duration-500 ${isNavbarLight
+                        className={`rounded-2xl shadow-2xl min-w-[700px] p-6 border transition-colors duration-500 backdrop-blur-md ${isNavbarLight
                           ? "bg-white/80 border-gray-200/30 text-gray-800"
-                          : "bg-neutral-900/85 border-white/10 text-white"
+                          : "bg-neutral-900/80 border-white/20 text-white"
                           }`}
                       >
                         <div className="grid grid-cols-2 gap-10">
@@ -359,11 +385,11 @@ const Navbar = () => {
                   <li>
                     <Link
                       href="/aboutus"
-                      className={`py-2 px-3 relative group transition-colors duration-300 text-[clamp(0.9rem,1vw,1rem)] ${pathname === "/aboutus"
-                        ? "text-[#2d8ec5]"
+                      className={`${navLinkClass} ${pathname === "/aboutus"
+                        ? "text-[#2d8ec5] after:w-full"
                         : isNavbarLight
-                          ? "text-black hover:text-[#2d8ec5]"
-                          : "text-white hover:text-[#2d8ec5]"
+                          ? "text-black"
+                          : "text-white"
                         }`}
                     >
                       About
@@ -373,11 +399,11 @@ const Navbar = () => {
                   <li>
                     <Link
                       href="/contact-us"
-                      className={`py-2 px-3 relative group transition-colors duration-300 text-[clamp(0.9rem,1vw,1rem)] ${pathname === "/contact-us"
-                        ? "text-[#2d8ec5]"
+                      className={`${navLinkClass} ${pathname === "/contact-us"
+                        ? "text-[#2d8ec5] after:w-full"
                         : isNavbarLight
-                          ? "text-black hover:text-[#2d8ec5]"
-                          : "text-white hover:text-[#2d8ec5]"
+                          ? "text-black"
+                          : "text-white"
                         }`}
                     >
                       Contact
@@ -388,15 +414,18 @@ const Navbar = () => {
  
               {/* Right Side Placeholder to balance the centered layout */}
               <div className="w-[180px] lg:flex hidden" />
-                <LanguageSelector isNavbarLight={isNavbarLight} />
+              <LanguageSelector isNavbarLight={isNavbarLight} />
             </div>
           </div>
  
           {/* Improved Mobile Layout Header */}
-          <div className="flex justify-between items-center lg:hidden bg-neutral-900 w-full px-6 py-4 md:px-8 md:py-5 border-b border-neutral-800 shadow-md">
+          <div className={`flex justify-between items-center lg:hidden w-full px-6 py-2.5 md:px-8 md:py-5 border-b shadow-md transition-all duration-500 ease-in-out backdrop-blur-md ${isNavbarLight
+            ? "bg-white/80 border-gray-200/20 text-black shadow-md"
+            : "bg-neutral-900/90 border-neutral-800/30 text-white"
+            }`}>
             <Link href="/" onClick={closeMenu} className="flex items-center">
               <Image
-                src={logo}
+                src={isNavbarLight ? logo2 : logo}
                 alt="SST Logo"
                 className="h-8 sm:h-10 w-auto"
                 width={160}
@@ -406,7 +435,10 @@ const Navbar = () => {
  
             {/* Mobile menu toggle button */}
             <button
-              className="lg:hidden transition-colors duration-300 text-white flex items-center justify-center p-1.5 hover:bg-neutral-800 rounded-lg"
+              className={`lg:hidden transition-colors duration-300 flex items-center justify-center p-1.5 rounded-lg ${isNavbarLight
+                ? "text-black hover:bg-gray-100"
+                : "text-white hover:bg-neutral-800"
+                }`}
               onClick={toggleMenu}
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
@@ -432,10 +464,14 @@ const Navbar = () => {
               height={40}
             />
           </Link>
-          {/* Close button */}
-          <button onClick={closeMenu} aria-label="Close menu">
-            <IoMdClose className="text-3xl sm:text-4xl text-black" />
-          </button>
+          {/* Right side controls (Language Selector and Close Menu button) */}
+          <div className="flex items-center gap-3">
+            <LanguageSelector isNavbarLight={true} />
+            {/* Close button */}
+            <button onClick={closeMenu} aria-label="Close menu" className="flex items-center justify-center">
+              <IoMdClose className="text-3xl sm:text-4xl text-black" />
+            </button>
+          </div>
         </div>
  
         {/* Menu items */}
@@ -636,6 +672,7 @@ const Navbar = () => {
 };
  
 export default Navbar;
+ 
  
  
  
