@@ -468,7 +468,7 @@ const Home = () => {
               ))}
             </div>
 
-            <div className="flex justify-center mb-4">
+            {/* <div className="flex justify-center mb-4">
               <motion.div
                 className="w-60 h-60 image-card"
                 variants={cardVariants}
@@ -493,7 +493,7 @@ const Home = () => {
                   </div>
                 </div>
               </motion.div>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Mobile Layout */}
