@@ -15,7 +15,7 @@ const ContactUs = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
           <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10">
             {/* Contact Form - Shows first on mobile, second on desktop */}
-            <div className="relative w-full lg:w-2/3 lg:pl-4 lg:order-2 -mt-60 sm:-mt-40 md:-mt-48 lg:-mt-60 z-30">
+            <div className="relative w-full lg:w-2/3 lg:pl-4 lg:order-2 -mt-50 sm:-mt-40 md:-mt-48 xl:-mt-60 lg:-mt-50 z-30">
               <ContactForm />
             </div>
             

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Navbar from "../Navbar/Navbar";
-import RectangleHeader from "../../assets/contactus/RectangleHeader.svg";
+import RectangleHeader from "../../../public/SolutionPage/ConsulationBg.png";
 
 const ContactHeader = () => {
   const containerVariants = {
