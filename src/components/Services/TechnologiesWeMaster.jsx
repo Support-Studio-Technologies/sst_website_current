@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
+ 
 const TechnologiesWeMaster = ({ logos }) => {
   return (
     <motion.section
@@ -10,7 +10,7 @@ const TechnologiesWeMaster = ({ logos }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8 }}
-      className="py-16 mx-4 rounded-3xl mb-8 overflow-hidden -mt-5 overflow-x-hidden"
+      className="pt-16 pb-5 mx-4 rounded-3xl mb-8 overflow-hidden -mt-5 overflow-x-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Title */}
@@ -22,14 +22,14 @@ const TechnologiesWeMaster = ({ logos }) => {
           We stay at the forefront of technology, using the latest tools and
           frameworks to build cutting-edge solutions.
         </p>
-
+ 
         {/* Scrolling Logo Marquee */}
         <div className="relative w-[300px] sm:w-[500px] md:w-[700px] lg:w-[800px] mx-auto overflow-hidden rounded-full">
-          <div className="flex space-x-10 animate-scroll">
+          <div className="flex space-x-0 md:space-x-4 animate-scroll">
             {[...logos, ...logos].map((logo, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 flex items-center justify-center w-44 h-auto "
+                className="flex-shrink-0 flex items-center justify-center w-28 md:w-44 h-auto "
               >
                 <Image
                   src={logo.src}
@@ -46,5 +46,5 @@ const TechnologiesWeMaster = ({ logos }) => {
     </motion.section>
   );
 };
-
+ 
 export default TechnologiesWeMaster;

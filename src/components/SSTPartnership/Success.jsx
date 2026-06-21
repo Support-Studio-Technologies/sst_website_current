@@ -121,6 +121,7 @@ const Success = () => {
             >
               <video
                 ref={videoRef}
+                preload="none"
                 loop
                 muted
                 className="w-full h-auto rounded-xl sm:rounded-2xl md:rounded-3xl object-cover"

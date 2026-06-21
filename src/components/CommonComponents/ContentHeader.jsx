@@ -97,6 +97,7 @@ const ContentHeader = ({
             {/* Background Media - Video or Image */}
             {useVideo ? (
               <video
+                preload="none"
                 autoPlay
                 muted
                 loop

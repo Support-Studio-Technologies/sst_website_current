@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Card_BG from "../../assets/career/ConsultationCard.svg";
 import CustomButton from "./Button";
 import { usePathname } from "next/navigation";
-
+ 
 const HomeCard = () => {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -16,29 +16,29 @@ const HomeCard = () => {
   const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
   const [isButtonVisible, setIsButtonVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-
+ 
   const pathname = usePathname();
   const ref = useRef(null);
   const cardRef = useRef(null);
   const buttonRef = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.1 });
-
+ 
   useEffect(() => {
-    setMousePosition({ 
-      x: window.innerWidth / 2, 
-      y: window.innerHeight / 2 
+    setMousePosition({
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2
     });
-
+ 
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
+ 
     checkMobile();
-
+ 
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
-
+ 
     const updateButtonPosition = () => {
       if (buttonRef.current) {
         const rect = buttonRef.current.getBoundingClientRect();
@@ -49,7 +49,7 @@ const HomeCard = () => {
           rect.left >= 0 &&
           rect.bottom <= window.innerHeight &&
           rect.right <= window.innerWidth;
-
+ 
         if (isVisible) {
           setButtonPosition({
             x: rect.left,
@@ -63,19 +63,19 @@ const HomeCard = () => {
         setIsButtonVisible(false);
       }
     };
-
+ 
     const handleResize = () => {
       checkMobile();
       updateButtonPosition();
     };
-
+ 
     document.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", updateButtonPosition);
-
+ 
     const initialUpdate = setTimeout(updateButtonPosition, 100);
     const intervalUpdate = setInterval(updateButtonPosition, 500);
-
+ 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", handleResize);
@@ -84,23 +84,23 @@ const HomeCard = () => {
       clearInterval(intervalUpdate);
     };
   }, []);
-
+ 
   const handleSendEmail = async () => {
     if (!email) {
       setError("Please enter your email");
       return;
     }
-
+ 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setError("Please enter a valid email address");
       return;
     }
-
+ 
     setIsLoading(true);
     setError("");
-
+ 
     try {
       const response = await fetch('/api/consultation', {
         method: 'POST',
@@ -109,24 +109,24 @@ const HomeCard = () => {
         },
         body: JSON.stringify({ email }),
       });
-
+ 
       const data = await response.json();
-
+ 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to send email');
       }
-
+ 
       setIsSubmitted(true);
       setEmail("");
-      
+     
       setTimeout(() => {
         setIsSubmitted(false);
       }, 3000);
-
+ 
     } catch (err) {
       console.error('Error submitting email:', err);
       setError(err.message || 'Failed to send email. Please try again.');
-      
+     
       setTimeout(() => {
         setError("");
       }, 4000);
@@ -134,38 +134,38 @@ const HomeCard = () => {
       setIsLoading(false);
     }
   };
-
+ 
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && !isLoading) {
       handleSendEmail();
     }
   };
-
+ 
   const calculateArrowPath = () => {
     if (!isButtonVisible || buttonPosition.x === 0 || buttonPosition.y === 0) {
       return null;
     }
-
+ 
     const dx = buttonPosition.x - mousePosition.x;
     const dy = buttonPosition.y - mousePosition.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
-
+ 
     if (distance < 80) return null;
-
+ 
     const midX = (mousePosition.x + buttonPosition.x) / 2;
     const midY = (mousePosition.y + buttonPosition.y) / 2;
     const angle = Math.atan2(dy, dx);
     const perpendicularAngle = angle + Math.PI / 2;
     const curveIntensity = Math.min(distance * 0.3, 150);
-
+ 
     const controlX = midX + Math.cos(perpendicularAngle) * curveIntensity;
     const controlY = midY + Math.sin(perpendicularAngle) * curveIntensity;
-
+ 
     const arrowAngle = Math.atan2(dy, dx);
-
+ 
     const arrowEndX = buttonPosition.x - 17;
     const arrowEndY = buttonPosition.y;
-
+ 
     return {
       startX: mousePosition.x,
       startY: mousePosition.y,
@@ -179,14 +179,14 @@ const HomeCard = () => {
       arrowAngle,
     };
   };
-
+ 
   const generateDottedCurvePoints = () => {
     const arrowPath = calculateArrowPath();
     if (!arrowPath) return [];
-
+ 
     const points = [];
     const numDots = Math.floor(arrowPath.distance / 15);
-
+ 
     for (let i = 0; i <= numDots; i++) {
       const t = i / numDots;
       const x =
@@ -197,16 +197,16 @@ const HomeCard = () => {
         Math.pow(1 - t, 2) * arrowPath.startY +
         2 * (1 - t) * t * arrowPath.controlY +
         Math.pow(t, 2) * arrowPath.endY;
-
+ 
       points.push({ x, y, t });
     }
-
+ 
     return points;
   };
-
+ 
   const arrowPath = calculateArrowPath();
   const dottedPoints = generateDottedCurvePoints();
-
+ 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -219,7 +219,7 @@ const HomeCard = () => {
       },
     },
   };
-
+ 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -228,7 +228,7 @@ const HomeCard = () => {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
-
+ 
   const titleVariants = {
     hidden: { opacity: 0, x: -50 },
     visible: {
@@ -241,7 +241,7 @@ const HomeCard = () => {
       },
     },
   };
-
+ 
   const inputVariants = {
     focus: {
       scale: 1.02,
@@ -252,7 +252,7 @@ const HomeCard = () => {
       transition: { duration: 0.1 },
     },
   };
-
+ 
   const statsVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -265,7 +265,7 @@ const HomeCard = () => {
       },
     },
   };
-
+ 
   const numberVariants = {
     hidden: { scale: 0 },
     visible: {
@@ -277,7 +277,7 @@ const HomeCard = () => {
       },
     },
   };
-
+ 
   return (
     <>
       {/* Only show arrow on desktop screens (not mobile) */}
@@ -311,7 +311,7 @@ const HomeCard = () => {
                 />
               </filter>
             </defs>
-
+ 
             {dottedPoints.map((point, index) => (
               <motion.circle
                 key={index}
@@ -336,7 +336,7 @@ const HomeCard = () => {
                 }}
               />
             ))}
-
+ 
             <motion.g>
               <motion.circle
                 cx={mousePosition.x - 2}
@@ -392,7 +392,7 @@ const HomeCard = () => {
                 opacity="0.8"
               />
             </motion.g>
-
+ 
             <motion.g>
               <motion.circle
                 cx={arrowPath.buttonX}
@@ -428,7 +428,7 @@ const HomeCard = () => {
                   repeatCount="indefinite"
                 />
               </circle>
-
+ 
               <circle
                 cx={arrowPath.buttonX}
                 cy={arrowPath.buttonY}
@@ -443,7 +443,7 @@ const HomeCard = () => {
                   repeatCount="indefinite"
                 />
               </circle>
-
+ 
               <circle
                 cx={arrowPath.buttonX}
                 cy={arrowPath.buttonY}
@@ -454,7 +454,7 @@ const HomeCard = () => {
             </motion.g>
           </motion.svg>
         )} */}
-
+ 
       <motion.div
         ref={ref}
         className="flex flex-col items-start w-full max-w-md mx-auto relative"
@@ -483,11 +483,11 @@ const HomeCard = () => {
               priority
             />
           </motion.div>
-
-          <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
-            <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px] mx-auto space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
+ 
+          <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+            <div className="w-full max-w-[400px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[800px] mx-auto space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
               <motion.h1
-                className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-normal leading-tight text-white text-left w-full"
+                className="text-3xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-normal leading-tight text-white text-left w-full"
                 variants={titleVariants}
               >
                 <motion.span
@@ -507,9 +507,9 @@ const HomeCard = () => {
                   let's talk
                 </motion.span>
               </motion.h1>
-
+ 
               <motion.div
-                className="w-full space-y-2 sm:space-y-3"
+                className="w-full space-y-2 sm:space-y-3 translate-y-5 md:translate-y-0"
                 variants={itemVariants}
               >
                 <motion.label
@@ -520,7 +520,7 @@ const HomeCard = () => {
                 >
                   Enter Your Email
                 </motion.label>
-
+ 
                 <motion.input
                   type="email"
                   value={email}
@@ -531,7 +531,7 @@ const HomeCard = () => {
                   onKeyPress={handleKeyPress}
                   placeholder="Email here"
                   disabled={isLoading}
-                  className={`w-full px-3 sm:px-4 py-2 sm:py-2.5 md:py-3 bg-white/10 backdrop-blur-sm border ${
+                  className={`w-[96.5%] md:w-full px-3 sm:px-4 py-2 sm:py-2.5 md:py-3 bg-white/10 backdrop-blur-sm border ${
                     error ? 'border-red-400' : 'border-white/20'
                   } rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 text-xs sm:text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed`}
                   variants={inputVariants}
@@ -541,7 +541,7 @@ const HomeCard = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.1 }}
                 />
-
+ 
                 {error && (
                   <motion.p
                     initial={{ opacity: 0, y: -10 }}
@@ -551,7 +551,7 @@ const HomeCard = () => {
                     {error}
                   </motion.p>
                 )}
-
+ 
                 {isSubmitted && (
                   <motion.p
                     initial={{ opacity: 0, y: -10 }}
@@ -561,9 +561,9 @@ const HomeCard = () => {
                     Thank you! We'll be in touch soon.
                   </motion.p>
                 )}
-
+ 
                 <motion.div
-                  className="flex justify-end w-full pt-2 sm:pt-3"
+                  className="flex justify-end w-full pt-2 px-3 md:px-0"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 1.3 }}
@@ -576,10 +576,10 @@ const HomeCard = () => {
                   >
                     <CustomButton
                       text={
-                        isLoading 
-                          ? "Sending..." 
-                          : isSubmitted 
-                          ? "Message Sent!" 
+                        isLoading
+                          ? "Sending..."
+                          : isSubmitted
+                          ? "Message Sent!"
                           : "Send Message"
                       }
                       onClick={handleSendEmail}
@@ -595,7 +595,7 @@ const HomeCard = () => {
             </div>
           </div>
         </motion.div>
-
+ 
         <motion.div
           className={`flex gap-8 ${pathname === "/solutions" ? "hidden" : ""}`}
           variants={statsVariants}
@@ -624,7 +624,7 @@ const HomeCard = () => {
                 Expert <br /> Solution
               </motion.p>
             </motion.div>
-
+ 
             <motion.div
               className="text-left"
               variants={itemVariants}
@@ -652,5 +652,6 @@ const HomeCard = () => {
     </>
   );
 };
-
+ 
 export default HomeCard;
+ 
