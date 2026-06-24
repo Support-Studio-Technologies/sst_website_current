@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Snackbar, Alert, CircularProgress } from '@mui/material';
-
+ 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -11,17 +11,17 @@ const ContactForm = () => {
     companyName: '',
     enquiries: ''
   });
-
+ 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+ 
   // MUI Snackbar states
   const [notification, setNotification] = useState({
     open: false,
     message: '',
     severity: 'success' // 'success', 'error', 'warning', 'info'
   });
-
+ 
   // Handle notification close
   const handleCloseNotification = (event, reason) => {
     if (reason === 'clickaway') {
@@ -29,10 +29,10 @@ const ContactForm = () => {
     }
     setNotification({ ...notification, open: false });
   };
-
+ 
   const validateForm = () => {
     const newErrors = {};
-
+ 
     if (!formData.firstName.trim()) {
       newErrors.firstName = 'First name is required';
     } else if (formData.firstName.trim().length < 3) {
@@ -40,7 +40,7 @@ const ContactForm = () => {
     } else if (!/^[A-Za-z\s]+$/.test(formData.firstName.trim())) {
       newErrors.firstName = 'First name should only contain characters';
     }
-
+ 
     if (!formData.secondName.trim()) {
       newErrors.secondName = 'Last name is required';
     } else if (formData.secondName.trim().length < 1) {
@@ -48,13 +48,13 @@ const ContactForm = () => {
     } else if (!/^[A-Za-z\s]+$/.test(formData.secondName.trim())) {
       newErrors.secondName = 'Last name should only contain characters';
     }
-
+ 
     if (!formData.companyEmail.trim()) {
       newErrors.companyEmail = 'Company email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.companyEmail.trim())) {
       newErrors.companyEmail = 'Please enter a valid email address';
     }
-
+ 
     if (!formData.contactNumber.trim()) {
       newErrors.contactNumber = 'Contact number is required'
     } else if (!/^[\+]?[\d\s\-\(\)]+$/.test(formData.contactNumber.trim())) {
@@ -67,7 +67,7 @@ const ContactForm = () => {
         newErrors.contactNumber = 'Contact number cannot exceed 10 digits'
       }
     }
-
+ 
     if (!formData.country.trim()) {
       newErrors.country = 'Country is required';
     } else if (formData.country.trim().length < 2) {
@@ -75,29 +75,29 @@ const ContactForm = () => {
     } else if (!/^[A-Za-z\s]+$/.test(formData.country.trim())) {
       newErrors.country = 'Country should only contain characters';
     }
-
+ 
     if (!formData.companyName.trim()) {
       newErrors.companyName = 'Company name is required';
     } else if (formData.companyName.trim().length < 2) {
       newErrors.companyName = 'Company name must be at least 2 characters long';
     }
-
+ 
     if (!formData.enquiries.trim()) {
       newErrors.enquiries = 'Enquiries field is required';
     } else if (formData.enquiries.trim().length < 10) {
       newErrors.enquiries = 'Enquiries must be at least 10 characters long';
     }
-
+ 
     return newErrors;
   };
-
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
-    
+   
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -105,54 +105,54 @@ const ContactForm = () => {
       }));
     }
   };
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+ 
     const newErrors = validateForm();
-
+ 
     if (Object.keys(newErrors).length === 0) {
       try {
         const payload = {
           firstName: formData.firstName,
           lastName: formData.secondName,  
-          cmpnyEmail: formData.companyEmail, 
+          cmpnyEmail: formData.companyEmail,
           contactNumber: formData.contactNumber,
           country: formData.country,
           companyName: formData.companyName,
           message: formData.enquiries
         };
-
+ 
         const res = await fetch("/api/contact", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
-
+ 
         if (!res.ok) {
           const errorData = await res.json();
-          
+         
           // Show error notification
           setNotification({
             open: true,
             message: errorData.error || "Something went wrong",
             severity: 'error'
           });
-          
+         
           throw new Error(errorData.error || "Something went wrong");
         }
-
+ 
         const data = await res.json();
         console.log("✅ Form submitted successfully:", data);
-
+ 
         // Show success notification
         setNotification({
           open: true,
           message: 'Form submitted successfully!',
           severity: 'success'
         });
-
+ 
         // Reset form after submission
         setFormData({
           firstName: '',
@@ -163,10 +163,10 @@ const ContactForm = () => {
           companyName: '',
           enquiries: ''
         });
-
+ 
       } catch (error) {
         console.error(error);
-        
+       
         // Show error notification if not already shown
         if (!notification.open) {
           setNotification({
@@ -181,19 +181,27 @@ const ContactForm = () => {
     } else {
       setErrors(newErrors);
       setIsSubmitting(false);
-      
+     
     }
   };
-
+ 
   return (
     <>
-      <div className="bg-white rounded-3xl shadow-lg p-8 lg:p-8 m-4 lg:m-8 overflow-x-hidden overflow-hidden">
+      <div
+        className="rounded-3xl shadow-lg p-8 lg:p-8 m-4 lg:m-8 overflow-x-hidden overflow-hidden border"
+        style={{
+          backdropFilter: "blur(14px)",
+          WebkitBackdropFilter: "blur(14px)",
+          background: "rgba(255, 255, 255, 0.55)",
+          borderColor: "rgba(229, 231, 235, 0.5)"
+        }}
+      >
         <div className="mb-8">
           <h3 className="text-xl lg:text-xl font-semibold text-gray-900 mb-2">
             Personal information
           </h3>
         </div>
-
+ 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* First Name and Second Name Row */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -208,9 +216,9 @@ const ContactForm = () => {
                 value={formData.firstName}
                 onChange={handleChange}
                 placeholder="Exp. John"
-                className={`w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-colors ${
-                  errors.firstName 
-                    ? 'border-red-300 focus:ring-red-300' 
+                className={`w-full px-4 py-3 border border-gray-200/50 rounded-xl bg-gray-50 backdrop-blur-sm placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent focus:bg-white/80 transition-all duration-200 ${
+                  errors.firstName
+                    ? 'border-red-300 focus:ring-red-300'
                     : 'focus:ring-blue-300'
                 }`}
               />
@@ -218,7 +226,7 @@ const ContactForm = () => {
                 <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
               )}
             </div>
-
+ 
             <div className="space-y-2">
               <label htmlFor="secondName" className="block text-sm font-medium text-gray-700">
                 Last Name *
@@ -230,9 +238,9 @@ const ContactForm = () => {
                 value={formData.secondName}
                 onChange={handleChange}
                 placeholder="Exp. Carter"
-                className={`w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-colors ${
-                  errors.secondName 
-                    ? 'border-red-300 focus:ring-red-300' 
+                className={`w-full px-4 py-3 border border-gray-200/50 rounded-xl bg-gray-50 backdrop-blur-sm placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent focus:bg-white/80 transition-all duration-200 ${
+                  errors.secondName
+                    ? 'border-red-300 focus:ring-red-300'
                     : 'focus:ring-blue-300'
                 }`}
               />
@@ -241,7 +249,7 @@ const ContactForm = () => {
               )}
             </div>
           </div>
-
+ 
           {/* Company Email and Contact Number Row */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="space-y-2">
@@ -255,9 +263,9 @@ const ContactForm = () => {
                 value={formData.companyEmail}
                 onChange={handleChange}
                 placeholder="john@company.com"
-                className={`w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-colors ${
-                  errors.companyEmail 
-                    ? 'border-red-300 focus:ring-red-300' 
+                className={`w-full px-4 py-3 border border-gray-200/50 rounded-xl bg-gray-50 backdrop-blur-sm placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent focus:bg-white/80 transition-all duration-200 ${
+                  errors.companyEmail
+                    ? 'border-red-300 focus:ring-red-300'
                     : 'focus:ring-blue-300'
                 }`}
               />
@@ -265,7 +273,7 @@ const ContactForm = () => {
                 <p className="text-red-500 text-xs mt-1">{errors.companyEmail}</p>
               )}
             </div>
-
+ 
             <div className="space-y-2">
               <label htmlFor="contactNumber" className="block text-sm font-medium text-gray-700">
                 Contact Number *
@@ -277,9 +285,9 @@ const ContactForm = () => {
                 value={formData.contactNumber}
                 onChange={handleChange}
                 placeholder="(123) 000-0000"
-                className={`w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-colors ${
-                  errors.contactNumber 
-                    ? 'border-red-300 focus:ring-red-300' 
+                className={`w-full px-4 py-3 border border-gray-200/50 rounded-xl bg-gray-50 backdrop-blur-sm placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent focus:bg-white/80 transition-all duration-200 ${
+                  errors.contactNumber
+                    ? 'border-red-300 focus:ring-red-300'
                     : 'focus:ring-blue-300'
                 }`}
               />
@@ -288,7 +296,7 @@ const ContactForm = () => {
               )}
             </div>
           </div>
-
+ 
           {/* Country and Company Name Row */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="space-y-2">
@@ -302,9 +310,9 @@ const ContactForm = () => {
                 value={formData.country}
                 onChange={handleChange}
                 placeholder="United States"
-                className={`w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-colors ${
-                  errors.country 
-                    ? 'border-red-300 focus:ring-red-300' 
+                className={`w-full px-4 py-3 border border-gray-200/50 rounded-xl bg-gray-50 backdrop-blur-sm placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent focus:bg-white/80 transition-all duration-200 ${
+                  errors.country
+                    ? 'border-red-300 focus:ring-red-300'
                     : 'focus:ring-blue-300'
                 }`}
               />
@@ -312,7 +320,7 @@ const ContactForm = () => {
                 <p className="text-red-500 text-xs mt-1">{errors.country}</p>
               )}
             </div>
-
+ 
             <div className="space-y-2">
               <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">
                 Company Name *
@@ -324,9 +332,9 @@ const ContactForm = () => {
                 value={formData.companyName}
                 onChange={handleChange}
                 placeholder="ABC Corporation"
-                className={`w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-colors ${
-                  errors.companyName 
-                    ? 'border-red-300 focus:ring-red-300' 
+                className={`w-full px-4 py-3 border border-gray-200/50 rounded-xl bg-gray-50 backdrop-blur-sm placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent focus:bg-white/80 transition-all duration-200 ${
+                  errors.companyName
+                    ? 'border-red-300 focus:ring-red-300'
                     : 'focus:ring-blue-300'
                 }`}
               />
@@ -335,7 +343,7 @@ const ContactForm = () => {
               )}
             </div>
           </div>
-
+ 
           {/* Enquiries Field */}
           <div className="space-y-6">
             <div className="space-y-2">
@@ -350,8 +358,8 @@ const ContactForm = () => {
                 rows={4}
                 placeholder="Please describe your enquiry in detail..."
                 className={`w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-colors resize-none ${
-                  errors.enquiries 
-                    ? 'border-red-300 focus:ring-red-300' 
+                  errors.enquiries
+                    ? 'border-red-300 focus:ring-red-300'
                     : 'focus:ring-blue-300'
                 }`}
               />
@@ -360,15 +368,15 @@ const ContactForm = () => {
               )}
             </div>
           </div>
-
+ 
           {/* Submit Button */}
           <div className="flex justify-end pt-4">
             <button
               type="submit"
               disabled={isSubmitting}
               className={`flex items-center gap-2 bg-black text-white py-2 px-5 rounded-lg font-medium text-sm transition duration-200 ease-in-out  ${
-                isSubmitting 
-                  ? 'opacity-50 cursor-not-allowed' 
+                isSubmitting
+                  ? 'opacity-50 cursor-not-allowed'
                   : 'hover:bg-gray-800 hover:shadow-md transform hover:scale-105'
               }`}
             >
@@ -384,7 +392,7 @@ const ContactForm = () => {
           </div>
         </form>
       </div>
-
+ 
       {/* MUI Snackbar Notification */}
       <Snackbar
         open={notification.open}
@@ -392,8 +400,8 @@ const ContactForm = () => {
         onClose={handleCloseNotification}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <Alert 
-          onClose={handleCloseNotification} 
+        <Alert
+          onClose={handleCloseNotification}
           severity={notification.severity}
           variant="filled"
           sx={{ width: '100%' }}
@@ -404,7 +412,5 @@ const ContactForm = () => {
     </>
   );
 };
-
+ 
 export default ContactForm;
-
-

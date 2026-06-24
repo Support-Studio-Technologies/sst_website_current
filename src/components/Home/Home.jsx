@@ -2,37 +2,37 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { iconImages, textContent } from "../Constants/Home/AboutData";
-import EnterpriseSolutionsGrid from "@/components/Home/reusable-grid/EnterpriseSolutionsGrid";
- 
+import EnterpriseSolutionsGrid from "./reusable-grid/EnterpriseSolutionsGrid";
+
 const Home = () => {
   const containerRef = useRef(null);
   const textRef = useRef(null);
   const fadeTextRef = useRef(null);
   const [visibleWords, setVisibleWords] = useState(0);
   const [scrollY, setScrollY] = useState(0);
- 
+
   const scrollRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
- 
+
   const handleHorizontalScroll = () => {
     const el = scrollRef.current;
     if (!el) return;
- 
+
     const maxScroll = el.scrollWidth - el.clientWidth;
     const progress =
       maxScroll > 0 ? (el.scrollLeft / maxScroll) * 100 : 0;
- 
+
     setScrollProgress(progress);
   };
- 
+
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
- 
+
   const words = textContent.split(" ");
- 
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -47,7 +47,7 @@ const Home = () => {
         rootMargin: "-50px 0px",
       }
     );
- 
+
     const observeImages = () => {
       if (containerRef.current) {
         const images = containerRef.current.querySelectorAll(".image-card");
@@ -56,7 +56,7 @@ const Home = () => {
         });
       }
     };
- 
+
     const handleScroll = () => {
       // Handle word-by-word reveal for SAP text
       if (textRef.current) {
@@ -64,38 +64,38 @@ const Home = () => {
         const viewportHeight = window.innerHeight;
         const elementTop = rect.top;
         const elementHeight = rect.height;
- 
+
         if (elementTop + elementHeight < 0) {
           setVisibleWords(words.length);
           return;
         }
- 
+
         if (elementTop > viewportHeight) {
           setVisibleWords(0);
           return;
         }
- 
+
         const scrollProgress = Math.max(
           0,
           Math.min(
             1,
             (viewportHeight - elementTop) /
-              (viewportHeight + elementHeight * 0.5)
+            (viewportHeight + elementHeight * 0.5)
           )
         );
- 
+
         const totalWords = words.length;
         const newVisibleWords = Math.floor(scrollProgress * totalWords);
- 
+
         setVisibleWords(Math.max(newVisibleWords, 0));
       }
     };
- 
+
     setTimeout(observeImages, 100);
- 
+
     window.addEventListener("scroll", handleScroll);
     handleScroll();
- 
+
     return () => {
       if (containerRef.current) {
         const images = containerRef.current.querySelectorAll(".image-card");
@@ -106,20 +106,20 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [words.length]);
- 
+
   // Function to calculate fade effect based on element position
   const getFadeProgress = () => {
     if (!fadeTextRef.current) return 0;
- 
+
     const rect = fadeTextRef.current.getBoundingClientRect();
     const viewportHeight = window.innerHeight;
     const elementTop = rect.top;
     const elementHeight = rect.height;
- 
+
     // Start fading when element enters viewport
     if (elementTop > viewportHeight) return 0;
     if (elementTop + elementHeight < 0) return 1;
- 
+
     // Calculate progress based on element position
     const progress = Math.max(
       0,
@@ -130,9 +130,9 @@ const Home = () => {
     );
     return progress;
   };
- 
+
   const fadeProgress = getFadeProgress();
- 
+
   const containerVariants = {
     hidden: {
       opacity: 0,
@@ -145,7 +145,7 @@ const Home = () => {
       },
     },
   };
- 
+
   const textVariants = {
     hidden: {
       opacity: 0,
@@ -160,7 +160,7 @@ const Home = () => {
       },
     },
   };
- 
+
   const headerVariants = {
     hidden: {
       opacity: 0,
@@ -175,7 +175,7 @@ const Home = () => {
       },
     },
   };
- 
+
   const descriptionVariants = {
     hidden: {
       opacity: 0,
@@ -190,7 +190,7 @@ const Home = () => {
       },
     },
   };
- 
+
   const wordVariants = {
     hidden: {
       opacity: 0,
@@ -207,7 +207,7 @@ const Home = () => {
       },
     },
   };
- 
+
   const cardVariants = {
     hidden: {
       opacity: 0,
@@ -224,7 +224,7 @@ const Home = () => {
       },
     },
   };
- 
+
   const gridContainerVariants = {
     hidden: {},
     visible: {
@@ -234,38 +234,38 @@ const Home = () => {
       },
     },
   };
- 
+
   const cards = [
-                  {
-                    title: "Assessment",
-                    subtitle: "SAP Discovery",
-                    description:
-                      "Analyze your SAP landscape and identify technical debt before migration.",
-                    icon: "🔍",
-                  },
-                  {
-                    title: "Roadmap",
-                    subtitle: "Transformation Planning",
-                    description:
-                      "Create a structured roadmap for S/4HANA migration and optimization.",
-                    icon: "🗺️",
-                  },
-                  {
-                    title: "Migration",
-                    subtitle: "Execution",
-                    description:
-                      "Move from legacy SAP systems with minimal disruption.",
-                    icon: "🚀",
-                  },
-                  {
-                    title: "Optimization",
-                    subtitle: "Continuous Improvement",
-                    description:
-                      "Improve performance, governance, and long-term scalability.",
-                    icon: "⚡",
-                  },
-                ];
- 
+    {
+      title: "Assessment",
+      subtitle: "SAP Discovery",
+      description:
+        "Analyze your SAP landscape and identify technical debt before migration.",
+      icon: "🔍",
+    },
+    {
+      title: "Roadmap",
+      subtitle: "Transformation Planning",
+      description:
+        "Create a structured roadmap for S/4HANA migration and optimization.",
+      icon: "🗺️",
+    },
+    {
+      title: "Migration",
+      subtitle: "Execution",
+      description:
+        "Move from legacy SAP systems with minimal disruption.",
+      icon: "🚀",
+    },
+    {
+      title: "Optimization",
+      subtitle: "Continuous Improvement",
+      description:
+        "Improve performance, governance, and long-term scalability.",
+      icon: "⚡",
+    },
+  ];
+
   return (
     <>
       <style>{`
@@ -365,9 +365,9 @@ const Home = () => {
           display: none;
         }
       `}</style>
- 
+
       <div className="h-[40px]"></div>
- 
+
       <motion.div
         className="md:min-h-screen p-4 sm:p-6 lg:px-6 px-0"
         initial="hidden"
@@ -386,7 +386,7 @@ const Home = () => {
                 About us
               </p>
             </motion.div>
- 
+
             <motion.h1
               className="text-4xl lg:text-6xl xl:text-4xl font-normal leading-tight mb-4"
               variants={headerVariants}
@@ -394,7 +394,7 @@ const Home = () => {
               Our Enterprise
               <span className="gradient-text"> Services</span>
             </motion.h1>
- 
+
             <motion.div
               className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12"
               variants={descriptionVariants}
@@ -413,13 +413,13 @@ const Home = () => {
                 ))}
             </motion.div>
           </motion.div>
- 
-          {/* solutons Grid Section */}  
+
+          {/* solutons Grid Section */}
           <EnterpriseSolutionsGrid />
         </div>
       </motion.div>
     </>
   );
 };
- 
+
 export default Home;

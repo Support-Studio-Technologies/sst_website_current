@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import CyclingMarquee from "../components/Home/MarqueContainer";
 import FAQ from "../components/Home/FAQ";
 import HomeCard from "../components/Cards/MeetingCard";
-import Animation from "@/components/Home/Logo";
+import Animation from "../components/Home/Logo";
 export default function Page() {
   const partnerLogos = [
     { src: "/PartnerLogos/sap.png", alt: "SAP" },
@@ -34,7 +34,7 @@ export default function Page() {
     { src: "/PartnerLogos/sophos.png", alt: "Sophos" },
     { src: "/PartnerLogos/uipath.png", alt: "UiPath" },
   ];
- 
+
   return (
     <div className="relative overflow-x-hidden">
       <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
@@ -46,7 +46,7 @@ export default function Page() {
             priority
             className="object-cover object-top z-0"
           />
- 
+
           <div
             className="absolute inset-0 z-10"
             style={{
@@ -54,9 +54,9 @@ export default function Page() {
               backgroundBlendMode: "overlay",
             }}
           />
- 
+
           <Navbar />
- 
+
           <div className="flex min-h-screen items-center justify-center px-4 sm:px-8 lg:px-16 relative z-20 mt-8">
             <div className="flex-1 flex flex-col md:flex-row items-start justify-center">
               {/* Text Content */}
@@ -93,7 +93,7 @@ export default function Page() {
                   </motion.p>
                 </div>
               </div>
- 
+
               {/* Home Card */}
               <div className="flex-1 flex justify-center items-start py-5 md:py-0 -mt-2 md:-mt-30">
                 <HomeCard />
@@ -121,6 +121,5 @@ export default function Page() {
     </div>
   );
 }
- 
- 
- 
+
+

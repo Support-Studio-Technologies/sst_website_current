@@ -1,10 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./font.css";
-import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
-import BackgroundMusic from "@/components/BackgroundMusic/BackgroundMusic";
-import CookieConsent from "@/components/Cookies/CookieConsent";
-import ContactUsButton from "@/components/Contactusbutton/contact_us_button";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
+import BackgroundMusic from "../components/BackgroundMusic/BackgroundMusic";
+import CookieConsent from "../components/Cookies/CookieConsent";
+import ContactUsButton from "../components/Contactusbutton/contact_us_button";
 import { Contact } from "lucide-react";
 
 const geistSans = Geist({
