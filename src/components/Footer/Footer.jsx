@@ -26,7 +26,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-neutral-900 text-gray-400 p-8 md:p-12 ">
+      <footer className="bg-neutral-900 text-gray-400 p-8 md:p-12 ">        
         <div className="grid grid-cols-1 md:grid-cols-6 gap-8 md:gap-16  pb-4 md:pb-12 mb-2">
           <div className="space-x-3 md:col-span-1">
             <div className="relative h-8 sm:h-10 w-auto aspect-[4/1] md:mb-12">

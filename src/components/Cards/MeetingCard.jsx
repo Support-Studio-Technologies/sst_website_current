@@ -602,7 +602,7 @@ const HomeCard = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <div className="flex gap-8 ml-2">
+          <div className="flex gap-8 ml-6.5 md:ml-2">
             <motion.div
               className="text-left"
               variants={itemVariants}

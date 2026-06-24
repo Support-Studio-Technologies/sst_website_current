@@ -2,17 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import Image from "next/image";
-import SAP from "../../assets/Home/ourFutureIcons/SAP.svg";
+import SAP from "../../assets/Home/ourFutureIcons/sap-logo-svg.svg";
 import {
   modulesData,
   featuresData,
   featureText,
 } from "../Constants/Home/OurFeatures";
-
+ 
 const Feature = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
-
+ 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -22,18 +22,18 @@ const Feature = () => {
       },
       { threshold: 0.1, rootMargin: "50px" }
     );
-
+ 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
+ 
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
-
+ 
   const textVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -45,7 +45,7 @@ const Feature = () => {
       },
     },
   };
-
+ 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -56,7 +56,7 @@ const Feature = () => {
       },
     },
   };
-
+ 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -68,7 +68,7 @@ const Feature = () => {
       },
     },
   };
-
+ 
   const cardHoverVariants = {
     rest: { scale: 1, y: 0 },
     hover: {
@@ -80,7 +80,7 @@ const Feature = () => {
       },
     },
   };
-
+ 
   return (
     <div
       ref={sectionRef}
@@ -103,7 +103,7 @@ const Feature = () => {
               OUR Feature
             </p>
           </motion.div>
-
+ 
           <motion.h1
             className="text-4xl lg:text-6xl xl:text-4xl font-normal leading-tight mb-2"
             variants={textVariants}
@@ -120,7 +120,7 @@ const Feature = () => {
             to accelerate enterprise transformation.
           </motion.p>
         </motion.div>
-
+ 
         {/* Main Grid */}
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16"
@@ -139,7 +139,7 @@ const Feature = () => {
               {/* Main card — gradient border wrapper + inner card */}
               <div className="h-full relative overflow-hidden">
                 <div className="rounded-2xl p-[1.5px] bg-gray-200 shadow-[0_6px_24px_rgba(45,142,197,0.08)]">
-                  <div className="h-full bg-white rounded-2xl p-8 relative overflow-hidden shadow-sm  transition-shadow duration-500">
+                  <div className="h-full md:h-133 bg-white rounded-2xl p-8 relative overflow-hidden shadow-sm  transition-shadow duration-500">
                     {/* Floating gradient orbs */}
                     <motion.div
                       className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gray-100 opacity-50 blur-3xl"
@@ -165,7 +165,7 @@ const Feature = () => {
                         ease: "easeInOut",
                       }}
                     />
-
+ 
                     <div className="relative z-10">
                       <div className="flex items-start justify-between mb-6 gap-4">
                         {/* Left side (icon + text) */}
@@ -179,7 +179,7 @@ const Feature = () => {
                               />
                             </motion.div>
                           </div>
-                          <div className="flex-1 min-w-0">
+                          <div className="flex-1 min-w-0 mt-2.25">
                             <h3 className="gradient-text text-xl sm:text-2xl font-bold mb-1 tracking-tight">
                               {featureText.heroCard.title}
                             </h3>
@@ -188,7 +188,7 @@ const Feature = () => {
                             </p>
                           </div>
                         </div>
-
+ 
                         {/* Right side button - Hidden on mobile */}
                         <motion.button
                           className="hidden sm:flex flex-shrink-0 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 transition-all duration-300"
@@ -198,7 +198,7 @@ const Feature = () => {
                           <HiOutlineArrowUpRight className="w-6 sm:h-6 text-blue-500 hover:text-black transition-colors" />
                         </motion.button>
                       </div>
-
+ 
                       {/* Enhanced Data Visualization */}
                       <motion.div
                         className="bg-gray-50 rounded-2xl p-6 mb-6 border border-gray-100"
@@ -211,7 +211,7 @@ const Feature = () => {
                             Progress Metrics{" "}
                           </h4>
                         </div>
-
+ 
                         <div className="space-y-5">
                           {featureText.heroCard.metrics.map((metric, index) => (
                             <motion.div key={index} className="space-y-2">
@@ -243,7 +243,7 @@ const Feature = () => {
               </div>
             </motion.div>
           </motion.div>
-
+ 
           {/* Feature Cards - Made Smaller */}
           <div className="lg:col-span-4 space-y-4">
             {featuresData.map((feature, index) => (
@@ -255,7 +255,7 @@ const Feature = () => {
                   whileHover="hover"
                 >
                   <motion.div
-                    className="w-10 h-10 rounded-lg flex items-center justify-center mb-3"
+                    className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 bg-gray-100"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -278,7 +278,7 @@ const Feature = () => {
             ))}
           </div>
         </motion.div>
-
+ 
         {/* Bottom Feature Grid Heading */}
         <motion.div
           className="text-center lg:mb-12 mb-10"
@@ -293,7 +293,7 @@ const Feature = () => {
             Explore Our Powerful
             <span className="gradient-text"> Core Modules</span>
           </motion.h2>
-
+ 
           <motion.p
             className="text-gray-600 text-base max-w-2xl mx-auto"
             variants={itemVariants}
@@ -302,10 +302,10 @@ const Feature = () => {
             and growth across your business functions.
           </motion.p>
         </motion.div>
-
+ 
         {/* Bottom Feature Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-5"
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
@@ -332,7 +332,7 @@ const Feature = () => {
                 <h3 className="text-black text-lg font-semibold mb-1">
                   {module.name}
                 </h3>
-                <p className="text-gray-600 text-sm">{module.desc}</p>
+                {/* <p className="text-gray-600 text-sm">{module.desc}</p> */}
               </motion.div>
             </motion.div>
           ))}
@@ -341,5 +341,7 @@ const Feature = () => {
     </div>
   );
 };
-
+ 
 export default Feature;
+ 
+ 

@@ -105,6 +105,68 @@ const Navbar = () => {
     setIsServicesOpen(false);
   };
  
+  const servicesMenu = {
+  industries: [
+    {
+      title: "Manufacturing",
+      items: ["Automotive", "Industrial Equipment", "Electronics"],
+    },
+    {
+      title: "Retail",
+      items: ["E-Commerce", "Fashion", "Consumer Goods"],
+    },
+    {
+      title: "Healthcare",
+      items: ["Hospitals", "Pharmaceuticals", "Medical Devices"],
+    },
+  ],
+ 
+  services: [
+    {
+      title: "SAP Solutions",
+      items: ["SAP S/4HANA", "SAP BTP", "SAP Analytics Cloud"],
+    },
+    {
+      title: "Digital Transformation",
+      items: ["Cloud Migration", "Process Automation", "AI Integration"],
+    },
+    {
+      title: "Product Engineering",
+      items: ["Web Applications", "Mobile Apps", "SaaS Platforms"],
+    },
+  ],
+ 
+  capabilities: [
+    {
+      title: "Design",
+      items: ["UI/UX", "Design Systems", "Branding"],
+    },
+    {
+      title: "Development",
+      items: ["Frontend", "Backend", "Full Stack"],
+    },
+    {
+      title: "Consulting",
+      items: ["Strategy", "Architecture", "Optimization"],
+    },
+  ],
+ 
+  technologies: [
+    {
+      title: "Platforms",
+      items: ["SAP", "AWS", "Azure", "Google Cloud"],
+    },
+    {
+      title: "Frameworks",
+      items: ["React", "Next.js", "Node.js", "Python"],
+    },
+    {
+      title: "Emerging Tech",
+      items: ["AI/ML", "GenAI", "Data Analytics"],
+    },
+  ],
+};
+ 
   return (
     <>
       <nav
@@ -256,128 +318,55 @@ const Navbar = () => {
                       /> */}
  
                       <div
-                        className={`rounded-2xl shadow-2xl min-w-[700px] p-6 border transition-colors duration-500 backdrop-blur-md ${isNavbarLight
+                        className={`rounded-3xl shadow-2xl min-w-[1150px] p-8 border transition-colors duration-500 backdrop-blur-md ${isNavbarLight
                           ? "bg-white/80 border-gray-200/30 text-gray-800"
                           : "bg-neutral-900/80 border-white/20 text-white"
                           }`}
                       >
-                        <div className="grid grid-cols-2 gap-10">
-                          {/* Industries */}
-                          <div>
-                            <h3 className={`text-sm font-semibold uppercase tracking-wider mb-4 px-4 py-3 ${isNavbarLight ? "text-gray-500" : "text-gray-400"
-                              }`}>
-                              Industries
+                        <div className="grid grid-cols-4 gap-8">
+                        {Object.entries(servicesMenu).map(([sectionKey, groups]) => (
+                          <div key={sectionKey}>
+                            <h3
+                              className={`text-sm font-semibold uppercase tracking-wider mb-5 ${
+                                isNavbarLight ? "text-gray-500" : "text-gray-400"
+                              }`}
+                            >
+                              {sectionKey}
                             </h3>
  
-                            <ul className="flex flex-col gap-1">
-                              <li>
-                                <Link
-                                  href="/services/sapService/rise-with-sap"
-                                  className={`block px-4 py-3 rounded-lg transition-colors ${isNavbarLight
-                                    ? "text-gray-800 hover:bg-gray-100"
-                                    : "text-white/90 hover:bg-white/10 hover:text-white"
+                            <div className="space-y-5">
+                              {groups.map((group) => (
+                                <div key={group.title}>
+                                  <h4
+                                    className={`font-medium mb-2 ${
+                                      isNavbarLight ? "text-gray-900" : "text-white"
                                     }`}
-                                >
-                                  SAP Services
-                                </Link>
-                              </li>
+                                  >
+                                    {group.title}
+                                  </h4>
  
-                              <li>
-                                <Link
-                                  href="/services/sap-implementation"
-                                  className={`block px-4 py-3 rounded-lg transition-colors ${isNavbarLight
-                                    ? "text-gray-800 hover:bg-gray-100"
-                                    : "text-white/90 hover:bg-white/10 hover:text-white"
-                                    }`}
-                                >
-                                  Digital Transformation
-                                </Link>
-                              </li>
- 
-                              <li>
-                                <Link
-                                  href="/services/application-support"
-                                  className={`block px-4 py-3 rounded-lg transition-colors ${isNavbarLight
-                                    ? "text-gray-800 hover:bg-gray-100"
-                                    : "text-white/90 hover:bg-white/10 hover:text-white"
-                                    }`}
-                                >
-                                  Product and Development
-                                </Link>
-                              </li>
- 
-                              <li>
-                                <Link
-                                  href="/services/staff-augmentation"
-                                  className={`block px-4 py-3 rounded-lg transition-colors ${isNavbarLight
-                                    ? "text-gray-800 hover:bg-gray-100"
-                                    : "text-white/90 hover:bg-white/10 hover:text-white"
-                                    }`}
-                                >
-                                  Design and Development
-                                </Link>
-                              </li>
-                            </ul>
+                                  <ul className="space-y-1">
+                                    {group.items.map((item) => (
+                                      <li key={item}>
+                                        <Link
+                                          href="/services"
+                                          className={`block text-sm rounded-md px-2 py-1 transition-colors ${
+                                            isNavbarLight
+                                              ? "hover:bg-gray-100 text-gray-600"
+                                              : "hover:bg-white/10 text-white/70"
+                                          }`}
+                                        >
+                                          {item}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              ))}
+                            </div>
                           </div>
- 
-                          {/* Capabilities */}
-                          <div>
-                            <h3 className={`text-sm font-semibold uppercase tracking-wider mb-4 px-4 py-3 ${isNavbarLight ? "text-gray-500" : "text-gray-400"
-                              }`}>
-                              Capabilities
-                            </h3>
- 
-                            <ul className="flex flex-col gap-1">
-                              <li>
-                                <Link
-                                  href="/services/sapService/rise-with-sap"
-                                  className={`block px-4 py-3 rounded-lg transition-colors ${isNavbarLight
-                                    ? "text-gray-800 hover:bg-gray-100"
-                                    : "text-white/90 hover:bg-white/10 hover:text-white"
-                                    }`}
-                                >
-                                  SAP Services
-                                </Link>
-                              </li>
- 
-                              <li>
-                                <Link
-                                  href="/services/sap-implementation"
-                                  className={`block px-4 py-3 rounded-lg transition-colors ${isNavbarLight
-                                    ? "text-gray-800 hover:bg-gray-100"
-                                    : "text-white/90 hover:bg-white/10 hover:text-white"
-                                    }`}
-                                >
-                                  Digital Transformation
-                                </Link>
-                              </li>
- 
-                              <li>
-                                <Link
-                                  href="/services/application-support"
-                                  className={`block px-4 py-3 rounded-lg transition-colors ${isNavbarLight
-                                    ? "text-gray-800 hover:bg-gray-100"
-                                    : "text-white/90 hover:bg-white/10 hover:text-white"
-                                    }`}
-                                >
-                                  Product and Development
-                                </Link>
-                              </li>
- 
-                              <li>
-                                <Link
-                                  href="/services/staff-augmentation"
-                                  className={`block px-4 py-3 rounded-lg transition-colors ${isNavbarLight
-                                    ? "text-gray-800 hover:bg-gray-100"
-                                    : "text-white/90 hover:bg-white/10 hover:text-white"
-                                    }`}
-                                >
-                                  Design and Development
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
+                        ))}
+                      </div>
                       </div>
                     </div>
                   </li>
@@ -530,109 +519,42 @@ const Navbar = () => {
  
               {/* Dropdown */}
               <div
-                className={`overflow-hidden transition-all duration-300 ${isServicesOpen ? "max-h-[800px] mt-2" : "max-h-0"
+                className={`overflow-hidden transition-all duration-300 ${isServicesOpen ? "max-h-[2250px] mt-2" : "max-h-0"
                   }`}
               >
-                <div className="ml-4 border-l-2 border-gray-200 pl-4 space-y-6">
+                <div className="space-y-6">
+                  {Object.entries(servicesMenu).map(([sectionKey, groups]) => (
+                    <div key={sectionKey}>
+                      <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-3">
+                        {sectionKey}
+                      </h3>
  
-                  {/* Industries */}
-                  <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-3">
-                      Industries
-                    </h3>
- 
-                    <ul className="flex flex-col gap-2 pl-10">
-                      <li>
-                        <Link
-                          href="/services/sapService/rise-with-sap"
-                          onClick={closeMenu}
-                          className="block py-2 text-lg text-gray-600 hover:text-[#2d8ec5]"
+                      {groups.map((group) => (
+                        <div
+                          key={group.title}
+                          className="mb-4 rounded-xl border border-gray-200 p-4"
                         >
-                          SAP Services
-                        </Link>
-                      </li>
+                          <h4 className="font-medium text-gray-800 mb-2">
+                            {group.title}
+                          </h4>
  
-                      <li>
-                        <Link
-                          href="/services/sap-implementation"
-                          onClick={closeMenu}
-                          className="block py-2 text-lg text-gray-600 hover:text-[#2d8ec5]"
-                        >
-                          Digital Transformation
-                        </Link>
-                      </li>
- 
-                      <li>
-                        <Link
-                          href="/services/application-support"
-                          onClick={closeMenu}
-                          className="block py-2 text-lg text-gray-600 hover:text-[#2d8ec5]"
-                        >
-                          Product and Development
-                        </Link>
-                      </li>
- 
-                      <li>
-                        <Link
-                          href="/services/staff-augmentation"
-                          onClick={closeMenu}
-                          className="block py-2 text-lg text-gray-600 hover:text-[#2d8ec5]"
-                        >
-                          Design and Development
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
- 
-                  {/* Capabilities */}
-                  <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-3">
-                      Capabilities
-                    </h3>
- 
-                    <ul className="flex flex-col gap-2 pl-10">
-                      <li>
-                        <Link
-                          href="/services/sapService/rise-with-sap"
-                          onClick={closeMenu}
-                          className="block py-2 text-lg text-gray-600 hover:text-[#2d8ec5]"
-                        >
-                          SAP Services
-                        </Link>
-                      </li>
- 
-                      <li>
-                        <Link
-                          href="/services/sap-implementation"
-                          onClick={closeMenu}
-                          className="block py-2 text-lg text-gray-600 hover:text-[#2d8ec5]"
-                        >
-                          Digital Transformation
-                        </Link>
-                      </li>
- 
-                      <li>
-                        <Link
-                          href="/services/application-support"
-                          onClick={closeMenu}
-                          className="block py-2 text-lg text-gray-600 hover:text-[#2d8ec5]"
-                        >
-                          Product and Development
-                        </Link>
-                      </li>
- 
-                      <li>
-                        <Link
-                          href="/services/staff-augmentation"
-                          onClick={closeMenu}
-                          className="block py-2 text-lg text-gray-600 hover:text-[#2d8ec5]"
-                        >
-                          Design and Development
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
- 
+                          <ul className="space-y-2 pl-3">
+                            {group.items.map((item) => (
+                              <li key={item}>
+                                <Link
+                                  href="/services"
+                                  onClick={closeMenu}
+                                  className="text-gray-600 hover:text-[#2d8ec5] text-base"
+                                >
+                                  {item}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
                 </div>
               </div>
             </li>
@@ -672,7 +594,3 @@ const Navbar = () => {
 };
  
 export default Navbar;
- 
- 
- 
- 

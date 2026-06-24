@@ -1,4 +1,4 @@
-export const textContent = "We bring together the world's most powerful enterprise technologies to accelerate digital transformation. From ERP and CRM to Cloud, Automation, and Analytics, our expertise spans every layer of the IT ecosystem, delivering scalable and future-ready solutions.";
+export const textContent = "We bring together the world's most powerful enterprise technologies to accelerate digital transformation. From ERP and CRM to Cloud, Automation, and Analytics, our expertise spans every layer of the IT ecosystem, delivering scalable and future-ready services.";
 
 export const iconImages = [
   {

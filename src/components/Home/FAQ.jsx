@@ -112,7 +112,7 @@ const FAQ = () => {
         margin: "-100px 0px -100px 0px",
       }}
       variants={containerVariants}
-      className="p-6 sm:p-8 lg:p-10 rounded-xl bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden"
+      className="p-6 sm:p-8 lg:p-10 rounded-xl bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden "
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
         {/* Left Section */}

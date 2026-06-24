@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BiStar } from "react-icons/bi";
 import Image from "next/image";
 import Icon from "../../assets/Home/testinomials/Icon.svg";
-import backgroundImage from "../../assets/Home/testinomials/HomeBG.svg";
+import backgroundImage from "../../assets/Home/testinomials/CTA_BG.png";
 
 const TestimonialsPage = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -11,18 +11,18 @@ const TestimonialsPage = () => {
   const testimonials = [
     {
       name: "Jacob Jones",
-      title: "CEO",
-      text: "Outstanding service and results. The team's dedication to understanding our business needs made all the difference in project success.",
+      title: "SAP Services",
+      text: "Streamline business processes and accelerate digital transformation with our expert SAP consulting, implementation, and managed support services.",
     },
     {
       name: "Marcus Chen",
-      title: "CTO",
-      text: "Exceptional AI solutions that transformed our operations. The expertise and professionalism of the team exceeded our expectations.",
+      title: "Quality Deliverables",
+      text: "Consistently delivering dependable, high-quality solutions that help businesses achieve their goals with confidence.",
     },
     {
       name: "Sarah Williams",
-      title: "VP of Operations",
-      text: "Innovative approach and flawless execution. Their AI implementations have significantly improved our business efficiency and growth.",
+      title: "Trusted Partner",
+      text: "More than a service provider, they became a trusted partner who understood our goals and consistently delivered solutions that exceeded expectations.",
     },
   ];
 
@@ -233,7 +233,8 @@ const TestimonialsPage = () => {
       className="rounded-2xl text-gray-800 min-h-screen p-6 flex flex-col items-center justify-center relative overflow-hidden"
       style={{
         margin: "1rem",
-        backgroundImage: `url(${backgroundImage.src})`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+                          url(${backgroundImage.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -298,7 +299,7 @@ const TestimonialsPage = () => {
           <motion.div
             variants={itemVariants}
             whileHover={{ scale: 1.02 }}
-            className="bg-white/10 backdrop-blur-md w-full rounded-2xl p-8 shadow-xl border border-white/20 mt-4 text-center"
+            className="bg-black/30 backdrop-blur-md w-full w-full rounded-2xl p-8 shadow-xl border border-white/20 mt-4 text-center"
           >
             <motion.div
               className="flex justify-center mb-6"
@@ -351,11 +352,10 @@ const TestimonialsPage = () => {
                   onClick={() => setCurrentTestimonial(index)}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial
-                      ? "bg-blue-400 scale-110"
-                      : "bg-white/30 hover:bg-white/50"
-                  }`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentTestimonial
+                    ? "bg-blue-400 scale-110"
+                    : "bg-white/30 hover:bg-white/50"
+                    }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
@@ -373,11 +373,11 @@ const TestimonialsPage = () => {
             className="text-3xl lg:text-4xl xl:text-5xl font-normal leading-tight "
           >
             <motion.span variants={itemVariants} className="text-white">
-             Proven Impact Backing Our
+              Proven Impact Backing Our
             </motion.span>
             <br />
             <motion.span variants={itemVariants} className="text-white">
-              SAP Solutions
+              Prime Solutions
             </motion.span>
           </motion.h1>
 
@@ -388,7 +388,7 @@ const TestimonialsPage = () => {
           >
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 max-w-2xl mx-auto shadow-2xl"
+              className="bg-gradient-to-r from-black/40 to-black/30 backdrop-blur-md border border-white/20 rounded-3xl p-8 max-w-2xl mx-auto shadow-2xl"
             >
               <motion.h3
                 variants={itemVariants}
@@ -398,7 +398,7 @@ const TestimonialsPage = () => {
               </motion.h3>
 
               <motion.p variants={itemVariants} className="text-gray-300 mb-6">
-                Join our satisfied clients and experience the power of AI-driven
+                Join our satisfied clients and experience the power of SST's Prime
                 solutions
               </motion.p>
 
@@ -406,14 +406,14 @@ const TestimonialsPage = () => {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-              <motion.button
-  variants={buttonVariants}
-  whileHover="hover"
-  whileTap="tap"
-  className="border border-white/30 text-white font-semibold py-2 px-4 sm:py-3 sm:px-8 text-sm sm:text-base rounded-xl hover:shadow-lg transition-all duration-300"
->
-  Get Started Today
-</motion.button>
+                <motion.button
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  className="border border-white/30 text-white font-semibold py-2 px-4 sm:py-3 sm:px-8 text-sm sm:text-base rounded-xl hover:shadow-lg transition-all duration-300"
+                >
+                  Get Started Today
+                </motion.button>
 
               </motion.div>
             </motion.div>
@@ -425,3 +425,4 @@ const TestimonialsPage = () => {
 };
 
 export default TestimonialsPage;
+

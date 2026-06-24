@@ -7,7 +7,7 @@ import HowItWork from "./../components/Home/HowItWork";
 import OurProject from "./../components/Home/OurProject";
 import WhoWeAre from "./../components/Home/WhoWeAre";
 import Feauture from "./../components/Home/OurFeatures";
-import OurService from "./../components/Home/OurService";
+import OurSolutions from "../components/Home/OurSolutions";
 import Navbar from "../components/Navbar/Navbar";
 import { motion } from "framer-motion";
 import CyclingMarquee from "../components/Home/MarqueContainer";
@@ -40,7 +40,7 @@ export default function Page() {
       <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
         <div className="relative h-screen w-full flex flex-col">
           <Image
-            src="/Home/HomeBG.webp"
+            src="/Home/Hero-Section-BG.jpg"
             alt="Background"
             fill
             priority
@@ -60,7 +60,7 @@ export default function Page() {
           <div className="flex min-h-screen items-center justify-center px-4 sm:px-8 lg:px-16 relative z-20 mt-8">
             <div className="flex-1 flex flex-col md:flex-row items-start justify-center">
               {/* Text Content */}
-              <div className="flex-1 flex items-start justify-center py-8 md:py-0 -mt-2">
+              <div className="flex-1 flex items-start justify-center py-8 md:py-0 -mt-0 md:-mt-30">
                 <div className="text-center md:text-left max-w-5xl mx-auto">
                   <motion.h1
                     initial={{ opacity: 0, y: 40 }}
@@ -84,7 +84,7 @@ export default function Page() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                    className="mt-4 text-white text-[clamp(0.9rem,1.5vw,1.1rem)] md:text-[clamp(1rem,1.6vw,1.2rem)] lg:text-[clamp(1.1rem,1.7vw,1.3rem)] xl:text-[clamp(1.2rem,1.8vw,1.4rem)]
+                    className="mt-4 text-white text-[clamp(1.0rem,1.5vw,1.1rem)] md:text-[clamp(1rem,1.6vw,1.2rem)] lg:text-[clamp(1.1rem,1.7vw,1.3rem)] xl:text-[clamp(1.2rem,1.8vw,1.4rem)]
             drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)]"
                   >
                     From innovative marketing strategies to operational
@@ -95,7 +95,7 @@ export default function Page() {
               </div>
  
               {/* Home Card */}
-              <div className="flex-1 flex justify-center items-start py-8 md:py-0">
+              <div className="flex-1 flex justify-center items-start py-5 md:py-0 -mt-2 md:-mt-30">
                 <HomeCard />
               </div>
             </div>
@@ -109,16 +109,18 @@ export default function Page() {
         logosPerSet={6}
         intervalTime={2000}
       />
-      <OurService />
+      <OurSolutions />
       <Feauture />
       <WhoWeAre />
       <OurProject />
       <HowItWork />
       <TestimonialsPage />
       <FAQ />
+      <div className="h-4 bg-white"></div>
       <Footer />
     </div>
   );
 }
+ 
  
  
