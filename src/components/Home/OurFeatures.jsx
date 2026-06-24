@@ -267,7 +267,7 @@ const Feature = () => {
                       className="w-10 h-10"
                     />
                   </motion.div>
-                  <h3 className="text-black text-base font-semibold mb-1">
+                  <h3 className="text-black text-base mb-1">
                     {feature.title}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -329,7 +329,7 @@ const Feature = () => {
                     />
                   </div>
                 </div>
-                <h3 className="text-black text-lg font-semibold mb-1">
+                <h3 className="text-black text-lg mb-1">
                   {module.name}
                 </h3>
                 {/* <p className="text-gray-600 text-sm">{module.desc}</p> */}
