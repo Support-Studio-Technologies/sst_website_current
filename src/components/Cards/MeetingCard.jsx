@@ -482,12 +482,13 @@ const HomeCard = () => {
               className="w-full h-auto object-cover"
               priority
             />
+ 
           </motion.div>
  
-          <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-6 md:px-8 lg:px-10 xl:px-12">
-            <div className="w-full max-w-[400px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[800px] mx-auto space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
+          <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-6 md:px-8 lg:px-6 xl:px-12">
+            <div className="w-full max-w-[400px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[1000px] mx-auto space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-0">
               <motion.h1
-                className="text-3xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-normal leading-tight text-white text-left w-full"
+                className="text-3xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-normal leading-tight text-white text-left w-full md:translate-y-3"
                 variants={titleVariants}
               >
                 <motion.span
@@ -513,14 +514,14 @@ const HomeCard = () => {
                 variants={itemVariants}
               >
                 <motion.label
-                  className="text-white text-base sm:text-sm md:text-base font-normal text-left block w-full"
+                  className="text-white text-base sm:text-sm md:text-base font-normal text-left block w-full md:translate-y-5"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.9 }}
                 >
                   Enter Your Email
                 </motion.label>
- 
+               
                 <motion.input
                   type="email"
                   value={email}
@@ -531,7 +532,7 @@ const HomeCard = () => {
                   onKeyPress={handleKeyPress}
                   placeholder="Email here"
                   disabled={isLoading}
-                  className={`w-[96.5%] md:w-full px-3 sm:px-4 py-2 sm:py-2.5 md:py-3 bg-white/10 backdrop-blur-sm border ${
+                  className={`w-[96.5%] md:translate-y-4 md:w-full px-3 sm:px-4 py-2 sm:py-2.5 md:py-3 bg-white/10 backdrop-blur-sm border ${
                     error ? 'border-red-400' : 'border-white/20'
                   } rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 text-xs sm:text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed`}
                   variants={inputVariants}
@@ -541,6 +542,50 @@ const HomeCard = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.1 }}
                 />
+ 
+                {/* Desktop Stats */}
+                <motion.div
+                  className="hidden md:flex gap-5 pt-0 translate-y-8"
+                  variants={statsVariants}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                >
+                  <div className="text-left">
+                    <motion.div
+                      className="text-xl text-white mb-2 font-medium"
+                      variants={numberVariants}
+                    >
+                      200+
+                    </motion.div>
+ 
+                    <motion.p
+                      className="text-white/80 text-sm uppercase leading-tight"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 1.5 }}
+                    >
+                      Expert <br /> Solution
+                    </motion.p>
+                  </div>
+ 
+                  <div className="text-left">
+                    <motion.div
+                      className="text-xl text-white mb-2 font-medium"
+                      variants={numberVariants}
+                    >
+                      200+
+                    </motion.div>
+ 
+                    <motion.p
+                      className="text-white/80 text-sm uppercase leading-tight"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 1.7 }}
+                    >
+                      Enterprises <br /> to Thrive
+                    </motion.p>
+                  </div>
+                </motion.div>
  
                 {error && (
                   <motion.p
@@ -563,7 +608,7 @@ const HomeCard = () => {
                 )}
  
                 <motion.div
-                  className="flex justify-end w-full pt-2 px-3 md:px-0"
+                  className="flex justify-end w-full pt-2 md:pt-0 px-3 md:px-0 md:-translate-y-11.5"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 1.3 }}
@@ -597,7 +642,9 @@ const HomeCard = () => {
         </motion.div>
  
         <motion.div
-          className={`flex gap-8 ${pathname === "/solutions" ? "hidden" : ""}`}
+          className={`md:hidden flex gap-8 ${
+            pathname === "/solutions" ? "hidden" : ""
+          }`}
           variants={statsVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -654,4 +701,5 @@ const HomeCard = () => {
 };
  
 export default HomeCard;
+ 
  

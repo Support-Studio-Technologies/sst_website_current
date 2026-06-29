@@ -24,7 +24,7 @@ export async function POST(req) {
 
     await transporter.sendMail({
       from: `"Calendly Bot" <${process.env.NOTIFY_EMAIL}>`,
-      to: "yourteam@company.com",
+      to: "pdhanoosh@isupportz.com",
       subject: "New Demo Scheduled via Calendly",
       html: `
         <div style="font-family:sans-serif;line-height:1.5">
