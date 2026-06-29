@@ -142,8 +142,8 @@ export default function LanguageSelector({ isNavbarLight }) {
           </span>
         </span>
  
-        <span className="sm:hidden text-xs uppercase">
-          {selected.language.code.split("-")[0]}
+        <span className="sm:hidden text-xs ">
+          {selected.country}
         </span>
  
         <ChevronDown
@@ -248,7 +248,7 @@ export default function LanguageSelector({ isNavbarLight }) {
                                 {item.flag}
                               </span>
  
-                              <div>
+                              <div className="text-left">
                                 <p
                                   className={`text-sm font-medium ${
                                     isSelected
@@ -281,4 +281,5 @@ export default function LanguageSelector({ isNavbarLight }) {
     </div>
   );
 }
+ 
  

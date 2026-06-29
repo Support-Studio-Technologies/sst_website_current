@@ -12,11 +12,13 @@ import logo4 from "../../assets/Navbar/SST_logo.svg";
 import logo5 from "../../assets/Navbar/SST_logo_black.svg";
 import { validRoutes } from "../Constants/Routes/routes";
 import LanguageSelector from "../languageselector/Language_selector.jsx";
+import ContactUsButton from "../Contactusbutton/contact_us_button";
  
  
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [openGroups, setOpenGroups] = useState({});
   const pathname = usePathname();
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -105,64 +107,122 @@ const Navbar = () => {
     setIsServicesOpen(false);
   };
  
-  const servicesMenu = {
+  const toggleGroup = (key) => {
+    setOpenGroups((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+ 
+const servicesMenu =
+{
   industries: [
     {
       title: "Manufacturing",
-      items: ["Automotive", "Industrial Equipment", "Electronics"],
+      items: [
+        { name: "Automotive", href: "/services" },
+        { name: "Industrial Equipment", href: "/services" },
+        { name: "Electronics", href: "/services" },
+      ],
     },
     {
       title: "Retail",
-      items: ["E-Commerce", "Fashion", "Consumer Goods"],
+      items: [
+        { name: "E-Commerce", href: "/services" },
+        { name: "Fashion", href: "/services" },
+        { name: "Consumer Goods", href: "/services" },
+      ],
     },
     {
       title: "Healthcare",
-      items: ["Hospitals", "Pharmaceuticals", "Medical Devices"],
+      items: [
+        { name: "Hospitals", href: "/services" },
+        { name: "Pharmaceuticals", href: "/services" },
+        { name: "Medical Devices", href: "/services" },
+      ],
     },
   ],
  
   services: [
     {
       title: "SAP Solutions",
-      items: ["SAP S/4HANA", "SAP BTP", "SAP Analytics Cloud"],
+      items: [
+        { name: "SAP S/4HANA", href: "/services" },
+        { name: "SAP BTP", href: "/services" },
+        { name: "SAP Analytics Cloud", href: "/services" },
+      ],
     },
     {
       title: "Digital Transformation",
-      items: ["Cloud Migration", "Process Automation", "AI Integration"],
+      items: [
+        { name: "Cloud Migration", href: "/services" },
+        { name: "Process Automation", href: "/services" },
+        { name: "AI Integration", href: "/services" },
+      ],
     },
     {
       title: "Product Engineering",
-      items: ["Web Applications", "Mobile Apps", "SaaS Platforms"],
+      items: [
+        { name: "Web Applications", href: "/services" },
+        { name: "Mobile Apps", href: "/services" },
+        { name: "SaaS Platforms", href: "/services" },
+      ],
     },
   ],
  
   capabilities: [
     {
       title: "Design",
-      items: ["UI/UX", "Design Systems", "Branding"],
+      items: [
+        { name: "UI/UX", href: "/services" },
+        { name: "Design Systems", href: "/services" },
+        { name: "Branding", href: "/services" },
+      ],
     },
     {
       title: "Development",
-      items: ["Frontend", "Backend", "Full Stack"],
+      items: [
+        { name: "Frontend", href: "/services" },
+        { name: "Backend", href: "/services" },
+        { name: "Full Stack", href: "/services" },
+      ],
     },
     {
       title: "Consulting",
-      items: ["Strategy", "Architecture", "Optimization"],
+      items: [
+        { name: "Strategy", href: "/services" },
+        { name: "Architecture", href: "/services" },
+        { name: "Optimization", href: "/services" },
+      ],
     },
   ],
  
   technologies: [
     {
       title: "Platforms",
-      items: ["SAP", "AWS", "Azure", "Google Cloud"],
+      items: [
+        { name: "SAP", href: "/services" },
+        { name: "AWS", href: "/services" },
+        { name: "Azure", href: "/services" },
+        { name: "Google Cloud", href: "/services" },
+      ],
     },
     {
       title: "Frameworks",
-      items: ["React", "Next.js", "Node.js", "Python"],
+      items: [
+        { name: "React", href: "/services" },
+        { name: "Next.js", href: "/services" },
+        { name: "Node.js", href: "/services" },
+        { name: "Python", href: "/services" },
+      ],
     },
     {
       title: "Emerging Tech",
-      items: ["AI/ML", "GenAI", "Data Analytics"],
+      items: [
+        { name: "AI/ML", href: "/services" },
+        { name: "GenAI", href: "/services" },
+        { name: "Data Analytics", href: "/services" },
+      ],
     },
   ],
 };
@@ -347,18 +407,18 @@ const Navbar = () => {
  
                                   <ul className="space-y-1">
                                     {group.items.map((item) => (
-                                      <li key={item}>
-                                        <Link
-                                          href="/services"
-                                          className={`block text-sm rounded-md px-2 py-1 transition-colors ${
-                                            isNavbarLight
-                                              ? "hover:bg-gray-100 text-gray-600"
-                                              : "hover:bg-white/10 text-white/70"
-                                          }`}
-                                        >
-                                          {item}
-                                        </Link>
-                                      </li>
+                                        <li key={item.href + item.name}>
+                                          <Link
+                                            href={item.href}
+                                            className={`block text-sm rounded-md px-2 py-1 transition-colors ${
+                                              isNavbarLight
+                                                ? "hover:bg-gray-100 text-gray-600"
+                                                : "hover:bg-white/10 text-white/70"
+                                            }`}
+                                          >
+                                            {item.name}
+                                          </Link>
+                                        </li>
                                     ))}
                                   </ul>
                                 </div>
@@ -402,8 +462,11 @@ const Navbar = () => {
               </div>
  
               {/* Right Side Placeholder to balance the centered layout */}
-              <div className="w-[180px] lg:flex hidden" />
-              <LanguageSelector isNavbarLight={isNavbarLight} />
+              {/* Right Side */}
+              <div className="hidden lg:flex items-center gap-3">
+                  <LanguageSelector isNavbarLight={isNavbarLight} />
+                  <ContactUsButton />
+              </div>
             </div>
           </div>
  
@@ -519,8 +582,9 @@ const Navbar = () => {
  
               {/* Dropdown */}
               <div
-                className={`overflow-hidden transition-all duration-300 ${isServicesOpen ? "max-h-[2250px] mt-2" : "max-h-0"
-                  }`}
+                className={`overflow-hidden transition-all duration-300 ${
+                  isServicesOpen ? "max-h-[3000px] mt-2" : "max-h-0"
+                }`}
               >
                 <div className="space-y-6">
                   {Object.entries(servicesMenu).map(([sectionKey, groups]) => (
@@ -529,30 +593,59 @@ const Navbar = () => {
                         {sectionKey}
                       </h3>
  
-                      {groups.map((group) => (
-                        <div
-                          key={group.title}
-                          className="mb-4 rounded-xl border border-gray-200 p-4"
-                        >
-                          <h4 className="font-medium text-gray-800 mb-2">
-                            {group.title}
-                          </h4>
+                      <div className="space-y-3">
+                        {groups.map((group) => (
+                          <div
+                            key={group.title}
+                            className="rounded-xl border border-gray-200 overflow-hidden bg-white"
+                          >
+                            <button
+                              onClick={() => toggleGroup(group.title)}
+                              className="w-full flex items-center justify-between p-4 text-left"
+                            >
+                              <span className="font-medium text-gray-800">
+                                {group.title}
+                              </span>
  
-                          <ul className="space-y-2 pl-3">
-                            {group.items.map((item) => (
-                              <li key={item}>
-                                <Link
-                                  href="/services"
-                                  onClick={closeMenu}
-                                  className="text-gray-600 hover:text-[#2d8ec5] text-base"
-                                >
-                                  {item}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
+                              <svg
+                                className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${
+                                  openGroups[group.title] ? "rotate-180" : ""
+                                }`}
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M19 9l-7 7-7-7"
+                                />
+                              </svg>
+                            </button>
+ 
+                            <div
+                              className={`overflow-hidden transition-all duration-300 ${
+                                openGroups[group.title] ? "max-h-96" : "max-h-0"
+                              }`}
+                            >
+                              <ul className="px-4 pb-4 space-y-2 border-t border-gray-100">
+                                {group.items.map((item) => (
+                                  <li key={item.href + item.name}>
+                                    <Link
+                                      href={item.href}
+                                      onClick={closeMenu}
+                                      className="block py-2 text-gray-600 hover:text-[#2d8ec5] transition-colors"
+                                    >
+                                      {item.name}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -586,6 +679,11 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+        {isMenuOpen && (
+          <div className="lg:hidden fixed bottom-6 right-6 z-[70]">
+            <ContactUsButton />
+          </div>
+        )}
       </div>
       {/* Spacer to prevent content overlap */}
       <div className="h-[64px] lg:h-[68px] w-full" />
@@ -594,3 +692,4 @@ const Navbar = () => {
 };
  
 export default Navbar;
+ 

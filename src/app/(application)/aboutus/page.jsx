@@ -6,6 +6,7 @@ import Footer from "@/components/Footer/Footer";
 import EnterpriseCard from "@/components/About us/EnterpriseCard";
 import OurStorySection from "@/components/About us/OurStorySection";
 import AboutMap from "@/components/About us/AboutMap";
+import GlobalPresenceMap from "@/components/sections/GlobalPresenceMap";
 import AboutValues from "@/components/About us/AboutValues";
 import MessageFromCEO from "@/components/About us/CEOSection";
 import AboutMission from "@/components/About us/AboutMission";
@@ -18,7 +19,8 @@ const page = () => {
       <MessageFromCEO/>
       <AboutMission />
        <AboutValues />
-      <AboutMap />
+      {/* <AboutMap /> */}
+      <GlobalPresenceMap />
       <CommonConsultation
         backgroundImage="/AboutPage/aboutus.png"
         backgroundAlt="Business Solutions"

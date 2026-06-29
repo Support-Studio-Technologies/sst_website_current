@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import { motion } from "framer-motion";
-
+ 
 const AboutMission = () => {
   // Header animation variants
   const headerVariants = {
@@ -15,7 +15,7 @@ const AboutMission = () => {
       },
     },
   };
-
+ 
   // Content animation variants
   const contentVariants = {
     hidden: { opacity: 0, x: -50 },
@@ -28,7 +28,7 @@ const AboutMission = () => {
       },
     },
   };
-
+ 
   // Image animation variants
   const imageVariants = {
     hidden: { opacity: 0, x: 50, scale: 0.95 },
@@ -42,7 +42,7 @@ const AboutMission = () => {
       },
     },
   };
-
+ 
   // Section animation variants
   const sectionVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -55,12 +55,12 @@ const AboutMission = () => {
       },
     },
   };
-
+ 
   return (
     <section className="py-10 px-4 overflow-x-hidden overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-12"
           variants={headerVariants}
           initial="hidden"
@@ -68,7 +68,7 @@ const AboutMission = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           {/* OUR VISION & MISSION Badge */}
-          <motion.div 
+          <motion.div
             className="inline-flex items-center gap-2 "
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -80,8 +80,8 @@ const AboutMission = () => {
               OUR VISION & MISSION
             </p>
           </motion.div>
-          
-          <motion.h2 
+         
+          <motion.h2
             className="text-3xl sm:text-4xl lg:text-6xl xl:text-4xl font-normal leading-tight mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -91,110 +91,101 @@ const AboutMission = () => {
             Driving Growth with <span className='gradient-text'>Purpose</span>
           </motion.h2>
         </motion.div>
-
+ 
         {/* Content Grid */}
-        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 lg:gap-0 items-center">
-          {/* Image Section - First on mobile, First on desktop */}
-          <motion.div 
-            className="order-1 lg:col-span-1 w-full flex justify-center lg:justify-start"
-            variants={imageVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <div className="relative">
+        <div className="max-w-7xl mx-auto">
+ 
+            {/* Vision Section */}
+            <div className="flex flex-col lg:grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-center">
+ 
+              {/* Vision Image */}
               <motion.div
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-                className="w-full"
+                variants={imageVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="order-1 w-full"
               >
                 <Image
-                  src="/AboutPage/AboutMission.png"
-                  alt="Team collaboration and growth"
-                  width={350}
-                  height={350}
-                  className="rounded-2xl w-120 h-90 object-contain"
-                  priority
+                  src="/AboutPage/Vision.jpg"
+                  alt="Vision"
+                  width={700}
+                  height={467}
+                  className="w-full max-w-[560px] mx-auto aspect-[3/2] object-cover rounded-[32px]"
                 />
               </motion.div>
+ 
+              {/* Vision Content */}
+              <motion.div
+                variants={contentVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="order-2 px-2 sm:px-4 lg:px-0"
+              >
+                <h3 className="text-3xl lg:text-5xl font-bold mb-5">
+                  Vision
+                </h3>
+ 
+                <p className="text-gray-600 text-lg md:text-2xl leading-relaxed max-w-[650px] text-justify">
+                  Our vision is to become the trusted global technology partner that
+                  empowers enterprises to achieve sustainable growth. We do this by
+                  driving innovation, fostering collaboration, and delivering intelligent
+                  transformation that prepares businesses for the future.
+                </p>
+              </motion.div>
+ 
             </div>
-          </motion.div>
-
-          {/* Text Content - Second on mobile, Second on desktop */}
-          <motion.div 
-            className="order-2 lg:col-span-2  w-full"
-            variants={contentVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            {/* Vision Section */}
-            <motion.div
-              className="lg:border-b-2 lg:border-gray-300 border-b-2 border-gray-300 lg:pb-6 mb-6 pb-6"
-              variants={sectionVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <motion.h3 
-                className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 lg:mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                Vision
-              </motion.h3>
-              <motion.p 
-                className="text-gray-600 leading-relaxed text-base sm:text-lg"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                Our vision is to become the trusted global technology partner that empowers enterprises to achieve sustainable 
-                growth. We do this by driving innovation, fostering collaboration, and delivering intelligent transformation that 
-                prepares businesses for the future.
-              </motion.p>
-            </motion.div>
-
+ 
+            {/* Divider */}
+            <div className="border-t border-gray-300 my-12 lg:my-12"></div>
+ 
             {/* Mission Section */}
-            <motion.div
-              variants={sectionVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              <motion.h3 
-                className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 lg:mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+            <div className="flex flex-col lg:grid lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-16 items-center">
+ 
+              {/* Mobile Image First */}
+              <motion.div
+                variants={imageVariants}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                className="order-1 lg:order-2 w-full"
               >
-                Mission
-              </motion.h3>
-              <motion.p 
-                className="text-gray-600 leading-relaxed text-base sm:text-lg"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                <Image
+                  src="/AboutPage/Mission.jpg"
+                  alt="Mission"
+                  width={700}
+                  height={467}
+                  className="w-full max-w-[560px] mx-auto aspect-[3/2] object-cover rounded-[32px]"
+                />
+              </motion.div>
+ 
+              {/* Mission Content */}
+              <motion.div
+                variants={contentVariants}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                className="order-2 lg:order-1 px-2 sm:px-4 lg:px-0"
               >
-                To deliver scalable, future-ready enterprise solutions that connect people, processes, and technology by blending 
-                certified expertise with innovation, we empower organizations to reimagine their business models, improve efficiency, 
-                and stay competitive in a digital-first world.
-              </motion.p>
-            </motion.div>
-          </motion.div>
-        </div>
+                <h3 className="text-3xl lg:text-5xl font-bold mb-5">
+                  Mission
+                </h3>
+ 
+                <p className="text-gray-600 text-lg md:text-2xl leading-relaxed max-w-[650px] text-justify">
+                  To deliver scalable, future-ready enterprise solutions that connect
+                  people, processes, and technology by blending certified expertise with
+                  innovation, we empower organizations to reimagine their business
+                  models, improve efficiency, and stay competitive in a digital-first
+                  world.
+                </p>
+              </motion.div>
+            </div>
+      </div>
       </div>
     </section>
   );
 };
-
+ 
 export default AboutMission;
+ 

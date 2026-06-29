@@ -48,11 +48,7 @@ export default function Page() {
           />
 
           <div
-            className="absolute inset-0 z-10"
-            style={{
-              backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2))`,
-              backgroundBlendMode: "overlay",
-            }}
+            className="absolute inset-0 z-10"           
           />
 
           <Navbar />

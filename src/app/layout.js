@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <main className="min-h-screen">{children}</main>
         {/* <ScrollToTop /> */}
-        <ContactUsButton />
+        {/* <ContactUsButton /> */}
         {/* <BackgroundMusic /> */}
         <CookieConsent /> 
       </body>

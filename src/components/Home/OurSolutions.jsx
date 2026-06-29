@@ -63,7 +63,7 @@ const OurSolutions = () => {
   };
  
   return (
-    <section className="py-4 sm:py-8 lg:py-12 ">
+    <section className="hidden md:flex flex-col py-4 sm:py-8 lg:py-12 ">
       {/* Hero section with content-based height */}
       <div className="relative overflow-hidden mb-8 sm:mb-12 lg:mb-16 sm:-mt-20">
         <div className="absolute inset-0 z-0 w-full h-full">

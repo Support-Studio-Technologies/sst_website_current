@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BiStar } from "react-icons/bi";
+import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
 import Image from "next/image";
 import Icon from "../../assets/Home/testinomials/Icon.svg";
 import backgroundImage from "../../assets/Home/testinomials/CTA_BG.png";
@@ -12,16 +12,19 @@ const TestimonialsPage = () => {
     {
       name: "Jacob Jones",
       title: "SAP Services",
+      rating: 5,
       text: "Streamline business processes and accelerate digital transformation with our expert SAP consulting, implementation, and managed support services.",
     },
     {
       name: "Marcus Chen",
       title: "Quality Deliverables",
+      rating: 3.5,
       text: "Consistently delivering dependable, high-quality solutions that help businesses achieve their goals with confidence.",
     },
     {
       name: "Sarah Williams",
       title: "Trusted Partner",
+      rating: 4,
       text: "More than a service provider, they became a trusted partner who understood our goals and consistently delivered solutions that exceeded expectations.",
     },
   ];
@@ -302,14 +305,26 @@ const TestimonialsPage = () => {
             className="bg-black/30 backdrop-blur-md w-full w-full rounded-2xl p-8 shadow-xl border border-white/20 mt-4 text-center"
           >
             <motion.div
-              className="flex justify-center mb-6"
+              className="flex justify-center items-center gap-1 mb-6"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
             >
-              {[...Array(5)].map((_, i) => (
-                <motion.div key={i} custom={i} variants={starVariants}>
-                  <BiStar className="w-6 h-6 fill-[#FDC776] text-[#FDC776]" />
+              {[1, 2, 3, 4, 5].map((star, i) => (
+                <motion.div
+                  key={star}
+                  custom={i}
+                  variants={starVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {testimonials[currentTestimonial].rating >= star ? (
+                    <FaStar className="w-6 h-6 text-[#FDC776]" />
+                  ) : testimonials[currentTestimonial].rating >= star - 0.5 ? (
+                    <FaStarHalfAlt className="w-6 h-6 text-[#FDC776]" />
+                  ) : (
+                    <FaRegStar className="w-6 h-6 text-[#FDC776]" />
+                  )}
                 </motion.div>
               ))}
             </motion.div>
