@@ -1,46 +1,41 @@
 "use client";
-import { useState, useEffect, ChangeEvent, FormEvent } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { useState, useEffect, FormEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Settings, CheckCircle, AlertCircle, Loader2, User, Mail, MessageSquare, ChevronDown } from "lucide-react";
 
-interface ServiceOption {
+interface Service {
   id: string;
   name: string;
+  slug: string;
 }
 
 export default function ServiceInquiryForm() {
-  const [services, setServices] = useState<ServiceOption[]>([]);
+  const [services, setServices] = useState<Service[]>([]);
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
     serviceId: "",
     message: "",
     consentGiven: false,
   });
-  const [status, setStatus] = useState<"idle" | "loadingServices" | "submitting" | "success" | "error">("loadingServices");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [loadingServices, setLoadingServices] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    const fetchServices = async () => {
+    async function fetchServices() {
       try {
-        const { data, error } = await supabase.from("services").select("id, name");
-        if (error) throw error;
-        setServices(data || []);
-        setStatus("idle");
+        const res = await fetch("/api/services");
+        const json = await res.json();
+        if (json.success) setServices(json.data);
       } catch (err) {
-        console.error("Error fetching services:", err);
-        setStatus("idle"); 
+        console.error("Failed to load services");
+      } finally {
+        setLoadingServices(false);
       }
-    };
+    }
     fetchServices();
   }, []);
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    // @ts-ignore
-    const checked = type === "checkbox" ? (e.target as HTMLInputElement).checked : undefined;
-    setFormData((prev) => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
-  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -48,87 +43,159 @@ export default function ServiceInquiryForm() {
     setErrorMessage("");
 
     try {
-      // 1. Create Lead First
-      const { data: leadData, error: leadError } = await supabase.from("leads").insert([
-        {
-          first_name: formData.firstName,
-          last_name: formData.lastName,
-          email: formData.email,
-          lead_source: "Service Inquiry",
-          consent_given: formData.consentGiven,
-        }
-      ]).select('id').single();
+      const nameParts = formData.name.trim().split(" ");
+      const firstName = nameParts[0];
+      const lastName = nameParts.slice(1).join(" ") || "Client";
 
-      if (leadError) throw leadError;
+      const payload = {
+        first_name: firstName,
+        last_name: lastName,
+        email: formData.email.trim().toLowerCase(),
+        service_id: formData.serviceId,
+        inquiry_type: "Service Detail", // Matches Enum
+        problem_summary: formData.message,
+        lead_source: "Service Detail Ingestion",
+        consent_given: formData.consentGiven,
+      };
 
-      // 2. Create Inquiry record
-      const { error: inquiryError } = await supabase.from("inquiries").insert([
-        {
-          lead_id: leadData.id,
-          service_id: formData.serviceId,
-          message: formData.message,
-          inquiry_type: "Service Specific",
-        }
-      ]);
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-      if (inquiryError) throw inquiryError;
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Inquiry capture failed.");
 
       setStatus("success");
-      setFormData({ firstName: "", lastName: "", email: "", serviceId: "", message: "", consentGiven: false });
+      setFormData({ name: "", email: "", serviceId: "", message: "", consentGiven: false });
     } catch (err: any) {
-      console.error(err);
       setStatus("error");
-      setErrorMessage(err.message || "Failed to submit inquiry.");
+      setErrorMessage(err.message || "A system error occurred. Please try again.");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-xl mx-auto p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-       <h2 className="text-2xl font-bold text-gray-900 mb-6">Inquire About Our Services</h2>
-       {status === 'success' && (
-        <div className="mb-6 p-4 bg-green-50 text-green-800 rounded-md border border-green-200">
-          Your inquiry has been sent successfully.
-        </div>
-      )}
-      {status === 'error' && (
-        <div className="mb-6 p-4 bg-red-50 text-red-800 rounded-md border border-red-200">
-          {errorMessage}
-        </div>
-      )}
-       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-         <div>
-           <label className="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
-           <input required type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md" />
-         </div>
-         <div>
-           <label className="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
-           <input required type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md" />
-         </div>
-       </div>
-       <div className="mb-4">
-         <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-         <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md" />
-       </div>
-       <div className="mb-4">
-         <label className="block text-sm font-medium text-gray-700 mb-1">Select Service *</label>
-         <select required name="serviceId" value={formData.serviceId} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md bg-white">
-           <option value="">-- Choose a Service --</option>
-           {services.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
-         </select>
-       </div>
-       <div className="mb-4">
-         <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
-         <textarea required name="message" rows={4} value={formData.message} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md"></textarea>
-       </div>
-       <div className="mb-6">
-        <label className="flex items-start text-sm">
-          <input required type="checkbox" name="consentGiven" checked={formData.consentGiven} onChange={handleChange} className="mt-1 mr-2" />
-          <span className="text-gray-600">I consent to the collection and processing of my data in accordance with standard Data Privacy regulations.</span>
-        </label>
-       </div>
-       <button disabled={status === "submitting" || status === "loadingServices"} type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-md disabled:bg-indigo-300">
-        {status === "submitting" ? "Submitting..." : "Submit Inquiry"}
-       </button>
-    </form>
+    <div className="bg-slate-900 border border-slate-800 p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
+      <div className="absolute top-0 right-0 p-8 opacity-5">
+        <Settings className="w-24 h-24 animate-spin-slow" aria-hidden="true" />
+      </div>
+
+      <div className="relative z-10">
+        <h3 id="service-inquiry-heading" className="text-2xl font-bold text-white mb-2">Service-Specific Inquiry</h3>
+        <p className="text-slate-400 text-sm mb-8">Detailed technical requests for specialized SAP and IT solutions.</p>
+
+        <form 
+          onSubmit={handleSubmit} 
+          className="space-y-6"
+          aria-labelledby="service-inquiry-heading"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="relative">
+              <label htmlFor="service-name" className="sr-only">Full Name</label>
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 w-5 h-5" aria-hidden="true" />
+              <input
+                required
+                id="service-name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                placeholder="Full Name"
+                className="w-full pl-12 pr-4 py-4 bg-slate-950 border border-slate-800 text-white rounded-2xl focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+              />
+            </div>
+            <div className="relative">
+              <label htmlFor="service-email" className="sr-only">Business Email</label>
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 w-5 h-5" aria-hidden="true" />
+              <input
+                required
+                id="service-email"
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                placeholder="Business Email"
+                className="w-full pl-12 pr-4 py-4 bg-slate-950 border border-slate-800 text-white rounded-2xl focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+              />
+            </div>
+          </div>
+
+          <div className="relative">
+            <label htmlFor="service-select" className="sr-only">Select Targeted Service</label>
+            <select
+              required
+              id="service-select"
+              value={formData.serviceId}
+              onChange={(e) => setFormData({ ...formData, serviceId: e.target.value })}
+              className="w-full px-5 py-4 bg-slate-950 border border-slate-800 text-white rounded-2xl focus:ring-2 focus:ring-blue-500/50 outline-none transition-all appearance-none cursor-pointer"
+            >
+              <option value="">{loadingServices ? "Loading services..." : "Select Targeted Service"}</option>
+              {services.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+            </select>
+            <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" aria-hidden="true" />
+          </div>
+
+          <div className="relative">
+            <label htmlFor="service-message" className="sr-only">Technical requirement details</label>
+            <MessageSquare className="absolute left-4 top-5 text-slate-500 w-5 h-5" aria-hidden="true" />
+            <textarea
+              required
+              id="service-message"
+              rows={4}
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              placeholder="Technical requirement details..."
+              className="w-full pl-12 pr-4 py-4 bg-slate-950 border border-slate-800 text-white rounded-2xl focus:ring-2 focus:ring-blue-500/50 outline-none transition-all resize-none"
+            />
+          </div>
+
+          <div className="flex items-center gap-3 px-2">
+            <input
+              required
+              type="checkbox"
+              id="serviceConsent"
+              checked={formData.consentGiven}
+              onChange={(e) => setFormData({ ...formData, consentGiven: e.target.checked })}
+              className="w-5 h-5 rounded border-slate-800 bg-slate-950 text-blue-500 focus:ring-offset-slate-900 cursor-pointer"
+            />
+            <label htmlFor="serviceConsent" className="text-[10px] sm:text-xs text-slate-500 font-medium cursor-pointer">
+              I agree to the regional data processing terms (GCC/GDPR compliant).
+            </label>
+          </div>
+
+          <button
+            disabled={status === "submitting" || loadingServices}
+            type="submit"
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:opacity-90 text-white font-bold py-5 rounded-2xl transition-all shadow-xl shadow-blue-500/10 flex items-center justify-center gap-3 disabled:opacity-50"
+          >
+            {status === "submitting" ? (
+              <>
+                <Loader2 className="w-6 h-6 animate-spin" aria-hidden="true" />
+                Submitting Request
+              </>
+            ) : status === "success" ? (
+              <>
+                <CheckCircle className="w-6 h-6 text-green-400" aria-hidden="true" />
+                Inquiry Sent
+              </>
+            ) : (
+              "Submit Technical Inquiry"
+            )}
+          </button>
+
+          <AnimatePresence>
+            {status === "error" && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                role="alert"
+                className="bg-red-500/10 border border-red-500/20 p-4 rounded-xl flex items-center gap-3 text-red-400 text-xs font-bold"
+              >
+                <AlertCircle className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
+                {errorMessage}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </form>
+      </div>
+    </div>
   );
 }

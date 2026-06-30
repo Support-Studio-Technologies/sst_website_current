@@ -13,10 +13,10 @@ const Form = () => {
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   // Calendly Modal State
   const [showCalendly, setShowCalendly] = useState(false);
-  
+
   // MUI Snackbar states
   const [notification, setNotification] = useState({
     open: false,
@@ -101,14 +101,14 @@ const Form = () => {
 
         if (!res.ok) {
           const errorData = await res.json();
-          
+
           // Show error notification
           setNotification({
             open: true,
             message: errorData.error || "Something went wrong",
             severity: 'error'
           });
-          
+
           throw new Error(errorData.error || "Something went wrong");
         }
 
@@ -132,18 +132,18 @@ const Form = () => {
         });
       } catch (error) {
         console.error("Error:", error.message);
-        
+
         // Show error notification if not already shown
         if (!notification.open) {
           setNotification({
             open: true,
-            message: error.message === "This email is already registered" 
-              ? "This email is already registered" 
+            message: error.message === "This email is already registered"
+              ? "This email is already registered"
               : "An error occurred. Please try again.",
             severity: 'error'
           });
         }
-      } 
+      }
       finally {
         setIsSubmitting(false);
       }
@@ -170,9 +170,8 @@ const Form = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Enter Your Name"
-                className={`w-full px-3 py-2 border placeholder-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 ${
-                  errors.name ? 'border-red-400 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
-                }`}
+                className={`w-full px-3 py-2 border placeholder-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 ${errors.name ? 'border-red-400 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+                  }`}
               />
               {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
             </div>
@@ -188,9 +187,8 @@ const Form = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your Email"
-                className={`w-full px-3 py-2 border placeholder-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 ${
-                  errors.email ? 'border-red-400 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
-                }`}
+                className={`w-full px-3 py-2 border placeholder-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 ${errors.email ? 'border-red-400 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+                  }`}
               />
               {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
             </div>
@@ -209,9 +207,8 @@ const Form = () => {
                 value={formData.companyName}
                 onChange={handleChange}
                 placeholder="Company name"
-                className={`w-full px-3 py-2 border placeholder-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 ${
-                  errors.companyName ? 'border-red-400 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
-                }`}
+                className={`w-full px-3 py-2 border placeholder-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 ${errors.companyName ? 'border-red-400 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+                  }`}
               />
               {errors.companyName && <p className="text-red-500 text-xs mt-1">{errors.companyName}</p>}
             </div>
@@ -225,9 +222,8 @@ const Form = () => {
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
-                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 bg-white ${
-                  errors.country ? 'border-red-400 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 bg-white ${errors.country ? 'border-red-400 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+                  }`}
               >
                 <option value="">Select a country</option>
                 <option value="AU">Australia</option>
@@ -252,9 +248,8 @@ const Form = () => {
               onChange={handleChange}
               placeholder="Type your message..."
               rows={4}
-              className={`w-full px-3 py-2 border placeholder-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 resize-vertical ${
-                errors.message ? 'border-red-400 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
-              }`}
+              className={`w-full px-3 py-2 border placeholder-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 resize-vertical ${errors.message ? 'border-red-400 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+                }`}
             />
             {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
           </div>
@@ -279,11 +274,10 @@ const Form = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`flex items-center gap-2 bg-[#2d8ec5] text-white font-medium py-2 px-6 rounded-md transition duration-200 ease-in-out ${
-                  isSubmitting
-                    ? 'opacity-80 cursor-not-allowed'
-                    : 'hover:bg-blue-400'
-                }`}
+                className={`flex items-center gap-2 bg-[#2d8ec5] text-white font-medium py-2 px-6 rounded-md transition duration-200 ease-in-out ${isSubmitting
+                  ? 'opacity-80 cursor-not-allowed'
+                  : 'hover:bg-blue-400'
+                  }`}
               >
                 {isSubmitting ? (
                   <>
@@ -315,8 +309,8 @@ const Form = () => {
         onClose={handleCloseNotification}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <Alert 
-          onClose={handleCloseNotification} 
+        <Alert
+          onClose={handleCloseNotification}
           severity={notification.severity}
           variant="filled"
           sx={{ width: '100%' }}

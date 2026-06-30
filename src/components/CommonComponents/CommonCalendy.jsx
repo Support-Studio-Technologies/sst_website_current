@@ -11,12 +11,12 @@ import { InlineWidget } from "react-calendly";
  * @param {string} calendlyUrl - Your Calendly scheduling URL
  * @param {object} pageSettings - Optional Calendly page settings (colors, etc.)
  */
-export default function CalendlyModal({ 
-  isOpen, 
-  onClose, 
-// To use this Calendly modal, first create an account at https://calendly.com,
-// set up your meeting event (e.g., 30-minute call), and then replace the calendlyUrl
-// with your own Calendly link (for example: https://calendly.com/your-username/30min).
+export default function CalendlyModal({
+  isOpen,
+  onClose,
+  // To use this Calendly modal, first create an account at https://calendly.com,
+  // set up your meeting event (e.g., 30-minute call), and then replace the calendlyUrl
+  // with your own Calendly link (for example: https://calendly.com/your-username/30min).
   calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/pdhanoosh-isupportz/new-meeting",
   pageSettings = {
     backgroundColor: "ffffff",
@@ -48,13 +48,13 @@ export default function CalendlyModal({
         >
           ✕
         </button>
-        
+
         {/* Calendly Widget Container - Full Height with Internal Scrolling */}
         <div className="flex-1 overflow-hidden rounded-2xl">
           <InlineWidget
             url={calendlyUrl}
-            styles={{ 
-              height: "100%", 
+            styles={{
+              height: "100%",
               width: "100%",
               minHeight: "100%"
             }}

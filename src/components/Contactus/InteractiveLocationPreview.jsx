@@ -253,7 +253,7 @@ const InteractiveLocationPreview = () => {
                                         >
                                             <iframe
                                                 src={mapEmbedUrl}
-                                                className="absolute top-0 left-0 w-full h-full border-0 pointer-events-none scale-100 rounded-t-3xl"
+                                                className="absolute top-0 left-0 w-full h-full border-0 pointer-events-none scale-110 rounded-t-3xl"
                                                 allowFullScreen=""
                                                 loading="lazy"
                                                 title="Map Thumbnail"

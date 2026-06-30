@@ -7,7 +7,7 @@ import SAP from "../../assets/Home/OurServiceIcons/SAP_Services.svg";
 import MicroServices from "../../assets/Home/OurServiceIcons/Micro_Service.svg";
 import DesignServices from "../../assets/Home/OurServiceIcons/Design_Services.svg";
 import CloudServices from "../../assets/Home/OurServiceIcons/Cloud_Services.svg";
- 
+
 // Main OurSolutions component
 const OurSolutions = () => {
   const textVariants = {
@@ -21,7 +21,7 @@ const OurSolutions = () => {
       },
     },
   };
- 
+
   const staggerContainer = {
     hidden: { opacity: 0 },
     visible: {
@@ -32,7 +32,7 @@ const OurSolutions = () => {
       },
     },
   };
- 
+
   const gridItemVariants = {
     hidden: {
       opacity: 0,
@@ -49,7 +49,7 @@ const OurSolutions = () => {
       },
     },
   };
- 
+
   const heroVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
@@ -61,7 +61,7 @@ const OurSolutions = () => {
       },
     },
   };
- 
+
   return (
     <section className="hidden md:flex flex-col py-4 sm:py-8 lg:py-12 ">
       {/* Hero section with content-based height */}
@@ -76,7 +76,7 @@ const OurSolutions = () => {
             className="w-full h-full object-cover"
           />
         </div>
- 
+
         <div className="relative z-10 w-full py-8 sm:py-24 lg:py-50 px-4 sm:px-24 lg:px-24">
           <motion.div
             className="text-center max-w-4xl mx-auto"
@@ -91,51 +91,30 @@ const OurSolutions = () => {
           >
             {/* Service badge - responsive spacing */}
             <motion.div
-            className="flex items-center justify-center mt-[-25px] md:mt-[-102px] mb-4 sm:mb-6"
+              className="flex items-center justify-center mt-[-25px] md:mt-[-102px] mb-4 sm:mb-6"
               variants={textVariants}
             >
-            <span className="text-blue-500 mr-2 text-sm sm:text-base">✦</span>
-            <p className="text-gray-600 text-xs sm:text-sm font-medium tracking-[0.2em] uppercase">
- 
-                            OUR SOLUTIONS
-            </p>
+              <span className="text-blue-500 mr-2 text-sm sm:text-base">✦</span>
+              <p className="text-gray-600 text-xs sm:text-sm font-medium tracking-[0.2em] uppercase">
+
+                OUR SOLUTIONS
+              </p>
             </motion.div>
- 
-                        {/* Main heading - responsive text sizes */}
-            <motion.h1
- 
-                          variants={heroVariants}
- 
-                          className="
- 
-                            text-center
- 
-                            text-3xl
- 
-                            leading-snug
- 
-                            px-4
-           
-                            sm:text-4xl
- 
-                            md:text-5xl
- 
-                            lg:text-6xl
- 
-                            xl:text-7xl
- 
-                          "
+
+            {/* Main heading - responsive text sizes */}
+            <motion.h2
+              variants={heroVariants}
+              className="text-center text-3xl leading-snug px-4 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
             >
- 
-                          Future-ready Solutions for
-            <br className="hidden sm:block" />
-            <span className="gradient-text sm:inline"> Enterprise Growth</span>
-            </motion.h1>
-            </motion.div>
- 
+              Future-ready Solutions for
+              <br className="hidden sm:block" />
+              <span className="gradient-text sm:inline"> Enterprise Growth</span>
+            </motion.h2>
+          </motion.div>
+
         </div>
       </div>
- 
+
       {/* 4-column services grid section */}
       <div className="px-0 sm:px-8 lg:px-24 sm:-mt-30">
         {/* Desktop/Tablet Grid View */}
@@ -157,13 +136,13 @@ const OurSolutions = () => {
           >
             <Image
               src={SAP}
-              alt="Service 1"
+              alt="Comprehensive SAP Managed Services Icon"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               className="object-contain p-2"
             />
           </motion.div>
- 
+
           {/* Grid Item 2 */}
           <motion.div
             className="relative overflow-hidden h-50 md:h-96 sm:h-96"
@@ -171,13 +150,13 @@ const OurSolutions = () => {
           >
             <Image
               src={MicroServices}
-              alt="Service 2"
+              alt="Microservices Engineering and Architecture Icon"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               className="object-contain p-2"
             />
           </motion.div>
- 
+
           {/* Grid Item 3 */}
           <motion.div
             className="relative overflow-hidden h-50 md:h-96 sm:h-96"
@@ -185,13 +164,13 @@ const OurSolutions = () => {
           >
             <Image
               src={CloudServices}
-              alt="Service 3"
+              alt="Cloud Infrastructure and Managed Hosting Icon"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               className="object-contain p-2"
             />
           </motion.div>
- 
+
           {/* Grid Item 4 */}
           <motion.div
             className="relative overflow-hidden h-50 md:h-96 sm:h-96"
@@ -199,21 +178,21 @@ const OurSolutions = () => {
           >
             <Image
               src={DesignServices}
-              alt="Service 4"
+              alt="UI/UX Design and Product Strategy Icon"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               className="object-contain p-2"
             />
           </motion.div>
         </motion.div>
- 
+
         {/* Mobile Accordion View */}
-        <div className="block md:hidden mx-auto">
+        {/* <div className="block md:hidden mx-auto">
           <SolutionsStackedCards />
-        </div>
+        </div> */}
       </div>
     </section>
   );
 };
- 
+
 export default OurSolutions;

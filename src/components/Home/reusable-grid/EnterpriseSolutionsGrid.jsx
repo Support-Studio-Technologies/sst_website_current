@@ -55,7 +55,7 @@ function Badge({ label, gradientStyle }) {
   return (
     <div
       className="inline-flex items-center justify-center px-[8px] py-[8px] relative rounded-[16px] self-start"
-      // style={{ backgroundImage: gradientStyle }}
+    // style={{ backgroundImage: gradientStyle }}
     >
       {/* <div aria-hidden className="absolute border-[0.25px] border-solid border-white inset-[-0.125px] pointer-events-none rounded-[16.125px]" /> */}
       <span className="relative text-[12px] text-white leading-[12px] whitespace-nowrap" style={{ fontFamily: "Inter, sans-serif" }}>
@@ -90,11 +90,11 @@ function Sap() {
       <div className="absolute inset-0 overflow-hidden rounded-[8px] pointer-events-none">
         <img alt="" className="absolute inset-0 w-full h-full object-cover " src={imgSap.src || imgSap} />
         <div className="absolute inset-0 rounded-[8px] pointer-events-none"
-            style={{
-              backgroundImage:
-                "linear-gradient(220.601deg, rgba(0,0,0,0) 27.8%, rgb(0,71,112) 100%)",
-            }}
-          />
+          style={{
+            backgroundImage:
+              "linear-gradient(220.601deg, rgba(0,0,0,0) 27.8%, rgb(0,71,112) 100%)",
+          }}
+        />
       </div>
       <div
         className="absolute pointer-events-none"
@@ -155,8 +155,8 @@ function PhotoCard({ badge, badgeGradient, title, description, imgSrc, imgClass,
 
 export default function EnterpriseSolutionsGrid() {
   return (
-    <div className="min-h-screen bg-white">
-      <section className="w-full pb-16 sm:pb-20">
+    <div className="bg-white py-8">
+      <section className="w-full pb-8 sm:pb-20">
 
         {/* Single responsive grid — 1 col on mobile, 2 on tablet, 4 on desktop */}
         <div className="w-full max-w-[1312px] mx-auto px-13 sm:px-8 xl:px-0">

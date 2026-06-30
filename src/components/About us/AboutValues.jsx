@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
- 
+
 const AboutValues = () => {
   const headerVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -14,7 +14,7 @@ const AboutValues = () => {
       },
     },
   };
- 
+
   const cardVariants = {
     hidden: {
       opacity: 0,
@@ -31,7 +31,7 @@ const AboutValues = () => {
       },
     },
   };
- 
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -42,7 +42,7 @@ const AboutValues = () => {
       },
     },
   };
- 
+
   const values = [
     {
       id: 1,
@@ -63,7 +63,7 @@ const AboutValues = () => {
         "We uphold quality, transparency, and accountability to deliver reliable clint solutions.",
     },
   ];
- 
+
   return (
     <section className=" lg:py-5 px-4 overflow-x-hidden overflow-hidden">
       <div className="max-w-7xl mx-auto ">
@@ -86,7 +86,7 @@ const AboutValues = () => {
               OUR VALUES
             </p>
           </motion.div>
- 
+
           <motion.h2
             className="text-4xl lg:text-6xl xl:text-4xl font-normal leading-tight mb-4"
             initial={{ opacity: 0, y: 20 }}
@@ -97,7 +97,7 @@ const AboutValues = () => {
             The Principles That <span className="gradient-text"> Guide Us</span>
           </motion.h2>
         </motion.div>
- 
+
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
@@ -124,7 +124,7 @@ const AboutValues = () => {
                   className="object-cover"
                 />
               </div>
- 
+
               <div className="relative z-10 h-full flex flex-col justify-end">
                 <motion.h3
                   className="text-2xl font-semibold text-white mb-4 leading-tight"
@@ -135,7 +135,7 @@ const AboutValues = () => {
                 >
                   {value.title}
                 </motion.h3>
- 
+
                 <motion.p
                   className="text-white text-base leading-relaxed"
                   initial={{ opacity: 0, y: 20 }}
@@ -153,7 +153,6 @@ const AboutValues = () => {
     </section>
   );
 };
- 
+
 export default AboutValues;
- 
- 
+

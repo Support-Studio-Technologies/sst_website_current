@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/admin/', '/private/', '/api/', '/_next/'],
+      disallow: ['/admin', '/private', '/api', '/_next'],
     },
     sitemap: 'https://www.supportstudio.tech/sitemap.xml',
   };

@@ -49,9 +49,9 @@ const CyclingMarquee = ({ logos, logosPerSet, intervalTime }) => {
     <div className="mx-2 sm:mx-4 lg:mx-6 mb-4 sm:mb-6 lg:mb-8 overflow-x-hidden">
       <div className="py-4 sm:py-6 lg:py-8 px-2 sm:px-4 lg:px-6 flex flex-col justify-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px]">
         <p className="text-center text-gray-600 text-xs sm:text-sm font-medium tracking-wider uppercase mb-3 sm:mb-4 lg:mb-6 px-2">
-        <span className="text-blue-500 mr-2 text-sm sm:text-base">
-          ✦
-        </span>
+          <span className="text-blue-500 mr-2 text-sm sm:text-base">
+            ✦
+          </span>
           OUR PROUD PARTNERS
         </p>
 
@@ -97,11 +97,10 @@ const CyclingMarquee = ({ logos, logosPerSet, intervalTime }) => {
             <button
               key={index}
               onClick={() => setCurrentSet(index)}
-              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
-                index === currentSet
+              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${index === currentSet
                   ? "bg-blue-600 w-4 sm:w-6"
                   : "bg-gray-300 hover:bg-gray-400"
-              }`}
+                }`}
             />
           ))}
         </div>

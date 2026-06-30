@@ -387,13 +387,13 @@ const Home = () => {
               </p>
             </motion.div>
 
-            <motion.h1
+            <motion.h2
               className="text-4xl lg:text-6xl xl:text-4xl font-normal leading-tight mb-4"
               variants={headerVariants}
             >
               Our Enterprise
               <span className="gradient-text"> Services</span>
-            </motion.h1>
+            </motion.h2>
 
             <motion.div
               className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12"

@@ -16,7 +16,7 @@ const page = () => {
       <AboutHeader />
       <EnterpriseCard />
       <OurStorySection />
-      <MessageFromCEO/>
+      <MessageFromCEO />
       <AboutMission />
        <AboutValues />
       {/* <AboutMap /> */}

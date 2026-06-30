@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import background from "../../assets/aboutus/Aboutus_bg_lineart.svg";
- 
+
 const containerVariants = {
   hidden: {},
   visible: {
@@ -13,7 +13,7 @@ const containerVariants = {
     },
   },
 };
- 
+
 const fadeAndScaleUp = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
   visible: {
@@ -23,7 +23,7 @@ const fadeAndScaleUp = {
     transition: { duration: 0.7, ease: "easeOut" },
   },
 };
- 
+
 const fadeLeft = {
   hidden: { opacity: 0, x: -60, filter: "blur(5px)" },
   visible: {
@@ -33,7 +33,7 @@ const fadeLeft = {
     transition: { duration: 0.9, ease: "easeOut" },
   },
 };
- 
+
 const fadeRight = {
   hidden: { opacity: 0, x: 60, filter: "blur(5px)" },
   visible: {
@@ -43,7 +43,7 @@ const fadeRight = {
     transition: { duration: 0.9, ease: "easeOut" },
   },
 };
- 
+
 const dotVariants = {
   hidden: { scale: 0, opacity: 0 },
   visible: {
@@ -52,7 +52,7 @@ const dotVariants = {
     transition: { duration: 0.6, ease: "backOut" },
   },
 };
- 
+
 const lineVariants = {
   hidden: { height: 0, y: 100 },
   visible: {
@@ -61,7 +61,7 @@ const lineVariants = {
     transition: { duration: 1.8, ease: "easeInOut" },
   },
 };
- 
+
 const OurStorySection = () => {
   return (
     <div className="relative min-h-screen bg-white overflow-hidden overflow-x-hidden ">
@@ -76,7 +76,7 @@ const OurStorySection = () => {
           className="w-full h-full object-cover"
         />
       </div>
- 
+
       {/* Main content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-16">
         {/* Header */}
@@ -117,21 +117,21 @@ const OurStorySection = () => {
             technology.
           </p>
         </motion.div>
- 
+
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full">
             {/* Glow */}
             <div className="absolute left-1/2 -translate-x-1/2 h-full w-5 bg-blue-200/10 blur-xl" />
- 
+
             {/* Main line */}
             <motion.div
               variants={lineVariants}
               className="relative mx-auto w-[2px] h-full bg-gradient-to-b from-cyan-400 via-blue-500 to-cyan-300 shadow-[0_0_15px_rgba(59,130,246,0.5)]"
             />
           </div>
- 
+
           {/* Timeline container with stagger effect */}
           <motion.div
             className="space-y-16"
@@ -164,11 +164,11 @@ const OurStorySection = () => {
               {/* Year */}
               <div className="w-1/2 pl-10 md:pl-15">
                 <span className="text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-                    2020
+                  2020
                 </span>
               </div>
             </motion.div>
- 
+
             {/* Second milestone (Right) */}
             <motion.div
               className="relative flex items-center"
@@ -199,7 +199,7 @@ const OurStorySection = () => {
                 </p>
               </div>
             </motion.div>
- 
+
             {/* Third milestone (Left) */}
             <motion.div
               className="relative flex items-center"
@@ -226,11 +226,11 @@ const OurStorySection = () => {
               {/* Year */}
               <div className="w-1/2 pl-10 md:pl-15">
                 <span className="text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-                    2023
+                  2023
                 </span>
               </div>
             </motion.div>
- 
+
             {/* Fourth milestone (Right) */}
             <motion.div
               className="relative flex items-center"
@@ -268,7 +268,6 @@ const OurStorySection = () => {
     </div>
   );
 };
- 
+
 export default OurStorySection;
- 
- 
+

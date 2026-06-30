@@ -1,12 +1,15 @@
 "use client";
 
-import Link from "next/link";
-import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
+import { HiOutlineCalendarDays } from "react-icons/hi2";
 
-const ContactUsButton = ({ floating = false }) => {
+const BookAcallButton = ({
+  floating = false,
+  setShowCalendly,
+}) => {
   return (
-    <Link
-      href="/contact-us"
+    <button
+      type="button"
+      onClick={() => setShowCalendly(true)}
       className={`
         inline-flex items-center gap-2
         px-4 py-2
@@ -16,12 +19,12 @@ const ContactUsButton = ({ floating = false }) => {
         ${floating ? "fixed bottom-10 right-6 z-50" : ""}
       `}
     >
-      <HiOutlineChatBubbleLeftRight className="text-xl" />
+      <HiOutlineCalendarDays className="text-xl" />
       <span className="font-medium whitespace-nowrap">
-        Contact Us
+        Schedule a Call
       </span>
-    </Link>
+    </button>
   );
 };
 
-export default ContactUsButton;
+export default BookAcallButton;

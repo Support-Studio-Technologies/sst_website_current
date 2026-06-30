@@ -182,9 +182,9 @@ export default function SAPAICapabilities() {
       <CalendlyModal
         isOpen={showCalendly}
         onClose={() => setShowCalendly(false)}
-       // To use this Calendly modal, first create an account at https://calendly.com,
-       // set up your meeting event (e.g., 30-minute call), and then replace the calendlyUrl
-       // with your own Calendly link (for example: https://calendly.com/your-username/30min).
+        // To use this Calendly modal, first create an account at https://calendly.com,
+        // set up your meeting event (e.g., 30-minute call), and then replace the calendlyUrl
+        // with your own Calendly link (for example: https://calendly.com/your-username/30min).
         calendlyUrl={process.env.NEXT_PUBLIC_CALENDLY_URL}
         pageSettings={{
           backgroundColor: "ffffff",

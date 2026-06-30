@@ -1,5 +1,5 @@
 "use client";
- 
+
 import React, { useState, useEffect } from "react";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 import Link from "next/link";
@@ -13,19 +13,22 @@ import logo5 from "../../assets/Navbar/SST_logo_black.svg";
 import { validRoutes } from "../Constants/Routes/routes";
 import LanguageSelector from "../languageselector/Language_selector.jsx";
 import ContactUsButton from "../Contactusbutton/contact_us_button";
- 
- 
+import BookAcallButton from "../BookAcallButton/BookAcall_button";
+import CalendlyModal from "../CommonComponents/CommonCalendy";
+
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showCalendly, setShowCalendly] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [openGroups, setOpenGroups] = useState({});
   const pathname = usePathname();
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
- 
+
   const lightThemeRoutes = ["/privacyPolicy", "/ssterrors", "/termsOfService"];
- 
+
   const navLinkClass = `
                           relative py-2 px-3
                           transition-colors duration-300
@@ -46,10 +49,10 @@ const Navbar = () => {
                           hover:after:scale-x-100
                           hover:text-[#2d8ec5]
                         `;
- 
+
   const isLight = lightThemeRoutes.includes(pathname) || !validRoutes.includes(pathname);
   const isNavbarLight = isLight || isScrolled;
- 
+
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -57,30 +60,30 @@ const Navbar = () => {
       document.body.style.overflow = "unset";
     }
   }, [isMenuOpen]);
- 
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
- 
+
       if (currentScrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
- 
+
       // Always show navbar near the top of the page (within 10px)
       if (currentScrollY <= 10) {
         setVisible(true);
         setLastScrollY(currentScrollY);
         return;
       }
- 
+
       // Check threshold (at least 10px scroll difference) to prevent jitter
       const scrollDifference = currentScrollY - lastScrollY;
       if (Math.abs(scrollDifference) < 10) {
         return;
       }
- 
+
       if (scrollDifference > 0) {
         // Scrolling down
         setVisible(false);
@@ -88,145 +91,145 @@ const Navbar = () => {
         // Scrolling up
         setVisible(true);
       }
- 
+
       setLastScrollY(currentScrollY);
     };
- 
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
- 
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
- 
+
   const closeMenu = () => {
     setIsMenuOpen(false);
     setIsServicesOpen(false);
   };
- 
+
   const toggleGroup = (key) => {
     setOpenGroups((prev) => ({
       ...prev,
       [key]: !prev[key],
     }));
   };
- 
-const servicesMenu =
-{
-  industries: [
-    {
-      title: "Manufacturing",
-      items: [
-        { name: "Automotive", href: "/services" },
-        { name: "Industrial Equipment", href: "/services" },
-        { name: "Electronics", href: "/services" },
-      ],
-    },
-    {
-      title: "Retail",
-      items: [
-        { name: "E-Commerce", href: "/services" },
-        { name: "Fashion", href: "/services" },
-        { name: "Consumer Goods", href: "/services" },
-      ],
-    },
-    {
-      title: "Healthcare",
-      items: [
-        { name: "Hospitals", href: "/services" },
-        { name: "Pharmaceuticals", href: "/services" },
-        { name: "Medical Devices", href: "/services" },
-      ],
-    },
-  ],
- 
-  services: [
-    {
-      title: "SAP Solutions",
-      items: [
-        { name: "SAP S/4HANA", href: "/services" },
-        { name: "SAP BTP", href: "/services" },
-        { name: "SAP Analytics Cloud", href: "/services" },
-      ],
-    },
-    {
-      title: "Digital Transformation",
-      items: [
-        { name: "Cloud Migration", href: "/services" },
-        { name: "Process Automation", href: "/services" },
-        { name: "AI Integration", href: "/services" },
-      ],
-    },
-    {
-      title: "Product Engineering",
-      items: [
-        { name: "Web Applications", href: "/services" },
-        { name: "Mobile Apps", href: "/services" },
-        { name: "SaaS Platforms", href: "/services" },
-      ],
-    },
-  ],
- 
-  capabilities: [
-    {
-      title: "Design",
-      items: [
-        { name: "UI/UX", href: "/services" },
-        { name: "Design Systems", href: "/services" },
-        { name: "Branding", href: "/services" },
-      ],
-    },
-    {
-      title: "Development",
-      items: [
-        { name: "Frontend", href: "/services" },
-        { name: "Backend", href: "/services" },
-        { name: "Full Stack", href: "/services" },
-      ],
-    },
-    {
-      title: "Consulting",
-      items: [
-        { name: "Strategy", href: "/services" },
-        { name: "Architecture", href: "/services" },
-        { name: "Optimization", href: "/services" },
-      ],
-    },
-  ],
- 
-  technologies: [
-    {
-      title: "Platforms",
-      items: [
-        { name: "SAP", href: "/services" },
-        { name: "AWS", href: "/services" },
-        { name: "Azure", href: "/services" },
-        { name: "Google Cloud", href: "/services" },
-      ],
-    },
-    {
-      title: "Frameworks",
-      items: [
-        { name: "React", href: "/services" },
-        { name: "Next.js", href: "/services" },
-        { name: "Node.js", href: "/services" },
-        { name: "Python", href: "/services" },
-      ],
-    },
-    {
-      title: "Emerging Tech",
-      items: [
-        { name: "AI/ML", href: "/services" },
-        { name: "GenAI", href: "/services" },
-        { name: "Data Analytics", href: "/services" },
-      ],
-    },
-  ],
-};
- 
+
+  const servicesMenu =
+  {
+    industries: [
+      {
+        title: "Manufacturing",
+        items: [
+          { name: "Automotive", href: "/services" },
+          { name: "Industrial Equipment", href: "/services" },
+          { name: "Electronics", href: "/services" },
+        ],
+      },
+      {
+        title: "Retail",
+        items: [
+          { name: "E-Commerce", href: "/services" },
+          { name: "Fashion", href: "/services" },
+          { name: "Consumer Goods", href: "/services" },
+        ],
+      },
+      {
+        title: "Healthcare",
+        items: [
+          { name: "Hospitals", href: "/services" },
+          { name: "Pharmaceuticals", href: "/services" },
+          { name: "Medical Devices", href: "/services" },
+        ],
+      },
+    ],
+
+    services: [
+      {
+        title: "SAP Solutions",
+        items: [
+          { name: "SAP S/4HANA", href: "/services" },
+          { name: "SAP BTP", href: "/services" },
+          { name: "SAP Analytics Cloud", href: "/services" },
+        ],
+      },
+      {
+        title: "Digital Transformation",
+        items: [
+          { name: "Cloud Migration", href: "/services" },
+          { name: "Process Automation", href: "/services" },
+          { name: "AI Integration", href: "/services" },
+        ],
+      },
+      {
+        title: "Product Engineering",
+        items: [
+          { name: "Web Applications", href: "/services" },
+          { name: "Mobile Apps", href: "/services" },
+          { name: "SaaS Platforms", href: "/services" },
+        ],
+      },
+    ],
+
+    capabilities: [
+      {
+        title: "Design",
+        items: [
+          { name: "UI/UX", href: "/services" },
+          { name: "Design Systems", href: "/services" },
+          { name: "Branding", href: "/services" },
+        ],
+      },
+      {
+        title: "Development",
+        items: [
+          { name: "Frontend", href: "/services" },
+          { name: "Backend", href: "/services" },
+          { name: "Full Stack", href: "/services" },
+        ],
+      },
+      {
+        title: "Consulting",
+        items: [
+          { name: "Strategy", href: "/services" },
+          { name: "Architecture", href: "/services" },
+          { name: "Optimization", href: "/services" },
+        ],
+      },
+    ],
+
+    technologies: [
+      {
+        title: "Platforms",
+        items: [
+          { name: "SAP", href: "/services" },
+          { name: "AWS", href: "/services" },
+          { name: "Azure", href: "/services" },
+          { name: "Google Cloud", href: "/services" },
+        ],
+      },
+      {
+        title: "Frameworks",
+        items: [
+          { name: "React", href: "/services" },
+          { name: "Next.js", href: "/services" },
+          { name: "Node.js", href: "/services" },
+          { name: "Python", href: "/services" },
+        ],
+      },
+      {
+        title: "Emerging Tech",
+        items: [
+          { name: "AI/ML", href: "/services" },
+          { name: "GenAI", href: "/services" },
+          { name: "Data Analytics", href: "/services" },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
       <nav
@@ -274,7 +277,7 @@ const servicesMenu =
                       className="w-10.5 h-10.5 transition-all duration-300 ease-out"
                     />
                   </div>
- 
+
                   {/* Company Name Reveal */}
                   <div
                     className="
@@ -300,13 +303,13 @@ const servicesMenu =
                     />
                   </div>
                 </Link>
- 
+
                 {/* Subtle vertical separator line */}
                 <div
                   className={`h-8 w-[1px] ${isNavbarLight ? "bg-gray-400/40" : "bg-white/20"
                     }`}
                 />
- 
+
                 {/* SAP Partner Logo */}
                 <Link href="/" className="flex items-center flex-shrink-0">
                   <Image
@@ -318,7 +321,7 @@ const servicesMenu =
                   />
                 </Link>
               </div>
- 
+
               {/* Center Menu (Absolutely Centered) */}
               <div className="absolute left-1/2 -translate-x-1/2">
                 <ul className="flex items-center gap-3">
@@ -333,7 +336,7 @@ const servicesMenu =
                   >
                     Home
                   </Link>
- 
+
                   <li className="relative group">
                     <Link
                       href="/services"
@@ -345,7 +348,7 @@ const servicesMenu =
                         }`}
                     >
                       Services
- 
+
                       <svg
                         className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"
                         fill="none"
@@ -360,7 +363,7 @@ const servicesMenu =
                         />
                       </svg>
                     </Link>
- 
+
                     {/* Dropdown */}
                     <div
                       className="
@@ -376,7 +379,7 @@ const servicesMenu =
                           : "bg-neutral-900/85 border-white/10"
                           }`}
                       /> */}
- 
+
                       <div
                         className={`rounded-3xl shadow-2xl min-w-[1150px] p-8 border transition-colors duration-500 backdrop-blur-md ${isNavbarLight
                           ? "bg-white/80 border-gray-200/30 text-gray-800"
@@ -384,53 +387,50 @@ const servicesMenu =
                           }`}
                       >
                         <div className="grid grid-cols-4 gap-8">
-                        {Object.entries(servicesMenu).map(([sectionKey, groups]) => (
-                          <div key={sectionKey}>
-                            <h3
-                              className={`text-sm font-semibold uppercase tracking-wider mb-5 ${
-                                isNavbarLight ? "text-gray-500" : "text-gray-400"
-                              }`}
-                            >
-                              {sectionKey}
-                            </h3>
- 
-                            <div className="space-y-5">
-                              {groups.map((group) => (
-                                <div key={group.title}>
-                                  <h4
-                                    className={`font-medium mb-2 ${
-                                      isNavbarLight ? "text-gray-900" : "text-white"
-                                    }`}
-                                  >
-                                    {group.title}
-                                  </h4>
- 
-                                  <ul className="space-y-1">
-                                    {group.items.map((item) => (
+                          {Object.entries(servicesMenu).map(([sectionKey, groups]) => (
+                            <div key={sectionKey}>
+                              <h3
+                                className={`text-sm font-semibold uppercase tracking-wider mb-5 ${isNavbarLight ? "text-gray-500" : "text-gray-400"
+                                  }`}
+                              >
+                                {sectionKey}
+                              </h3>
+
+                              <div className="space-y-5">
+                                {groups.map((group) => (
+                                  <div key={group.title}>
+                                    <h4
+                                      className={`font-medium mb-2 ${isNavbarLight ? "text-gray-900" : "text-white"
+                                        }`}
+                                    >
+                                      {group.title}
+                                    </h4>
+
+                                    <ul className="space-y-1">
+                                      {group.items.map((item) => (
                                         <li key={item.href + item.name}>
                                           <Link
                                             href={item.href}
-                                            className={`block text-sm rounded-md px-2 py-1 transition-colors ${
-                                              isNavbarLight
-                                                ? "hover:bg-gray-100 text-gray-600"
-                                                : "hover:bg-white/10 text-white/70"
-                                            }`}
+                                            className={`block text-sm rounded-md px-2 py-1 transition-colors ${isNavbarLight
+                                              ? "hover:bg-gray-100 text-gray-600"
+                                              : "hover:bg-white/10 text-white/70"
+                                              }`}
                                           >
                                             {item.name}
                                           </Link>
                                         </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              ))}
+                                      ))}
+                                    </ul>
+                                  </div>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        ))}
-                      </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </li>
- 
+
                   <li>
                     <Link
                       href="/aboutus"
@@ -444,7 +444,7 @@ const servicesMenu =
                       About
                     </Link>
                   </li>
- 
+
                   <li>
                     <Link
                       href="/contact-us"
@@ -460,16 +460,17 @@ const servicesMenu =
                   </li>
                 </ul>
               </div>
- 
+
               {/* Right Side Placeholder to balance the centered layout */}
               {/* Right Side */}
               <div className="hidden lg:flex items-center gap-3">
-                  <LanguageSelector isNavbarLight={isNavbarLight} />
-                  <ContactUsButton />
+                <LanguageSelector isNavbarLight={isNavbarLight} />
+                {/* <ContactUsButton /> */}
+                <BookAcallButton setShowCalendly={setShowCalendly} />
               </div>
             </div>
           </div>
- 
+
           {/* Improved Mobile Layout Header */}
           <div className={`flex justify-between items-center lg:hidden w-full px-6 py-2.5 md:px-8 md:py-5 border-b shadow-md transition-all duration-500 ease-in-out backdrop-blur-md ${isNavbarLight
             ? "bg-white/80 border-gray-200/20 text-black shadow-md"
@@ -484,7 +485,7 @@ const servicesMenu =
                 height={40}
               />
             </Link>
- 
+
             {/* Mobile menu toggle button */}
             <button
               className={`lg:hidden transition-colors duration-300 flex items-center justify-center p-1.5 rounded-lg ${isNavbarLight
@@ -499,7 +500,7 @@ const servicesMenu =
           </div>
         </div>
       </nav>
- 
+
       {/* Full-screen Mobile Menu Overlay */}
       <div
         className={`fixed inset-0 lg:hidden transform transition-transform duration-500 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -525,7 +526,7 @@ const servicesMenu =
             </button>
           </div>
         </div>
- 
+
         {/* Menu items */}
         <div className="flex-1 overflow-y-auto px-5 py-8">
           <ul className="flex flex-col gap-6">
@@ -541,7 +542,7 @@ const servicesMenu =
                 Home
               </Link>
             </li>
- 
+
             <li>
               <div
                 className={`w-full flex items-center justify-between rounded-lg ${pathname.startsWith("/services") ? "bg-gray-100" : ""
@@ -557,7 +558,7 @@ const servicesMenu =
                 >
                   Services
                 </Link>
- 
+
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                   className="py-3 px-4 text-gray-800 hover:text-[#2d8ec5] transition-colors duration-300 flex items-center justify-center"
@@ -579,12 +580,11 @@ const servicesMenu =
                   </svg>
                 </button>
               </div>
- 
+
               {/* Dropdown */}
               <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  isServicesOpen ? "max-h-[3000px] mt-2" : "max-h-0"
-                }`}
+                className={`overflow-hidden transition-all duration-300 ${isServicesOpen ? "max-h-[3000px] mt-2" : "max-h-0"
+                  }`}
               >
                 <div className="space-y-6">
                   {Object.entries(servicesMenu).map(([sectionKey, groups]) => (
@@ -592,7 +592,7 @@ const servicesMenu =
                       <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-3">
                         {sectionKey}
                       </h3>
- 
+
                       <div className="space-y-3">
                         {groups.map((group) => (
                           <div
@@ -606,11 +606,10 @@ const servicesMenu =
                               <span className="font-medium text-gray-800">
                                 {group.title}
                               </span>
- 
+
                               <svg
-                                className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${
-                                  openGroups[group.title] ? "rotate-180" : ""
-                                }`}
+                                className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${openGroups[group.title] ? "rotate-180" : ""
+                                  }`}
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -623,11 +622,10 @@ const servicesMenu =
                                 />
                               </svg>
                             </button>
- 
+
                             <div
-                              className={`overflow-hidden transition-all duration-300 ${
-                                openGroups[group.title] ? "max-h-96" : "max-h-0"
-                              }`}
+                              className={`overflow-hidden transition-all duration-300 ${openGroups[group.title] ? "max-h-96" : "max-h-0"
+                                }`}
                             >
                               <ul className="px-4 pb-4 space-y-2 border-t border-gray-100">
                                 {group.items.map((item) => (
@@ -651,7 +649,7 @@ const servicesMenu =
                 </div>
               </div>
             </li>
- 
+
             <li>
               <Link
                 href="/aboutus"
@@ -664,7 +662,7 @@ const servicesMenu =
                 About
               </Link>
             </li>
- 
+
             <li>
               <Link
                 href="/contact-us"
@@ -681,15 +679,27 @@ const servicesMenu =
         </div>
         {isMenuOpen && (
           <div className="lg:hidden fixed bottom-6 right-6 z-[70]">
-            <ContactUsButton />
+            {/* <ContactUsButton /> */}
+            <BookAcallButton setShowCalendly={setShowCalendly} />
           </div>
         )}
       </div>
       {/* Spacer to prevent content overlap */}
       <div className="h-[64px] lg:h-[68px] w-full" />
+
+      {/* Calendly Modal */}
+      <CalendlyModal
+        isOpen={showCalendly}
+        onClose={() => setShowCalendly(false)}
+        calendlyUrl={process.env.NEXT_PUBLIC_CALENDLY_URL}
+        pageSettings={{
+          backgroundColor: "ffffff",
+          primaryColor: "#2d8ec5",
+          textColor: "#2d8ec5",
+        }}
+      />
     </>
   );
 };
- 
+
 export default Navbar;
- 
