@@ -5,7 +5,6 @@ import CommonConsultation from "@/components/CommonComponents/CommonConsulationC
 import Footer from "@/components/Footer/Footer";
 import EnterpriseCard from "@/components/About us/EnterpriseCard";
 import OurStorySection from "@/components/About us/OurStorySection";
-import AboutMap from "@/components/About us/AboutMap";
 import GlobalPresenceMap from "@/components/sections/GlobalPresenceMap";
 import AboutValues from "@/components/About us/AboutValues";
 import MessageFromCEO from "@/components/About us/CEOSection";
@@ -18,8 +17,7 @@ const page = () => {
       <OurStorySection />
       <MessageFromCEO />
       <AboutMission />
-       <AboutValues />
-      {/* <AboutMap /> */}
+      <AboutValues />
       <GlobalPresenceMap />
       <CommonConsultation
         backgroundImage="/AboutPage/aboutus.png"

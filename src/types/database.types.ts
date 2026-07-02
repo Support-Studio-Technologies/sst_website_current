@@ -44,7 +44,7 @@ export interface Database {
         };
         Update: Partial<Database['public']['Tables']['leads']['Insert']>;
       };
-      
+
       inquiries: {
         Row: {
           id: string;
@@ -140,6 +140,31 @@ export interface Database {
         };
         Update: Partial<Database['public']['Tables']['marketing_campaigns']['Insert']>;
       };
+
+      blogs: {
+        Row: {
+          id: string;
+          title: string;
+          slug: string;
+          cover_image: string;
+          author: string;
+          publish_date: string;
+          sections: Json;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          slug: string;
+          cover_image: string;
+          author: string;
+          publish_date?: string;
+          sections?: Json;
+          created_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['blogs']['Insert']>;
+      };
     };
   };
 }
+

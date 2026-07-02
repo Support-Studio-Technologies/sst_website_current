@@ -26,7 +26,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-neutral-900 text-gray-400 p-8 md:p-12 ">        
+      <footer className="bg-neutral-900 text-gray-400 p-8 md:p-12 ">
         <div className="grid grid-cols-1 md:grid-cols-6 gap-8 md:gap-16  pb-4 md:pb-12 mb-2">
           <div className="space-x-3 md:col-span-1">
             <div className="relative h-8 sm:h-10 w-auto aspect-[4/1] md:mb-12">
@@ -41,7 +41,7 @@ const Footer = () => {
             </div>
             <div className="mt-4 mb-7.5 md:mb-12">
               <h3 className="text-white text-lg font-semibold mb-4">
-              Quick Link
+                Quick Link
               </h3>
               <ul className="space-y-2">
                 <li>
@@ -77,13 +77,13 @@ const Footer = () => {
                   </Link>
                 </li> */}
                 <li>
-                <Link
-                  href="/contact-us"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Contact
-                </Link>
-              </li>
+                  <Link
+                    href="/contact-us"
+                    className="hover:text-white transition-colors duration-200"
+                  >
+                    Contact
+                  </Link>
+                </li>
                 {/* <li>
                 <Link
                   href="/sstpartner"
@@ -108,15 +108,15 @@ const Footer = () => {
                   Trust Center
                 </Link>
               </li> */}
-              {/* <li>
-                <Link
-                  href="#blog"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Contact us
-                </Link>
-              </li> */}
-              {/* <li>
+                <li>
+                  <Link
+                    href="/blog"
+                    className="hover:text-white transition-colors duration-200"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                {/* <li>
                 <Link
                   href="#contact"
                   className="hover:text-white transition-colors duration-200"
@@ -135,7 +135,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="flex space-x-3 md:col-span-1">
-            {/* <a
+              {/* <a
               href="https://www.linkedin.com/company/supportstudiotechnologies/"
               target="_blank"
               rel="noopener noreferrer"
@@ -163,7 +163,7 @@ const Footer = () => {
                 height={24}
               />
             </a> */}
-          </div>
+            </div>
           </div>
 
           <div className="md:col-span-1">
@@ -201,11 +201,11 @@ const Footer = () => {
                   Design and Development
                 </Link>
               </li>
-            </ul> 
+            </ul>
           </div>
 
           <div className="md:col-span-1">
-                <h3 className="text-white text-lg font-semibold md:mt-21.5 mb-4">Industries</h3>
+            <h3 className="text-white text-lg font-semibold md:mt-21.5 mb-4">Industries</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -260,7 +260,7 @@ const Footer = () => {
                 >
                   Book a call
                 </Link>
-              </li>              
+              </li>
             </ul>
           </div>
 
@@ -289,7 +289,7 @@ const Footer = () => {
                 <a
                   href="https://maps.app.goo.gl/pHCzqbb6vXihYvjn6"
                   className="hover:text-white transition-colors duration-200"
-                  target="_blank" 
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
                   #192, Kamaraj Salai, Puducherry, India, <br /> Pin Code - 605013

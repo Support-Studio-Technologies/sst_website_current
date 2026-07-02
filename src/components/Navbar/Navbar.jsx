@@ -21,11 +21,12 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showCalendly, setShowCalendly] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [openGroups, setOpenGroups] = useState({});
   const pathname = usePathname();
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isCapabilitiesOpen, setIsCapabilitiesOpen] = useState(false);
+  const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
 
   const lightThemeRoutes = ["/privacyPolicy", "/ssterrors", "/termsOfService"];
 
@@ -110,125 +111,50 @@ const Navbar = () => {
     setIsServicesOpen(false);
   };
 
-  const toggleGroup = (key) => {
-    setOpenGroups((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
 
-  const servicesMenu =
-  {
-    industries: [
-      {
-        title: "Manufacturing",
-        items: [
-          { name: "Automotive", href: "/services" },
-          { name: "Industrial Equipment", href: "/services" },
-          { name: "Electronics", href: "/services" },
-        ],
-      },
-      {
-        title: "Retail",
-        items: [
-          { name: "E-Commerce", href: "/services" },
-          { name: "Fashion", href: "/services" },
-          { name: "Consumer Goods", href: "/services" },
-        ],
-      },
-      {
-        title: "Healthcare",
-        items: [
-          { name: "Hospitals", href: "/services" },
-          { name: "Pharmaceuticals", href: "/services" },
-          { name: "Medical Devices", href: "/services" },
-        ],
-      },
-    ],
-
-    services: [
-      {
-        title: "SAP Solutions",
-        items: [
-          { name: "SAP S/4HANA", href: "/services" },
-          { name: "SAP BTP", href: "/services" },
-          { name: "SAP Analytics Cloud", href: "/services" },
-        ],
-      },
-      {
-        title: "Digital Transformation",
-        items: [
-          { name: "Cloud Migration", href: "/services" },
-          { name: "Process Automation", href: "/services" },
-          { name: "AI Integration", href: "/services" },
-        ],
-      },
-      {
-        title: "Product Engineering",
-        items: [
-          { name: "Web Applications", href: "/services" },
-          { name: "Mobile Apps", href: "/services" },
-          { name: "SaaS Platforms", href: "/services" },
-        ],
-      },
-    ],
-
+  const servicesMenu = {
     capabilities: [
-      {
-        title: "Design",
-        items: [
-          { name: "UI/UX", href: "/services" },
-          { name: "Design Systems", href: "/services" },
-          { name: "Branding", href: "/services" },
-        ],
-      },
-      {
-        title: "Development",
-        items: [
-          { name: "Frontend", href: "/services" },
-          { name: "Backend", href: "/services" },
-          { name: "Full Stack", href: "/services" },
-        ],
-      },
-      {
-        title: "Consulting",
-        items: [
-          { name: "Strategy", href: "/services" },
-          { name: "Architecture", href: "/services" },
-          { name: "Optimization", href: "/services" },
-        ],
-      },
+      { name: "Enterprise Transformation", href: "/services" },
+      { name: "Artificial Intelligence", href: "/services" },
+      { name: "Cloud & Infrastructure", href: "/services" },
+      { name: "Data & Intelligence", href: "/services" },
+      { name: "Digital Engineering", href: "/services" },
+      { name: "Customer Experience", href: "/services" },
+
+      { name: "Experience Design", href: "/services" },
+      { name: "Intelligent Automation", href: "/services" },
+      { name: "Cybersecurity & Digital Trust", href: "/services" },
+      { name: "Managed Services", href: "/services" },
+      { name: "Business Advisory", href: "/services" },
+      { name: "Innovation & Emerging Technologies", href: "/services" },
     ],
 
-    technologies: [
-      {
-        title: "Platforms",
-        items: [
-          { name: "SAP", href: "/services" },
-          { name: "AWS", href: "/services" },
-          { name: "Azure", href: "/services" },
-          { name: "Google Cloud", href: "/services" },
-        ],
-      },
-      {
-        title: "Frameworks",
-        items: [
-          { name: "React", href: "/services" },
-          { name: "Next.js", href: "/services" },
-          { name: "Node.js", href: "/services" },
-          { name: "Python", href: "/services" },
-        ],
-      },
-      {
-        title: "Emerging Tech",
-        items: [
-          { name: "AI/ML", href: "/services" },
-          { name: "GenAI", href: "/services" },
-          { name: "Data Analytics", href: "/services" },
-        ],
-      },
+    industries: [
+      { name: "Manufacturing", href: "/services" },
+      { name: "Oil & Gas", href: "/services" },
+      { name: "Retail & Consumer Goods", href: "/services" },
+      { name: "Automotive", href: "/services" },
+      { name: "Utilities", href: "/services" },
+      { name: "Healthcare & Life Sciences", href: "/services" },
+
+      { name: "Banking & Financial Services", href: "/services" },
+      { name: "Construction & Engineering", href: "/services" },
+      { name: "Mining & Metals", href: "/services" },
+      { name: "Logistics & Transportation", href: "/services" },
+      { name: "Public Sector & Government", href: "/services" },
+      { name: "Chemicals", href: "/services" },
     ],
   };
+
+  const capabilityColumns = [
+    servicesMenu.capabilities.slice(0, 6),
+    servicesMenu.capabilities.slice(6),
+  ];
+
+  const industryColumns = [
+    servicesMenu.industries.slice(0, 6),
+    servicesMenu.industries.slice(6),
+  ];
 
   return (
     <>
@@ -347,7 +273,7 @@ const Navbar = () => {
                           : "text-white"
                         }`}
                     >
-                      Services
+                      What we do
 
                       <svg
                         className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"
@@ -386,46 +312,98 @@ const Navbar = () => {
                           : "bg-neutral-900/80 border-white/20 text-white"
                           }`}
                       >
-                        <div className="grid grid-cols-4 gap-8">
-                          {Object.entries(servicesMenu).map(([sectionKey, groups]) => (
-                            <div key={sectionKey}>
-                              <h3
-                                className={`text-sm font-semibold uppercase tracking-wider mb-5 ${isNavbarLight ? "text-gray-500" : "text-gray-400"
-                                  }`}
-                              >
-                                {sectionKey}
-                              </h3>
+                        <div className="grid grid-cols-4 gap-10">
 
-                              <div className="space-y-5">
-                                {groups.map((group) => (
-                                  <div key={group.title}>
-                                    <h4
-                                      className={`font-medium mb-2 ${isNavbarLight ? "text-gray-900" : "text-white"
-                                        }`}
-                                    >
-                                      {group.title}
-                                    </h4>
+                          {/* Capability Column 1 */}
+                          <div>
+                            <h3
+                              className={`text-sm font-semibold uppercase tracking-wider mb-5 ${isNavbarLight ? "text-black" : "text-white"
+                                }`}
+                            >
+                              Capabilities
+                            </h3>
 
-                                    <ul className="space-y-1">
-                                      {group.items.map((item) => (
-                                        <li key={item.href + item.name}>
-                                          <Link
-                                            href={item.href}
-                                            className={`block text-sm rounded-md px-2 py-1 transition-colors ${isNavbarLight
-                                              ? "hover:bg-gray-100 text-gray-600"
-                                              : "hover:bg-white/10 text-white/70"
-                                              }`}
-                                          >
-                                            {item.name}
-                                          </Link>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          ))}
+                            <ul className="space-y-2">
+                              {capabilityColumns[0].map((item) => (
+                                <li key={item.name}>
+                                  <Link
+                                    href={item.href}
+                                    className={`block px-2 py-1 rounded-md text-sm transition ${isNavbarLight
+                                      ? "hover:bg-gray-100 text-gray-700"
+                                      : "hover:bg-white/10 text-white/80"
+                                      }`}
+                                  >
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Capability Column 2 */}
+                          <div className="pt-9">
+                            <ul className="space-y-2">
+                              {capabilityColumns[1].map((item) => (
+                                <li key={item.name}>
+                                  <Link
+                                    href={item.href}
+                                    className={`block px-2 py-1 rounded-md text-sm transition ${isNavbarLight
+                                      ? "hover:bg-gray-100 text-gray-700"
+                                      : "hover:bg-white/10 text-white/80"
+                                      }`}
+                                  >
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Industry Column 1 */}
+                          <div>
+                            <h3
+                              className={`text-sm font-semibold uppercase tracking-wider mb-5 ${isNavbarLight ? "text-black" : "text-white"
+                                }`}
+                            >
+                              Industries
+                            </h3>
+
+                            <ul className="space-y-2">
+                              {industryColumns[0].map((item) => (
+                                <li key={item.name}>
+                                  <Link
+                                    href={item.href}
+                                    className={`block px-2 py-1 rounded-md text-sm transition ${isNavbarLight
+                                      ? "hover:bg-gray-100 text-gray-700"
+                                      : "hover:bg-white/10 text-white/80"
+                                      }`}
+                                  >
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Industry Column 2 */}
+                          <div className="pt-9">
+                            <ul className="space-y-2">
+                              {industryColumns[1].map((item) => (
+                                <li key={item.name}>
+                                  <Link
+                                    href={item.href}
+                                    className={`block px-2 py-1 rounded-md text-sm transition ${isNavbarLight
+                                      ? "hover:bg-gray-100 text-gray-700"
+                                      : "hover:bg-white/10 text-white/80"
+                                      }`}
+                                  >
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
                         </div>
                       </div>
                     </div>
@@ -441,7 +419,7 @@ const Navbar = () => {
                           : "text-white"
                         }`}
                     >
-                      About
+                      Who we are
                     </Link>
                   </li>
 
@@ -556,7 +534,7 @@ const Navbar = () => {
                     : "text-gray-800 hover:text-[#2d8ec5]"
                     }`}
                 >
-                  Services
+                  What we do
                 </Link>
 
                 <button
@@ -586,66 +564,116 @@ const Navbar = () => {
                 className={`overflow-hidden transition-all duration-300 ${isServicesOpen ? "max-h-[3000px] mt-2" : "max-h-0"
                   }`}
               >
-                <div className="space-y-6">
-                  {Object.entries(servicesMenu).map(([sectionKey, groups]) => (
-                    <div key={sectionKey}>
-                      <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-3">
-                        {sectionKey}
-                      </h3>
 
-                      <div className="space-y-3">
-                        {groups.map((group) => (
-                          <div
-                            key={group.title}
-                            className="rounded-xl border border-gray-200 overflow-hidden bg-white"
-                          >
-                            <button
-                              onClick={() => toggleGroup(group.title)}
-                              className="w-full flex items-center justify-between p-4 text-left"
+                <div className="rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden">
+
+                  {/* Header */}
+                  {/* <div className="px-4 py-3 border-b border-gray-200">
+                    <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold">
+                      Explore Services
+                    </p>
+                  </div> */}
+
+                  {/* Capabilities */}
+                  <div>
+
+                    <button
+                      onClick={() => setIsCapabilitiesOpen(!isCapabilitiesOpen)}
+                      className="w-full flex items-center justify-between px-4 py-4 hover:bg-white transition"
+                    >
+                      <span className="font-medium text-gray-800">
+                        Capabilities
+                      </span>
+
+                      <svg
+                        className={`w-5 h-5 transition-transform duration-300 ${isCapabilitiesOpen ? "rotate-180" : ""
+                          }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${isCapabilitiesOpen ? "max-h-[800px]" : "max-h-0"
+                        }`}
+                    >
+                      <div className="mx-4 border-t border-gray-200" />
+                      <ul className="pb-3">
+                        {servicesMenu.capabilities.map((item) => (
+                          <li key={item.name}>
+                            <Link
+                              href={item.href}
+                              onClick={closeMenu}
+                              className="block pl-8 pr-4 py-2 text-gray-600 hover:text-[#2d8ec5]"
                             >
-                              <span className="font-medium text-gray-800">
-                                {group.title}
-                              </span>
-
-                              <svg
-                                className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${openGroups[group.title] ? "rotate-180" : ""
-                                  }`}
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M19 9l-7 7-7-7"
-                                />
-                              </svg>
-                            </button>
-
-                            <div
-                              className={`overflow-hidden transition-all duration-300 ${openGroups[group.title] ? "max-h-96" : "max-h-0"
-                                }`}
-                            >
-                              <ul className="px-4 pb-4 space-y-2 border-t border-gray-100">
-                                {group.items.map((item) => (
-                                  <li key={item.href + item.name}>
-                                    <Link
-                                      href={item.href}
-                                      onClick={closeMenu}
-                                      className="block py-2 text-gray-600 hover:text-[#2d8ec5] transition-colors"
-                                    >
-                                      {item.name}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </div>
+                              {item.name}
+                            </Link>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
-                  ))}
+
+                  </div>
+
+                  <div className="border-t border-gray-200" />
+
+                  {/* Industries */}
+                  <div>
+
+                    <button
+                      onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
+                      className="w-full flex items-center justify-between px-4 py-4 hover:bg-white transition"
+                    >
+                      <span className="font-medium text-gray-800">
+                        Industries
+                      </span>
+
+                      <svg
+                        className={`w-5 h-5 transition-transform duration-300 ${isIndustriesOpen ? "rotate-180" : ""
+                          }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${isIndustriesOpen ? "max-h-[800px]" : "max-h-0"
+                        }`}
+                    >
+                      <div className="mx-4 border-t border-gray-200" />
+                      <ul className="pb-3">
+                        {servicesMenu.industries.map((item) => (
+                          <li key={item.name}>
+                            <Link
+                              href={item.href}
+                              onClick={closeMenu}
+                              className="block pl-8 pr-4 py-2 text-gray-600 hover:text-[#2d8ec5]"
+                            >
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                  </div>
+
                 </div>
               </div>
             </li>
@@ -659,7 +687,7 @@ const Navbar = () => {
                   }`}
                 onClick={closeMenu}
               >
-                About
+                Who we are
               </Link>
             </li>
 
@@ -703,3 +731,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
