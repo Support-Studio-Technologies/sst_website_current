@@ -17,12 +17,12 @@ function resolveApiError(code?: string, fallback?: string): string {
 }
 
 const INDUSTRIES = [
-  'Oil & Gas', 
-  'Manufacturing', 
-  'Finance', 
-  'Healthcare', 
-  'Retail', 
-  'Construction', 
+  'Oil & Gas',
+  'Manufacturing',
+  'Finance',
+  'Healthcare',
+  'Retail',
+  'Construction',
   'Public Sector'
 ] as const;
 
@@ -37,7 +37,7 @@ export default function ContactForm() {
     problemSummary: "",
     consentGiven: false,
   });
-  
+
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -109,7 +109,7 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         role="alert"
@@ -121,7 +121,7 @@ export default function ContactForm() {
         </div>
         <h2 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Requirement Captured</h2>
         <p className="text-slate-500 mb-10 text-lg font-medium">Your request has been prioritized under sst-premium. An SST transformation consultant will contact you via your business email shortly.</p>
-        <button 
+        <button
           onClick={() => setStatus("idle")}
           className="bg-slate-900 text-white font-bold py-4 px-10 rounded-2xl hover:bg-black transition-all shadow-lg active:scale-95"
         >
@@ -132,19 +132,19 @@ export default function ContactForm() {
   }
 
   return (
-    <form 
+    <form
       id="contact-enterprise-form"
-      onSubmit={handleSubmit} 
+      onSubmit={handleSubmit}
       className="w-full max-w-4xl mx-auto p-1 bg-white rounded-[3.5rem] shadow-2xl border border-gray-100 overflow-hidden"
       aria-labelledby="form-heading"
     >
       <div className="bg-slate-900 text-white p-12 rounded-[3.2rem]">
         <div className="mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
-                <Globe className="w-3.5 h-3.5" aria-hidden="true" /> GCC Global Delivery Network
-            </div>
-            <h2 id="form-heading" className="text-5xl font-black tracking-tighter mb-4 leading-none">Enterprise <br/><span className="text-blue-500">Inquiry</span></h2>
-            <p className="text-slate-400 font-medium text-lg max-w-lg leading-relaxed">Let's refine your SAP landscape. Provide your business details below to initiate a technical assessment.</p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+            <Globe className="w-3.5 h-3.5" aria-hidden="true" /> GCC Global Delivery Network
+          </div>
+          <h2 id="form-heading" className="text-5xl font-black tracking-tighter mb-4 leading-none">Enterprise <br /><span className="text-blue-500">Inquiry</span></h2>
+          <p className="text-slate-400 font-medium text-lg max-w-lg leading-relaxed">Let&apos;s refine your SAP landscape. Provide your business details below to initiate a technical assessment.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
@@ -235,18 +235,18 @@ export default function ContactForm() {
               <Briefcase className="w-3.5 h-3.5 text-blue-500" aria-hidden="true" /> Industry Sector
             </label>
             <div className="relative">
-                <select
+              <select
                 required
                 id="industry"
                 name="industry"
                 value={formData.industry}
                 onChange={handleChange}
                 className="w-full px-6 py-5 bg-slate-800/50 border border-slate-700/50 rounded-[1.5rem] focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-white appearance-none cursor-pointer"
-                >
+              >
                 <option value="" className="bg-slate-900">Select sector...</option>
                 {INDUSTRIES.map(ind => <option key={ind} value={ind} className="bg-slate-900">{ind}</option>)}
-                </select>
-                <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500" aria-hidden="true">▼</div>
+              </select>
+              <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500" aria-hidden="true">▼</div>
             </div>
           </div>
         </div>
@@ -268,15 +268,15 @@ export default function ContactForm() {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 mt-12 pt-12 border-t border-slate-800/50 p-2">
           <div className="flex items-start gap-4 flex-1 max-w-xl">
             <div className="relative flex items-center mt-1">
-                <input
-                    required
-                    id="consentGiven"
-                    name="consentGiven"
-                    type="checkbox"
-                    checked={formData.consentGiven}
-                    onChange={handleChange}
-                    className="w-6 h-6 rounded-lg border-slate-700 bg-slate-800 text-blue-500 focus:ring-blue-500/40 cursor-pointer"
-                />
+              <input
+                required
+                id="consentGiven"
+                name="consentGiven"
+                type="checkbox"
+                checked={formData.consentGiven}
+                onChange={handleChange}
+                className="w-6 h-6 rounded-lg border-slate-700 bg-slate-800 text-blue-500 focus:ring-blue-500/40 cursor-pointer"
+              />
             </div>
             <label htmlFor="consentGiven" className="text-[10px] sm:text-xs text-slate-500 leading-relaxed font-bold select-none cursor-pointer">
               By initializing this request, I consent to SST processing my professional data under GCC Regional Data Laws (UAE PDPL / Saudi PDPL) and EU GDPR protocols for enterprise consulting.
@@ -295,10 +295,10 @@ export default function ContactForm() {
                 Validating...
               </>
             ) : (
-                <>
+              <>
                 <span className="text-xl">Initialize Request</span>
                 <Send className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" aria-hidden="true" />
-                </>
+              </>
             )}
           </button>
         </div>

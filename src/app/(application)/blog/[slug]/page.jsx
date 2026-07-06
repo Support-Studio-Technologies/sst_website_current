@@ -84,33 +84,37 @@ export default function BlogPostDetailPage() {
 
     // IntersectionObserver Scroll Spy
     useEffect(() => {
-        if (!blog || !blog.sections || blog.sections.length === 0) return;
+        if (!blog?.sections?.length) return;
 
-        const headingElements = document.querySelectorAll("h2[id^='section-']");
+        const handleScroll = () => {
+            const headings = document.querySelectorAll("h2[id^='section-']");
 
-        const observerCallback = (entries) => {
-            const visibleSections = entries
-                .filter((entry) => entry.isIntersecting)
-                .map((entry) => ({
-                    id: entry.target.id,
-                    top: entry.boundingClientRect.top,
-                }));
+            const OFFSET =
+                window.innerWidth >= 1024
+                    ? window.innerHeight * 0.25 // 25% down the screen
+                    : 170;
 
-            if (visibleSections.length > 0) {
-                // Sort by top parameter to find the topmost visible section
-                visibleSections.sort((a, b) => a.top - b.top);
-                setActiveSectionId(visibleSections[0].id);
-            }
+            let active = "section-0";
+
+            headings.forEach((heading) => {
+                const rect = heading.getBoundingClientRect();
+
+                if (rect.top <= OFFSET) {
+                    active = heading.id;
+                }
+            });
+
+            setActiveSectionId((prev) =>
+                prev === active ? prev : active
+            );
         };
 
-        const observer = new IntersectionObserver(observerCallback, {
-            rootMargin: "-120px 0px -60% 0px", // triggers when heading crosses upper viewport area
-            threshold: [0, 1.0],
-        });
+        handleScroll();
 
-        headingElements.forEach((el) => observer.observe(el));
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
-        return () => observer.disconnect();
+        return () =>
+            window.removeEventListener("scroll", handleScroll);
     }, [blog]);
 
     // Scroll helper with exact offset for sticky header components
@@ -182,18 +186,9 @@ export default function BlogPostDetailPage() {
 
             {/* Header / Hero Section */}
             <header className="w-full max-w-7xl mx-auto px-6 pt-12 md:pt-20">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pb-12 border-b border-slate-200 dark:border-neutral-800">
-                    {/* Left: Cover Image */}
-                    <div className="lg:col-span-6 flex justify-center">
-                        <div className="inline-flex rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
-                            <img
-                                src={blog.cover_image}
-                                alt={blog.title}
-                                className="block max-h-[250px] md:max-h-[400px] w-auto object-contain rounded-2xl"
-                            />
-                        </div>
-                    </div>
-                    {/* Right: Meta Details */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pb-12 md:border-b md:border-slate-200 md:dark:border-neutral-800">
+
+                    {/* Left: Meta Details */}
                     <div className="lg:col-span-6 flex flex-col justify-center space-y-4 lg:pl-4">
                         <Link
                             href="/blog"
@@ -229,6 +224,17 @@ export default function BlogPostDetailPage() {
                                     </span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    {/* Right: Cover Image */}
+                    <div className="lg:col-span-6 flex justify-center">
+                        <div className="inline-flex rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
+                            <img
+                                src={blog.cover_image}
+                                alt={blog.title}
+                                className="block max-h-[250px] md:max-h-[400px] w-auto object-contain rounded-2xl"
+                            />
                         </div>
                     </div>
                 </div>
@@ -292,19 +298,32 @@ export default function BlogPostDetailPage() {
                             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
                                 Table of Contents
                             </h3>
-                            <ul className="relative space-y-4 border-l border-slate-200">
+                            <ul className="relative border-l border-slate-300 ml-2">
                                 {sections.map((sec, idx) => {
                                     const targetId = `section-${idx}`;
                                     const isActive = activeSectionId === targetId;
+
                                     return (
-                                        <li key={idx} className="pl-4 -ml-[1px]">
+                                        <li key={idx} className="relative">
                                             <button
                                                 onClick={() => scrollToSection(targetId)}
-                                                className={`block text-left text-sm font-semibold transition-all duration-300 border-l-2 pl-4 -ml-[17px] py-1 cursor-pointer w-full ${isActive
-                                                    ? "text-blue-500 border-blue-500 font-bold translate-x-1"
-                                                    : "text-slate-550 hover:text-slate-805 dark:hover:text-white"
+                                                className={`relative w-full pl-6 pr-2 py-4 text-left transition-colors duration-200 ${isActive
+                                                    ? "text-blue-600 font-semibold"
+                                                    : "text-slate-700 hover:text-slate-900"
                                                     }`}
                                             >
+                                                {isActive && (
+                                                    <motion.span
+                                                        layoutId="toc-indicator"
+                                                        className="absolute left-[-2px] top-0 h-full w-[3px] rounded-full bg-blue-500"
+                                                        transition={{
+                                                            type: "spring",
+                                                            stiffness: 450,
+                                                            damping: 35,
+                                                        }}
+                                                    />
+                                                )}
+
                                                 {sec.heading}
                                             </button>
                                         </li>
@@ -369,4 +388,5 @@ export default function BlogPostDetailPage() {
         </div>
     );
 }
+
 

@@ -1,15 +1,26 @@
 export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
 
-export type IndustryVertical = 'Oil & Gas' | 'Manufacturing' | 'Finance' | 'Healthcare' | 'Retail' | 'Construction' | 'Public Sector';
+export type IndustryVertical =
+  | 'Oil & Gas'
+  | 'Manufacturing'
+  | 'Finance'
+  | 'Healthcare'
+  | 'Retail'
+  | 'Construction'
+  | 'Public Sector';
 
-export type InquiryOrigin = 'Contact Form' | 'Service Detail' | 'Callback Request' | 'Newsletter';
+export type InquiryOrigin =
+  | 'Contact Form'
+  | 'Service Detail'
+  | 'Callback Request'
+  | 'Newsletter';
 
 export interface Database {
   public: {
     Tables: {
       leads: {
         Row: {
-          id: string; // UUID
+          id: string;
           first_name: string;
           last_name: string;
           email: string;
@@ -43,8 +54,8 @@ export interface Database {
           updated_at?: string;
         };
         Update: Partial<Database['public']['Tables']['leads']['Insert']>;
+        Relationships: [];
       };
-
       inquiries: {
         Row: {
           id: string;
@@ -67,8 +78,8 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database['public']['Tables']['inquiries']['Insert']>;
+        Relationships: [];
       };
-
       services: {
         Row: {
           id: string;
@@ -95,8 +106,8 @@ export interface Database {
           updated_at?: string;
         };
         Update: Partial<Database['public']['Tables']['services']['Insert']>;
+        Relationships: [];
       };
-
       customers: {
         Row: {
           id: string;
@@ -119,8 +130,8 @@ export interface Database {
           updated_at?: string;
         };
         Update: Partial<Database['public']['Tables']['customers']['Insert']>;
+        Relationships: [];
       };
-
       marketing_campaigns: {
         Row: {
           id: string;
@@ -139,8 +150,8 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database['public']['Tables']['marketing_campaigns']['Insert']>;
+        Relationships: [];
       };
-
       blogs: {
         Row: {
           id: string;
@@ -163,8 +174,12 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database['public']['Tables']['blogs']['Insert']>;
+        Relationships: [];
       };
     };
+    // Required by @supabase/supabase-js v2 GenericSchema constraint:
+    // GenericSchema = { Tables: Record<string, GenericTable>; Views: Record<string, GenericView>; Functions: Record<string, GenericFunction> }
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
   };
 }
-

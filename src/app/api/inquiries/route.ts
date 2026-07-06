@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
       lead_id,
       inquiry_type,
       message,
-      preferred_time,
+      preferred_callback_time,
       utm_metadata,
     } = body;
 
@@ -21,12 +21,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'lead_id is required and must be a valid UUID string.' }, { status: 400 });
     }
 
-    const validInquiryTypes = ['Contact Form', 'Callback Request', 'Direct Email', 'Other'];
+    // Must match InquiryOrigin union in database.types.ts
+    const validInquiryTypes = ['Contact Form', 'Service Detail', 'Callback Request', 'Newsletter'];
     if (!inquiry_type || !validInquiryTypes.includes(inquiry_type)) {
       return NextResponse.json(
         { error: `inquiry_type must be one of: ${validInquiryTypes.join(', ')}.` },
         { status: 400 }
       );
+    }
+
+    // message is required (non-nullable) in the DB schema
+    if (!message || typeof message !== 'string' || !message.trim()) {
+      return NextResponse.json({ error: 'message is required and must be a non-empty string.' }, { status: 400 });
     }
 
     const supabase = createAdminClient();
@@ -58,9 +64,9 @@ export async function POST(request: NextRequest) {
       .from('inquiries')
       .insert({
         lead_id,
-        inquiry_type,
-        message: message?.trim() || null,
-        preferred_time: preferred_time?.trim() || null,
+        inquiry_type: inquiry_type as 'Contact Form' | 'Service Detail' | 'Callback Request' | 'Newsletter',
+        message: message.trim(),
+        preferred_callback_time: preferred_callback_time?.trim() || null,
         utm_metadata: utm_metadata && typeof utm_metadata === 'object' ? utm_metadata : {},
       })
       .select('id')
@@ -80,6 +86,10 @@ export async function POST(request: NextRequest) {
         { error: 'Failed to register your inquiry. Please try again later.', code: inquiryError.code },
         { status: 500 }
       );
+    }
+
+    if (!newInquiry) {
+      return NextResponse.json({ error: 'Insert succeeded but no record was returned.' }, { status: 500 });
     }
 
     console.log(`[POST /api/inquiries] Successfully created inquiry. ID: ${newInquiry.id} for Lead: ${lead_id}`);

@@ -13,15 +13,27 @@ const AccordionItem = ({
   onHover,
   isGradient,
 }) => {
+  // Measure the real pixel height of the content instead of animating to
+  // "auto". Framer Motion has to briefly re-measure when animating to
+  // "auto", which can cause a small snap at the end of the transition -
+  // animating to a known pixel value removes that snap entirely.
+  const contentRef = useRef(null);
+  const [contentHeight, setContentHeight] = useState(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setContentHeight(contentRef.current.scrollHeight);
+    }
+  }, [content]);
+
   return (
     <motion.div
-      className={`rounded-xl p-4 transition-all duration-500 ease-in-out cursor-pointer transform hover:scale-[1.02] hover:shadow-xl ${
-        isOpen && isGradient
+      className={`rounded-xl p-4 transition-colors duration-500 ease-in-out cursor-pointer ${isOpen && isGradient
           ? "bg-gradient-to-r from-[#3650a5] via-[#2d8ec5] to-[#30cdb0] shadow-lg"
           : isOpen
-          ? "bg-gray-800 shadow-lg"
-          : "border border-gray-700 bg-gray-900 hover:border-gray-600"
-      }`}
+            ? "bg-gray-800 shadow-lg"
+            : "border border-gray-700 bg-gray-900 hover:border-gray-600"
+        }`}
       onMouseEnter={onHover}
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3 }}
@@ -45,9 +57,8 @@ const AccordionItem = ({
             )}
           </motion.div>
           <h3
-            className={`font-semibold transition-all duration-300 ${
-              isOpen || isGradient ? "text-white" : "text-gray-200"
-            }`}
+            className={`font-semibold transition-all duration-300 ${isOpen || isGradient ? "text-white" : "text-gray-200"
+              }`}
           >
             {title}
           </h3>
@@ -55,34 +66,34 @@ const AccordionItem = ({
         <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }}>
           {isOpen ? (
             <HiOutlineChevronUp
-              className={`w-6 h-6 transition-all duration-300 ${
-                isOpen ? "text-white rotate-180" : "text-gray-400"
-              }`}
+              className={`w-6 h-6 transition-all duration-300 ${isOpen ? "text-white rotate-180" : "text-gray-400"
+                }`}
             />
           ) : (
             <HiOutlineChevronDown
-              className={`w-6 h-6 transition-all duration-300 ${
-                isOpen ? "text-white" : "text-gray-400"
-              }`}
+              className={`w-6 h-6 transition-all duration-300 ${isOpen ? "text-white" : "text-gray-400"
+                }`}
             />
           )}
         </motion.div>
       </div>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0, marginTop: 0 }}
-            animate={{ height: "auto", opacity: 1, marginTop: 16 }}
-            exit={{ height: 0, opacity: 0, marginTop: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="text-sm text-gray-200 border-t border-white/10 pt-4">
-              <p className="leading-relaxed">{content}</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        initial={false}
+        animate={{
+          height: isOpen ? contentHeight : 0,
+          opacity: isOpen ? 1 : 0,
+          marginTop: isOpen ? 16 : 0,
+        }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className="overflow-hidden"
+      >
+        <div
+          ref={contentRef}
+          className="text-sm text-gray-200 border-t border-white/10 pt-4"
+        >
+          <p className="leading-relaxed">{content}</p>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };
@@ -120,7 +131,7 @@ const WhoWeAre = () => {
       transition: {
         duration: 0.8,
         ease: "easeOut",
-        staggerChildren: 0.15, 
+        staggerChildren: 0.15,
         when: "beforeChildren",
       },
     },
@@ -161,7 +172,12 @@ const WhoWeAre = () => {
         }}
       >
         <div className="h-[40px]"></div>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center md:grid-flow-dense">
+        {/* items-start instead of items-center: with items-center, every time
+            the accordion column's height changes (on hover), the grid
+            re-centers BOTH columns vertically, which is what produced the
+            whole-section "bounce". items-start keeps both columns anchored
+            to the top so only the accordion itself resizes. */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start md:grid-flow-dense">
           {/* Right Column on Mobile, Left on Desktop - Content */}
           <motion.div
             className="flex flex-col justify-between space-y-8 md:order-2"
@@ -177,7 +193,7 @@ const WhoWeAre = () => {
               <h1 className="text-4xl lg:text-6xl xl:text-4xl font-normal leading-tight">
                 <span>Smart Enterprise </span>
                 <span className="gradient-text bg-clip-text text-transparent">
-                   Transformation
+                  Transformation
                 </span>
               </h1>
               <motion.p
@@ -196,7 +212,7 @@ const WhoWeAre = () => {
                   end={210}
                   duration={2000}
                   suffix="+"
-                  start={isVisible} 
+                  start={isVisible}
                 />
                 <p className="mt-2 text-sm text-gray-400">
                   Projects Delivered
@@ -260,3 +276,4 @@ const WhoWeAre = () => {
 };
 
 export default WhoWeAre;
+

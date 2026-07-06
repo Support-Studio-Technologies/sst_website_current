@@ -13,13 +13,16 @@ import React from "react";
 export function Shimmer({
   className = "",
   rounded = "rounded-xl",
+  style,
 }: {
   className?: string;
   rounded?: string;
+  style?: React.CSSProperties;
 }) {
   return (
     <div
       className={`relative overflow-hidden bg-slate-100 ${rounded} ${className}`}
+      style={style}
       aria-hidden="true"
     >
       <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.6s_infinite] bg-gradient-to-r from-transparent via-white/70 to-transparent" />
@@ -329,7 +332,7 @@ export function SkeletonLogoStrip() {
           <Shimmer
             key={i}
             className="h-10 flex-shrink-0"
-            style={{ width: `${60 + (i % 3) * 20}px` } as React.CSSProperties}
+            style={{ width: `${60 + (i % 3) * 20}px` }}
             rounded="rounded-lg"
           />
         ))}

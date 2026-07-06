@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
         id,
         inquiry_type,
         message,
-        preferred_time,
+        preferred_callback_time,
         utm_metadata,
         created_at,
         leads (
@@ -55,10 +55,10 @@ export async function GET(request: NextRequest) {
           consent_given,
           created_at,
           marketing_campaigns (
-            utm_source,
-            utm_medium,
-            utm_campaign,
-            referrer_url,
+            campaign_name,
+            source,
+            medium,
+            utm_term,
             created_at
           )
         )
@@ -77,7 +77,7 @@ export async function GET(request: NextRequest) {
         );
       }
       // PostgREST syntax for filtering through a foreign table join
-      query = query.eq('leads.status', statusFilter);
+      query = query.eq('leads.status', statusFilter as 'New' | 'Contacted' | 'Qualified' | 'Lost' | 'Converted');
     }
 
     const { data, error, count } = await query;

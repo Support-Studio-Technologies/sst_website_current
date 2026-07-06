@@ -9,6 +9,7 @@ import Footer from "@/components/Footer/Footer";
 import ContentHeader from "@/components/CommonComponents/ContentHeader";
 import backgroundImage from "../../../assets/Solution/ContentBG.svg";
 import { supabase } from "@/lib/supabaseClient";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 export default function BlogPage() {
     const router = useRouter();
@@ -227,49 +228,66 @@ export default function BlogPage() {
                     /* Cards Grid List */
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {blogs.map((blog) => (
-                            <motion.div
+                            <div
                                 key={blog.id}
-                                layoutId={`card-${blog.id}`}
-                                className="group bg-white rounded-3xl overflow-hidden border border-neutral-100 dark:border-neutral-850 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full cursor-pointer relative"
                                 onClick={() => router.push(`/blog/${blog.slug}`)}
-                                transition={{ type: "spring", damping: 25, stiffness: 180 }}
+                                className="cursor-pointer"
                             >
-                                {/* Image container */}
-                                <div className="h-56 relative overflow-hidden bg-neutral-100 flex-shrink-0">
-                                    <motion.img
-                                        layoutId={`img-${blog.id}`}
-                                        src={blog.cover_image}
-                                        alt={blog.title}
-                                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                                        transition={{ type: "spring", damping: 25, stiffness: 180 }}
-                                    />
-                                </div>
+                                <CardContainer
+                                    className="inter-var w-full h-full"
+                                    containerClassName="py-0 flex-grow"
+                                >
+                                    <CardBody
+                                        className="bg-white relative shadow-md hover:shadow-2xl group/card dark:hover:shadow-2xl dark:hover:shadow-blue-500/[0.1] dark:bg-neutral-900 dark:border-neutral-850 border-neutral-100 w-full h-full rounded-3xl p-6 border flex flex-col justify-between"
+                                    >
+                                        <div className="flex flex-col flex-grow">
+                                            <CardItem translateZ="50" className="w-full mt-4">
+                                                <img
+                                                    src={blog.cover_image}
+                                                    height="1000"
+                                                    width="1000"
+                                                    className="h-60 w-full object-contain rounded-xl group-hover/card:shadow-xl"
+                                                    alt={blog.title}
+                                                />
+                                            </CardItem>
 
-                                {/* Bottom info section */}
-                                <div className="p-6 flex-1 flex flex-col justify-between">
-                                    <div>
-                                        <span className="text-xs font-semibold text-blue-500 uppercase tracking-wider block mb-2">
-                                            By {blog.author}
-                                        </span>
-                                        <h3 className="text-xl font-bold text-neutral-900 line-clamp-2 leading-snug group-hover:text-blue-500 transition-colors">
-                                            {blog.title}
-                                        </h3>
-                                    </div>
+                                            <CardItem
+                                                translateZ="0"
+                                                className="text-xs font-semibold text-blue-500 uppercase tracking-wider block mt-4 mb-2"
+                                            >
+                                                By {blog.author}
+                                            </CardItem>
 
-                                    <div className="mt-6 flex items-center justify-between pt-4 border-t border-neutral-100">
-                                        <span className="text-xs text-neutral-500">
-                                            {new Date(blog.publish_date).toLocaleDateString("en-US", {
-                                                year: "numeric",
-                                                month: "short",
-                                                day: "numeric",
-                                            })}
-                                        </span>
-                                        <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-black transition-all duration-350 transform group-hover:translate-x-0.5">
-                                            <ArrowRight className="w-4 h-4" />
+                                            <CardItem
+                                                translateZ="0"
+                                                className="text-lg font-bold text-neutral-900 dark:text-neutral-100 mt-4 line-clamp-2 group-hover/card:text-blue-500 transition-colors"
+                                            >
+                                                {blog.title}
+                                            </CardItem>
+
                                         </div>
-                                    </div>
-                                </div>
-                            </motion.div>
+                                        <div className="mt-6 flex items-center justify-between pt-4 border-t border-neutral-100 dark:border-neutral-850">
+                                            <CardItem
+                                                translateZ={20}
+                                                className="text-xs text-neutral-500"
+                                            >
+                                                {new Date(blog.publish_date).toLocaleDateString("en-US", {
+                                                    year: "numeric",
+                                                    month: "short",
+                                                    day: "numeric",
+                                                })}
+                                            </CardItem>
+                                            <CardItem
+                                                translateZ={20}
+                                                as="div"
+                                                className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center group-hover/card:bg-blue-50 group-hover/card:text-black transition-all duration-350 transform group-hover/card:translate-x-0.5"
+                                            >
+                                                <ArrowRight className="w-4 h-4" />
+                                            </CardItem>
+                                        </div>
+                                    </CardBody>
+                                </CardContainer>
+                            </div>
                         ))}
                     </div>
                 )}

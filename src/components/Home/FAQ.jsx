@@ -3,6 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { faqs } from "../Constants/Home/HomeFaqData";
 
+// Single source of truth for the open/close timing so the height
+// animation and everything around it always stays in sync.
+const ANSWER_DURATION = 0.35;
+const ANSWER_EASE = "easeInOut";
+
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -75,6 +80,8 @@ const FAQ = () => {
     },
   };
 
+  // Open and close now share the exact same duration/easing so they
+  // finish at the same time whichever direction they're running in.
   const answerVariants = {
     hidden: {
       opacity: 0,
@@ -86,9 +93,9 @@ const FAQ = () => {
       height: "auto",
       y: 0,
       transition: {
-        duration: 0.4,
-        ease: "easeOut",
-        opacity: { delay: 0.1 },
+        duration: ANSWER_DURATION,
+        ease: ANSWER_EASE,
+        opacity: { duration: ANSWER_DURATION, ease: ANSWER_EASE },
       },
     },
     exit: {
@@ -96,8 +103,9 @@ const FAQ = () => {
       height: 0,
       y: -10,
       transition: {
-        duration: 0.3,
-        ease: "easeIn",
+        duration: ANSWER_DURATION,
+        ease: ANSWER_EASE,
+        opacity: { duration: ANSWER_DURATION * 0.6, ease: ANSWER_EASE },
       },
     },
   };
@@ -158,19 +166,16 @@ const FAQ = () => {
                   transition: { duration: 0.2 },
                 }}
                 whileTap={{ scale: 0.98 }}
-                className={`rounded-lg transition-all duration-300 cursor-pointer overflow-hidden ${
-                  isOpen ? "gradient-primary" : "bg-white/70 hover:bg-white/90"
-                }`}
+                className={`rounded-lg transition-all duration-300 cursor-pointer overflow-hidden ${isOpen ? "gradient-primary" : "bg-white/70 hover:bg-white/90"
+                  }`}
                 onClick={() => handleItemClick(index)}
               >
                 <motion.div
                   className="flex justify-between items-center p-3 sm:p-4"
-                  layout
                 >
                   <h3
-                    className={`font-medium text-sm sm:text-base ${
-                      isOpen ? "text-white" : "text-gray-900"
-                    }`}
+                    className={`font-medium text-sm sm:text-base ${isOpen ? "text-white" : "text-gray-900"
+                      }`}
                   >
                     {faq.question}
                   </h3>
@@ -182,14 +187,13 @@ const FAQ = () => {
                     transition={{ duration: 0.3, ease: "easeOut" }}
                   >
                     <HiOutlineChevronDown
-                      className={`w-5 h-5 ${
-                        isOpen ? "text-white" : "text-gray-700"
-                      }`}
+                      className={`w-5 h-5 ${isOpen ? "text-white" : "text-gray-700"
+                        }`}
                     />
                   </motion.div>
                 </motion.div>
 
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
                       variants={answerVariants}
@@ -216,3 +220,4 @@ const FAQ = () => {
 };
 
 export default FAQ;
+
