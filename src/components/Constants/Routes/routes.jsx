@@ -18,6 +18,7 @@ export const validRoutes = [
   "/services/sapService/sap-analytics-cloud",
   "/services/sapService/sap-ariba",
   "/services/sapService/success-factors",
+  "/services/intelligentAutomation",
   "/solutions/erp/Hanaonpremises",
   "/solutions/businessTechnology/BTP",
   "/solutions/HCM/SAPSuccess",

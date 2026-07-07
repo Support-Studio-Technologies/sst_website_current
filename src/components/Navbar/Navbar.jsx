@@ -122,7 +122,7 @@ const Navbar = () => {
       { name: "Customer Experience", href: "/services" },
 
       { name: "Experience Design", href: "/services" },
-      { name: "Intelligent Automation", href: "/services" },
+      { name: "Intelligent Automation", href: "/services/intelligentAutomation" },
       { name: "Cybersecurity & Digital Trust", href: "/services" },
       { name: "Managed Services", href: "/services" },
       { name: "Business Advisory", href: "/services" },
