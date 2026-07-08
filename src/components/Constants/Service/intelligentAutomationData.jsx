@@ -80,37 +80,43 @@ export const intelligentAutomationData = {
                 icon: Workflow,
                 title: "Workflow Automation",
                 description: "Automate complex, cross-department workflows, reducing manual hand-offs and streamlining process execution.",
-                link: "/services/intelligentAutomation/workflow-automation"
+                link: "/services/intelligentAutomation/workflow-automation",
+                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
             },
             {
                 icon: Bot,
                 title: "Robotic Process Automation (RPA)",
                 description: "Deploy digital workers to handle repetitive, high-volume tasks such as data entry, reconciliation, and form filing.",
-                link: "/services/intelligentAutomation/rpa"
+                link: "/services/intelligentAutomation/rpa",
+                image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80"
             },
             {
                 icon: Database,
                 title: "Document Intelligence",
                 description: "Extract, classify, and process unstructured data from invoices, receipts, and emails using advanced OCR & NLP.",
-                link: "/services/intelligentAutomation/document-intelligence"
+                link: "/services/intelligentAutomation/document-intelligence",
+                image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=600&q=80"
             },
             {
                 icon: Layers,
                 title: "Decision Automation",
                 description: "Integrate Machine Learning algorithms to automate operational decisions, underwriting, and risk assessments.",
-                link: "/services/intelligentAutomation/decision-automation"
+                link: "/services/intelligentAutomation/decision-automation",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
             },
             {
                 icon: LineChart,
                 title: "Conversational AI",
                 description: "Create intelligent, context-aware chatbots and virtual agents to support 24/7 client interactions and queries.",
-                link: "/services/intelligentAutomation/conversational-ai"
+                link: "/services/intelligentAutomation/conversational-ai",
+                image: "https://images.unsplash.com/photo-1531747118685-ca8fa6e08806?auto=format&fit=crop&w=600&q=80"
             },
             {
                 icon: ShieldCheck,
                 title: "Process Mining & Analytics",
                 description: "Analyze event logs to identify operational bottlenecks, predict failure points, and optimize automated pathways.",
-                link: "/services/intelligentAutomation/process-mining"
+                link: "/services/intelligentAutomation/process-mining",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
             }
         ]
     },

@@ -57,13 +57,52 @@ const ServiceCapabilities = ({
           </h2>
         </div>
 
+        {/* Masonry-style animation CSS */}
+        <style>{`
+          @keyframes slide-in-capabilities {
+            from {
+              opacity: 0;
+              transform: scale(0.85) rotate(calc(var(--side, 1) * (5deg * var(--amp, 1))));
+            }
+            to {
+              opacity: 1;
+              transform: scale(1) rotate(0deg);
+            }
+          }
+       
+          .capabilities-card-wrapper {
+            /* Mobile: 1 column */
+            transform-origin: center bottom;
+       
+            @media (min-width: 768px) {
+              /* Tablet: 2 columns */
+              &:nth-of-type(2n + 1) { transform-origin: 25vw 100%; }
+              &:nth-of-type(2n) { transform-origin: -25vw 100%; }
+            }
+       
+            @media (min-width: 1024px) {
+              /* Desktop: 3 columns */
+              &:nth-of-type(3n + 1) { transform-origin: 33vw 100%; }
+              &:nth-of-type(3n + 2) { transform-origin: center bottom; }
+              &:nth-of-type(3n) { transform-origin: -33vw 100%; }
+            }
+       
+            /* Animation powered by CSS Scroll-Driven Animations */
+            @media (prefers-reduced-motion: no-preference) {
+              animation: slide-in-capabilities linear both;
+              animation-timeline: view();
+              animation-range: entry 0% cover 15%;
+            }
+          }
+        `}</style>
+
         {/* Capabilities Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           {items.map((item, idx) => {
             const Icon = item.icon;
@@ -71,34 +110,81 @@ const ServiceCapabilities = ({
               <motion.div
                 key={idx}
                 variants={cardVariants}
-                className="group relative bg-white border border-slate-200/80 hover:border-blue-500/20 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/5 cursor-pointer flex flex-col justify-between shadow-sm"
+                style={{
+                  '--side': idx % 2 === 0 ? 1 : -1,
+                  '--amp': Math.ceil((idx % 6) / 2) || 1,
+                }}
+                className="capabilities-card-wrapper h-full"
               >
-                <div>
-                  {/* Icon Block */}
-                  <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
-                    {Icon && <Icon className="w-6 h-6 text-blue-500 group-hover:text-white transition-colors" />}
-                  </div>
-
-                  {/* Capability Title */}
-                  <h3 className="text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">
-                    {item.title}
-                  </h3>
-
-                  {/* Capability Description */}
-                  <p className="text-sm text-slate-550 leading-relaxed mb-6 group-hover:text-slate-650 transition-colors">
-                    {item.description}
-                  </p>
-                </div>
-
-                {/* Capability Link/Arrow */}
-                {item.link && (
+                {item.link ? (
                   <Link
                     href={item.link}
-                    className="inline-flex items-center gap-2 text-xs font-semibold text-blue-600 group-hover:text-blue-700 transition-colors uppercase tracking-wider"
+                    className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white text-slate-800 shadow-sm transition-all duration-500 ease-in-out hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/20"
                   >
-                    <span>Read More</span>
-                    <HiOutlineArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                    {/* Card Image Section */}
+                    {item.image && (
+                      <div className="aspect-video w-full overflow-hidden relative bg-slate-100">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+
+                    {/* Card Content Section */}
+                    <div className="flex flex-1 flex-col p-6">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-600 group-hover:border-blue-600 transition-all duration-300">
+                          {Icon && <Icon className="w-5 h-5 text-blue-500 group-hover:text-white transition-colors" />}
+                        </div>
+                        <h3 className="text-lg font-semibold text-slate-800 transition-colors duration-300 group-hover:text-blue-600">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-slate-550 leading-relaxed flex-1">
+                        {item.description}
+                      </p>
+                      
+                      {/* Card Link/CTA */}
+                      <div className="group/button mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-600 transition-all duration-300 group-hover:underline">
+                        <span>Read More</span>
+                        <HiOutlineArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
+                      </div>
+                    </div>
                   </Link>
+                ) : (
+                  <div
+                    className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white text-slate-800 shadow-sm transition-all duration-500 ease-in-out hover:-translate-y-2 hover:shadow-xl"
+                  >
+                    {/* Card Image Section */}
+                    {item.image && (
+                      <div className="aspect-video w-full overflow-hidden relative bg-slate-100">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+
+                    {/* Card Content Section */}
+                    <div className="flex flex-1 flex-col p-6">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
+                          {Icon && <Icon className="w-5 h-5 text-blue-500" />}
+                        </div>
+                        <h3 className="text-lg font-semibold text-slate-800">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-slate-550 leading-relaxed flex-1">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
                 )}
               </motion.div>
             );
