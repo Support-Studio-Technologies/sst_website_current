@@ -1,20 +1,52 @@
 // Central frontend insights data registry for service pages.
 // Maps slugs to articles data, conforming to the [slug] rendering requirements.
-
+ 
 const unsplashImages = {
+  // Business Advisory
   strategy: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
   meeting: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+  growth: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+  manufacturing: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+  supplyChain: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+  healthcare: "https://images.unsplash.com/photo-1538108149393-fbbd8189893d?auto=format&fit=crop&w=800&q=80",
+  governance: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+  dashboard: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+ 
+  // Experience Design
   design: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
   wireframe: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
-  ux: "https://images.unsplash.com/photo-1581291518655-9523c932dedf?auto=format&fit=crop&w=800&q=80",
+  ux: "https://images.unsplash.com/photo-1541462608141-ad4979e408c9?auto=format&fit=crop&w=800&q=80",
+  portal: "https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=800&q=80",
+  telehealth: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+  ecommerce: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+ 
+  // Intelligent Automation
   automation: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+  robot: "https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=800&q=80",
+  aiWorkflows: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+  financeAuto: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
+  hrAuto: "https://images.unsplash.com/photo-1521791136368-1a46827d3ad1?auto=format&fit=crop&w=800&q=80",
+ 
+  // Managed Services
   servers: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+  monitoring: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+  cloudOps: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80",
+  posSupport: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=800&q=80",
+  businessContinuity: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+ 
+  // Cybersecurity
   cybersecurity: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
   lock: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80",
+  iamSecure: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
+  compliance: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+ 
+  // Innovation & Tech
   future: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
-  robot: "https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=800&q=80"
+  iotEdge: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+  blockchain: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80",
+  copilot: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=80"
 };
-
+ 
 // Base article metadata representing 72 items
 const rawArticles = [
   // 1. BUSINESS ADVISORY (businessAdvisory)
@@ -39,16 +71,6 @@ const rawArticles = [
     image: unsplashImages.meeting
   },
   {
-    slug: "navigating-organizational-change",
-    title: "Navigating Organizational Change: A Operational Framework",
-    description: "Learn standard practices for guiding teams through critical technology and process transformations.",
-    category: "blogs",
-    service: "businessAdvisory",
-    date: "March 20, 2026",
-    author: "Marcus Aurel, Change Lead",
-    image: unsplashImages.strategy
-  },
-  {
     slug: "maximizing-roi-advisory-services",
     title: "Maximizing ROI on Business Advisory Engagements",
     description: "How to measure, track, and sustain the concrete value aligned by consulting partners.",
@@ -56,7 +78,7 @@ const rawArticles = [
     service: "businessAdvisory",
     date: "February 12, 2026",
     author: "SST Advisory Board",
-    image: unsplashImages.meeting
+    image: unsplashImages.dashboard
   },
   {
     slug: "growth-business-scale",
@@ -66,7 +88,7 @@ const rawArticles = [
     service: "businessAdvisory",
     date: "June 10, 2026",
     author: "SST Advisory Board",
-    image: unsplashImages.strategy
+    image: unsplashImages.growth
   },
   {
     slug: "operational-efficiency-manufacturing",
@@ -76,7 +98,7 @@ const rawArticles = [
     service: "businessAdvisory",
     date: "May 25, 2026",
     author: "David Vance, Principal Advisor",
-    image: unsplashImages.meeting
+    image: unsplashImages.manufacturing
   },
   {
     slug: "retail-supply-chain-alignment",
@@ -86,7 +108,7 @@ const rawArticles = [
     service: "businessAdvisory",
     date: "April 3, 2026",
     author: "SST Advisory Board",
-    image: unsplashImages.strategy
+    image: unsplashImages.supplyChain
   },
   {
     slug: "healthcare-system-reorganization",
@@ -96,7 +118,7 @@ const rawArticles = [
     service: "businessAdvisory",
     date: "March 11, 2026",
     author: "Sarah Jenkins, Healthcare Partner",
-    image: unsplashImages.meeting
+    image: unsplashImages.healthcare
   },
   {
     slug: "sustainable-transformation",
@@ -116,7 +138,7 @@ const rawArticles = [
     service: "businessAdvisory",
     date: "December 5, 2025",
     author: "Thomas H. Lee, PMO Lead",
-    image: unsplashImages.meeting
+    image: unsplashImages.governance
   },
   {
     slug: "business-model-resilience-2026",
@@ -126,7 +148,7 @@ const rawArticles = [
     service: "businessAdvisory",
     date: "November 14, 2025",
     author: "Elena Rostova, Chief Strategy Officer",
-    image: unsplashImages.strategy
+    image: unsplashImages.growth
   },
   {
     slug: "metrics-driven-leadership-playbook",
@@ -136,9 +158,9 @@ const rawArticles = [
     service: "businessAdvisory",
     date: "October 8, 2025",
     author: "SST Advisory Board",
-    image: unsplashImages.meeting
+    image: unsplashImages.dashboard
   },
-
+ 
   // 2. EXPERIENCE DESIGN (experienceDesign)
   {
     slug: "designing-for-trust",
@@ -160,16 +182,7 @@ const rawArticles = [
     author: "Clara Zheng, Lead UI Designer",
     image: unsplashImages.wireframe
   },
-  {
-    slug: "ux-micro-animations-guide",
-    title: "How Micro-Animations Enhance Interface Engagement",
-    description: "Guiding customer attention and rewarding active workflows using subtle animation cues.",
-    category: "blogs",
-    service: "experienceDesign",
-    date: "March 9, 2026",
-    author: "SST Design Lab",
-    image: unsplashImages.ux
-  },
+ 
   {
     slug: "combining-analytics-and-user-research",
     title: "Combining Analytics and User Research for UX Wins",
@@ -188,7 +201,7 @@ const rawArticles = [
     service: "experienceDesign",
     date: "June 4, 2026",
     author: "SST Design Lab",
-    image: unsplashImages.ux
+    image: unsplashImages.portal
   },
   {
     slug: "telehealth-ux-optimization",
@@ -198,7 +211,7 @@ const rawArticles = [
     service: "experienceDesign",
     date: "May 19, 2026",
     author: "SST Design Lab",
-    image: unsplashImages.wireframe
+    image: unsplashImages.telehealth
   },
   {
     slug: "ecommerce-friction-reduction",
@@ -208,7 +221,7 @@ const rawArticles = [
     service: "experienceDesign",
     date: "April 14, 2026",
     author: "Clara Zheng, Lead UI Designer",
-    image: unsplashImages.design
+    image: unsplashImages.ecommerce
   },
   {
     slug: "b2b-saas-dashboard-simplification",
@@ -258,9 +271,9 @@ const rawArticles = [
     service: "experienceDesign",
     date: "October 15, 2025",
     author: "SST Design Board",
-    image: unsplashImages.design
+    image: unsplashImages.portal
   },
-
+ 
   // 3. INTELLIGENT AUTOMATION (intelligentAutomation)
   {
     slug: "future-hyperautomation",
@@ -290,18 +303,9 @@ const rawArticles = [
     service: "intelligentAutomation",
     date: "March 15, 2026",
     author: "SST Automation Group",
-    image: unsplashImages.automation
+    image: unsplashImages.aiWorkflows
   },
-  {
-    slug: "combining-automation-and-sap",
-    title: "Combining SAP IA and Robotic Process Automation",
-    description: "Bridging modern process mining structures with foundational ERP entries to eliminate latency.",
-    category: "blogs",
-    service: "intelligentAutomation",
-    date: "February 10, 2026",
-    author: "Michael Flynn, SAP Solutions Lead",
-    image: unsplashImages.robot
-  },
+ 
   {
     slug: "claims-intake",
     title: "Automating Claims Intake for a Top-Tier Insurer",
@@ -320,7 +324,7 @@ const rawArticles = [
     service: "intelligentAutomation",
     date: "May 14, 2026",
     author: "SST Automation Group",
-    image: unsplashImages.robot
+    image: unsplashImages.financeAuto
   },
   {
     slug: "hr-onboarding-efficiency",
@@ -330,7 +334,7 @@ const rawArticles = [
     service: "intelligentAutomation",
     date: "April 2, 2026",
     author: "Amanda Bell, HR Tech Partner",
-    image: unsplashImages.automation
+    image: unsplashImages.hrAuto
   },
   {
     slug: "inventory-tracking-optimization",
@@ -350,7 +354,7 @@ const rawArticles = [
     service: "intelligentAutomation",
     date: "Jan 12, 2026",
     author: "SST Automation Board",
-    image: unsplashImages.automation
+    image: unsplashImages.aiWorkflows
   },
   {
     slug: "enterprise-rpa-governance",
@@ -380,9 +384,9 @@ const rawArticles = [
     service: "intelligentAutomation",
     date: "October 5, 2025",
     author: "SST Automation Group",
-    image: unsplashImages.robot
+    image: unsplashImages.hrAuto
   },
-
+ 
   // 4. MANAGED SERVICES (managedServices)
   {
     slug: "managed-operations",
@@ -402,17 +406,7 @@ const rawArticles = [
     service: "managedServices",
     date: "April 29, 2026",
     author: "Devon Miller, Lead Infrastructure Specialist",
-    image: unsplashImages.automation
-  },
-  {
-    slug: "proactive-monitoring-vs-incident-response",
-    title: "Proactive Monitoring vs. Reactive Incident Response",
-    description: "Why shifts in incident prevention methodologies yield up to 45% faster resolution paths.",
-    category: "blogs",
-    service: "managedServices",
-    date: "March 11, 2026",
-    author: "SST Operations Team",
-    image: unsplashImages.servers
+    image: unsplashImages.cloudOps
   },
   {
     slug: "service-desk-smarter-support",
@@ -422,7 +416,7 @@ const rawArticles = [
     service: "managedServices",
     date: "February 27, 2026",
     author: "Amanda Ross, Service Delivery Manager",
-    image: unsplashImages.automation
+    image: unsplashImages.businessContinuity
   },
   {
     slug: "multi-region-platform",
@@ -442,7 +436,7 @@ const rawArticles = [
     service: "managedServices",
     date: "May 5, 2026",
     author: "SST Operations Team",
-    image: unsplashImages.automation
+    image: unsplashImages.cloudOps
   },
   {
     slug: "retail-pos-managed-support",
@@ -452,7 +446,7 @@ const rawArticles = [
     service: "managedServices",
     date: "April 18, 2026",
     author: "Amanda Ross, Service Delivery Manager",
-    image: unsplashImages.servers
+    image: unsplashImages.posSupport
   },
   {
     slug: "security-operations-governance",
@@ -462,7 +456,7 @@ const rawArticles = [
     service: "managedServices",
     date: "March 1, 2026",
     author: "Devon Miller, Lead Infrastructure Specialist",
-    image: unsplashImages.automation
+    image: unsplashImages.monitoring
   },
   {
     slug: "operational-readiness",
@@ -482,7 +476,7 @@ const rawArticles = [
     service: "managedServices",
     date: "December 15, 2025",
     author: "Amanda Ross, Service Delivery Manager",
-    image: unsplashImages.automation
+    image: unsplashImages.businessContinuity
   },
   {
     slug: "optimizing-cloud-spend-managed-ops",
@@ -492,7 +486,7 @@ const rawArticles = [
     service: "managedServices",
     date: "November 28, 2025",
     author: "Devon Miller, Lead Infrastructure Specialist",
-    image: unsplashImages.servers
+    image: unsplashImages.cloudOps
   },
   {
     slug: "business-continuity-playbook",
@@ -502,9 +496,9 @@ const rawArticles = [
     service: "managedServices",
     date: "October 10, 2025",
     author: "SST Operations Board",
-    image: unsplashImages.automation
+    image: unsplashImages.monitoring
   },
-
+ 
   // 5. CYBERSECURITY & DIGITAL TRUST (Cybersecurity)
   {
     slug: "cybersecurity-trends",
@@ -534,17 +528,7 @@ const rawArticles = [
     service: "Cybersecurity",
     date: "March 9, 2026",
     author: "SST Security Team",
-    image: unsplashImages.cybersecurity
-  },
-  {
-    slug: "employee-security-awareness-best-practices",
-    title: "Employee Security Awareness: Behavioral Best Practices",
-    description: "How social engineering attacks succeed, and how to train employees to detect modern phishing methods.",
-    category: "blogs",
-    service: "Cybersecurity",
-    date: "February 27, 2026",
-    author: "Victor Kane, Chief Information Security Officer",
-    image: unsplashImages.lock
+    image: unsplashImages.iamSecure
   },
   {
     slug: "cloud-security",
@@ -564,7 +548,7 @@ const rawArticles = [
     service: "Cybersecurity",
     date: "May 22, 2026",
     author: "SST Security Team",
-    image: unsplashImages.lock
+    image: unsplashImages.iamSecure
   },
   {
     slug: "soc-incident-response",
@@ -572,7 +556,7 @@ const rawArticles = [
     description: "How automated alerting pipelines reduced threat validation latency for a global SaaS client.",
     category: "case-studies",
     service: "Cybersecurity",
-    date: "April 15, 2526", // 2026
+    date: "April 15, 2026",
     author: "Victor Kane, Chief Information Security Officer",
     image: unsplashImages.cybersecurity
   },
@@ -584,7 +568,7 @@ const rawArticles = [
     service: "Cybersecurity",
     date: "March 3, 2026",
     author: "SST Security Team",
-    image: unsplashImages.lock
+    image: unsplashImages.compliance
   },
   {
     slug: "cybersecurity-framework",
@@ -614,7 +598,7 @@ const rawArticles = [
     service: "Cybersecurity",
     date: "November 5, 2025",
     author: "SST Security Board",
-    image: unsplashImages.cybersecurity
+    image: unsplashImages.compliance
   },
   {
     slug: "continuous-threat-exposure-management",
@@ -624,9 +608,9 @@ const rawArticles = [
     service: "Cybersecurity",
     date: "October 16, 2025",
     author: "Victor Kane, CISO",
-    image: unsplashImages.lock
+    image: unsplashImages.iamSecure
   },
-
+ 
   // 6. INNOVATION & EMERGING TECHNOLOGIES (Innovation)
   {
     slug: "emerging-technologies",
@@ -646,7 +630,7 @@ const rawArticles = [
     service: "Innovation",
     date: "April 30, 2026",
     author: "Diana Chen, AI Research Director",
-    image: unsplashImages.future
+    image: unsplashImages.copilot
   },
   {
     slug: "industrial-iot-future",
@@ -656,17 +640,7 @@ const rawArticles = [
     service: "Innovation",
     date: "March 15, 2026",
     author: "SST Innovation Hub",
-    image: unsplashImages.future
-  },
-  {
-    slug: "blockchain-supply-chain-trust",
-    title: "Leveraging Blockchain for Supply Chain Trust",
-    description: "Why distributed public ledger platforms offer finality and safety for global multi-party shipments.",
-    category: "blogs",
-    service: "Innovation",
-    date: "February 12, 2026",
-    author: "Diana Chen, AI Research Director",
-    image: unsplashImages.future
+    image: unsplashImages.iotEdge
   },
   {
     slug: "digital-innovation",
@@ -686,7 +660,7 @@ const rawArticles = [
     service: "Innovation",
     date: "May 20, 2026",
     author: "SST Innovation Hub",
-    image: unsplashImages.future
+    image: unsplashImages.iotEdge
   },
   {
     slug: "decentralized-identity-fintech",
@@ -696,7 +670,7 @@ const rawArticles = [
     service: "Innovation",
     date: "April 12, 2026",
     author: "Diana Chen, AI Research Director",
-    image: unsplashImages.future
+    image: unsplashImages.blockchain
   },
   {
     slug: "generative-ai-copilot-deployment",
@@ -706,7 +680,7 @@ const rawArticles = [
     service: "Innovation",
     date: "March 5, 2026",
     author: "SST Innovation Hub",
-    image: unsplashImages.future
+    image: unsplashImages.copilot
   },
   {
     slug: "emerging-technologies-guide",
@@ -726,7 +700,7 @@ const rawArticles = [
     service: "Innovation",
     date: "December 5, 2025",
     author: "Diana Chen, AI Research Director",
-    image: unsplashImages.future
+    image: unsplashImages.copilot
   },
   {
     slug: "iot-scalability-and-security",
@@ -736,7 +710,7 @@ const rawArticles = [
     service: "Innovation",
     date: "November 14, 2025",
     author: "SST Innovation Hub",
-    image: unsplashImages.future
+    image: unsplashImages.iotEdge
   },
   {
     slug: "innovation-pipelines-building-future-ready-business",
@@ -746,50 +720,29 @@ const rawArticles = [
     service: "Innovation",
     date: "October 10, 2025",
     author: "SST Innovation Hub",
-    image: unsplashImages.future
+    image: unsplashImages.blockchain
   }
 ];
-
+ 
 // Helper to generate full article mock contents based on metadata
-// Mirroring dynamic detail page requirements: title, author, publish_date, cover_image, sections
 export const getArticleBySlug = (slug) => {
   const meta = rawArticles.find(a => a.slug === slug);
   if (!meta) return null;
-
-  // Let's create high-fidelity paragraphs matching the topic context
+ 
   const introParagraph = `In the modern digital economy, success is determined by how effectively enterprises adapt to change. This document, "${meta.title}", provides a comprehensive exploration of why organizations must elevate their operational practices in relation to ${meta.service}. Under the guidance of ${meta.author}, SST has audited current trends to provide action-ready strategic insights.`;
-
   const challengeParagraph = `Many organizations encounter barriers due to legacy systems, organizational friction, or insufficient capability mapping. The transition from strategy to active deployment demands a granular analysis of these factors. Without structured governance and key stakeholder alignment, digital investments frequently fall short of expected yield.`;
-
   const implementationParagraph = `SST solves these operational challenges by deploying client-centered blueprints. Our team integrates technical expertise with deep process analysis. Whether building zero trust networks, implementing intelligent robots, or mapping custom portals, we align project delivery with commercial KPIs.`;
-
   const resultsParagraph = `Measurable outcomes are the true test of innovation. By validating execution metrics—such as system response times, manual labor optimization rates, and data security benchmarks—clients achieve sustainable growth. In our documented engagements, we consistently record substantial efficiency gains.`;
-
   const futureParagraph = `Looking toward 2027, the convergence of automated computing ecosystems and next-generation networks will accelerate transformation speed. Leadership teams must act proactively to embed resilience into their operating systems. SST remains committed to guiding this journey.`;
-
+ 
   const sections = [
-    {
-      heading: "Executive Summary",
-      content: introParagraph
-    },
-    {
-      heading: "Understanding the Challenge",
-      content: challengeParagraph
-    },
-    {
-      heading: "SST Strategy & Implementation",
-      content: implementationParagraph
-    },
-    {
-      heading: "Tangible Business Results",
-      content: resultsParagraph
-    },
-    {
-      heading: "The Road Ahead",
-      content: futureParagraph
-    }
+    { heading: "Executive Summary", content: introParagraph },
+    { heading: "Understanding the Challenge", content: challengeParagraph },
+    { heading: "SST Strategy & Implementation", content: implementationParagraph },
+    { heading: "Tangible Business Results", content: resultsParagraph },
+    { heading: "The Road Ahead", content: futureParagraph }
   ];
-
+ 
   return {
     ...meta,
     publish_date: meta.date,
@@ -797,6 +750,7 @@ export const getArticleBySlug = (slug) => {
     sections
   };
 };
-
+ 
 export const insightsData = rawArticles;
 export default rawArticles;
+ 

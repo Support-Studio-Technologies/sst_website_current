@@ -1,4 +1,7 @@
 import { ServerCog, ShieldCheck, MonitorSmartphone, Workflow, Headphones, DatabaseZap } from "lucide-react";
+import { insightsData } from "./insightsData";
+
+const sstInsights = insightsData.filter(item => item.service === "managedServices");
 
 export const managedServicesData = {
   hero: {
@@ -83,23 +86,35 @@ export const managedServicesData = {
       {
         id: "blogs",
         label: "Blogs",
-        items: [
-          { title: "The Case for Managed Operations", image: "/ServicePage/HANA.png", date: "May 27, 2026", link: "/insights/blogs/managed-operations", description: "Why managed support is becoming a core part of resilient digital operations." }
-        ]
+        items: sstInsights.filter(item => item.category === "blogs").map(item => ({
+          title: item.title,
+          image: item.image,
+          date: item.date,
+          link: `/services/blog/${item.slug}`,
+          description: item.description
+        }))
       },
       {
         id: "case-studies",
         label: "Case Studies",
-        items: [
-          { title: "Stabilizing a Multi-Region Platform", image: "/ServicePage/HANA.png", date: "June 12, 2026", link: "/insights/cases/multi-region-platform", description: "A managed services engagement that improved stability and service responsiveness." }
-        ]
+        items: sstInsights.filter(item => item.category === "case-studies").map(item => ({
+          title: item.title,
+          image: item.image,
+          date: item.date,
+          link: `/services/blog/${item.slug}`,
+          description: item.description
+        }))
       },
       {
         id: "whitepapers",
         label: "Whitepapers",
-        items: [
-          { title: "Operational Readiness in Modern Enterprises", image: "/ServicePage/HANA.png", date: "Jan 24, 2026", link: "/insights/whitepapers/operational-readiness", description: "How proactive support creates stronger business continuity outcomes." }
-        ]
+        items: sstInsights.filter(item => item.category === "whitepapers").map(item => ({
+          title: item.title,
+          image: item.image,
+          date: item.date,
+          link: `/services/blog/${item.slug}`,
+          description: item.description
+        }))
       }
     ]
   },

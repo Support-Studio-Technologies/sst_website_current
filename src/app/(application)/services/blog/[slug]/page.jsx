@@ -15,7 +15,13 @@ const serviceBackLinks = {
     intelligentAutomation: { label: "Back to Intelligent Automation", href: "/services/intelligentAutomation" },
     managedServices: { label: "Back to Managed Services", href: "/services/managedServices" },
     Cybersecurity: { label: "Back to Cybersecurity", href: "/services/Cybersecurity" },
-    Innovation: { label: "Back to Innovation", href: "/services/Innovation" }
+    Innovation: { label: "Back to Innovation", href: "/services/Innovation" },
+    enterpriseTransformation: { label: "Back to Enterprise Transformation", href: "/services/enterpriseTransformation" },
+    artificialIntelligence: { label: "Back to Artificial Intelligence", href: "/services/artificialIntelligence" },
+    cloudInfrastructure: { label: "Back to Cloud & Infrastructure", href: "/services/cloudInfrastructure" },
+    dataIntelligence: { label: "Back to Data & Intelligence", href: "/services/dataIntelligence" },
+    digitalEngineering: { label: "Back to Digital Engineering", href: "/services/digitalEngineering" },
+    customerExperience: { label: "Back to Customer Experience", href: "/services/customerExperience" }
 };
 
 export default function ServiceInsightDetailPage() {
@@ -52,6 +58,7 @@ export default function ServiceInsightDetailPage() {
                     setActiveSectionId("section-0");
                 }
             } catch (err) {
+                
                 console.error("Error fetching service insight:", err.message);
                 setError(err.message || "Could not load the requested article.");
             } finally {

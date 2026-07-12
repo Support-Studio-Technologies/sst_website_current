@@ -1,16 +1,19 @@
-import React from "react";
+"use client";
+ 
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import CustomButton from "../Cards/Button";
-
+import CalendlyModal from "@/components/CommonComponents/CommonCalendy";
+ 
 const CommonConsultation = ({
   backgroundImage,
   backgroundAlt = "Background",
-
+ 
   // Content props
   title,
   description,
-
+ 
   // Button props
   buttonText = "Get Started",
   buttonIconColor = "text-white",
@@ -18,22 +21,32 @@ const CommonConsultation = ({
   buttonBgColor = "bg-white",
   buttonTextColor = "text-black",
   onButtonClick,
-
+ 
   // Styling props
   textColor = "text-white",
   sectionClassName = "",
   contentClassName = "",
-
+ 
   // Animation props
   animationDuration = 0.8,
   animationDelay = 0,
-
+ 
   // Layout props
   maxWidth = "max-w-4xl",
   padding = "py-20 sm:py-24 lg:py-28",
 }) => {
+  const [showCalendly, setShowCalendly] = useState(false);
+ 
+  const handleButtonClick = () => {
+    if (onButtonClick) {
+      onButtonClick();
+    } else {
+      setShowCalendly(true);
+    }
+  };
+ 
   return (
-    <div>
+    <>
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -56,21 +69,23 @@ const CommonConsultation = ({
             />
           </div>
         )}
-
+ 
         {/* Content */}
         <div
-          className={`${maxWidth} mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10  ${contentClassName}`}
+          className={`${maxWidth} mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10 ${contentClassName}`}
         >
           {title && (
-            <h2 className="text-3xl sm:text-4xl font-normal mb-10 lg:-mt-8 ">{title}</h2>
+            <h2 className="text-3xl sm:text-4xl font-normal mb-10 lg:-mt-8">
+              {title}
+            </h2>
           )}
-
+ 
           {description && (
-            <p className="text-md md:text-md font-light mb-20 max-w-7xl mx-auto opacity-90 ">
+            <p className="text-md md:text-md font-light mb-20 max-w-7xl mx-auto opacity-90">
               {description}
             </p>
           )}
-
+ 
           {buttonText && (
             <CustomButton
               text={buttonText}
@@ -78,13 +93,24 @@ const CommonConsultation = ({
               iconBgColor={buttonIconBgColor}
               buttonBgColor={buttonBgColor}
               textColor={buttonTextColor}
-              onClick={onButtonClick}
+              onClick={handleButtonClick}
             />
           )}
         </div>
       </motion.section>
-    </div>
+ 
+      <CalendlyModal
+        isOpen={showCalendly}
+        onClose={() => setShowCalendly(false)}
+        calendlyUrl={process.env.NEXT_PUBLIC_CALENDLY_URL}
+        pageSettings={{
+          backgroundColor: "ffffff",
+          primaryColor: "#2d8ec5",
+          textColor: "#2d8ec5",
+        }}
+      />
+    </>
   );
 };
-
+ 
 export default CommonConsultation;

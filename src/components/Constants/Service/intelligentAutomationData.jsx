@@ -12,6 +12,9 @@ import {
     ShieldCheck,
     HelpCircle
 } from "lucide-react";
+import { insightsData } from "./insightsData";
+
+const sstInsights = insightsData.filter(item => item.service === "intelligentAutomation");
 
 import {
     SiSap,
@@ -167,61 +170,35 @@ export const intelligentAutomationData = {
             {
                 id: "blogs",
                 label: "Blogs",
-                items: [
-                    {
-                        title: "The Future of Hyperautomation in 2026",
-                        image: "/ServicePage/HANA.png",
-                        date: "May 14, 2026",
-                        link: "/insights/blogs/future-hyperautomation",
-                        description: "Discover how AI agents and cognitive workflows are reshaping business logic and operational scale."
-                    },
-                    {
-                        title: "RPA vs. Intelligent Automation: Key Differences",
-                        image: "/ServicePage/HANA.png",
-                        date: "April 28, 2026",
-                        link: "/insights/blogs/rpa-vs-ia",
-                        description: "Understand why standard rule-based automation is evolving into self-learning cognitive loops."
-                    }
-                ]
+                items: sstInsights.filter(item => item.category === "blogs").map(item => ({
+                    title: item.title,
+                    image: item.image,
+                    date: item.date,
+                    link: `/services/blog/${item.slug}`,
+                    description: item.description
+                }))
             },
             {
                 id: "case-studies",
                 label: "Case Studies",
-                items: [
-                    {
-                        title: "Automating Claims Intake for a Top-Tier Insurer",
-                        image: "/ServicePage/HANA.png",
-                        date: "June 2, 2026",
-                        link: "/insights/cases/claims-intake",
-                        description: "SST deployed Document Intelligence to slash claims processing duration by 72% for a leading insurer."
-                    }
-                ]
+                items: sstInsights.filter(item => item.category === "case-studies").map(item => ({
+                    title: item.title,
+                    image: item.image,
+                    date: item.date,
+                    link: `/services/blog/${item.slug}`,
+                    description: item.description
+                }))
             },
             {
                 id: "whitepapers",
                 label: "Whitepapers",
-                items: [
-                    {
-                        title: "Enterprise Guide to Scaling Intelligent Agents",
-                        image: "/ServicePage/HANA.png",
-                        date: "Jan 12, 2026",
-                        link: "/insights/whitepapers/scaling-intelligent-agents",
-                        description: "Our exhaustive analysis on governance, security, and infrastructure setups for large-scale automation."
-                    }
-                ]
-            },
-            {
-                id: "news",
-                label: "News",
-                items: [
-                    {
-                        title: "SST Named as a Rising Leader in Automation",
-                        image: "/ServicePage/HANA.png",
-                        date: "Feb 20, 2026",
-                        link: "/insights/news/rising-leader",
-                        description: "Industry watchdogs recognize SST for outstanding delivery of cognitive robotic automation systems."
-                    }
-                ]
+                items: sstInsights.filter(item => item.category === "whitepapers").map(item => ({
+                    title: item.title,
+                    image: item.image,
+                    date: item.date,
+                    link: `/services/blog/${item.slug}`,
+                    description: item.description
+                }))
             }
         ]
     },

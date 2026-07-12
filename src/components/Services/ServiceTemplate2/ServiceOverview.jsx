@@ -100,7 +100,16 @@ const ServiceOverview = ({
                       {expertise.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
                           <span className="mt-0.5 text-blue-600">•</span>
-                          <span>{item}</span>
+                          <span>
+                            {typeof item === "object" ? (
+                              <>
+                                <strong className="font-semibold text-slate-900">{item.title}</strong>
+                                {item.description && `: ${item.description}`}
+                              </>
+                            ) : (
+                              item
+                            )}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -113,7 +122,9 @@ const ServiceOverview = ({
                       <h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-slate-700">Industries</h4>
                       <div className="flex flex-wrap gap-2">
                         {industries.map((industry, idx) => (
-                          <span key={idx} className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">{industry}</span>
+                          <span key={idx} className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
+                            {typeof industry === "object" ? industry.name : industry}
+                          </span>
                         ))}
                       </div>
                     </div>

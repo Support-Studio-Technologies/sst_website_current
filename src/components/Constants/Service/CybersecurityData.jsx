@@ -33,7 +33,7 @@ export const cybersecurityData = {
         breadcrumbs: [
             { label: "Home", link: "/" },
             { label: "Services", link: "/services" },
-            { label: "Cybersecurity & Digital Trust", link: "/services/cybersecurity" }
+            { label: "Cybersecurity & Digital Trust", link: "/services/Cybersecurity" }
         ],
         primaryCta: { label: "Talk to a Security Expert", link: "#contact" },
         secondaryCta: { label: "Request a Security Assessment", link: "#contact" }
@@ -94,42 +94,48 @@ export const cybersecurityData = {
                 title: "Cyber Risk Assessment",
                 description:
                     "Identify vulnerabilities, evaluate cyber risks, and develop security roadmaps aligned with business objectives.",
-                link: "/services/cybersecurity/risk-assessment"
+                link: "/services/Cybersecurity/risk-assessment",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
             },
             {
                 icon: Lock,
                 title: "Identity & Access Management",
                 description:
                     "Implement secure authentication, privileged access management, and Zero Trust identity controls.",
-                link: "/services/cybersecurity/identity-access-management"
+                link: "/services/Cybersecurity/identity-access-management",
+                image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80"
             },
             {
                 icon: Globe,
                 title: "Cloud Security",
                 description:
                     "Secure multi-cloud environments with governance, workload protection, compliance monitoring, and cloud-native security controls.",
-                link: "/services/cybersecurity/cloud-security"
+                link: "/services/Cybersecurity/cloud-security",
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80"
             },
             {
                 icon: Network,
                 title: "Network Security",
                 description:
                     "Protect enterprise networks with next-generation firewalls, segmentation, intrusion detection, and secure connectivity.",
-                link: "/services/cybersecurity/network-security"
+                link: "/services/Cybersecurity/network-security",
+                image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=600&q=80"
             },
             {
                 icon: Eye,
                 title: "Security Operations Center (SOC)",
                 description:
                     "Continuous threat monitoring, incident detection, and rapid response through 24/7 managed security operations.",
-                link: "/services/cybersecurity/security-operations"
+                link: "/services/Cybersecurity/security-operations",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
             },
             {
                 icon: FileCheck,
                 title: "Governance, Risk & Compliance",
                 description:
                     "Ensure compliance with industry regulations and standards including ISO 27001, GDPR, HIPAA, SOC 2, and NIST.",
-                link: "/services/cybersecurity/grc"
+                link: "/services/Cybersecurity/grc",
+                image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80"
             }
         ]
     },

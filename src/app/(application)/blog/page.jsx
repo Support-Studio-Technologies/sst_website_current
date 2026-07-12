@@ -170,7 +170,7 @@ export default function BlogPage() {
                 backgroundImage={backgroundImage}
                 subtitle="SST Tech Insights"
                 title="Our Blogs"
-                description="Explore the latest insights on SAP, digital transformation, cloud infrastructure, and software engineering."
+                description="We simplify complex trends and innovations, transforming technical concepts into clear, practical insights that anyone can understand. From emerging technologies and digital transformation to business strategies and industry best practices, our blogs deliver valuable, actionable knowledge !"
                 highlights={[
                     "Real-time insights",
                     "End-to-End Visibility",

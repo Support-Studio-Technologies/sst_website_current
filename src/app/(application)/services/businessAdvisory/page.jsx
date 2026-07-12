@@ -82,7 +82,6 @@ const Page = () => {
                 title="Let’s Build the Future Together"
                 description="Whether you are shaping a strategy, preparing for transformation, or looking to improve execution, SST can help turn your priorities into measurable progress."
                 buttonText="Schedule a consultation"
-                onButtonClick={() => console.log("Business Advisory clicked")}
             />
 
             <Footer />

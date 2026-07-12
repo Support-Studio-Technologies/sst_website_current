@@ -129,7 +129,16 @@ const ServiceOverview = ({
                   {expertise.map((item, idx) => (
                     <li key={idx} className="flex items-center gap-2">
                       <span className="text-blue-600">✔</span>
-                      <span>{item}</span>
+                      <span>
+                        {typeof item === "object" ? (
+                          <>
+                            <strong className="font-semibold text-slate-900">{item.title}</strong>
+                            {item.description && `: ${item.description}`}
+                          </>
+                        ) : (
+                          item
+                        )}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -148,7 +157,7 @@ const ServiceOverview = ({
                       key={idx}
                       className="px-3 py-1 bg-blue-50 border border-blue-200 text-blue-700 rounded-full text-xs font-medium"
                     >
-                      {industry}
+                      {typeof industry === "object" ? industry.name : industry}
                     </span>
                   ))}
                 </div>

@@ -25,7 +25,7 @@ const Page = () => {
       <ServicePartners id="partners" title={data.partners.title} subtitle={data.partners.subtitle} items={data.partners.items} />
       <ServiceInsights id="insights" title={data.insights.title} tabs={data.insights.tabs} />
       <ServiceFAQ id="faq" title={data.faq.title} subtitle={data.faq.subtitle} items={data.faq.items} />
-      <CommonConsultation backgroundImage="/AboutPage/aboutus.png" backgroundAlt="Managed Services" title="Let’s keep your operations moving" description="Whether you need proactive support or a more resilient service model, SST can help you deliver dependable outcomes every day." buttonText="Schedule a consultation" onButtonClick={() => console.log("Managed Services clicked")} />
+      <CommonConsultation backgroundImage="/AboutPage/aboutus.png" backgroundAlt="Managed Services" title="Let’s keep your operations moving" description="Whether you need proactive support or a more resilient service model, SST can help you deliver dependable outcomes every day." buttonText="Schedule a consultation" />
       <Footer />
     </div>
   );

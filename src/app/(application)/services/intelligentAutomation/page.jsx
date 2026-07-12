@@ -92,7 +92,6 @@ const Page = () => {
                 title="Let’s Build the Future Together"
                 description="Whether you're starting your digital transformation journey or scaling to the next level, SST is here to guide you with expertise, innovation, and trusted partnerships."
                 buttonText="Schedule a demo"
-                onButtonClick={() => console.log("Get Started clicked")}
             />
 
             {/* 11. Footer Section */}

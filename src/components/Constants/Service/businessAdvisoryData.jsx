@@ -8,6 +8,10 @@ import {
     Users,
     HelpCircle
 } from "lucide-react";
+import { insightsData } from "./insightsData";
+
+const sstInsights = insightsData.filter(item => item.service === "businessAdvisory");
+
 
 export const businessAdvisoryData = {
     hero: {
@@ -110,6 +114,7 @@ export const businessAdvisoryData = {
         ]
     },
 
+
     metrics: {
         title: "Business Impact",
         subtitle: "Outcomes We Help Deliver",
@@ -156,61 +161,35 @@ export const businessAdvisoryData = {
             {
                 id: "blogs",
                 label: "Blogs",
-                items: [
-                    {
-                        title: "How Business Advisory Accelerates Transformation",
-                        image: "/ServicePage/HANA.png",
-                        date: "May 8, 2026",
-                        link: "/insights/blogs/business-advisory-transformation",
-                        description: "Learn how strategic advisory can help leaders prioritize the initiatives that matter most."
-                    },
-                    {
-                        title: "From Strategy to Execution: Closing the Gap",
-                        image: "/ServicePage/HANA.png",
-                        date: "April 16, 2026",
-                        link: "/insights/blogs/strategy-to-execution",
-                        description: "Explore the common pitfalls that prevent bold ideas from becoming sustainable results."
-                    }
-                ]
+                items: sstInsights.filter(item => item.category === "blogs").map(item => ({
+                    title: item.title,
+                    image: item.image,
+                    date: item.date,
+                    link: `/services/blog/${item.slug}`,
+                    description: item.description
+                }))
             },
             {
                 id: "case-studies",
                 label: "Case Studies",
-                items: [
-                    {
-                        title: "Repositioning a Growth Business for Scale",
-                        image: "/ServicePage/HANA.png",
-                        date: "June 10, 2026",
-                        link: "/insights/cases/growth-business-scale",
-                        description: "SST helped a client sharpen its operating model and unlock better execution across functions."
-                    }
-                ]
+                items: sstInsights.filter(item => item.category === "case-studies").map(item => ({
+                    title: item.title,
+                    image: item.image,
+                    date: item.date,
+                    link: `/services/blog/${item.slug}`,
+                    description: item.description
+                }))
             },
             {
                 id: "whitepapers",
                 label: "Whitepapers",
-                items: [
-                    {
-                        title: "Enterprise Playbook for Sustainable Transformation",
-                        image: "/ServicePage/HANA.png",
-                        date: "Jan 18, 2026",
-                        link: "/insights/whitepapers/sustainable-transformation",
-                        description: "A practical guide to governance, decision-making, and value realization in complex initiatives."
-                    }
-                ]
-            },
-            {
-                id: "news",
-                label: "News",
-                items: [
-                    {
-                        title: "SST Expands Advisory Services for Enterprise Clients",
-                        image: "/ServicePage/HANA.png",
-                        date: "Feb 27, 2026",
-                        link: "/insights/news/advisory-expansion",
-                        description: "Our advisory practice continues to grow as organizations prioritize resilient transformation."
-                    }
-                ]
+                items: sstInsights.filter(item => item.category === "whitepapers").map(item => ({
+                    title: item.title,
+                    image: item.image,
+                    date: item.date,
+                    link: `/services/blog/${item.slug}`,
+                    description: item.description
+                }))
             }
         ]
     },

@@ -114,12 +114,12 @@ const Navbar = () => {
 
   const servicesMenu = {
     capabilities: [
-      { name: "Enterprise Transformation", href: "/services" },
-      { name: "Artificial Intelligence", href: "/services" },
-      { name: "Cloud & Infrastructure", href: "/services" },
-      { name: "Data & Intelligence", href: "/services" },
-      { name: "Digital Engineering", href: "/services" },
-      { name: "Customer Experience", href: "/services" },
+      { name: "Enterprise Transformation", href: "/services/enterpriseTransformation" },
+      { name: "Artificial Intelligence", href: "/services/artificialIntelligence" },
+      { name: "Cloud & Infrastructure", href: "/services/cloudInfrastructure" },
+      { name: "Data & Intelligence", href: "/services/dataIntelligence" },
+      { name: "Digital Engineering", href: "/services/digitalEngineering" },
+      { name: "Customer Experience", href: "/services/CustomerExperience" },
 
       { name: "Experience Design", href: "/services/experienceDesign" },
       { name: "Intelligent Automation", href: "/services/intelligentAutomation" },
@@ -312,9 +312,9 @@ const Navbar = () => {
                         //   : "bg-neutral-900/80 border-white/20 text-white"
                         //   }`}
                         className={`rounded-3xl shadow-2xl min-w-[750px] p-8 pl-20 border transition-colors duration-500 backdrop-blur-md ${isNavbarLight
-                           ? "bg-white/80 border-gray-200/30 text-gray-800"
-                           : "bg-neutral-900/80 border-white/20 text-white"
-                           }`}
+                          ? "bg-white/80 border-gray-200/30 text-gray-800"
+                          : "bg-neutral-900/80 border-white/20 text-white"
+                          }`}
                       >
                         {/* <div className="grid grid-cols-4 gap-10"> */}
                         <div className="grid grid-cols-2 gap-10">

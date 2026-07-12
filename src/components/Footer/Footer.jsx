@@ -171,34 +171,50 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/services/sapService/rise-with-sap"
+                  href="/services/enterpriseTransformation"
                   className="hover:text-white transition-colors duration-200"
                 >
-                  SAP Services
+                  Enterprise Transformation
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#digital"
+                  href="/services/artificialIntelligence"
                   className="hover:text-white transition-colors duration-200"
                 >
-                  Digital Transformation
+                  Artificial Intelligence
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#product"
+                  href="/services/cloudInfrastructure"
                   className="hover:text-white transition-colors duration-200"
                 >
-                  Product and Development
+                  Cloud & Infrastructure
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#experience"
+                  href="/services/dataIntelligence"
                   className="hover:text-white transition-colors duration-200"
                 >
-                  Design and Development
+                  Data & Intelligence
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/digitalEngineering"
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  Digital Engineering
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/customerExperience"
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  Customer Experience
                 </Link>
               </li>
             </ul>
@@ -217,7 +233,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="#digital"
+                  href="/services/enterpriseTransformation"
                   className="hover:text-white transition-colors duration-200"
                 >
                   Digital Transformation

@@ -1,0 +1,72 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Calendar } from "lucide-react";
+
+// Import asset
+import FooterCtaBg from "@/assets/Service/Cloud & Infrastructure/Footer container.jpg";
+
+const ConsultationCTA = () => {
+  return (
+    <section className="relative min-h-[400px] w-full flex items-center py-20 text-white overflow-hidden bg-[#001e2f]">
+      {/* Background Image and Overlays */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={FooterCtaBg}
+          alt="Schedule a Consultation"
+          fill
+          className="object-cover object-center brightness-[0.4]"
+        />
+        <div className="absolute inset-0 bg-[#001724]/75 z-0" />
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 w-full text-center space-y-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="space-y-4"
+        >
+          <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider block">Get in Touch</span>
+          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white leading-tight">
+            Ready to Build Future-Proof Cloud Infrastructure?
+          </h2>
+          <p className="text-slate-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            Partner with SST to design secure, cost-optimized, and highly resilient cloud architectures that scale with your enterprise goals.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center"
+        >
+          <Link
+            href="/contact-us"
+            className="inline-flex items-center justify-center bg-white text-[#001e2f] hover:bg-blue-500 hover:text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 group"
+          >
+            <Calendar className="w-5 h-5 mr-3 flex-shrink-0" />
+            Schedule a Consultation
+            <svg
+              className="w-4 h-4 ml-2.5 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2.5}
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default ConsultationCTA;

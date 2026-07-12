@@ -1,4 +1,7 @@
 import { Palette, Sparkles, Users, Compass, Layers, MonitorPlay } from "lucide-react";
+import { insightsData } from "./insightsData";
+
+const sstInsights = insightsData.filter(item => item.service === "experienceDesign");
 
 export const experienceDesignData = {
   hero: {
@@ -83,23 +86,35 @@ export const experienceDesignData = {
       {
         id: "blogs",
         label: "Blogs",
-        items: [
-          { title: "Designing for Trust in Digital Journeys", image: "/ServicePage/HANA.png", date: "May 22, 2026", link: "/insights/blogs/designing-for-trust", description: "How clear experiences improve confidence in complex service ecosystems." }
-        ]
+        items: sstInsights.filter(item => item.category === "blogs").map(item => ({
+          title: item.title,
+          image: item.image,
+          date: item.date,
+          link: `/services/blog/${item.slug}`,
+          description: item.description
+        }))
       },
       {
         id: "case-studies",
         label: "Case Studies",
-        items: [
-          { title: "Redesigning a Customer Portal", image: "/ServicePage/HANA.png", date: "June 4, 2026", link: "/insights/cases/customer-portal-redesign", description: "A human-centered redesign that improved self-service and satisfaction." }
-        ]
+        items: sstInsights.filter(item => item.category === "case-studies").map(item => ({
+          title: item.title,
+          image: item.image,
+          date: item.date,
+          link: `/services/blog/${item.slug}`,
+          description: item.description
+        }))
       },
       {
         id: "whitepapers",
         label: "Whitepapers",
-        items: [
-          { title: "The ROI of Experience Design", image: "/ServicePage/HANA.png", date: "Jan 10, 2026", link: "/insights/whitepapers/roi-experience-design", description: "Why better journeys translate directly into business value." }
-        ]
+        items: sstInsights.filter(item => item.category === "whitepapers").map(item => ({
+          title: item.title,
+          image: item.image,
+          date: item.date,
+          link: `/services/blog/${item.slug}`,
+          description: item.description
+        }))
       }
     ]
   },

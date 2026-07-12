@@ -25,7 +25,7 @@ const Page = () => {
       <ServicePartners id="partners" title={data.partners.title} subtitle={data.partners.subtitle} items={data.partners.items} />
       <ServiceInsights id="insights" title={data.insights.title} tabs={data.insights.tabs} />
       <ServiceFAQ id="faq" title={data.faq.title} subtitle={data.faq.subtitle} items={data.faq.items} />
-      <CommonConsultation backgroundImage="/AboutPage/aboutus.png" backgroundAlt="Experience Design" title="Let’s shape the experience together" description="From discovery to delivery, SST can help you design journeys that feel intuitive, useful, and ready for growth." buttonText="Schedule a consultation" onButtonClick={() => console.log("Experience Design clicked")} />
+      <CommonConsultation backgroundImage="/AboutPage/aboutus.png" backgroundAlt="Experience Design" title="Let’s shape the experience together" description="From discovery to delivery, SST can help you design journeys that feel intuitive, useful, and ready for growth." buttonText="Schedule a consultation" />
       <Footer />
     </div>
   );

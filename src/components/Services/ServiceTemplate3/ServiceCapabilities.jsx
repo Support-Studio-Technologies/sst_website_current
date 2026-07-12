@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { HiOutlineArrowRight } from "react-icons/hi2";
+import { GlowCard } from "@/components/ui/spotlight-card";
 
 const ServiceCapabilities = ({
   id = "capabilities",
@@ -67,38 +68,77 @@ const ServiceCapabilities = ({
         >
           {items.map((item, idx) => {
             const Icon = item.icon;
-            return (
-              <motion.div
-                key={idx}
-                variants={cardVariants}
-                className="group relative bg-white border border-slate-200/80 hover:border-blue-500/20 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/5 cursor-pointer flex flex-col justify-between shadow-sm"
+            
+            // Map index to a distinct glow color for a premium visual dynamic
+            const colors = ['blue', 'purple', 'green', 'red', 'orange'];
+            const glowColor = item.glowColor || colors[idx % colors.length];
+
+            const cardContent = (
+              <GlowCard
+                glowColor={glowColor}
+                customSize={true}
+                className="group h-full flex flex-col justify-between overflow-hidden bg-white border border-slate-200/80 hover:border-transparent transition-all duration-300 shadow-sm rounded-2xl"
+                style={{
+                  '--backdrop': '#ffffff',
+                  '--radius': '16',
+                }}
               >
                 <div>
-                  {/* Icon Block */}
-                  <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
-                    {Icon && <Icon className="w-6 h-6 text-blue-500 group-hover:text-white transition-colors" />}
+                  {/* Card Image Section */}
+                  {item.image && (
+                    <div className="aspect-video w-[calc(100%+2rem)] overflow-hidden relative bg-slate-100 -mt-4 -mx-4 mb-6 rounded-t-2xl">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+
+                  {/* Content padding wrapper */}
+                  <div className="px-2">
+                    {/* Icon Block */}
+                    <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
+                      {Icon && <Icon className="w-6 h-6 text-blue-500 group-hover:text-white transition-colors" />}
+                    </div>
+
+                    {/* Capability Title */}
+                    <h3 className="text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">
+                      {item.title}
+                    </h3>
+
+                    {/* Capability Description */}
+                    <p className="text-sm text-slate-550 leading-relaxed mb-6">
+                      {item.description}
+                    </p>
                   </div>
-
-                  {/* Capability Title */}
-                  <h3 className="text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">
-                    {item.title}
-                  </h3>
-
-                  {/* Capability Description */}
-                  <p className="text-sm text-slate-550 leading-relaxed mb-6 group-hover:text-slate-650 transition-colors">
-                    {item.description}
-                  </p>
                 </div>
 
                 {/* Capability Link/Arrow */}
                 {item.link && (
-                  <Link
-                    href={item.link}
-                    className="inline-flex items-center gap-2 text-xs font-semibold text-blue-600 group-hover:text-blue-700 transition-colors uppercase tracking-wider"
-                  >
-                    <span>Read More</span>
-                    <HiOutlineArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                  <div className="px-2 pt-2 pb-1">
+                    <span className="inline-flex items-center gap-2 text-xs font-semibold text-blue-600 group-hover:text-blue-700 transition-colors uppercase tracking-wider">
+                      <span>Read More</span>
+                      <HiOutlineArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </div>
+                )}
+              </GlowCard>
+            );
+
+            return (
+              <motion.div
+                key={idx}
+                variants={cardVariants}
+                className="h-full"
+              >
+                {item.link ? (
+                  <Link href={item.link} className="block h-full">
+                    {cardContent}
                   </Link>
+                ) : (
+                  cardContent
                 )}
               </motion.div>
             );
