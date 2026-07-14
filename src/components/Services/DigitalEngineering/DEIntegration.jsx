@@ -10,19 +10,19 @@ const INTEGRATION_SERVICES = [
     title: "Enterprise Integration",
     desc: "[Connecting legacy ERP environments, secure database clusters, and cloud CRMs into a single stream.]",
     image: "/ServicePage/Digital Engineering/enterprise-integration-bg.jpg",
-    link: "/services/digitalEngineering/api-integration"
+    link: "/services/digitalEngineering/enterprise-integration"
   },
   {
     title: "API Development & Management",
     desc: "[Designing high-volume REST, GraphQL, and gRPC endpoints protected by robust payload gateways.]",
     image: "/ServicePage/Digital Engineering/api-management-bg.jpg",
-    link: "/services/digitalEngineering/api-integration"
+    link: "/services/digitalEngineering/api-development-management"
   },
   {
     title: "Connected Data Exchange",
     desc: "[Routing high-throughput message packages cleanly using secure queue workers and event broker systems.]",
     image: "/ServicePage/Digital Engineering/connected-data-exchange-bg.jpg",
-    link: "/services/digitalEngineering/api-integration"
+    link: "/services/digitalEngineering/connected-data-exchange"
   }
 ];
 
@@ -47,14 +47,7 @@ const DEIntegration = () => {
             </h2>
           </div>
 
-          <div>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold border border-white/20 hover:border-white text-white hover:bg-white/5 transition-all duration-300"
-            >
-              View All Services
-            </Link>
-          </div>
+
         </div>
 
         {/* 3-Column Grid */}

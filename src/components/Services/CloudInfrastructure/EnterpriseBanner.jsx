@@ -19,9 +19,9 @@ const EnterpriseBanner = () => {
           src={BannerBg}
           alt="Infrastructure Designed for Modern Enterprises"
           fill
-          className="object-cover object-center brightness-[0.4]"
+          className="object-cover object-center "
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#001e2f]/90 via-[#001e2f]/50 to-transparent" />
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-[#001e2f]/90 via-[#001e2f]/50 to-transparent" /> */}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 flex-1 flex flex-col justify-center">
@@ -47,7 +47,7 @@ const EnterpriseBanner = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="space-y-6 text-slate-200 text-base md:text-lg leading-relaxed"
+            className="p-8 md:p-10 bg-black/45 backdrop-blur-sm rounded-3xl border border-white/5 space-y-6 text-slate-200 text-base md:text-lg leading-relaxed"
           >
             <p>
               A strong cloud infrastructure is the backbone of digital transformation. SST helps organizations build secure, scalable, and high-performing cloud environments that support business growth, improve operational resilience, and enable continuous innovation.
@@ -71,13 +71,13 @@ const EnterpriseBanner = () => {
           </span>
           <div className="flex items-center space-x-8">
             <div className="bg-white/5 hover:bg-white/10 px-6 py-3 rounded-xl border border-white/5 transition-all duration-300">
-              <Image src={Logo69} alt="Partner Logo 1" className="h-8 w-auto object-contain brightness-100 grayscale hover:grayscale-0 transition-all duration-300" />
+              <Image src={Logo69} alt="Partner Logo 1" className="h-8 w-auto object-contain brightness-100  transition-all duration-300" />
             </div>
             <div className="bg-white/5 hover:bg-white/10 px-6 py-3 rounded-xl border border-white/5 transition-all duration-300">
-              <Image src={Logo70} alt="Partner Logo 2" className="h-8 w-auto object-contain brightness-100 grayscale hover:grayscale-0 transition-all duration-300" />
+              <Image src={Logo70} alt="Partner Logo 2" className="h-8 w-auto object-contain" />
             </div>
             <div className="bg-white/5 hover:bg-white/10 px-6 py-3 rounded-xl border border-white/5 transition-all duration-300">
-              <Image src={Logo71} alt="Partner Logo 3" className="h-8 w-auto object-contain brightness-100 grayscale hover:grayscale-0 transition-all duration-300" />
+              <Image src={Logo71} alt="Partner Logo 3" className="h-8 w-auto object-contain brightness-100 transition-all duration-300" />
             </div>
           </div>
         </motion.div>

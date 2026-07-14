@@ -6,13 +6,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 // Import images from assets
-import Frame123 from "@/assets/Service/Cloud & Infrastructure/Frame 123.jpg";
-import Frame124 from "@/assets/Service/Cloud & Infrastructure/Frame 124.jpg";
-import Frame125 from "@/assets/Service/Cloud & Infrastructure/Frame 125.jpg";
+import CloudStrategyImage from "@/assets/Service/Cloud & Infrastructure/cloud-strategy-roadmap.jpg";
+import CloudMigrationImage from "@/assets/Service/Cloud & Infrastructure/cloud-migration-transfer.jpg";
+import InfrastructureModernizationImage from "@/assets/Service/Cloud & Infrastructure/infrastructure-modernization.jpg";
+import ManagedCloudImage from "@/assets/Service/Cloud & Infrastructure/managed-cloud-monitoring.jpg";
+
 
 const FlipCard = ({ title, tagline, description, bgImage, link, isImageImported }) => {
   return (
-    <div className="group w-full h-[420px] [perspective:1000px]">
+    <Link href={link} className="group block w-full h-[420px] [perspective:1000px]">
       <motion.div
         className="relative w-full h-full [transform-style:preserve-3d] transition-transform duration-700 ease-out group-hover:[transform:rotateY(180deg)] cursor-pointer"
       >
@@ -42,7 +44,7 @@ const FlipCard = ({ title, tagline, description, bgImage, link, isImageImported 
 
             {/* Bottom Title */}
             <div>
-              <p className="text-blue-400 text-xs font-semibold uppercase tracking-wider mb-2">Capability</p>
+              {/* <p className="text-blue-400 text-xs font-semibold uppercase tracking-wider mb-2">Capability</p> */}
               <h3 className="text-white font-medium text-2xl md:text-3xl leading-tight">
                 {title}
               </h3>
@@ -58,7 +60,7 @@ const FlipCard = ({ title, tagline, description, bgImage, link, isImageImported 
                 {title}
               </h3>
               <span className="text-xs font-semibold uppercase tracking-wider text-blue-300 bg-blue-950/60 px-2.5 py-1 rounded-full">
-                Interactive
+                {/* Interactive */}
               </span>
             </div>
             <p className="text-blue-100 font-semibold text-sm leading-snug">
@@ -69,12 +71,9 @@ const FlipCard = ({ title, tagline, description, bgImage, link, isImageImported 
             </p>
           </div>
 
-          <Link
-            href={link}
-            className="inline-flex items-center justify-between bg-white text-[#0A65CC] pl-5 pr-2 py-2 rounded-full font-semibold text-sm shadow-md hover:bg-slate-50 hover:shadow-lg transition-all duration-300 group/btn"
-          >
+          <span className="group/btn inline-flex items-center justify-between bg-white text-[#0A65CC] pl-5 pr-2 py-2 rounded-full font-semibold text-sm shadow-md transition-all duration-300 group-hover:bg-slate-50 group-hover:shadow-lg w-fit">
             <span className="mr-3">See More</span>
-            <div className="w-8 h-8 rounded-full bg-[#0A65CC] text-white flex items-center justify-center transition-transform duration-300 group-hover/btn:translate-x-1">
+            <div className="w-8 h-8 rounded-full bg-[#0A65CC] text-white flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -85,10 +84,10 @@ const FlipCard = ({ title, tagline, description, bgImage, link, isImageImported 
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </div>
-          </Link>
+          </span>
         </div>
       </motion.div>
-    </div>
+    </Link>
   );
 };
 
@@ -98,15 +97,15 @@ const FlipCards = () => {
       title: "Cloud Strategy",
       tagline: "Build the Right Cloud Roadmap",
       description: "Create a clear cloud strategy aligned with your business goals. We assess your current environment, define the right architecture, and develop a roadmap for successful cloud adoption.",
-      bgImage: null,
-      isImageImported: false,
+      bgImage: CloudStrategyImage,
+      isImageImported: true,
       link: "/services/cloudInfrastructure/cloud-strategy",
     },
     {
       title: "Cloud Migration",
       tagline: "Move Legacies Safely to AWS, Azure, & GCP",
       description: "Unshackle from local servers. We manage the secure migration of databases and file systems to high-performance clouds with zero downtime.",
-      bgImage: Frame123,
+      bgImage: CloudMigrationImage,
       isImageImported: true,
       link: "/services/cloudInfrastructure/cloud-migration",
     },
@@ -114,7 +113,7 @@ const FlipCards = () => {
       title: "Infrastructure Modernization",
       tagline: "Transform Legacy Computing",
       description: "Deploy automated, software-defined computing, Kubernetes orchestration clusters, and container platforms that scale dynamically.",
-      bgImage: Frame124,
+      bgImage: InfrastructureModernizationImage,
       isImageImported: true,
       link: "/services/cloudInfrastructure/infrastructure-modernization",
     },
@@ -122,7 +121,7 @@ const FlipCards = () => {
       title: "Managed Cloud Services",
       tagline: "24/7 Cloud Support & Optimizations",
       description: "Our certified engineers handle cost audits, resource optimization, active security monitoring, and regular patching for your peace of mind.",
-      bgImage: Frame125,
+      bgImage: ManagedCloudImage,
       isImageImported: true,
       link: "/services/cloudInfrastructure/managed-cloud-services",
     },

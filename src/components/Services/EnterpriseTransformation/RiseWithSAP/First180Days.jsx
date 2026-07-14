@@ -1,33 +1,56 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import day1Image from "@/assets/Service/Enterprise Transformation/Rise with SAP/71bfa3487b1f0ce902ebcf68da38f02e4c64d529.jpg";
-import day2Image from "@/assets/Service/Enterprise Transformation/Rise with SAP/7939ef78bdbb2d5f6bab9a30e84f12f40a4dd5e4.jpg";
-import day3Image from "@/assets/Service/Enterprise Transformation/Rise with SAP/7c060ccc0b2c620d001c20df5ade6fbda20390aa.jpg";
+import { motion, useScroll, useSpring } from "framer-motion";
+import day1Image from "@/assets/Service/Enterprise Transformation/Rise with SAP/f338392b195b135119080ca236d3487de7f467a6.jpg";
+import day2Image from "@/assets/Service/Enterprise Transformation/Rise with SAP/e249ff58d47a23b29b4238b4dbe32f216a93fdfb.jpg";
+import day3Image from "@/assets/Service/Enterprise Transformation/Rise with SAP/a6417226bb660ca35a5ae15252f711a3036ed3e5.jpg";
+import day4Image from "@/assets/Service/Enterprise Transformation/Rise with SAP/c64e81c370b95918e53cf947b888beeae8022de2.jpg";
 
+// side = which column the image sits in on desktop
 const STAGES = [
   {
-    day: "Day 1-30",
-    title: "Upgrade with Purpose",
-    description: "Every release is aligned with business objectives, not just technical requirements.",
+    day: "Day 1–30",
+    title: "Assess & Prepare",
+    description:
+      "Evaluate your current SAP landscape, business processes, integrations, and infrastructure. Define transformation objectives, governance, and a roadmap aligned with business priorities.",
     image: day1Image,
+    side: "right",
   },
   {
-    day: "Day 31-90",
-    title: "Upgrade with Purpose",
-    description: "Every release is aligned with business objectives, not just technical requirements.",
+    day: "Day 31–90",
+    title: "Design & Migrate",
+    description:
+      "Build the target cloud architecture, prepare business data, configure SAP solutions, and execute a secure migration while minimizing operational disruption.",
     image: day2Image,
+    side: "left",
   },
   {
-    day: "Day 91-150",
-    title: "Upgrade with Purpose",
-    description: "Every release is aligned with business objectives, not just technical requirements.",
+    day: "Day 91–150",
+    title: "Optimize & Adopt",
+    description:
+      "Enable users through training, optimize business processes, monitor system performance, and integrate intelligent automation to maximize business value.",
     image: day3Image,
+    side: "right",
+  },
+  {
+    day: "Day 151–180+",
+    title: "Continuous Innovation",
+    description:
+      "Continuously enhance your SAP environment with analytics, AI, automation, security improvements, and regular cloud innovations to support long-term business growth.",
+    image: day4Image,
+    side: "left",
   },
 ];
 
 const First180Days = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 0.8", "end 0.6"],
+  });
+  const spineProgress = useSpring(scrollYProgress, { stiffness: 80, damping: 24 });
+
   return (
     <section className="relative overflow-hidden bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -47,19 +70,17 @@ const First180Days = () => {
           </p>
         </motion.div>
 
-        <div className="relative">
+        <div ref={containerRef} className="relative">
+          {/* Spine — solid navy, filled in on scroll */}
+          <div className="absolute left-4 top-0 hidden h-full w-0.5 bg-[#003756]/20 sm:block lg:left-1/2" />
           <motion.div
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-            style={{ transformOrigin: "top" }}
-            className="absolute left-4 top-0 hidden h-full w-0.5 bg-gradient-to-b from-cyan-600 via-sky-950 to-cyan-600 sm:block lg:left-1/2"
+            style={{ scaleY: spineProgress, transformOrigin: "top" }}
+            className="absolute left-4 top-0 hidden h-full w-0.5 bg-[#003756] sm:block lg:left-1/2"
           />
 
           <div className="flex flex-col gap-16">
             {STAGES.map((stage, index) => {
-              const reversed = index % 2 === 1;
+              const imageOnLeft = stage.side === "left";
               return (
                 <motion.div
                   key={stage.day}
@@ -67,38 +88,44 @@ const First180Days = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`relative flex flex-col items-center gap-8 sm:pl-12 lg:pl-0 ${
-                    reversed ? "lg:flex-row-reverse" : "lg:flex-row"
-                  }`}
+                  className={`relative flex flex-col items-start gap-8 sm:pl-12 lg:items-center lg:gap-12 lg:pl-0 ${imageOnLeft ? "lg:flex-row" : "lg:flex-row-reverse"
+                    }`}
                 >
-                  <span className="absolute left-2.5 top-2 hidden h-4 w-4 -translate-x-1/2 rounded-full border-4 border-white bg-cyan-600 shadow-[0_0_0_4px_rgba(8,145,178,0.2)] sm:block lg:left-1/2" />
+                  {/* Dot — no explicit top, so it takes the flex cross-axis static
+                      position: top of the block on mobile (items-start), vertical
+                      centre of the row on desktop (lg:items-center). */}
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 + 0.2, type: "spring" }}
+                    className="absolute left-2.5 hidden h-4 w-4 rounded-full border-2 border-white bg-[#003756] shadow sm:block lg:left-1/2 lg:-translate-x-1/2"
+                  />
 
-                  <div className="relative aspect-video w-full max-w-md overflow-hidden rounded-[28px] border-4 border-cyan-600 shadow-lg lg:w-1/2">
-                    <Image src={stage.image} alt={stage.day} fill className="object-cover" />
-                  </div>
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.4 }}
+                    className="group relative aspect-video w-full overflow-hidden rounded-[28px] border-4 border-[#2D8EC5] shadow-lg sm:aspect-auto sm:h-[181px] lg:w-[calc(50%-1.5rem)]"
+                  >
+                    <Image
+                      src={stage.image}
+                      alt={stage.day}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </motion.div>
 
-                  <div className="flex w-full flex-col items-start gap-3 lg:w-1/2">
+                  <div
+                    className={`flex w-full flex-col items-start gap-3 lg:w-[calc(50%-1.5rem)] ${imageOnLeft ? "lg:items-end lg:text-right" : ""
+                      }`}
+                  >
                     <span className="text-2xl font-bold text-black sm:text-3xl">{stage.day}</span>
-                    <span className="text-xl text-black sm:text-2xl">{stage.title}</span>
-                    <p className="text-base text-neutral-600 sm:text-lg">{stage.description}</p>
+                    {stage.title && <span className="text-xl text-black sm:text-2xl">{stage.title}</span>}
+                    <p className="max-w-xl text-base text-neutral-600 sm:text-lg">{stage.description}</p>
                   </div>
                 </motion.div>
               );
             })}
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.6 }}
-              className="relative flex flex-col items-start gap-3 sm:pl-12 lg:items-center lg:pl-0 lg:text-center"
-            >
-              <span className="absolute left-2.5 top-2 hidden h-4 w-4 -translate-x-1/2 rounded-full border-4 border-white bg-sky-950 shadow-[0_0_0_4px_rgba(8,47,73,0.2)] sm:block lg:left-1/2" />
-              <h3 className="text-2xl font-bold text-black sm:text-3xl">Continuous Value</h3>
-              <p className="max-w-xl text-base text-neutral-600 sm:text-lg">
-                Transform upgrades from cost centers into drivers of business growth.
-              </p>
-            </motion.div>
           </div>
         </div>
       </div>

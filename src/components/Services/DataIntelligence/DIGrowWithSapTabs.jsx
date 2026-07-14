@@ -3,32 +3,32 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 
 const TABS = [
   {
     title: "Data Engineering",
     desc: "Construct robust, high-volume lakehouses and databases. We implement standard automated extraction pipelines (ETL/ELT) that transform scattered system logs and transaction tables into querying-ready warehouses.",
     actionText: "Explore Data Engineering",
-    href: "/services/dataIntelligence"
+    href: "/services/dataIntelligence/data-engineering"
   },
   {
     title: "Data Integration",
     desc: "Connect your custom CRM nodes, cloud services, and legacy servers securely. We automate sync events using webhook workflows, pub-sub architectures, and secure client-server proxies.",
     actionText: "Explore Data Integration",
-    href: "/services/dataIntelligence"
+    href: "/services/dataIntelligence/data-integration"
   },
   {
     title: "Data Governance",
     desc: "Secure data assets and maintain compliance standards. We establish clear column access rules, automated audit logs, and catalog indexing so your databases remain secure and organized.",
     actionText: "Explore Data Governance",
-    href: "/services/dataIntelligence"
+    href: "/services/dataIntelligence/data-governance"
   },
   {
     title: "Advanced Analytics",
     desc: "Deploy forecasting scripts, machine learning models, and interactive dashboard analytics. We structure pipelines that compile raw log events into real-time business telemetry tables.",
     actionText: "Explore Advanced Analytics",
-    href: "/services/dataIntelligence"
+    href: "/services/dataIntelligence/advanced-analytics"
   }
 ];
 
@@ -42,6 +42,7 @@ const DIGrowWithSapTabs = () => {
         {/* Header content */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#2d8ec5] mb-3 block">
+            <Sparkles className="h-4.5 w-4.5 text-[#2d8ec5] inline-block mr-2" />
             GROW with SAP Integration
           </span>
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -81,6 +82,7 @@ const DIGrowWithSapTabs = () => {
             {/* Glass Box text details */}
             <div className="relative p-8 sm:p-10 flex flex-col justify-end h-full z-10 w-full">
               <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-white/5 border border-white/10 rounded-full px-3 py-1 self-start mb-4">
+                <Sparkles className="h-4.5 w-4.5 text-[#2d8ec5] inline-block mr-2" />
                 Enterprise SAP Gateway
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 leading-snug">

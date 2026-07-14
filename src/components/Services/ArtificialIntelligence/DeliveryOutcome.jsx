@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import AIBusinessPhoto from "@/assets/Service/Artificial Intelligence/ai-business-photo.png";
+import AIBusinessPhoto from "@/assets/Service/Artificial Intelligence/cloud-transformation-outcome.webp";
 
 const DeliveryOutcome = () => {
   return (
@@ -24,7 +24,7 @@ const DeliveryOutcome = () => {
               alt="Delivery outcome"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-contain"
+              className="object-cover"
             />
           </motion.div>
 

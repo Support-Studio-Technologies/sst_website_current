@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Sparkles } from "lucide-react";
 
 // Import asset
 import InsightsCardBg from "@/assets/Service/Cloud & Infrastructure/Card 1 (insihjts ).jpg";
@@ -12,10 +12,12 @@ const TransformationInsights = () => {
   return (
     <section className="py-24 bg-slate-50 text-slate-900 border-b border-slate-200/50">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        
+
         {/* Title / Intro */}
         <div className="max-w-2xl mx-auto text-center mb-16 space-y-3">
-          <span className="text-blue-600 text-xs font-semibold uppercase tracking-wider block">Enterprise Insights</span>
+          <span className="text-blue-600 text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 block">
+            <Sparkles className="h-4.5 w-4.5 text-[#0066cc]" />
+            Enterprise Insights</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-slate-900">
             Enterprise Transformation Insights
           </h2>
@@ -38,10 +40,10 @@ const TransformationInsights = () => {
               src={InsightsCardBg}
               alt="Research Report: Rethinking ERP for a Digital-First World"
               fill
-              className="object-cover object-center brightness-[0.4] group-hover:brightness-[0.3]"
+              className="object-cover"
             />
             {/* Linear overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
+            {/* <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" /> */}
           </div>
 
           {/* Card Content */}

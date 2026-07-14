@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import DataImg from "@/assets/Service/Artificial Intelligence/Machine Learning/data-to-decisions.png";
+import DataImg from "@/assets/Service/Artificial Intelligence/Machine Learning/machine-learning-data-insight.webp";
 
 const DataToDecisions = () => {
   return (
@@ -23,7 +23,7 @@ const DataToDecisions = () => {
             alt="From data to decisions"
             fill
             sizes="(min-width: 1024px) 46vw, 100vw"
-            className="object-contain"
+            className="object-cover"
           />
         </motion.div>
 

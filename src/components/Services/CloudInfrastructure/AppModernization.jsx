@@ -3,11 +3,11 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Sparkles } from "lucide-react";
 
 // Import images
-import Image48 from "@/assets/Service/Cloud & Infrastructure/image 48.jpg";
-import Image49 from "@/assets/Service/Cloud & Infrastructure/image 49.jpg";
+import CloudModernizationImage from "@/assets/Service/Cloud & Infrastructure/application-modernization-cloud.jpg";
+import MicroservicesImage from "@/assets/Service/Cloud & Infrastructure/application-modernization-network.jpg";
 
 const AppModernization = () => {
   const points = [
@@ -23,7 +23,7 @@ const AppModernization = () => {
     <section className="py-24 bg-white text-slate-900 border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
+
           {/* Left Column: Stacked Images (5 cols) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -38,8 +38,8 @@ const AppModernization = () => {
             {/* Image 1 (Top Left) */}
             <div className="absolute top-0 left-0 w-[80%] h-[65%] rounded-2xl overflow-hidden shadow-lg border border-slate-200">
               <Image
-                src={Image48}
-                alt="Cloud Architecture Design"
+                src={MicroservicesImage}
+                alt="App Containerization"
                 fill
                 className="object-cover object-center"
               />
@@ -48,8 +48,9 @@ const AppModernization = () => {
             {/* Image 2 (Bottom Right Overlay) */}
             <div className="absolute bottom-6 right-0 w-[80%] h-[65%] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
               <Image
-                src={Image49}
-                alt="App Containerization"
+
+                src={CloudModernizationImage}
+                alt="Cloud Architecture Design"
                 fill
                 className="object-cover object-center"
               />
@@ -65,7 +66,9 @@ const AppModernization = () => {
               transition={{ duration: 0.6 }}
               className="space-y-4"
             >
-              <span className="text-blue-600 text-xs font-semibold uppercase tracking-wider block">Application Modernization</span>
+              <span className="text-blue-600 text-xs font-semibold uppercase tracking-wider flex items-center justify-start gap-2 block">
+                <Sparkles className="h-4.5 w-4.5 text-[#0066cc]" />
+                Application Modernization</span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-slate-900 leading-tight">
                 Transform legacy applications into future-ready digital platforms.
               </h2>

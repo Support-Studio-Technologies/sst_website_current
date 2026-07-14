@@ -59,12 +59,17 @@ const CommonChallenges = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group flex flex-col items-center gap-5 px-2 text-center lg:px-6"
+              whileHover={{ y: -6 }}
+              className="group flex flex-col items-center gap-5 rounded-2xl px-2 py-3 text-center transition-colors duration-300 hover:bg-white/5 lg:px-6"
             >
               <span className="text-lg font-normal text-white">{challenge.title}</span>
-              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
+              <motion.div
+                whileHover={{ scale: 1.15, rotate: 6 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/0 transition-all duration-300 group-hover:bg-cyan-500/20 group-hover:ring-cyan-300/40"
+              >
                 <challenge.icon className="h-9 w-9" strokeWidth={1.5} />
-              </div>
+              </motion.div>
               <p className="text-base text-white/80">{challenge.description}</p>
             </motion.div>
           ))}

@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
 // Import asset
 import WhySstBg from "@/assets/Service/Cloud & Infrastructure/Frame 2147239576.jpg";
@@ -16,14 +17,14 @@ const WhySSTCloud = () => {
           src={WhySstBg}
           alt="Why SST for Cloud Infrastructure"
           fill
-          className="object-cover object-center brightness-[0.35]"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-l from-[#001b2a]/90 via-[#001b2a]/60 to-transparent" />
+        {/* <div className="absolute inset-0 bg-gradient-to-l from-[#001b2a]/90 via-[#001b2a]/60 to-transparent" /> */}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Column: Title (5 cols) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -32,7 +33,9 @@ const WhySSTCloud = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 space-y-4"
           >
-            <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider block">Enterprise Partner</span>
+            <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider flex items-center justify-start gap-2 block">
+              <Sparkles className="h-4.5 w-4.5 text-[#0066cc]" />
+              Enterprise Partner</span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
               Why SST for Cloud Infrastructure?
             </h2>

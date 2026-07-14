@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import Card_BG from "../../assets/career/ConsultationCard.svg";
+import Card_BG from "../../assets/career/ConsultationCardhero.svg";
 import CustomButton from "./Button";
 import { usePathname } from "next/navigation";
 
@@ -589,7 +589,7 @@ const HomeCard = () => {
                 {error && (
                   <motion.p
                     initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: -75 }}
                     className="text-red-300 text-xs sm:text-sm"
                   >
                     {error}
@@ -599,7 +599,7 @@ const HomeCard = () => {
                 {isSubmitted && (
                   <motion.p
                     initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: -75 }}
                     className="text-green-300 text-xs sm:text-sm"
                   >
                     Thank you! We'll be in touch soon.

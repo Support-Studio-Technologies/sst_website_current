@@ -1,94 +1,82 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import journeyBg from "@/assets/Service/Enterprise Transformation/source/bd43aed1425680c9db0527fbe22edf87.jpg";
+import journeyBg from "@/assets/Service/Enterprise Transformation/0a3d1c657297d9a862953b68d70c1276eac330f8.png";
 
-// Design canvas: every size/position below is authored in a fixed 1280x960
-// space that matches the reference mock. `cq()` converts a design-px value
-// into a container-query width unit, so the circles, the line, and the type
-// all scale together as one unit — pixel-accurate to the reference no matter
-// how wide the actual container ends up being (not just at exactly 1280px).
-const CANVAS_W = 1280;
-const CANVAS_H = 960;
-const cq = (px) => `${+((px / CANVAS_W) * 100).toFixed(4)}cqw`;
+// Fixed design canvas — every position below is authored in this exact
+// pixel space (matching the Figma design 1:1), then the whole canvas is
+// scaled as one rigid unit to fit the container. This avoids container-query
+// units entirely, so circles/text/curve never drift out of alignment.
+const CANVAS_W = 1282;
+const CANVAS_H = 932;
 
 const STEPS = [
   {
     number: 1,
     title: "Discover",
     description: "Understand business goals, current challenges, and future opportunities.",
-    x: 205,
-    y: 790,
-    diameter: 56,
-    numberSize: 20,
+    circle: { left: 181, top: 763, diameter: 54 },
+    text: { left: 261, top: 763, width: 347 },
   },
   {
     number: 2,
     title: "Strategize",
     description: "Develop a practical roadmap aligned with your business vision.",
-    x: 299,
-    y: 529,
-    diameter: 56,
-    numberSize: 20,
+    circle: { left: 275, top: 503, diameter: 54 },
+    text: { left: 322, top: 572, width: 286 },
   },
   {
     number: 3,
     title: "Transform",
     description: "Implement modern technologies and optimize business processes.",
-    x: 413,
-    y: 349,
-    diameter: 80,
-    numberSize: 26,
+    circle: { left: 378, top: 311, diameter: 75 },
+    text: { left: 480, top: 354, width: 286 },
   },
   {
     number: 4,
     title: "Enable",
     description: "Empower teams with the right tools, skills, and support to embrace change.",
-    x: 637,
-    y: 146,
-    diameter: 80,
-    numberSize: 26,
+    circle: { left: 602, top: 108, diameter: 75 },
+    text: { left: 679, top: 195, width: 286 },
   },
   {
     number: 5,
     title: "Optimize",
     description: "Continuously measure, improve, and evolve to maximize business value.",
-    x: 924,
-    y: 66,
-    diameter: 96,
-    numberSize: 30,
+    circle: { left: 882, top: 21, diameter: 90 },
+    text: { left: 965, top: 108, width: 286 },
   },
 ];
 
-// Space between a circle's edge and the start of its text block (design px).
-const TEXT_GAP = 24;
-
-// Catmull-Rom -> cubic Bezier, so the path is one smooth, tangent-continuous
-// curve through every dot (no kinks between segments).
-function smoothPath(points) {
-  const d = [`M ${points[0].x} ${points[0].y}`];
-  for (let i = 0; i < points.length - 1; i++) {
-    const p0 = points[i - 1] || points[i];
-    const p1 = points[i];
-    const p2 = points[i + 1];
-    const p3 = points[i + 2] || p2;
-    const c1x = p1.x + (p2.x - p0.x) / 6;
-    const c1y = p1.y + (p2.y - p0.y) / 6;
-    const c2x = p2.x - (p3.x - p1.x) / 6;
-    const c2y = p2.y - (p3.y - p1.y) / 6;
-    d.push(`C ${c1x.toFixed(1)} ${c1y.toFixed(1)}, ${c2x.toFixed(1)} ${c2y.toFixed(1)}, ${p2.x} ${p2.y}`);
-  }
-  return d.join(" ");
-}
-
-const CURVE_PATH = smoothPath(STEPS.map((s) => ({ x: s.x, y: s.y })));
+// Curve, authored in its own local coordinate space exactly as the Figma
+// export defines it. Rendered inside an absolutely-positioned wrapper
+// (see CURVE_BOX below) so the browser maps it into canvas space natively —
+// no hand-transformed coordinates that could drift out of alignment.
+const CURVE_PATH = "M3.44008 744.461C44.2734 526.628 242.04 73.4609 706.44 3.4609";
+const CURVE_VIEWBOX = "0 0 706.962 745.106";
+const CURVE_BOX = { left: 207.5, top: 49, width: 703, height: 741 };
 
 const TransformationJourney = () => {
+  const wrapperRef = useRef(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const el = wrapperRef.current;
+    if (!el) return undefined;
+    const update = () => setScale(el.offsetWidth / CANVAS_W);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-black py-24">
+      {/* Background image — covers the entire section */}
       <Image src={journeyBg} alt="" fill className="object-cover" />
-      <div className="absolute inset-0 bg-blue-950/70" />
+      <div className="absolute inset-0 bg-[#003756] mix-blend-hue" />
+      <div className="absolute inset-0 bg-[rgba(0,55,86,0.56)]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.h2
@@ -112,7 +100,7 @@ const TransformationJourney = () => {
               transition={{ duration: 0.5, delay: index * 0.15, ease: "easeOut" }}
               className="flex flex-col items-start gap-4"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b from-white to-violet-400 text-xl font-bold leading-none text-blue-950 shadow-lg shadow-violet-500/20 transition-transform duration-300 hover:scale-110">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b from-white to-[#2D8EC5] text-xl font-bold leading-none text-[#0e3067] shadow-lg shadow-[#2D8EC5]/20 transition-transform duration-300 hover:scale-110">
                 {step.number}
               </div>
               <div>
@@ -125,59 +113,55 @@ const TransformationJourney = () => {
           ))}
         </div>
 
-        {/* Desktop: dots sit exactly on the curve. The whole diagram scales as
-            one unit via container-query units (cqw), so circle size, number
-            size, title/description size, and circle-to-text spacing all stay
-            proportional to each other at any container width — instead of
-            only lining up correctly at one specific design width. */}
-        <div
-          className="relative hidden w-full lg:block"
-          style={{ containerType: "inline-size", aspectRatio: `${CANVAS_W} / ${CANVAS_H}` }}
-        >
-          <svg
-            className="pointer-events-none absolute inset-0 h-full w-full"
-            viewBox={`0 0 ${CANVAS_W} ${CANVAS_H}`}
-            preserveAspectRatio="none"
-            fill="none"
+        {/* Desktop: fixed-canvas diagram, scaled as one rigid unit */}
+        <div ref={wrapperRef} className="hidden w-full overflow-hidden lg:block" style={{ height: CANVAS_H * scale }}>
+          <div
+            className="relative"
+            style={{ width: CANVAS_W, height: CANVAS_H, transformOrigin: "top left", transform: `scale(${scale})` }}
           >
-            <motion.path
-              d={CURVE_PATH}
-              stroke="url(#journey-line)"
-              strokeWidth="4"
-              strokeLinecap="round"
-              initial={{ pathLength: 0, opacity: 0 }}
-              whileInView={{ pathLength: 1, opacity: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1.8, ease: "easeInOut" }}
-            />
-            <defs>
-              <linearGradient id="journey-line" x1="0" y1="1" x2="1" y2="0">
-                <stop offset="0%" stopColor="#7dd3fc" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#c4b5fd" stopOpacity="0.95" />
-              </linearGradient>
-            </defs>
-          </svg>
+            {/* Curve — positioned exactly as Figma authors it: an absolute
+                wrapper box, with an SVG inside mapping its own local
+                viewBox onto that box. */}
+            <div
+              className="pointer-events-none absolute"
+              style={{ left: CURVE_BOX.left, top: CURVE_BOX.top, width: CURVE_BOX.width, height: CURVE_BOX.height }}
+            >
+              <svg className="block h-full w-full" viewBox={CURVE_VIEWBOX} fill="none">
+                <motion.path
+                  d={CURVE_PATH}
+                  stroke="url(#journey-line)"
+                  strokeWidth="7"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  whileInView={{ pathLength: 1, opacity: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 1.8, ease: "easeInOut" }}
+                />
+                <defs>
+                  <linearGradient id="journey-line" x1="884.44" y1="-84.04" x2="75.94" y2="720.96" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#6CC6F9" />
+                    <stop offset="0.5" stopColor="white" />
+                    <stop offset="1" stopColor="#6CC6F9" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
 
-          {STEPS.map((step, index) => {
-            const textOffset = step.diameter / 2 + TEXT_GAP;
-            const left = `${(step.x / CANVAS_W) * 100}%`;
-            const top = `${(step.y / CANVAS_H) * 100}%`;
-
-            return (
+            {STEPS.map((step, index) => (
               <React.Fragment key={step.number}>
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.85 }}
+                  initial={{ opacity: 0, scale: 0.6 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.5, delay: index * 0.15, ease: "easeOut" }}
-                  className="absolute flex items-center justify-center rounded-full bg-gradient-to-b from-white to-violet-400 font-bold leading-none text-blue-950 shadow-lg shadow-violet-500/20 transition-transform duration-300 hover:scale-110"
+                  transition={{ duration: 0.5, delay: index * 0.18, ease: "easeOut" }}
+                  className="absolute flex items-center justify-center rounded-full font-bold leading-none text-[#0e3067] shadow-lg shadow-[#2D8EC5]/20 transition-transform duration-300 hover:scale-110"
                   style={{
-                    left,
-                    top,
-                    width: cq(step.diameter),
-                    height: cq(step.diameter),
-                    fontSize: cq(step.numberSize),
-                    transform: "translate(-50%, -50%)",
+                    left: step.circle.left,
+                    top: step.circle.top,
+                    width: step.circle.diameter,
+                    height: step.circle.diameter,
+                    fontSize: 32,
+                    background: "linear-gradient(to bottom, white 20%, #2D8EC5 100%)",
                   }}
                 >
                   {step.number}
@@ -187,32 +171,16 @@ const TransformationJourney = () => {
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.5, delay: index * 0.15 + 0.1, ease: "easeOut" }}
-                  className="absolute"
-                  style={{
-                    left,
-                    top,
-                    transform: `translate(${cq(textOffset)}, -50%)`,
-                  }}
+                  transition={{ duration: 0.5, delay: index * 0.18 + 0.15, ease: "easeOut" }}
+                  className="absolute flex flex-col gap-1.5"
+                  style={{ left: step.text.left, top: step.text.top, width: step.text.width }}
                 >
-                  <h3 className="font-medium leading-tight text-white" style={{ fontSize: cq(34) }}>
-                    {step.title}
-                  </h3>
-                  <p
-                    className="text-neutral-300"
-                    style={{
-                      fontSize: cq(17),
-                      lineHeight: 1.5,
-                      marginTop: cq(8),
-                      maxWidth: cq(300),
-                    }}
-                  >
-                    {step.description}
-                  </p>
+                  <p className="text-[32px] font-bold leading-none text-white">{step.title}</p>
+                  <p className="text-[24px] leading-relaxed text-[#e1e1e1]">{step.description}</p>
                 </motion.div>
               </React.Fragment>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>

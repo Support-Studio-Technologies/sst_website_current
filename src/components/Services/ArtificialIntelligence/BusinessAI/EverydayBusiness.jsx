@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import EverydayImg from "@/assets/Service/Artificial Intelligence/Business AI/everyday-business.png";
+import EverydayImg from "@/assets/Service/Artificial Intelligence/Business AI/business-ai-operations.webp";
 
 const EverydayBusiness = () => {
   return (
@@ -23,7 +23,7 @@ const EverydayBusiness = () => {
             alt="AI built for everyday business"
             fill
             sizes="(min-width: 1024px) 46vw, 100vw"
-            className="object-contain"
+            className="object-cover"
           />
         </motion.div>
 

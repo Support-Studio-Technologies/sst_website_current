@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import WorkingImg from "@/assets/Service/Artificial Intelligence/Gen AI/new-way-of-working.png";
+import WorkingImg from "@/assets/Service/Artificial Intelligence/Gen AI/generative-ai-workplace.jpeg";
 
 const NewWayOfWorking = () => {
   return (
@@ -23,7 +23,7 @@ const NewWayOfWorking = () => {
             alt="The new way of working with Generative AI"
             fill
             sizes="(min-width: 1024px) 46vw, 100vw"
-            className="object-contain"
+            className="object-cover"
           />
         </motion.div>
 

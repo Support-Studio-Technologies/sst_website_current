@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
-import outcomeImage from "@/assets/Service/Enterprise Transformation/Side Image.jpg";
+import outcomesLeft from "@/assets/Service/Enterprise Transformation/f4212a8752b4f6c61b6a134199ea831a6067dbe5.png";
+import outcomesTexture from "@/assets/Service/Enterprise Transformation/source/a3390e2b0c6e9e38034b3eed232e935e7618ccfc.jpg";
 
 const OUTCOMES = [
   {
@@ -53,9 +54,11 @@ const BusinessOutcomes = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7 }}
-            className="relative min-h-[280px] bg-sky-950 lg:min-h-[420px]"
+            className="relative min-h-[280px] bg-[#003756] lg:min-h-[420px]"
           >
-            <Image src={outcomeImage} alt="Connected business systems" fill className="object-cover" />
+            <Image src={outcomesLeft} alt="Connected business systems" fill className="object-cover" />
+            <div className="absolute inset-0 bg-[#003756] mix-blend-hue" />
+            <Image src={outcomesTexture} alt="" fill className="object-cover opacity-30" />
           </motion.div>
 
           <div className="flex flex-col justify-center bg-white">
@@ -65,22 +68,19 @@ const BusinessOutcomes = () => {
                 <button
                   key={outcome.title}
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                  className={`flex flex-col items-start gap-3 border-b border-stone-200 px-6 py-6 text-left transition-colors duration-300 last:border-b-0 sm:px-8 ${
-                    isOpen ? "bg-gray-100" : "bg-neutral-50 hover:bg-gray-50"
-                  }`}
+                  className={`flex flex-col items-start gap-3 border-b border-[#cac9c9] px-6 py-6 text-left transition-colors duration-300 last:border-b-0 sm:px-8 ${isOpen ? "border-l-4 border-l-[#015788] bg-[#ebeeef]" : "bg-[#fdfcfc] hover:bg-gray-50"
+                    }`}
                 >
                   <div className="flex w-full items-center justify-between">
                     <span
-                      className={`font-medium text-black transition-all duration-300 ${
-                        isOpen ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"
-                      }`}
+                      className={`font-medium text-black transition-all duration-300 ${isOpen ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"
+                        }`}
                     >
                       {outcome.title}
                     </span>
                     <Plus
-                      className={`h-5 w-5 flex-shrink-0 text-sky-950 transition-transform duration-300 ${
-                        isOpen ? "rotate-45" : ""
-                      }`}
+                      className={`h-5 w-5 flex-shrink-0 text-[#015788] transition-transform duration-300 ${isOpen ? "rotate-45" : ""
+                        }`}
                     />
                   </div>
                   <AnimatePresence initial={false}>

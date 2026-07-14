@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Layers, Database, Cpu } from "lucide-react";
+import { Layers, Database, Cpu, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 const DIAfternatingFeatures = () => {
@@ -12,6 +12,7 @@ const DIAfternatingFeatures = () => {
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#2d8ec5] mb-3 block">
+            <Sparkles className="h-4.5 w-4.5 text-[#2d8ec5] inline-block mr-2" />
             Capabilities Overview
           </span>
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">

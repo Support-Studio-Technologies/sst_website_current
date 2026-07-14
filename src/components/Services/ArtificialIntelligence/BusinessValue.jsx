@@ -4,7 +4,8 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import AIBusinessPhoto from "@/assets/Service/Artificial Intelligence/ai-business-photo.png";
+import AIBusinessIntelligence from "@/assets/Service/Artificial Intelligence/ai-business-intelligence-dashboard.jpg";
+import AIBusinessAutomation from "@/assets/Service/Artificial Intelligence/ai-business-automation.jpg";
 
 const BusinessValue = () => {
   return (
@@ -38,11 +39,11 @@ const BusinessValue = () => {
             className="relative w-full aspect-[568/319] rounded-[20px] overflow-hidden shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
           >
             <Image
-              src={AIBusinessPhoto}
+              src={AIBusinessIntelligence}
               alt="AI business intelligence"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-contain"
+              className="object-cover"
             />
           </motion.div>
         </div>
@@ -58,11 +59,11 @@ const BusinessValue = () => {
             className="relative w-full aspect-[568/319] rounded-[20px] overflow-hidden shadow-[0px_4px_4px_rgba(0,0,0,0.25)] order-2 lg:order-1"
           >
             <Image
-              src={AIBusinessPhoto}
+              src={AIBusinessAutomation}
               alt="AI business value"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-contain"
+              className="object-cover"
             />
           </motion.div>
 

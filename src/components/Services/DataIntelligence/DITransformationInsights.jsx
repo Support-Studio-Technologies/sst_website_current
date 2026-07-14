@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 const DITransformationInsights = () => {
   return (
@@ -13,6 +13,7 @@ const DITransformationInsights = () => {
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#2d8ec5] mb-3 block">
+            <Sparkles className="h-4.5 w-4.5 text-[#2d8ec5] inline-block mr-2" />
             Transformation Analytics
           </span>
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">

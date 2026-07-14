@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
 const TransformationJourney = () => {
   const steps = [
@@ -36,7 +37,9 @@ const TransformationJourney = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         {/* Title */}
         <div className="max-w-2xl mx-auto text-center mb-20">
-          <p className="text-blue-400 text-xs font-semibold uppercase tracking-[0.25em] mb-3">Our Process</p>
+          <p className="text-blue-400 text-xs font-semibold uppercase tracking-[0.25em] mb-3 flex items-center justify-center gap-2">
+            <Sparkles className="h-4.5 w-4.5 text-[#0066cc]" />
+            Our Process</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
             Our Cloud Transformation Journey
           </h2>
@@ -55,9 +58,8 @@ const TransformationJourney = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className={`flex flex-col items-center text-center space-y-4 ${
-                idx % 2 === 1 ? "translate-y-6" : "-translate-y-4"
-              }`}
+              className={`flex flex-col items-center text-center space-y-4 "
+                }`}
             >
               {/* Stepper Node */}
               <div className="relative w-32 h-32 rounded-full bg-gradient-to-b from-[#216992]/20 to-neutral-900 flex items-center justify-center border-2 border-neutral-800 shadow-[0_0_30px_rgba(33,105,146,0.15)] group hover:border-blue-400 transition-all duration-500">

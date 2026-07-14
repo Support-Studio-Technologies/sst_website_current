@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import OpportunityImg from "@/assets/Service/Artificial Intelligence/AI Strategy/opportunity.png";
+import OpportunityImg from "@/assets/Service/Artificial Intelligence/AI Strategy/ai-business-opportunity.jpeg";
 
 const Opportunity = () => {
   return (
@@ -22,7 +22,7 @@ const Opportunity = () => {
             alt="The opportunity AI makes possible"
             fill
             sizes="(min-width: 1024px) 46vw, 100vw"
-            className="object-contain"
+            className="object-cover"
           />
         </motion.div>
 

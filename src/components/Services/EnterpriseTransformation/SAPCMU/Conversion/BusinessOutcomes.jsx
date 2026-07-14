@@ -69,7 +69,9 @@ const BusinessOutcomes = () => (
           transition={{ duration: 0.6 }}
           className="relative overflow-hidden rounded-3xl"
         >
-          <Image src={panelBg} alt="" fill className="object-cover" />
+          <div className="absolute -inset-[12%]">
+            <Image src={panelBg} alt="" fill className="object-cover" />
+          </div>
           <div className="absolute inset-0 bg-sky-950/85" />
           <div className="relative grid grid-cols-1 gap-3 p-6 sm:grid-cols-2 sm:p-8">
             {OUTCOMES.map((item, index) => (

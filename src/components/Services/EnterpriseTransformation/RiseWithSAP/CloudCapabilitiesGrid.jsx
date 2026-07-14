@@ -68,12 +68,13 @@ const CloudCapabilitiesGrid = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: (index % 2) * 0.1 }}
-              className="group flex items-center gap-5 rounded-[20px] bg-sky-300/10 px-6 py-6 shadow-[0px_4px_16px_0px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:bg-sky-300/20 hover:shadow-[0px_8px_24px_0px_rgba(8,47,73,0.15)]"
+              className="group relative flex items-center gap-5 overflow-hidden rounded-[20px] bg-sky-300/10 px-6 py-6 shadow-[0px_4px_16px_0px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:bg-sky-300/20 hover:shadow-[0px_8px_24px_0px_rgba(8,47,73,0.15)]"
             >
-              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-[10px] bg-white text-sky-950 shadow-sm transition-transform duration-300 group-hover:scale-105">
+              <span className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 transition-all duration-700 group-hover:left-full group-hover:opacity-100" />
+              <div className="relative flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-[10px] bg-white text-sky-950 shadow-sm transition-transform duration-300 group-hover:scale-105 group-hover:text-cyan-600">
                 <item.icon className="h-7 w-7" strokeWidth={1.6} />
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="relative flex flex-col gap-2">
                 <h4 className="text-xl text-black">{item.title}</h4>
                 <p className="text-sm font-light text-black/80 sm:text-base">{item.description}</p>
               </div>

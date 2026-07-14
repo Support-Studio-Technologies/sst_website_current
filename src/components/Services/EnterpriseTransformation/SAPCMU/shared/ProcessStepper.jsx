@@ -4,10 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const ProcessStepper = ({ heading, description, steps, backgroundImage }) => {
-  const gridColsClass =
-    steps.length >= 6 ? "sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6" : "md:grid-cols-5";
-  const circleOffsetClass = steps.length >= 6 ? "mt-0 lg:-mt-[76px]" : "mt-0 md:-mt-[76px]";
-
   return (
     <section className="relative overflow-hidden bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -30,55 +26,76 @@ const ProcessStepper = ({ heading, description, steps, backgroundImage }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="relative w-full rounded-[32px] overflow-hidden bg-[#0c2533] shadow-[0_10px_50px_rgba(0,0,0,0.04)]"
+          className="relative w-full overflow-hidden rounded-[24px] bg-[#0c2533] shadow-[0_10px_50px_rgba(0,0,0,0.04)]"
         >
-          {/* Metallic Wave Image at the top (covering the top 200px) */}
+          {/* Photo band — fixed height, never touched by the content below it */}
           {backgroundImage && (
-            <div className="absolute top-0 left-0 right-0 h-[200px] z-0 pointer-events-none select-none">
-              <Image
-                src={backgroundImage}
-                alt=""
-                fill
-                className="object-cover"
-                priority
-              />
-              {/* Overlay shadow to transition into the solid color */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0c2533]/20" />
+            <div className="relative h-[160px] sm:h-[200px] lg:h-[240px] w-full">
+              <Image src={backgroundImage} alt="" fill className="object-cover" priority />
+              <div className="absolute inset-0 bg-[#003756] mix-blend-hue" />
             </div>
           )}
 
-          {/* Stepper Grid Content */}
-          <div className={`relative z-10 grid grid-cols-1 ${gridColsClass} gap-8 px-8 py-10 md:px-12 md:py-14`}>
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex flex-col items-center md:items-start gap-4 text-center md:text-left"
-              >
-                {/* Circle number sitting on the dividing line */}
+          {/* Solid content panel — height grows with content, so nothing ever clips */}
+          <div className="relative bg-[rgba(0,55,86,0.94)] px-6 py-10 sm:px-10 sm:py-12 lg:px-14">
+            {/* Mobile / tablet: simple stacked list */}
+            <div className="flex flex-col gap-8 lg:hidden">
+              {steps.map((step, index) => (
                 <motion.div
-                  whileHover={{ scale: 1.15 }}
-                  className={`w-14 h-14 rounded-full bg-white text-black font-extrabold text-2xl flex items-center justify-center shadow-lg transition-transform duration-300 cursor-pointer select-none mb-4 z-10 ${circleOffsetClass}`}
+                  key={step.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
+                  className="flex items-start gap-5"
                 >
-                  {index + 1}
+                  <span className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-white text-2xl font-medium text-black shadow-md">
+                    {index + 1}
+                  </span>
+                  <div className="flex flex-col gap-1.5 pt-1.5">
+                    <h4 className="text-xl font-medium text-white">{step.label}</h4>
+                    {step.description && (
+                      <p className="text-base font-light leading-relaxed text-[#b7b7b7]">
+                        {step.description}
+                      </p>
+                    )}
+                  </div>
                 </motion.div>
+              ))}
+            </div>
 
-                {/* Title and Description sitting in the solid dark blue region */}
-                <div className="flex flex-col gap-2 w-full">
-                  <h4 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight">
-                    {step.label}
-                  </h4>
-                  {step.description && (
-                    <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-sans font-light opacity-95">
-                      {step.description}
-                    </p>
-                  )}
+            {/* Desktop: circle + label share one column, so each number always
+                sits centered above its own content regardless of description length */}
+            <div className="hidden lg:flex lg:items-start lg:justify-between lg:gap-6">
+              {steps.map((step, index) => (
+                <div key={step.label} className="flex flex-1 flex-col items-center gap-4 text-center">
+                  <motion.span
+                    whileHover={{ scale: 1.12 }}
+                    initial={{ opacity: 0, scale: 0.7 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="flex h-[60px] w-[60px] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-white text-[28px] font-medium text-black shadow-lg"
+                  >
+                    {index + 1}
+                  </motion.span>
+                  <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 + 0.1 }}
+                    className="flex w-[200px] flex-col items-center gap-2.5"
+                  >
+                    <h4 className="text-xl font-medium text-white">{step.label}</h4>
+                    {step.description && (
+                      <p className="text-[15px] font-light leading-snug text-[#b7b7b7]">
+                        {step.description}
+                      </p>
+                    )}
+                  </motion.div>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

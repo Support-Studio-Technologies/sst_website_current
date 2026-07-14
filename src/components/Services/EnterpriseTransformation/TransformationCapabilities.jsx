@@ -75,9 +75,17 @@ const TransformationCapabilities = () => {
               transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
               className="flex w-48 flex-shrink-0 flex-col items-start sm:w-52"
             >
-              <div className="mb-3 text-2xl font-semibold text-black sm:text-3xl">{index + 1}</div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.6 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.4, delay: index * 0.08 + 0.15, type: "spring" }}
+                className="mb-3 text-2xl font-semibold text-black sm:text-3xl"
+              >
+                {index + 1}
+              </motion.div>
               <div
-                className={`group relative w-full overflow-hidden rounded-xl transition-transform duration-500 ease-out hover:-translate-y-2 ${item.height}`}
+                className={`group relative w-full overflow-hidden rounded-2xl shadow-[4px_4px_10px_5px_rgba(0,0,0,0.08)] transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[4px_4px_20px_8px_rgba(8,47,73,0.18)] ${item.height}`}
               >
                 <Image
                   src={item.image}

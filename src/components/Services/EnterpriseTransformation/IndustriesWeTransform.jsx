@@ -2,21 +2,40 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const INDUSTRIES = [
-  "Manufacturing",
-  "Automotive",
-  "Retail",
-  "Healthcare",
-  "Logistics & Supply Chain",
-  "Professional Services",
-  "Banking & Financial Services",
-  "Energy & Utilities",
+const ROW_1 = [
+  { label: "Manufacturing", active: false },
+  { label: "Automotive", active: true },
+  { label: "Retail", active: false },
+  { label: "Healthcare", active: true },
 ];
+
+const ROW_2 = [
+  { label: "Logistics & Supply Chain", active: true },
+  { label: "Professional Services", active: false },
+  { label: "Banking & Financial Services", active: true },
+  { label: "Energy & Utilities", active: false },
+];
+
+const IndustryChip = ({ item, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 16, scale: 0.95 }}
+    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+    viewport={{ once: true, amount: 0.4 }}
+    transition={{ duration: 0.4, delay: index * 0.06 }}
+    whileHover={{ y: -3 }}
+    className={`flex min-h-[60px] min-w-[150px] cursor-default items-center justify-center rounded-[20px] border border-[#003756] px-5 py-4 text-center transition-colors duration-300 md:min-h-[70px] ${item.active
+        ? "bg-[#003756] text-white hover:bg-[#015788]"
+        : "bg-white text-[#003756] hover:bg-[#003756] hover:text-white"
+      }`}
+  >
+    <span className="text-base font-light sm:text-lg md:text-xl">{item.label}</span>
+  </motion.div>
+);
 
 const IndustriesWeTransform = () => {
   return (
     <section className="relative overflow-hidden bg-white py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,27 +53,15 @@ const IndustriesWeTransform = () => {
           </p>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{ visible: { transition: { staggerChildren: 0.06 } } }}
-          className="flex flex-wrap justify-center gap-4"
-        >
-          {INDUSTRIES.map((industry) => (
-            <motion.div
-              key={industry}
-              variants={{
-                hidden: { opacity: 0, y: 16, scale: 0.95 },
-                visible: { opacity: 1, y: 0, scale: 1 },
-              }}
-              transition={{ duration: 0.4 }}
-              className="group cursor-default rounded-[20px] border border-sky-950 bg-transparent px-8 py-5 text-lg text-sky-950 transition-colors duration-300 hover:bg-sky-950 hover:text-white hover:shadow-lg hover:shadow-sky-950/20"
-            >
-              {industry}
-            </motion.div>
+        <div className="flex flex-col gap-4">
+          {[ROW_1, ROW_2].map((row, rowIndex) => (
+            <div key={rowIndex} className="flex flex-wrap justify-center gap-3 md:gap-4">
+              {row.map((item, index) => (
+                <IndustryChip key={item.label} item={item} index={rowIndex * 4 + index} />
+              ))}
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

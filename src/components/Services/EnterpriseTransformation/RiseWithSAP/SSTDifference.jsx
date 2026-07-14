@@ -4,8 +4,37 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import globeImage from "@/assets/Service/Enterprise Transformation/Rise with SAP/30bdae03a8ca633c4c3c7d050d0fadcfe81f917a.jpg";
-import corridorImage from "@/assets/Service/Enterprise Transformation/Rise with SAP/6ed673b8e2dac70308addd7fa945f7428c2b665e.jpg";
+import corridorImage from "@/assets/Service/Enterprise Transformation/Rise with SAP/a19032145be6a1b62eaf8fc8c065a613c093fe0c.jpg";
 import teamImage from "@/assets/Service/Enterprise Transformation/Rise with SAP/8d3d5bd8ec58fc68ac3a40bb3901569e8329093e.jpg";
+import modernizeImage from "@/assets/Service/Enterprise Transformation/Rise with SAP/modernizeImage.webp";
+
+const CARDS = [
+  {
+    title: "Business Transformation Roadmap",
+    description:
+      "Create a structured roadmap that aligns cloud ERP transformation with your business goals. We help prioritize initiatives, reduce implementation risk, and deliver measurable business value from day one.",
+    image: globeImage,
+  },
+  {
+    title: "Built for Business Growth",
+    description:
+      "Adopt scalable SAP cloud solutions designed to support expansion, improve operational agility, and enable continuous innovation as your organization grows.",
+    image: corridorImage,
+  },
+  {
+    title: "Modernize Without Disruption",
+    description:
+      "Transform legacy ERP environments through a phased migration approach that minimizes downtime, protects business continuity, and accelerates user adoption.",
+    image: modernizeImage,
+  },
+  {
+    title: "Future-Ready Enterprise",
+    description:
+      "Build an intelligent digital foundation with automation, analytics, AI, and cloud technologies that keep your business resilient and prepared for future change.",
+    image: teamImage,
+  },
+];
+
 
 const SSTDifference = () => {
   return (
@@ -25,65 +54,40 @@ const SSTDifference = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {[globeImage, corridorImage].map((image, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {CARDS.map((card, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative aspect-square overflow-hidden rounded-2xl"
+              whileHover={{ y: -6 }}
+              className="group relative h-[430px] overflow-hidden rounded-3xl shadow-lg"
             >
               <Image
-                src={image}
-                alt=""
+                src={card.image}
+                alt={card.title}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
+
+              {/* overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-all duration-500 group-hover:from-black/95 group-hover:via-black/70" />
+
+              <div className="absolute inset-0 flex flex-col justify-end p-7">
+                <h3 className="text-2xl font-semibold text-white leading-tight">
+                  {card.title}
+                </h3>
+
+                <div className="overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-hover:max-h-60 group-hover:opacity-100">
+                  <p className="mt-4 text-sm leading-7 text-white/80">
+                    {card.description}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ))}
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="col-span-2 flex aspect-square flex-col justify-center gap-6 rounded-2xl bg-black/85 p-6 shadow-xl sm:p-8 lg:col-span-1"
-          >
-            <h3 className="text-xl font-medium leading-tight tracking-tight text-white">
-              Regional Bank — AML Compliance Overhaul
-            </h3>
-            <p className="text-sm font-medium leading-relaxed text-neutral-200">
-              Before: Facing repeated regulatory warnings and a looming audit failure due to
-              outdated AML practices.
-              <br />
-              <br />
-              After: We implemented a full AML compliance framework, trained 80+ staff, and
-              supported the bank through a successful third-party audit.
-            </p>
-            <button className="group/btn flex w-fit items-center gap-2 rounded-3xl bg-white py-2.5 pl-4 pr-2.5 text-sm font-semibold text-blue-700 shadow-md transition-transform duration-300 hover:scale-105">
-              Learn More
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-700 text-white transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </span>
-            </button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="group relative aspect-square overflow-hidden rounded-2xl"
-          >
-            <Image
-              src={teamImage}
-              alt=""
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-          </motion.div>
         </div>
       </div>
     </section>
