@@ -56,20 +56,21 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href="/aboutus"
+                    href="/services"
                     className="hover:text-white transition-colors duration-200"
                   >
-                    About
+                    What we do
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services"
+                    href="/aboutus"
                     className="hover:text-white transition-colors duration-200"
                   >
-                    Services
+                    Who we are
                   </Link>
                 </li>
+
                 {/* <li>
                   <Link
                     href="/solutions"
@@ -356,7 +357,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:getinfo@isupportz.com"
+                  href="mailto:info@isupportz.com"
                   className="hover:text-white transition-colors duration-200"
                 >
                   info@isupportz.com

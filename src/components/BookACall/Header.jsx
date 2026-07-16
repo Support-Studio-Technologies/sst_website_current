@@ -80,7 +80,7 @@ const Header = () => {
             className="object-cover object-center"
             quality={100}
           />
-         
+
         </div>
 
         {/* Content Container */}
@@ -107,7 +107,7 @@ const Header = () => {
                      drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]
                      max-w-4xl mx-auto mb-4 sm:mb-6"
               >
-                Contact our sales team
+                Contact our team
               </motion.h1>
 
               {/* Subtitle */}

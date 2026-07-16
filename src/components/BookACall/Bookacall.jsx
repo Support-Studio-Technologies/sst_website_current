@@ -23,10 +23,10 @@ const Bookacall = () => {
               marketing and partnership opportunities.
             </p>
             <a
-              href="mailto:hr@isupportu.com"
+              href="mailto:info@isupportu.com"
               className="text-blue-600 font-medium hover:text-blue-700 transition-colors"
             >
-              hr@isupportz.com
+              info@isupportz.com
             </a>
           </div>
 

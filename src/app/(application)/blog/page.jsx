@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import ContentHeader from "@/components/CommonComponents/ContentHeader";
-import backgroundImage from "../../../../public/blog/hero.jpg";
+import backgroundImage from "../../../../public/blog/land.jpg";
 import { supabase } from "@/lib/supabaseClient";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import AuthorsSection from "@/components/blog/author";
@@ -270,16 +270,15 @@ export default function BlogPage() {
 
                                             <CardItem
                                                 translateZ="0"
-                                                className="text-xs font-semibold text-blue-500 uppercase tracking-wider block mt-4 mb-2"
-                                            >
-                                                By {blog.author}
-                                            </CardItem>
-
-                                            <CardItem
-                                                translateZ="0"
                                                 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 mt-4 line-clamp-2 group-hover/card:text-blue-500 transition-colors"
                                             >
                                                 {blog.title}
+                                            </CardItem>
+                                            <CardItem
+                                                translateZ="0"
+                                                className="text-xs font-semibold text-blue-500 uppercase tracking-wider block mt-4 mb-2"
+                                            >
+                                                By {blog.author}
                                             </CardItem>
 
                                         </div>

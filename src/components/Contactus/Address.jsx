@@ -12,7 +12,7 @@ const ContactInfo = () => {
           Contact Information
         </h2>
         <p className="text-gray-600 mb-8 lg:mb-12">
-          Say something to start a live chat!
+          We're here to help. Reach out using the details below.
         </p>
 
         <div className="space-y-6 lg:space-y-8">
@@ -43,8 +43,6 @@ const ContactInfo = () => {
               />
             </div>
             <div className="text-gray-700 text-base">
-              <div>
-                <a className="hover:text-blue-500 transition-colors duration-200" href="mailto:hi@isupportz.com" target="_blank">hr@isupportz.com</a></div>
               <div>
                 <a className="hover:text-blue-500 transition-colors duration-200" href="mailto:info@isupportz.com" target="_blank">info@isupportz.com</a></div>
             </div>

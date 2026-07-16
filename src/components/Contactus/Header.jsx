@@ -2,8 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Navbar from "../Navbar/Navbar";
-import RectangleHeader from "../../../public/SolutionPage/ConsulationBg.png";
- 
+import RectangleHeader from "../../../public/blog/2807cc98147a21e2764581df7af98cfbb12fa24a.jpg";
+
+
 const ContactHeader = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -17,7 +18,7 @@ const ContactHeader = () => {
       },
     },
   };
- 
+
   const titleVariants = {
     hidden: {
       opacity: 0,
@@ -34,7 +35,7 @@ const ContactHeader = () => {
       },
     },
   };
- 
+
   return (
     <div className="text-gray-800 relative overflow-x-hidden overflow-hidden">
       <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
@@ -43,11 +44,11 @@ const ContactHeader = () => {
           <Image
             src={RectangleHeader}
             alt="Contact Background"
-            fill  
+            fill
             priority
             className="object-cover z-0"
           />
- 
+
           {/* Gradient Overlay */}
           <div
             className="absolute inset-0 z-10"
@@ -56,10 +57,10 @@ const ContactHeader = () => {
               backgroundBlendMode: "overlay",
             }}
           />
- 
+
           {/* Navbar */}
           <Navbar />
- 
+
           {/* Content - Left Aligned */}
           <div className="flex-1 flex items-start justify-center px-4 sm:px-8 lg:px-16 relative z-20 pt-8 md:pt-16">
             <div className="w-full max-w-5xl">
@@ -92,6 +93,5 @@ const ContactHeader = () => {
     </div>
   );
 };
- 
+
 export default ContactHeader;
- 

@@ -192,7 +192,16 @@ const InteractiveLocationPreview = () => {
                         aria-expanded={isOpen || isBottomSheetOpen}
                         tabIndex={0}
                     >
-                        #192, Kamaraj Salai, Puducherry - 605 013
+                        #192, Kamaraj Salai, Puducherry, India,
+                        Pin Code - 605013<br></br>
+                        <a
+                            href="https://maps.google.com/?q=YOUR+ADDRESS"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 hover:underline font-medium ml-1"
+                        >
+                            (View on Maps)
+                        </a>
                     </a>
 
                     {/* Desktop Hover Card with Safe Corridor (appears below the link) */}
