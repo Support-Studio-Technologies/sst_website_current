@@ -9,7 +9,7 @@ const Bookacall = () => {
     <div className=" py-16 px-4 pt-0 overflow-x-hidden overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
+
           {/* Email us */}
           <div className="text-center">
             <div className="flex justify-center mb-4">
@@ -22,11 +22,11 @@ const Bookacall = () => {
               Email us for general queries, including<br />
               marketing and partnership opportunities.
             </p>
-            <a 
-              href="mailto:hr@isupportu.com" 
+            <a
+              href="mailto:hr@isupportu.com"
               className="text-blue-600 font-medium hover:text-blue-700 transition-colors"
             >
-              hr@isupportu.com
+              hr@isupportz.com
             </a>
           </div>
 
@@ -42,11 +42,11 @@ const Bookacall = () => {
               Call us to speak to a member of our team.<br />
               We are always happy to help.
             </p>
-            <a 
-              href="tel:+16467965960" 
+            <a
+              href="tel:+04132191301"
               className="text-blue-600 font-medium hover:text-blue-700 transition-colors"
             >
-              +1 (646) 796-5960
+              0413-2191301
             </a>
           </div>
 
@@ -57,16 +57,15 @@ const Bookacall = () => {
                 <Image src={people} alt="Support" className="w-12 h-12 rounded-2xl" />
               </div>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Support</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Schedule a Call</h3>
             <p className="text-gray-600 text-md mb-4 leading-relaxed">
-              Check our helpful resources, FAQs and<br />
-              Developer tools.
+              Schedule a call with our team to discuss your needs and how we can help you.
             </p>
-            <a 
-              href="#" 
+            <a
+              href="#"
               className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors border border-blue-200 hover:border-blue-300 rounded-lg px-4 py-2"
             >
-              Support Center
+              Schedule a Call
               <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>

@@ -1,443 +1,336 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
-import Image from "next/image";
-import Icon from "../../assets/Home/testinomials/Icon.svg";
-import backgroundImage from "../../assets/Home/testinomials/CTA_BG.png";
+import React, { useState, useEffect } from 'react';
+import { motion } from "framer-motion";
+import { Sun, Moon } from 'lucide-react';
+import {
+  FaStar,
+  FaStarHalfAlt,
+  FaRegStar,
+} from "react-icons/fa";
 
-const TestimonialsPage = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  const testimonials = [
-    {
-      name: "Jacob Jones",
-      title: "SAP Services",
-      rating: 5,
-      text: "Streamline business processes and accelerate digital transformation with our expert SAP consulting, implementation, and managed support services.",
-    },
-    {
-      name: "Marcus Chen",
-      title: "Quality Deliverables",
-      rating: 3.5,
-      text: "Consistently delivering dependable, high-quality solutions that help businesses achieve their goals with confidence.",
-    },
-    {
-      name: "Sarah Williams",
-      title: "Trusted Partner",
-      rating: 4,
-      text: "More than a service provider, they became a trusted partner who understood our goals and consistently delivered solutions that exceeded expectations.",
-    },
-  ];
 
-  // Simple boy and girl avatar components
-  const BoyAvatar = ({ className }) => (
-    <div
-      className={`${className} bg-gray-500 rounded-full flex items-center justify-center`}
-    >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+// --- Data ---
+const testimonials = [
+  {
+    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Briana Patton",
+    role: "Operations Manager",
+    rating: 5,
+  },
+  {
+    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Bilal Ahmed",
+    role: "IT Manager",
+    rating: 4.5,
+  },
+  {
+    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Saman Malik",
+    role: "Customer Support Lead",
+    rating: 3.5,
+  },
+  {
+    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Omar Raza",
+    role: "CEO",
+    rating: 5,
+  },
+  {
+    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Zainab Hussain",
+    role: "Project Manager",
+    rating: 4.5,
+  },
+  {
+    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Aliza Khan",
+    role: "Business Analyst",
+    rating: 4.5,
+  },
+  {
+    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Farhan Siddiqui",
+    role: "Marketing Director",
+    rating: 5,
+  },
+  {
+    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Sana Sheikh",
+    role: "Sales Manager",
+    rating: 4.5,
+  },
+  {
+    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Hassan Ali",
+    role: "E-commerce Manager",
+    rating: 5,
+  },
+];
+
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
+
+const textVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+//----Star Rating Component----
+const StarRating = ({ rating }) => {
+  const stars = [];
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 >= 0.5;
+
+  for (let i = 0; i < fullStars; i++) {
+    stars.push(
+      <motion.span
+        key={i}
+        variants={starVariants}
+        initial="hidden"
+        animate="visible"
+        custom={i}
+        className="inline-block"
       >
-        <circle cx="12" cy="7" r="3" fill="white" />
-        <path d="M12 14c-4 0-7 2-7 5v1h14v-1c0-3-3-5-7-5z" fill="white" />
-      </svg>
-    </div>
-  );
+        <FaStar className="text-yellow-400" size={16} />
+      </motion.span>
+    );
+  }
 
-  const GirlAvatar = ({ className }) => (
-    <div
-      className={`${className} bg-gray-500 rounded-full flex items-center justify-center`}
-    >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+  if (hasHalfStar) {
+    stars.push(
+      <motion.span
+        key={fullStars}
+        variants={starVariants}
+        initial="hidden"
+        animate="visible"
+        custom={fullStars}
+        className="inline-block"
       >
-        <circle cx="12" cy="7" r="3" fill="white" />
-        <path d="M12 14c-4 0-7 2-7 5v1h14v-1c0-3-3-5-7-5z" fill="white" />
-        <circle cx="9" cy="6" r="1" fill="white" opacity="0.8" />
-        <circle cx="15" cy="6" r="1" fill="white" opacity="0.8" />
-      </svg>
-    </div>
-  );
+        <FaStarHalfAlt className="text-yellow-400" size={16} />
+      </motion.span>
+    );
+  }
 
-  const avatarComponents = [
-    <BoyAvatar key={0} className="w-8 h-8 border-2 border-white/50" />,
-    <GirlAvatar key={1} className="w-8 h-8 border-2 border-white/50" />,
-    <BoyAvatar key={2} className="w-8 h-8 border-2 border-white/50" />,
-    <GirlAvatar key={3} className="w-8 h-8 border-2 border-white/50" />,
-    <BoyAvatar key={4} className="w-8 h-8 border-2 border-white/50" />,
-  ];
+  const remainingStars = 5 - Math.ceil(rating);
+  for (let i = 0; i < remainingStars; i++) {
+    stars.push(
+      <motion.span
+        key={fullStars + (hasHalfStar ? 1 : 0) + i}
+        variants={starVariants}
+        initial="hidden"
+        animate="visible"
+        custom={fullStars + (hasHalfStar ? 1 : 0) + i}
+        className="inline-block"
+      >
+        <FaRegStar className="text-yellow-400" size={16} />
+      </motion.span>
+    );
+  }
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 4000);
+  return <div className="flex gap-1">{stars}</div>;
+};
 
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
-      },
+const starVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0,
+    y: 10,
+  },
+  visible: (i) => ({
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.4,
     },
-  };
+  }),
+};
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const testimonialSectionVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const servicesSectionVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const testimonialVariants = {
-    enter: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-    exit: {
-      opacity: 0,
-      x: -30,
-      transition: {
-        duration: 0.3,
-        ease: "easeIn",
-      },
-    },
-  };
-
-  const avatarVariants = {
-    hidden: { scale: 0, opacity: 0 },
-    visible: (i) => ({
-      scale: 1,
-      opacity: 1,
-      transition: {
-        delay: i * 0.1 + 0.5,
-        duration: 0.4,
-        type: "spring",
-        stiffness: 100,
-      },
-    }),
-    hover: {
-      scale: 1.1,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-
-  const buttonVariants = {
-    hover: {
-      scale: 1.05,
-      boxShadow: "0 10px 30px rgba(255, 255, 255, 0.2)",
-      transition: {
-        duration: 0.3,
-      },
-    },
-    tap: {
-      scale: 0.98,
-    },
-  };
-
-  const starVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: (i) => ({
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delay: i * 0.1 + 0.8,
-        duration: 0.3,
-        type: "spring",
-        stiffness: 200,
-      },
-    }),
-  };
-
-  const backgroundVariants = {
-    hidden: { opacity: 0, scale: 1.1 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 1.2,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const overlayVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 1,
-        delay: 0.3,
-      },
-    },
-  };
-
+// --- Sub-Components ---
+const TestimonialsColumn = ({
+  className,
+  testimonials,
+  duration = 10,
+}) => {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{
-        once: true,
-        amount: 0.2,
-        margin: "-100px 0px -100px 0px",
-      }}
-      variants={containerVariants}
-      className="rounded-2xl text-gray-800 min-h-screen p-6 flex flex-col items-center justify-center relative overflow-hidden"
-      style={{
-        margin: "1rem",
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
-                          url(${backgroundImage.src})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      {/* Background overlay for better text readability */}
-      <motion.div
-        variants={overlayVariants}
-        className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"
-      />
-
-      <div className="flex flex-col lg:flex-row gap-16 lg:gap-28 items-center justify-center w-full max-w-7xl relative z-10">
-        {/* Testimonial Section */}
-        <motion.div
-          variants={testimonialSectionVariants}
-          className="w-full lg:w-[30%] rounded-3xl p-6 flex flex-col items-center text-center"
-        >
-          <motion.p
-            variants={itemVariants}
-            className="text-sm font-medium tracking-wider text-white uppercase mb-4"
-          >
-            <span className="text-blue-400 mr-2">✦</span> TESTIMONIALS
-          </motion.p>
-
-          <div>
-            <motion.h2
-              variants={itemVariants}
-              className="text-2xl sm:text-3xl mb-4 text-white flex flex-col items-center gap-3"
-            >
-              <span>What our clients say</span>
-              <motion.span
-                className="flex -space-x-2"
-                variants={itemVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
+    <div className={className}>
+      <motion.ul
+        animate={{
+          translateY: "-50%",
+        }}
+        transition={{
+          duration,
+          repeat: Infinity,
+          ease: "linear",
+          repeatType: "loop",
+        }}
+        className="flex flex-col gap-6 pb-6 bg-transparent transition-colors duration-300 list-none m-0 p-0"
+      >
+        {new Array(2).fill(0).map((_, index) => (
+          <React.Fragment key={index}>
+            {testimonials.map(({ text, image, name, role, rating }, i) => (
+              <motion.li
+                key={`${index}-${i}`}
+                aria-hidden={index === 1}
+                tabIndex={index === 1 ? -1 : 0}
+                whileHover={{
+                  scale: 1.03,
+                  y: -8,
+                  boxShadow:
+                    "0 25px 50px -12px rgba(0,0,0,.12),0 10px 10px -5px rgba(0,0,0,.04)",
+                }}
+                whileFocus={{
+                  scale: 1.03,
+                  y: -8,
+                  boxShadow:
+                    "0 25px 50px -12px rgba(0,0,0,.12),0 10px 10px -5px rgba(0,0,0,.04)",
+                }}
+                className="p-10 rounded-3xl border border-neutral-200 dark:border-neutral-800 shadow-lg shadow-black/5 max-w-xs w-full bg-white dark:bg-neutral-900 transition-all duration-300"
               >
-                {avatarComponents.map((avatar, index) => (
-                  <motion.div
-                    key={index}
-                    custom={index}
-                    variants={avatarVariants}
-                    whileHover="hover"
-                    className="cursor-pointer"
-                  >
-                    {avatar}
-                  </motion.div>
-                ))}
-              </motion.span>
-            </motion.h2>
+                <blockquote>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-sm sm:text-base text-white text-center"
-            >
-              From innovative marketing strategies to operational excellence, we
-              provide expert solutions that drive success.
-            </motion.p>
-          </div>
 
-          {/* Glassmorphism testimonial card */}
-          <motion.div
-            variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
-            className="bg-black/30 backdrop-blur-md w-full w-full rounded-2xl p-8 shadow-xl border border-white/20 mt-4 text-center"
-          >
-            <motion.div
-              className="flex justify-center items-center gap-1 mb-6"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-            >
-              {[1, 2, 3, 4, 5].map((star, i) => (
-                <motion.div
-                  key={star}
-                  custom={i}
-                  variants={starVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  {testimonials[currentTestimonial].rating >= star ? (
-                    <FaStar className="w-6 h-6 text-[#FDC776]" />
-                  ) : testimonials[currentTestimonial].rating >= star - 0.5 ? (
-                    <FaStarHalfAlt className="w-6 h-6 text-[#FDC776]" />
-                  ) : (
-                    <FaRegStar className="w-6 h-6 text-[#FDC776]" />
-                  )}
-                </motion.div>
-              ))}
-            </motion.div>
+                  <p className="text-neutral-600 dark:text-neutral-400">
+                    {text}
+                  </p>
 
-            <AnimatePresence mode="wait">
-              <motion.blockquote
-                key={currentTestimonial}
-                variants={testimonialVariants}
-                initial={{ opacity: 0, x: 30 }}
-                animate="enter"
-                exit="exit"
-                className="text-base leading-relaxed font-medium mb-8 text-white"
-              >
-                "{testimonials[currentTestimonial].text}"
-              </motion.blockquote>
-            </AnimatePresence>
+                  <footer className="flex items-center gap-3 mt-6">
+                    <img
+                      src={image}
+                      alt={name}
+                      width={40}
+                      height={40}
+                      className="h-10 w-10 rounded-full object-cover"
+                    />
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`author-${currentTestimonial}`}
-                variants={testimonialVariants}
-                initial={{ opacity: 0, y: 20 }}
-                animate="enter"
-                exit="exit"
-                className="mb-8"
-              >
-                <h4 className="font-bold text-xl text-white">
-                  {testimonials[currentTestimonial].name}
-                </h4>
-                <p className="text-white/80 text-sm">
-                  {testimonials[currentTestimonial].title}
-                </p>
-              </motion.div>
-            </AnimatePresence>
+                    <div>
+                      <StarRating rating={rating} />
+                      <cite className="not-italic font-semibold">
+                        {name}
+                      </cite>
 
-            <div className="flex justify-center space-x-2">
-              {testimonials.map((_, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentTestimonial
-                    ? "bg-blue-400 scale-110"
-                    : "bg-white/30 hover:bg-white/50"
-                    }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
+                      <div className="text-sm text-neutral-500">
+                        {role}
 
-        {/* Services Section */}
-        <motion.div
-          variants={servicesSectionVariants}
-          className="w-full lg:w-[70%] rounded-3xl  text-center flex flex-col items-center"
-        >
-          <motion.h1
-            variants={itemVariants}
-            className="text-3xl lg:text-4xl xl:text-5xl font-normal leading-tight "
-          >
-            <motion.span variants={itemVariants} className="text-white">
-              Proven Impact Backing Our
-            </motion.span>
-            <br />
-            <motion.span variants={itemVariants} className="text-white">
-              Prime Solutions
-            </motion.span>
-          </motion.h1>
-
-          {/* CTA Section */}
-          <motion.div
-            variants={itemVariants}
-            className="text-center mt-16 mb-8 w-full"
-          >
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-gradient-to-r from-black/40 to-black/30 backdrop-blur-md border border-white/20 rounded-3xl p-8 max-w-2xl mx-auto shadow-2xl"
-            >
-              <motion.h3
-                variants={itemVariants}
-                className="text-2xl font-bold text-white mb-4"
-              >
-                Ready to Transform Your Business?
-              </motion.h3>
-
-              <motion.p variants={itemVariants} className="text-gray-300 mb-6">
-                Join our satisfied clients and experience the power of SST's Prime
-                solutions
-              </motion.p>
-
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4 justify-center"
-              >
-                <motion.button
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                  className="border border-white/30 text-white font-semibold py-2 px-4 sm:py-3 sm:px-8 text-sm sm:text-base rounded-xl hover:shadow-lg transition-all duration-300"
-                >
-                  Get Started Today
-                </motion.button>
-
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-      </div>
-    </motion.div>
+                      </div>
+                    </div>
+                  </footer>
+                </blockquote>
+              </motion.li>
+            ))}
+          </React.Fragment>
+        ))}
+      </motion.ul>
+    </div>
   );
 };
 
-export default TestimonialsPage;
+const TestimonialsSection = () => {
+  return (
+    <section
+      aria-labelledby="testimonials-heading"
+      className="bg-transparent py-24 relative overflow-hidden"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 50, rotate: -2 }}
+        whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{
+          duration: 1.2,
+          ease: [0.16, 1, 0.3, 1],
+          opacity: { duration: 0.8 }
+        }}
+        className="container px-4 z-10 mx-auto"
+      >
+        <div className="flex flex-col items-center justify-center max-w-[540px] mx-auto mb-16">
+          <motion.div
+            className="flex items-center justify-center gap-2"
+            variants={textVariants}
+          >
+            <span className="text-blue-500 text-base sm:text-lg">✦</span>
+            <p className="text-xs sm:text-sm font-medium  tracking-[0.2em] uppercase">
+              TESTIMONIALS
+            </p>
+          </motion.div>
 
+          <h1 id="testimonials-heading" variants={itemVariants}
+            className="text-4xl lg:text-6xl xl:text-4xl font-normal leading-tight">
+            What our clients say
+          </h1>
+          <p className="text-center mt-5 text-neutral-500 dark:text-neutral-400 text-lg leading-relaxed  transition-colors">
+            From innovative marketing strategies to operational excellence, we
+            provide expert solutions that drive success.
+          </p>
+        </div>
+
+        <div
+          className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] max-h-[740px] overflow-hidden"
+          role="region"
+          aria-label="Scrolling Testimonials"
+        >
+          <TestimonialsColumn testimonials={firstColumn} duration={15} />
+          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
+          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+// --- Main App Component ---
+export default function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
+
+  return (
+    <div className="w-screen min-h-screen bg-white dark:bg-neutral-950 transition-colors duration-300 flex flex-col justify-center relative selection:bg-primary selection:text-white">
+      {/* Dark Mode Toggle */}
+      {/* <button
+        onClick={() => setIsDark(!isDark)}
+        className="fixed top-6 right-6 z-50 p-3 rounded-full bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-100 border border-neutral-200 dark:border-neutral-800 shadow-xl hover:scale-110 transition-all active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary/50"
+        aria-label="Toggle Dark Mode"
+      >
+        {isDark ? <Sun size={20} /> : <Moon size={20} />}
+      </button> */}
+
+      <TestimonialsSection />
+    </div>
+  );
+}

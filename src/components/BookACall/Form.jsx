@@ -285,18 +285,18 @@ const Form = () => {
                     <CircularProgress size={18} color="inherit" />
                   </>
                 ) : (
-                  'Contact Sales'
+                  ' Submit'
                 )}
               </button>
 
               {/* Schedule a Call Button - Opens Calendly Modal */}
-              <button
+              {/* <button
                 type="button"
                 onClick={() => setShowCalendly(true)}
                 className="flex items-center gap-2 bg-[#2d8ec5] text-white font-medium py-2 px-6 rounded-md transition duration-200 ease-in-out hover:bg-blue-400"
               >
                 Schedule a Call
-              </button>
+              </button> */}
             </div>
           </div>
         </form>

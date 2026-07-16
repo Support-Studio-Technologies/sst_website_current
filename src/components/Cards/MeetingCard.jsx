@@ -554,7 +554,7 @@ const HomeCard = () => {
                       className="text-xl text-white mb-2 font-medium"
                       variants={numberVariants}
                     >
-                      200+
+                      300+
                     </motion.div>
 
                     <motion.p
@@ -572,7 +572,7 @@ const HomeCard = () => {
                       className="text-xl text-white mb-2 font-medium"
                       variants={numberVariants}
                     >
-                      200+
+                      300+
                     </motion.div>
 
                     <motion.p
@@ -658,7 +658,7 @@ const HomeCard = () => {
                 className="text-lg sm:text-lg text-white mb-2"
                 variants={numberVariants}
               >
-                200+
+                300+
               </motion.div>
               <motion.p
                 className="text-white text-sm uppercase"
@@ -680,7 +680,7 @@ const HomeCard = () => {
                 className="text-lg sm:text-lg text-white mb-2"
                 variants={numberVariants}
               >
-                200+
+                300+
               </motion.div>
               <motion.p
                 className="text-white text-sm uppercase"

@@ -7,9 +7,10 @@ import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import ContentHeader from "@/components/CommonComponents/ContentHeader";
-import backgroundImage from "../../../assets/Solution/ContentBG.svg";
+import backgroundImage from "../../../../public/blog/hero.jpg";
 import { supabase } from "@/lib/supabaseClient";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import AuthorsSection from "@/components/blog/author";
 
 export default function BlogPage() {
     const router = useRouter();
@@ -30,6 +31,21 @@ export default function BlogPage() {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState(null);
+
+    const [authors, setAuthors] = useState([]);
+
+    useEffect(() => {
+        const fetchAuthors = async () => {
+            const { data } = await supabase
+                .from("blogs")
+                .select("author");
+
+            const uniqueAuthors = [...new Set(data.map(item => item.author))];
+            setAuthors(uniqueAuthors);
+        };
+
+        fetchAuthors();
+    }, []);
 
     // Fetch blogs from Supabase
     const fetchBlogs = async () => {
@@ -167,8 +183,9 @@ export default function BlogPage() {
     return (
         <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-slate-100 flex flex-col font-sans">
             <ContentHeader
+                className="bg-contain"
                 backgroundImage={backgroundImage}
-                subtitle="SST Tech Insights"
+                subtitle="Our Tech Insights"
                 title="Our Blogs"
                 description="We simplify complex trends and innovations, transforming technical concepts into clear, practical insights that anyone can understand. From emerging technologies and digital transformation to business strategies and industry best practices, our blogs deliver valuable, actionable knowledge !"
                 highlights={[
@@ -184,8 +201,8 @@ export default function BlogPage() {
             <main className="flex-grow max-w-7xl w-full mx-auto px-6 py-12 md:py-20">
 
                 {/* Header Section (Inspired by KaarTech blogs page layout) */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-200 pb-8 mb-12 gap-6">
-                    {/* <div className="space-y-3">
+                {/* <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-200 pb-8 mb-12 gap-6"> */}
+                {/* <div className="space-y-3">
                         <span className="text-sm font-bold uppercase tracking-wider text-blue-500">
                             SST Tech Insights
                         </span>
@@ -197,14 +214,14 @@ export default function BlogPage() {
                         </p>
                     </div> */}
 
-                    <button
+                {/* <button
                         onClick={() => setIsFormOpen(true)}
                         className="flex items-center gap-2 px-6 py-3.5 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-blue-500/20 transform hover:-translate-y-0.5 transition-all duration-300 self-start md:self-end"
                     >
                         <Plus className="w-5 h-5" />
                         <span>Post a Blog</span>
-                    </button>
-                </div>
+                    </button> */}
+                {/* </div> */}
 
                 {/* Loading Spinner */}
                 {loading ? (
@@ -666,6 +683,9 @@ export default function BlogPage() {
                 )}
             </AnimatePresence>
 
+            <section>
+                <AuthorsSection authors={authors} />
+            </section>
             <Footer />
         </div>
     );

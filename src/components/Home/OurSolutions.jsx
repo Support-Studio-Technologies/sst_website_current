@@ -95,7 +95,7 @@ const OurSolutions = () => {
               variants={textVariants}
             >
               <span className="text-blue-500 mr-2 text-sm sm:text-base">✦</span>
-              <p className="text-gray-600 text-xs sm:text-sm font-medium tracking-[0.2em] uppercase">
+              <p className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase">
 
                 OUR SOLUTIONS
               </p>

@@ -8,11 +8,11 @@ import {
   featuresData,
   featureText,
 } from "../Constants/Home/OurFeatures";
- 
+
 const Feature = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
- 
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -22,18 +22,18 @@ const Feature = () => {
       },
       { threshold: 0.1, rootMargin: "50px" }
     );
- 
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
- 
+
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
- 
+
   const textVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -45,7 +45,7 @@ const Feature = () => {
       },
     },
   };
- 
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -56,7 +56,7 @@ const Feature = () => {
       },
     },
   };
- 
+
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -68,7 +68,7 @@ const Feature = () => {
       },
     },
   };
- 
+
   const cardHoverVariants = {
     rest: { scale: 1, y: 0 },
     hover: {
@@ -80,7 +80,7 @@ const Feature = () => {
       },
     },
   };
- 
+
   return (
     <div
       ref={sectionRef}
@@ -99,11 +99,12 @@ const Feature = () => {
             variants={textVariants}
           >
             <span className="text-blue-500 text-base sm:text-lg">✦</span>
-            <p className="text-xs sm:text-sm font-medium tracking-widest uppercase">
+            <p className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase">
+
               OUR Feature
             </p>
           </motion.div>
- 
+
           <motion.h1
             className="text-4xl lg:text-6xl xl:text-4xl font-normal leading-tight mb-2"
             variants={textVariants}
@@ -120,7 +121,7 @@ const Feature = () => {
             to accelerate enterprise transformation.
           </motion.p>
         </motion.div>
- 
+
         {/* Main Grid */}
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16"
@@ -165,7 +166,7 @@ const Feature = () => {
                         ease: "easeInOut",
                       }}
                     />
- 
+
                     <div className="relative z-10">
                       <div className="flex items-start justify-between mb-6 gap-4">
                         {/* Left side (icon + text) */}
@@ -188,7 +189,7 @@ const Feature = () => {
                             </p>
                           </div>
                         </div>
- 
+
                         {/* Right side button - Hidden on mobile */}
                         <motion.button
                           className="hidden sm:flex flex-shrink-0 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 transition-all duration-300"
@@ -198,7 +199,7 @@ const Feature = () => {
                           <HiOutlineArrowUpRight className="w-6 sm:h-6 text-blue-500 hover:text-black transition-colors" />
                         </motion.button>
                       </div>
- 
+
                       {/* Enhanced Data Visualization */}
                       <motion.div
                         className="bg-gray-50 rounded-2xl p-6 mb-6 border border-gray-100"
@@ -211,7 +212,7 @@ const Feature = () => {
                             Progress Metrics{" "}
                           </h4>
                         </div>
- 
+
                         <div className="space-y-5">
                           {featureText.heroCard.metrics.map((metric, index) => (
                             <motion.div key={index} className="space-y-2">
@@ -243,7 +244,7 @@ const Feature = () => {
               </div>
             </motion.div>
           </motion.div>
- 
+
           {/* Feature Cards - Made Smaller */}
           <div className="lg:col-span-4 space-y-4">
             {featuresData.map((feature, index) => (
@@ -278,7 +279,7 @@ const Feature = () => {
             ))}
           </div>
         </motion.div>
- 
+
         {/* Bottom Feature Grid Heading */}
         <motion.div
           className="text-center lg:mb-12 mb-10"
@@ -293,7 +294,7 @@ const Feature = () => {
             Explore Our Powerful
             <span className="gradient-text"> Core Modules</span>
           </motion.h2>
- 
+
           <motion.p
             className="text-gray-600 text-base max-w-2xl mx-auto"
             variants={itemVariants}
@@ -302,7 +303,7 @@ const Feature = () => {
             and growth across your business functions.
           </motion.p>
         </motion.div>
- 
+
         {/* Bottom Feature Grid */}
         <motion.div
           className="grid grid-cols-2 lg:grid-cols-4 gap-5"
@@ -341,7 +342,6 @@ const Feature = () => {
     </div>
   );
 };
- 
+
 export default Feature;
- 
- 
+

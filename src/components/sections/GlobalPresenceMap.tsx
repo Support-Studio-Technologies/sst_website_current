@@ -29,9 +29,9 @@ const LOCATIONS: OfficeLocation[] = [
     type: "HQ",
     coordinates: { x: 72.5, y: 52.2 },
     timezone: "IST (GMT +5:30)",
-    address: "SST Tower, Main Road, Puducherry, India",
-    phone: "+91 413 XXXXXXX",
-    email: "hq@supportstudio.tech"
+    address: "#192, Kamaraj Salai, Puducherry, India, Pin Code - 605013",
+    phone: "0413-2191301",
+    email: "info@isupportz.com"
   },
   {
     id: "oman-office",
@@ -291,8 +291,8 @@ export default function GlobalPresenceMap() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <span className="text-emerald-600 text-base sm:text-lg">✦</span>
-            <p className="text-xs sm:text-sm font-medium tracking-widest uppercase text-slate-500">
+            <span className="text-blue-600 text-base sm:text-lg">✦</span>
+            <p className="text-xs sm:text-sm font-medium tracking-widest uppercase ">
               Our Global Presence
             </p>
           </motion.div>
@@ -303,7 +303,7 @@ export default function GlobalPresenceMap() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Connecting Enterprises <span className="bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent font-semibold">Across Borders</span>
+            Connecting Enterprises <span className="gradient-text">Across Borders</span>
           </motion.h2>
           <motion.p
             className="text-gray-600 max-w-4xl mx-auto leading-relaxed text-md mb-2"

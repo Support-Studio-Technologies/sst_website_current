@@ -37,7 +37,7 @@ export default function Page() {
 
   return (
     <div className="relative overflow-x-hidden">
-      <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      <div className=" relative overflow-hidden">
         <div className="relative h-screen w-full flex flex-col">
           <Image
             src="/Home/Hero-Section-BG.jpg"
@@ -107,9 +107,9 @@ export default function Page() {
       />
       <OurSolutions />
       <Feauture />
-      <WhoWeAre />
-      <OurProject />
-      <HowItWork />
+      {/* <WhoWeAre /> */}
+      {/* <OurProject /> */}
+      {/* <HowItWork /> */}
       <TestimonialsPage />
       <FAQ />
       <div className="h-4 bg-white"></div>
