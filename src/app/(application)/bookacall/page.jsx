@@ -12,7 +12,7 @@ const page = () => {
       <Header />
 
       {/* Main Content Section */}
-      <div className="relative">
+      <div className="relative  ">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Form with negative margin to overlap header */}
           <div className="relative w-full -mt-120 sm:-mt-10 md:-mt-48 lg:-mt-60">

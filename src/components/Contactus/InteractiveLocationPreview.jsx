@@ -179,30 +179,33 @@ const InteractiveLocationPreview = () => {
 
                 {/* Address Link / Interactive trigger */}
                 <div className="text-gray-700 text-base leading-relaxed flex-1 relative">
-                    <a
+                    <div
                         ref={triggerRef}
-                        href={mapsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         onClick={handleClick}
                         onKeyDown={handleKeyDown}
-                        className="hover:text-blue-500 transition-colors duration-200 focus:outline-none focus:text-blue-500 focus:underline cursor-pointer"
+                        className="hover:text-blue-500 transition-colors duration-200 focus:outline-none focus:text-blue-500"
                         role="button"
+                        tabIndex={0}
                         aria-haspopup="true"
                         aria-expanded={isOpen || isBottomSheetOpen}
-                        tabIndex={0}
                     >
-                        #192, Kamaraj Salai, Puducherry, India,
-                        Pin Code - 605013<br></br>
+                        <p className="text-black font-semibold"> Regional Headquaters </p>
+                        <p>
+                            #192, Kamaraj Salai, Puducherry, India,
+                            Pin Code - 605013
+                        </p>
+
                         <a
-                            href="https://maps.google.com/?q=YOUR+ADDRESS"
+                            href={mapsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-600 hover:text-blue-800 hover:underline font-medium ml-1"
+                            className="text-blue-600 hover:text-blue-800 hover:underline font-medium"
                         >
-                            (View on Maps)
+                            View on Maps
                         </a>
-                    </a>
+                    </div>
+
+
 
                     {/* Desktop Hover Card with Safe Corridor (appears below the link) */}
                     <AnimatePresence>

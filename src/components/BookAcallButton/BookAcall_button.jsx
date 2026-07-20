@@ -21,7 +21,7 @@ const BookAcallButton = ({
     >
       <HiOutlineCalendarDays className="text-xl" />
       <span className="font-medium whitespace-nowrap">
-        Schedule a Call
+        Reserve your spot
       </span>
     </button>
   );

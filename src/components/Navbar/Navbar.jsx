@@ -265,7 +265,7 @@ const Navbar = () => {
 
                   <li className="relative group">
                     <Link
-                      href="/services"
+                      href="/#"
                       className={`${navLinkClass} flex items-center gap-1 ${pathname === "/services"
                         ? "text-[#2d8ec5] after:w-full"
                         : isNavbarLight
@@ -414,6 +414,7 @@ const Navbar = () => {
                     </div>
                   </li>
 
+
                   <li>
                     <Link
                       href="/aboutus"
@@ -439,6 +440,19 @@ const Navbar = () => {
                         }`}
                     >
                       Contact
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/careers"
+                      className={`${navLinkClass} ${pathname === "/careers"
+                        ? "text-[#2d8ec5] after:w-full"
+                        : isNavbarLight
+                          ? "text-black"
+                          : "text-white"
+                        }`}
+                    >
+                      Careers
                     </Link>
                   </li>
                 </ul>
@@ -681,6 +695,19 @@ const Navbar = () => {
 
                 </div>
               </div>
+            </li>
+
+            <li>
+              <Link
+                href="/aboutus"
+                className={`block py-3 px-4 text-2xl sm:text-3xl font-medium transition-colors duration-300 rounded-lg ${pathname === "/aboutus"
+                  ? "text-[#2d8ec5] bg-gray-100"
+                  : "text-gray-800 hover:text-[#2d8ec5]"
+                  }`}
+                onClick={closeMenu}
+              >
+                Career
+              </Link>
             </li>
 
             <li>

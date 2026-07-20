@@ -67,24 +67,24 @@ const Header = () => {
   };
 
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative overflow-x-hidden ">
       {/* Main Header Section */}
       <div className="relative min-h-screen sm:min-h-[75vh] w-full overflow-hidden">
         {/* Background Image with Next.js Image */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-[-100]">
           <Image
             src="/BookAcall/bookacall.png"
             alt="Header Background"
             fill
             priority
             className="object-cover object-center"
-            quality={100}
+          // quality={100}
           />
 
         </div>
 
         {/* Content Container */}
-        <div className="relative z-30 min-h-screen sm:min-h-[75vh] flex flex-col">
+        <div className="relative min-h-screen sm:min-h-[75vh] flex flex-col">
           {/* Navbar */}
           <div className="flex-shrink-0">
             <Navbar />

@@ -475,6 +475,7 @@ export default function ServiceInsightClient() {
                                 </div>
                             </div>
 
+
                             {/* Published */}
                             <div className="flex items-center gap-3">
                                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">

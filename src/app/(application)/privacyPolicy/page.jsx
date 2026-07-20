@@ -1,14 +1,14 @@
 "use client";
 
-import Footer from "@/components/Footer/Footer";
 import PrivacyPolicy from "@/components/PrivacyPolicy/Content";
-import Header from "@/components/PrivacyPolicy/Header";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
 import React from "react";
 
 const page = () => {
   return (
     <div>
-      <Header />
+      <Navbar />
       <PrivacyPolicy />
       <Footer />
     </div>

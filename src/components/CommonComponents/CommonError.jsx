@@ -1,55 +1,47 @@
-import React from "react";
-import Navbar from "../Navbar/Navbar";
-import Image from "next/image";
+"use client"
 
-const CommonError = ({
-  title,
-  message,
-  buttonText,
-  buttonLink,
-  imageSrc,
-  imageAlt,
-}) => {
+import React from 'react';
+
+export default function CommonError() {
+  const handleGoBack = (e) => {
+    e.preventDefault();
+    window.history.back();
+  };
+
   return (
-    <div className="">
-      <Navbar />
+    <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 text-center font-sans antialiased">
+      {/* 404 Error Code */}
+      <h1 className="text-7xl font-normal tracking-wide text-gray-400 md:text-8xl">
+        404
+      </h1>
 
-      <div className="flex items-center justify-center px-4 py-12 sm:py-16 md:py-20">
-        <div className="text-center max-w-2xl w-full">
-          {/* Icon */}
-          {/* {imageSrc && ( */}
-          <div className="flex justify-center mb-1">
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              width={200}
-              height={160}
-              className="w-52 h-40 sm:w-44 sm:h-32 lg:w-56 lg:h-44"
-            />
-          </div>
-          {/* )} */}
+      {/* Main Heading */}
+      <h2 className="mt-4 text-xl font-semibold text-gray-900 md:text-2xl">
+        Page Not Found
+      </h2>
 
-          {/* Title */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0A65CC] mb-3 md:mb-4">
-            {title}
-          </h1>
-
-          {/* Message */}
-          <p className="text-base sm:text-lg text-gray-600 mb-6 lg:mb-6 px-4">
-            {message}
-          </p>
-
-          {/* Button */}
+      {/* Description Text */}
+      <p className="mt-4  text-sm leading-relaxed text-gray-600 md:text-base">
+        The Page you are looking for doesn't exist or an other error occurred.
+        <br />
+        <span className="block mt-1">
           <a
-            href={buttonLink}
-            className="inline-block bg-[#0A65CC] hover:bg-blue-700 text-white font-medium px-6 py-1 sm:px-8 sm:py-1 rounded-xs transition-colors duration-200 text-lg sm:text-lg"
+            href="#"
+            onClick={handleGoBack}
+            className="cursor-pointer hover:underline"
           >
-            {buttonText}
+            Go back
           </a>
-        </div>
-      </div>
+          , or head over to{' '}
+          <a
+            href="https://isupportz.com"
+            className="text-blue-500 hover:underline"
+          >
+            isupportz.com
+          </a>{' '}
+          to choose a new direction.
+        </span>
+      </p>
     </div>
   );
-};
-
-export default CommonError;
+}

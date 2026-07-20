@@ -1,0 +1,52 @@
+export const introduction = {
+  title: "Introduction",
+  paragraphs: [
+    `Tata Consultancy Services Limited (along with its direct and indirect subsidiaries as well as foreign branch offices which together comprise “TCS”), is committed to meeting legal and regulatory requirements regarding data protection and privacy where it conducts its business activities. This Privacy Policy (“Policy”) defines the minimum standards with respect to TCS collecting, processing, or otherwise using personal data, including information that may be considered as sensitive personal data (“Personal Data”) about individuals including TCS associates, business contacts, customers or vendors (“Individuals”).`,
+    "Where Tata Consultancy Services Limited controls other company entities, such other companies will be required to abide by the principles set in this Policy. The policy is applicable to all TCS associates, whether full time or contracted. TCS ensures that its business partners and vendors comply with the principles of this Policy and applicable legal and regulatory compliance standards through appropriate contractual agreements.",
+  ],
+};
+
+export const privacyPrinciples = {
+  title: "PRIVACY PRINCIPLES",
+  paragraphs: [
+    { text: "TCS will handle Personal Data in accordance with the following principles.", medium: true },
+    "Lawfulness of Processing",
+    `TCS will collect, store, process, use, share, transfer, analyze or otherwise handle (“Process” or “Processing”) Personal Data in accordance with applicable legal requirements for legitimate business or compliance purpose or if individuals have provided consent to the Processing or any relevant basis as defined by the applicable laws or regulations.`,
+    "Limit Collection and processing",
+    "TCS will limit the Processing of Personal Data in terms of scope and duration, as is necessary for the intended purpose.",
+    "Transparency",
+    "In accordance with applicable legal requirements, TCS will provide information to individuals that explains the scope and purpose of Processing, and whom to contact to seek clarifications about privacy or data protection.",
+    "Accuracy",
+    `TCS will take all necessary measures, as required by applicable laws and regulations, to ensure that Personal Data processed are accurate for the intended purpose. Any inaccurate Personal Data, in the context of the purposes for which they are processed, will either be erased or rectified without delay. Accuracy of data may be subject to the data subject's/data principal’s duty to notify and/or utilise the options as outlined in Privacy Notices.`,
+    "Security and Confidentiality",
+    `TCS aims to protect the security and confidentiality of individuals’ Personal Data and implement physical, technical and organizational measures against accidental, unlawful or unauthorized destruction, loss, alteration, disclosure or access. TCS will ensure measures are appropriate to the risks represented by the Processing it carries out and the nature of those Personal Data.`,
+    "Privacy by Design",
+    "TCS incorporates the principles of Privacy by Design into all of its Personal Data processes executed using digital systems, technologies or manually. By default, privacy requirements are embedded into every standard, protocol and process followed by TCS.",
+    "Disclosure",
+    "TCS discloses, when required/asked, Personal Data to third parties only for the purposes identified in the privacy notice, with the consent of the individual, or as required for lawful purposes. Third parties refer to public authorities, Law Enforcement Agencies and similar authorities.",
+    { text: "Data Subject/Data Principal Rights (Rights)", medium: true },
+    "In accordance with applicable legal requirements, TCS will provide opportunity to exercise Rights, which are available to the individuals (and/or any legal person as defined by applicable regulation) in the context of their engagement with TCS. Such rights may include the right to request access to their Personal Data, to correct inaccurate or incomplete Personal Data or to object to the Processing of their Personal Data. Each request is validated and tracked to closure. As per the applicable law, and the engagement of individual with TCS, there might be other rights available such as right to be forgotten, right to withdraw consent, right to data portability, etc. TCS will ensure its compliance and deploy all required measures to help individuals exercise their rights granted. Individuals can reach out to respective local Data Protection Officer, contact details of whom can be referred from the privacy notice available at www.tcs.com.",
+    { text: "International Data Transfers", medium: true },
+    "TCS operates on a global level and from time to time it may be required to transfer Personal Data across countries. TCS recognizes that Personal Data needs to be treated with care, including data transfer to countries, which may not have adequate data protection laws. If TCS transfers Personal Data to such countries, it will protect these Personal Data as set out in this Policy and in accordance with the requirements of applicable law.",
+    "Data Retention",
+    "TCS will observe retention policies and procedures so that it deletes Personal Data after a reasonable time and the purposes are met. Exception applies if in the context of those purposes, it is necessary to keep the Personal Data indefinitely, or a law requires the Personal Data to be kept for a certain time. When TCS no longer needs to keep Personal Data for the purposes, for which they are held, it will delete them as soon as practicable.",
+    "Jurisdiction-Specific Requirements and Implementation",
+    "National data protection and privacy laws may impose additional requirements on TCS for the Processing of Personal Data. Where required, TCS will establish procedures and guidelines in order to supplement the principles of this Policy and engage with relevant regulatory/ supervisory authority, as required.",
+    "Privacy Organization and Contact",
+    "TCS has a dedicated global Privacy Function, which is headed by the Head - Global Privacy Office of TCS, and which is tasked with overseeing and implementing privacy and applicable data protection requirements. Specific data protection or privacy functions and roles may be added for individual countries or geographies. TCS also appoints Data Protection Officers (or comparable function), where required by applicable laws. The privacy function is also responsible for supporting the implementation of privacy principles in TCS business operations and processes. Individuals can reach out to Data Protection Officers for questions or concerns about data protection at TCS. Contact details are provided in the privacy notice available at www.tcs.com.",
+    "User Education and Engagement",
+    "TCS provides user education and engagement programs to its associates in understanding the potential risks and controls to be implemented while handling Personal Data through regular training and awareness programs.",
+    "Data Breach Management and Reporting",
+    `All known or suspected incidents involving Personal Data must be reported immediately upon discovery. This includes incidents notified to TCS by any TCS associate, client, third party service provider or other business partner. TCS will provide education and awareness to its workforce regarding the procedures for reporting a suspected or confirmed incident. Each incident is investigated and tracked to closure. If the investigation leads to the conclusion that an illegal, improper or unethical act has been committed, appropriate disciplinary or corrective action will be initiated against the offender as per TCS’ policy and legal provisions.`,
+    "Implementation",
+    `TCS has internal arrangements in place to communicate, ensure and verify compliance with this Policy through continuous monitoring, audits and effective governance, to protect data, allow effective exercise of individuals' rights set out in this Policy and under applicable law, and to deal with any concerns from individuals or regulatory bodies that TCS may not have complied with the Policy and/or applicable law. Where appropriate and feasible, TCS will adopt international standards / benchmarks to operationalize the policy. All individuals can leverage these arrangements and/or exercise their rights by contacting their local Data Protection Officer.`,
+    "Changes to the Policy",
+    {
+      parts: [
+        "TCS may update this Policy from time to time to reflect changes in law or privacy practices and make it available on the website. If you have questions about this Policy, please direct them to the Head – Global Privacy Office at ",
+        { text: "tcs.cpo@tcs.com", href: "mailto:tcs.cpo@tcs.com" },
+        " Opens in new tab.",
+      ],
+    },
+  ],
+};

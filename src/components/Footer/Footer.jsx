@@ -62,6 +62,7 @@ const Footer = () => {
                     What we do
                   </Link>
                 </li>
+
                 <li>
                   <Link
                     href="/aboutus"
@@ -85,6 +86,15 @@ const Footer = () => {
                     className="hover:text-white transition-colors duration-200"
                   >
                     Contact
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    href="/careers"
+                    className="hover:text-white transition-colors duration-200"
+                  >
+                    Career
                   </Link>
                 </li>
                 {/* <li>
@@ -397,37 +407,6 @@ const Footer = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-6  md:gap-16  ">
           <div className="flex space-x-3 md:col-span-1 min-h-[50px] mb-2">
-            {/* <div className="space-x-3 md:col-span-1">
-              <p className="text-sm text-white mb-4 md:mb-0">
-                <a
-                  href="/privacyPolicy"
-                  className="hover:text-gray-300 transition-colors"
-                >
-                  Privacy Policy
-                </a>
-                {" | "}
-                <a
-                  href="/security-policy"
-                  className="hover:text-gray-300 transition-colors"
-                >
-                  Security Policy
-                </a>
-                {" | "}
-                <a
-                  href="/ethics-policy"
-                  className="hover:text-gray-300 transition-colors"
-                >
-                  Ethics Policy
-                </a>
-                {" | "}
-                <a
-                  href="/cookie-policy"
-                  className="hover:text-gray-300 transition-colors"
-                >
-                  Cookie Policy
-                </a>
-              </p> 
-            </div> */}
             <a
               href="https://www.linkedin.com/company/supportstudiotechnologies/"
               target="_blank"
@@ -525,6 +504,37 @@ const Footer = () => {
           <div className="md:col-span-1"></div>
 
           <div className="md:col-span-2 ">
+            <div className="space-x-3 md:col-span-1">
+              <p className="text-sm text-white mb-4 md:mb-0">
+                <a
+                  href="/termsOfService"
+                  className="hover:text-gray-300 transition-colors"
+                >
+                  Terms & Conditions
+                </a>
+                {" | "}
+                <a
+                  href="/privacyPolicy"
+                  className="hover:text-gray-300 transition-colors"
+                >
+                  Privacy Policy
+                </a>
+                <br />
+                <a
+                  href="/securityPrivacyPolicy"
+                  className="hover:text-gray-300 transition-colors"
+                >
+                  Security Policy
+                </a>
+                {" | "}
+                <a
+                  href="/cookie-policy"
+                  className="hover:text-gray-300 transition-colors"
+                >
+                  Cookie Policy
+                </a>
+              </p>
+            </div>
             <p className="text-sm text-white flex items-center min-h-[50px]">
               © 2026 Support Studio Technologies. All Rights Reserved.
             </p>
