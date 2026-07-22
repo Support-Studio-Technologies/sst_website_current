@@ -93,7 +93,7 @@ const ContentHeader = ({
     <>
       <div className="text-gray-800 relative">
         <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
-          <div className="relative h-[75vh] w-full flex flex-col">
+          <div className="relative min-h-screen w-full flex flex-col">
             {/* Background Media - Video or Image */}
             {useVideo ? (
               <video

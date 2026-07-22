@@ -74,11 +74,82 @@ const testimonials = [
     role: "E-commerce Manager",
     rating: 5,
   },
+  {
+    text: "This ERP simplified our daily operations by centralizing data across departments. Reporting is faster, and decision-making has become much easier.",
+    image: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Emily Carter",
+    role: "Finance Manager",
+    rating: 5,
+  },
+  {
+    text: "The automation features have saved our team countless hours each week. We now spend more time focusing on growth instead of repetitive tasks.",
+    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Daniel Morris",
+    role: "Operations Director",
+    rating: 4.5,
+  },
+  {
+    text: "From inventory tracking to customer management, everything is available in one place. The platform is intuitive and reliable.",
+    image: "https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Sophia Nguyen",
+    role: "Supply Chain Manager",
+    rating: 5,
+  },
+  {
+    text: "The implementation process was well organized, and the onboarding team made the transition seamless. Our employees adapted quickly.",
+    image: "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Michael Brooks",
+    role: "HR Manager",
+    rating: 4.5,
+  },
+  {
+    text: "Real-time analytics have given us much better visibility into our operations. We can identify issues before they become major problems.",
+    image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Jessica Turner",
+    role: "Business Intelligence Lead",
+    rating: 5,
+  },
+  {
+    text: "Our sales and finance teams now work from the same data, reducing errors and improving collaboration across departments.",
+    image: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Ryan Cooper",
+    role: "Sales Director",
+    rating: 4.5,
+  },
+  {
+    text: "The customizable dashboards allow every department to track the metrics that matter most. It's become an essential part of our workflow.",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Olivia Bennett",
+    role: "Operations Analyst",
+    rating: 5,
+  },
+  {
+    text: "Excellent performance and outstanding customer support. Every question we've had has been answered promptly and professionally.",
+    image: "https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Nathan Reed",
+    role: "Customer Success Manager",
+    rating: 5,
+  },
+  {
+    text: "This ERP has helped us improve inventory accuracy and reduce operational costs. The return on investment has been impressive.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Grace Wilson",
+    role: "Warehouse Manager",
+    rating: 4.5,
+  },
+  {
+    text: "The software integrates smoothly with our existing systems and has significantly improved productivity across the organization.",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Ethan Walker",
+    role: "Technology Director",
+    rating: 5,
+  },
 ];
 
 const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
+const fourthColumn = testimonials.slice(9, 12);
 
 const textVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -120,7 +191,7 @@ const StarRating = ({ rating }) => {
         custom={i}
         className="inline-block"
       >
-        <FaStar className="text-yellow-400" size={16} />
+        <FaStar className="text-neutral-400" size={16} />
       </motion.span>
     );
   }
@@ -135,7 +206,7 @@ const StarRating = ({ rating }) => {
         custom={fullStars}
         className="inline-block"
       >
-        <FaStarHalfAlt className="text-yellow-400" size={16} />
+        <FaStarHalfAlt className="text-neutral-400" size={16} />
       </motion.span>
     );
   }
@@ -151,7 +222,7 @@ const StarRating = ({ rating }) => {
         custom={fullStars + (hasHalfStar ? 1 : 0) + i}
         className="inline-block"
       >
-        <FaRegStar className="text-yellow-400" size={16} />
+        <FaRegStar className="text-neutral-400" size={16} />
       </motion.span>
     );
   }
@@ -215,7 +286,7 @@ const TestimonialsColumn = ({
                   boxShadow:
                     "0 25px 50px -12px rgba(0,0,0,.12),0 10px 10px -5px rgba(0,0,0,.04)",
                 }}
-                className="p-10 rounded-3xl border border-neutral-200 dark:border-neutral-800 shadow-lg shadow-black/5 max-w-xs w-full bg-white dark:bg-neutral-900 transition-all duration-300"
+                className="p-10 border border-neutral-200 dark:border-neutral-800 max-w-xs w-full  dark:bg-neutral-900 transition-all duration-300"
               >
                 <blockquote>
 
@@ -234,7 +305,7 @@ const TestimonialsColumn = ({
                     />
 
                     <div>
-                      <StarRating rating={rating} />
+                      {/* <StarRating rating={rating} /> */}
                       <cite className="not-italic font-semibold">
                         {name}
                       </cite>
@@ -294,13 +365,14 @@ const TestimonialsSection = () => {
         </div>
 
         <div
-          className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] max-h-[740px] overflow-hidden"
+          className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_1%,black_95%,transparent)] max-h-[540px] overflow-hidden"
           role="region"
           aria-label="Scrolling Testimonials"
         >
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
+          <TestimonialsColumn testimonials={fourthColumn} className="hidden lg:block" duration={21} />
         </div>
       </motion.div>
     </section>

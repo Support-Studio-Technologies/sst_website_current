@@ -15,6 +15,14 @@ export type InquiryOrigin =
   | 'Callback Request'
   | 'Newsletter';
 
+export type JobApplicationStatus =
+  | 'New'
+  | 'Reviewed'
+  | 'Shortlisted'
+  | 'Interviewing'
+  | 'Rejected'
+  | 'Hired';
+
 export interface Database {
   public: {
     Tables: {
@@ -174,6 +182,80 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database['public']['Tables']['blogs']['Insert']>;
+        Relationships: [];
+      };
+      job_applications: {
+        Row: {
+          id: string;
+          first_name: string;
+          last_name: string;
+          email: string;
+          phone: string;
+          address_line1: string;
+          address_line2: string | null;
+          city: string;
+          state: string;
+          zip: string;
+          country: string;
+          position: string;
+          experience: string;
+          job_title: string | null;
+          employer: string | null;
+          key_skills: string;
+          cover_letter: string | null;
+          resume_path: string;
+          resume_filename: string;
+          start_date: string;
+          current_salary: string | null;
+          expected_salary: string | null;
+          linkedin: string | null;
+          portfolio: string | null;
+          ref_name: string | null;
+          ref_relationship: string | null;
+          ref_email: string | null;
+          ref_phone: string | null;
+          hear_about: string | null;
+          consent_given: boolean;
+          status: JobApplicationStatus;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          first_name: string;
+          last_name: string;
+          email: string;
+          phone: string;
+          address_line1: string;
+          address_line2?: string | null;
+          city: string;
+          state: string;
+          zip: string;
+          country: string;
+          position: string;
+          experience: string;
+          job_title?: string | null;
+          employer?: string | null;
+          key_skills: string;
+          cover_letter?: string | null;
+          resume_path: string;
+          resume_filename: string;
+          start_date: string;
+          current_salary?: string | null;
+          expected_salary?: string | null;
+          linkedin?: string | null;
+          portfolio?: string | null;
+          ref_name?: string | null;
+          ref_relationship?: string | null;
+          ref_email?: string | null;
+          ref_phone?: string | null;
+          hear_about?: string | null;
+          consent_given?: boolean;
+          status?: JobApplicationStatus;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['job_applications']['Insert']>;
         Relationships: [];
       };
     };

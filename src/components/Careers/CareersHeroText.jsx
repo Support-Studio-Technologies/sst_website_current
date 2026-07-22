@@ -8,14 +8,17 @@ export default function CareersHeroText() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="max-w-xl"
+            className="w-full"
         >
-            <p className="text-[#a4a9ac] text-base sm:text-xl">Career</p>
-            <h1 className="text-[#c7cbcd] text-2xl sm:text-3xl font-medium mt-1">
+            <div className="flex items-center gap-4 sm:gap-6">
+                <p className="text-white text-base sm:text-3xl shrink-0">Career</p>
+            </div>
+            <div className="flex-1 h-px bg-white/30" />
+            <h1 className="text-white/90 text-3xl sm:text-5xl lg:text-6xl font-medium mt-3 max-w-4xl">
                 Opportunities don&apos;t happen, you create them.
             </h1>
-            <p className="text-[#a8adb1] text-xs sm:text-sm mt-3">
-                We are always interested in receiving and reviewing resumes from talented people.
+            <p className="text-white text-xs sm:text-xl mt-3 max-w-xl">
+                We are always interested in receiving and reviewing resumes
             </p>
         </motion.div>
     );

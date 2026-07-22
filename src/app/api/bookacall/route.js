@@ -24,14 +24,15 @@ export async function GET() {
 }
 
 // POST /api/bookacall
-// Fields: name, email, companyName, country, message
+// Fields: firstName, lastName, email, companyName, country, mobile, message, termsAccepted
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { name, email, companyName, country, message } = body;
+    const { firstName, lastName, email, companyName, country, mobile, message } = body;
 
-    if (!name || !email || !companyName || !country || !message) {
-      return NextResponse.json({ error: 'All fields are required.' }, { status: 400 });
+    // Server-side required field validation
+    if (!firstName || !lastName || !email || !companyName || !country || !message) {
+      return NextResponse.json({ error: 'All required fields must be filled.' }, { status: 400 });
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
@@ -41,16 +42,12 @@ export async function POST(req) {
     const supabase = createAdminClient();
     const leadId = crypto.randomUUID();
 
-    // Split name into first/last for the normalized schema
-    const nameParts = name.trim().split(' ');
-    const firstName = nameParts[0];
-    const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : 'N/A';
-
     const { error: leadError } = await supabase.from('leads').insert({
       id: leadId,
-      first_name: firstName,
-      last_name: lastName,
+      first_name: firstName.trim(),
+      last_name: lastName.trim(),
       email: email.trim().toLowerCase(),
+      phone: mobile ? mobile.trim() : null,
       problem_summary: `Company: ${companyName.trim()} | Country: ${country.trim()} | Message: ${message.trim()}`,
       lead_source: 'Book a Call',
       consent_given: true,
@@ -70,7 +67,11 @@ export async function POST(req) {
       lead_id: leadId,
       inquiry_type: 'Contact Form',
       message: message.trim(),
-      utm_metadata: { company: companyName.trim(), country: country.trim() },
+      utm_metadata: {
+        company: companyName.trim(),
+        country: country.trim(),
+        mobile: mobile ? mobile.trim() : null,
+      },
     });
 
     if (inquiryError) {

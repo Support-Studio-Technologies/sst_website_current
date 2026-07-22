@@ -64,7 +64,7 @@ const ContactInfo = () => {
           {/* Address with Interactive Location Preview */}
           <InteractiveLocationPreview />
 
-          {/* Regional Office */}
+          {/* delivary center */}
           <div className="flex items-start gap-4">
             {/* Location Pin */}
             <div className="relative w-6 h-6 flex-shrink-0 mt-1">

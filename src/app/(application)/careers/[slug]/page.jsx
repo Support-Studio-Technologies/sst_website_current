@@ -35,6 +35,7 @@ const page = () => {
     return (
         <CareersLayout
             shadow={false}
+            showContactBand
             breadcrumbs={
                 <>
                     <Link href="/careers" className="text-[#4a5565] hover:text-[#2d8ec5] transition-colors">
@@ -52,3 +53,4 @@ const page = () => {
 };
 
 export default page;
+

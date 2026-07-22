@@ -73,11 +73,9 @@ const Form = () => {
       newErrors.country = 'Please select a country';
     }
 
-    if (!formData.mobile.trim()) {
-      newErrors.mobile = 'Mobile number is required';
-    } else if (!/^[0-9]+$/.test(formData.mobile.trim())) {
+    if (formData.mobile.trim() && !/^[0-9]+$/.test(formData.mobile.trim())) {
       newErrors.mobile = 'Mobile number should contain only numbers';
-    } else if (formData.mobile.trim().length < 10) {
+    } else if (formData.mobile.trim() && formData.mobile.trim().length < 10) {
       newErrors.mobile = 'Mobile number must be at least 10 digits';
     }
 
@@ -295,7 +293,7 @@ const Form = () => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-md font-medium text-gray-700 mb-2">
+              <label htmlFor="mobile" className="block text-md font-medium text-gray-700 mb-2">
                 Mobile number
               </label>
               <input
@@ -353,14 +351,14 @@ const Form = () => {
               <span>
                 I agree to the{" "}
                 <a
-                  href="/terms"
+                  href="/termsOfService"
                   className="text-blue-600 hover:text-blue-800 underline"
                 >
                   Terms & Conditions
                 </a>{" "}
                 and{" "}
                 <a
-                  href="/privacy-policy"
+                  href="/privacyPolicy"
                   className="text-blue-600 hover:text-blue-800 underline"
                 >
                   Privacy Policy

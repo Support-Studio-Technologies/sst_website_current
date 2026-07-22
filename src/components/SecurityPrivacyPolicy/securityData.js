@@ -1,22 +1,37 @@
+export const sections = [
+  "Summary",
+  "Security Privacy Policy",
+];
+
+
 export const securityPolicy = {
-  title: "Security Privacy Policy",
+  Summary: {
+    title: "Security Policy",
+    paragraphs: [
+      "Support Studio Technologies is committed to protecting the confidentiality, integrity, and availability of the information entrusted to us. As a provider of SAP consulting and implementation, ERP and CRM modernization, cloud services, managed services, and custom application development, we recognize that information security is fundamental to our business and the trust our clients place in us.",
+    ],
+  },
+  title: "Our Approach to Security",
   paragraphs: [
-    "Tata Consultancy Services (TCS) is a digital transformation and technology partner of choice for industry-leading organizations worldwide. Since its inception in 1968, TCS has upheld the highest standards of innovation, engineering excellence and customer service. As part of its operations, TCS has access to business-sensitive information (including personal information), the protection of which is crucial to TCS and its clients’ business interests.",
-    `Our Security Vision is “To make TCS reliable, resilient and immune to the existing and evolving volatile environment of constant changes, accidents, attacks and failures.”`,
-    "This Security Policy reiterates our commitment to protect all the information and assets that we own or are responsible for; thus, ensuring an efficient, safe and secure working environment for TCS and its customers.",
-    "TCS will deploy a convergent security model to ensure:",
-    "Protection of information and assets against existing and emerging threats by deploying adequate security controls covering physical, logical, personnel and information security (including cyber security)",
-    "Secure deployment of emerging technologies like Artificial Intelligence, Blockchain, Quantum, etc.",
-    "Compliance to legal and statutory / regulatory requirements across its global operations",
-    "Continuity of operations in line with business requirements and obligations to its stakeholders",
-    "Inclusion of security responsibilities of various departments / individuals to adhere to this Policy",
-    "Adequate security awareness and competence among associates at all levels to fulfill these responsibilities",
-    "Avenues for associates and other stakeholders to report security weaknesses, violations or disruption of services",
-    "Robust framework to Identify security weakness, Protect against their exploitation, Detect and Respond to violations and Recover from any disruption of services",
-    "Governance of security performance against appropriate targets and objectives, enabling continuous improvements",
-    "Third party / Supply Chain risk management (including their personnel)",
-    "This Policy will be supported by Standards, Procedures and Guidelines (Security Management System) and will be made available to all stakeholders who are expected to contribute towards the effective implementation and deployment of these security norms.",
-    "An independent security organization, led by Chief Information Security Officer (CISO), will be responsible for the Security Management System. The Security Management System will be periodically reviewed to ensure its continuing applicability and relevance to our operations and evolving stakeholder expectations.",
-    "This Policy will extend to TCS globally and its wholly owned subsidiaries in all geographies, and will be applicable to all its associates, business associates and external parties having access and usage rights to its infrastructure, IT systems and/or Information resources. Consequences arising out of violations or contravention to any of the objectives of this Policy will be equally applicable to all associates of TCS and its wholly owned subsidiaries globally and external parties.",
+    { text: "Security Vision", heading: true },
+    "To maintain a secure, resilient, and reliable environment that safeguards information assets and supports our clients in addressing evolving cybersecurity, operational, and business risks.",
+    { text: "Our Approach", heading: true },
+    "Support Studio Technologies maintains a comprehensive Information Security Program to protect the information and systems we own, manage, or access as part of our business operations and client engagements. Our approach includes:",
+    {
+      bullets: [
+        "Physical, technical, and organizational security controls.",
+        "Secure software development and system integration practices.",
+        "Role-based access controls and the principle of least privilege.",
+        "Compliance with applicable legal, regulatory, and contractual requirements.",
+        "Business continuity and incident response planning.",
+        "Clearly defined security roles and responsibilities.",
+        "Regular security awareness and training programs.",
+        "Processes for reporting, investigating, and responding to security incidents.",
+        "Third-party risk management for vendors, partners, and service providers.",
+      ],
+    },
+    { text: "Governance", heading: true },
+    "The Information Security Program is supported by internal policies, standards, and procedures and is regularly reviewed to ensure its effectiveness and alignment with evolving business, technology, and regulatory requirements.",
+    "This Policy applies to all employees, contractors, business partners, and authorized third parties with access to Support Studio Technologies' information assets, systems, or client environments. All individuals are expected to comply with this Policy, and any violation may result in disciplinary or contractual action, as applicable.",
   ],
 };

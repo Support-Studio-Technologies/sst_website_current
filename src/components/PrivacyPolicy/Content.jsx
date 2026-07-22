@@ -31,7 +31,19 @@ function Paragraph({ item }) {
   }
 
   if (item.heading) {
-    return <p className="text-black font-normal leading-[19px] mb-4">{item.text}</p>;
+    return <p className="text-black font-semibold text-lg leading-[19px] mb-4">{item.text}</p>;
+  }
+
+  if (item.bullets) {
+    return (
+      <ul className="list-disc pl-6 space-y-2 text-black font-light mb-4">
+        {item.bullets.map((bullet, index) => (
+          <li key={index} className="leading-[19px]">
+            {bullet}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   if (item.href) {
@@ -195,7 +207,7 @@ export default function PrivacyPolicy() {
       <div className="bg-[#dadada] px-[59px] py-[38px]">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-[7px] text-black">
           <p className="font-medium">Label Version: 2.0</p>
-          <p className="font-normal">Last updated on: 19th July 2026</p>
+          <p className="font-normal">Last updated on: 20th July 2026</p>
         </div>
       </div>
     </div>

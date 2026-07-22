@@ -1,140 +1,112 @@
 export const sections = [
   "Introduction",
+  "About the Services",
+  "Intellectual Property",
   "Limited License",
-  "Blogs",
-  "Third Party Content",
-  "Confidential Information",
-  "No Warranties",
-  "Limitation Of Damages",
+  "Acceptable Use",
+  "Third-Party Services",
+  "Confidentiality",
   "Disclaimer",
-  "Lawful And Prohibited Use",
-  "Indemnity",
+  "Limitation Of Liability",
   "Changes",
-  "International Users And Choice Of Law",
+  "Governing Law",
+  "Contact",
 ];
 
 export const sectionContent = {
   Introduction: {
-    title:
-      "Terms of Use for www.infosys.com, blogs.infosys.com, abm.infosys.com, and www.infosysbpm.com",
+    title: "Terms of Use",
     paragraphs: [
-      `The use of any product, service or feature (the "Materials") available through the internet websites accessible at Infosys.com, blogs.ionfosys.com, abm.infosys.com, and infosysbpm.com (collectively, the "Website") by any user of the Website (“User” or "You" or "Your" hereafter) shall be governed by the following terms of use. The following terms and conditions will be deemed to have been accepted by the User on usage of the Website. You are requested to read them carefully before you use the services of this site.`,
+      `These Terms of Use govern your access to and use of the Support Studio Technologies website, client portals, applications, and online services (collectively, the "Services"). By accessing or using the Services, you agree to comply with these Terms. If you do not agree, you should discontinue use of the Services.`,
     ],
-    bullets: [
-      "The term User shall refer to the user who is browsing the Website.",
-      `This Website is provided by Infosys Limited (hereinafter referred to as "Infosys" ), a company incorporated under the Companies Act, 1956 of India, having its registered office at Electronics City, Hosur Road, Bangalore 560 100, India and shall be used for informational purposes only. By using the Website or downloading Materials from the Website, You hereby agree to abide by the terms and conditions set forth in this Terms of Use. In the event of You not agreeing to these terms and conditions, You are requested by Infosys not to use the Website or download Materials from the Website. If there is a conflict between the Terms of Use and terms of use posted for a specific area of the Website, the latter shall have precedence with respect to your use of that area of the Website.`,
-      "This Website, including all Materials present (excluding any applicable third party materials), is the property of Infosys and Infosys retains all rights, title or interest, including all intellectual property laws in such Materials.. .",
-      "Infosys has business relationships with thousands of customers, suppliers, governments, and others. For convenience and simplicity, words like joint venture, partnership, and partner are used to indicate business relationships involving common activities and interests, and those words may not indicate precise legal relationships.",
+  },
+
+  "About the Services": {
+    title: "About the Services",
+    paragraphs: [
+      "Support Studio Technologies provides the Services to support its business operations and the delivery of SAP consulting, ERP and CRM solutions, cloud services, managed services, and custom application development. Where a specific service or client engagement is subject to separate contractual terms, those terms will prevail in the event of any conflict.",
+    ],
+  },
+
+  "Intellectual Property": {
+    title: "Intellectual Property",
+    paragraphs: [
+      "Unless otherwise stated, all content, methodologies, documentation, software, trademarks, and other materials available through the Services are the intellectual property of Support Studio Technologies or its licensors and are protected by applicable intellectual property laws. Ownership of client-specific deliverables is governed by the applicable client agreement.",
     ],
   },
 
   "Limited License": {
-    title: "LIMITED LICENSE:",
+    title: "Limited License",
     paragraphs: [
-      "This Web site contains proprietary notices and copyright information, the terms of which must be observed and followed. Subject to the terms and conditions set forth in these Terms of Use, Infosys grants You a non-exclusive, non-transferable, limited copyright license to access, and display this Website and the Materials thereon provided you comply with these Terms of Use, and all copyright, trademark, and other proprietary notices remain intact. You agree not to interrupt or attempt to interrupt the operation of the Website in any manner.. You shall not modify, copy, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, transfer, or sell any information, software, products or services obtained from this Website. Except for the limited permission in the preceding paragraph, Infosys does not grant you any express or implied rights or licenses under any patents, trademarks, copyrights, or other proprietary or intellectual property rights. You may not mirror any of the content from this site on another Web site or in any other media. Any software and other materials that are made available for downloading, access, or other use from this site with their own license terms will be governed by such terms, conditions, and notices. Your failure to comply with such terms or any of the terms on this site will result in automatic termination of any rights granted to you, without prior notice, and you must immediately destroy all copies of downloaded materials in your possession, custody or control.",
+      "Support Studio Technologies grants you a limited, non-exclusive, non-transferable license to access and use the Services for their intended purpose. You may not copy, modify, distribute, reproduce, or create derivative works from any content or materials without prior written permission.",
     ],
   },
 
-  Blogs: {
-    title: "BLOGS:",
-    paragraphs: [
-      `This is to inform and clarify that individuals (including but not limited to employees of Infosys and referred to as “Individuals” hereafter) may contribute articles and opinions on this Website entirely at the sole discretion of Infosys, in the form of “blogs”, as such term is generally understood. You hereby acknowledge and agree that these blogs constitute the opinion of the Individuals in their personal capacity, and may not represent official positions of Infosys in any manner. Infosys retains all copyright to these blogs and grants the same license as mentioned under section “Limited License” hereinabove.`,
-      "You may be permitted to post comments and feedback to these blogs. By doing so, You expressly agree and acknowledge to abide by the following:",
-    ],
+  "Acceptable Use": {
+    title: "Acceptable Use",
+    paragraphs: ["When using the Services, you agree not to:"],
     bullets: [
-      "You shall not defame, disrepute, abuse, harass or threaten Infosys or any third party, or otherwise violate the legal rights of Infosys or any third party.",
-      "You shall not contribute any content or take any action that may in any manner adversely affect the reputation of Infosys, or that is otherwise detrimental to Infosys.",
-      "You shall not in any manner publish or post any inappropriate, defamatory, infringing, obscene, racist, terrorist, politically slanted, indecent or unlawful topic, name, material or information.",
-      "You shall not use profane and objectionable language or abbreviations. You shall not use any character(s) as a substitute for objectionable language.",
-      "You shall not in any manner reveal confidential or proprietary information of any third party. Specifically, You shall not post any material for which You do not have requisite and applicable right(s) under law.",
-      "You shall not conduct any contests or publish or propagate any forwards.",
-      "You shall not defame, abuse, harass, stalk, threaten or otherwise violate the legal rights (such as rights of privacy and publicity but not limited to the foregoing) of any other party including Infosys.",
-      "You shall not publish, post, upload, distribute or disseminate any inappropriate, profane, defamatory, obscene, indecent or unlawful topic, name, material or information.",
-      "You shall not upload or otherwise make available, files that contain images, photographs, software or other material protected by intellectual property laws, including, by way of example, and not as limitation, copyright or trademark laws (or by rights of privacy or publicity) unless You own or control the rights thereto or have received all necessary consent to do the same.",
-      `You shall not upload files that contain viruses, trojan horses, worms, time bombs, cancelbots, corrupted files, or any other similar software or programs that may damage the operation of another's computer or property of another.`,
-      "You shall not advertise or offer to sell or buy any goods or services for any business purpose",
-      "You shall not download any file posted that You know, or reasonably should know, cannot be legally reproduced, displayed, performed, and/or distributed in such manner.",
-      "You shall not falsify or delete any copyright management information, such as author attributions, legal or other proper notices or proprietary designations or labels of the origin or source of software or other material contained in a file that is uploaded.",
-      "You shall not create a false identity for the purpose of misleading others.",
-      "You shall not in any way deface or vandalize this Website, or prevent or restrict others from using this Website.",
-      "You shall indemnify and hold harmless Infosys from any claims and loss incurred by Infosys as a result of Your violation of these Terms of Use.",
-      "You acknowledge that Infosys may, at its sole discretion, monitor, remove or edit any content that You contribute. Infosys may also pursue remedies available to it under law for any violation of these terms and conditions.",
-      "You shall ensure that any personal data of other individuals is shared by you only after seeking consent from the person(s) to whom the personal data belongs.",
+      "Access or attempt to access systems or information without authorization.",
+      "Interfere with the operation, security, or availability of the Services.",
+      "Upload or distribute malicious software or harmful code.",
+      "Use the Services in violation of applicable laws or the rights of others.",
+      "Submit unlawful, misleading, or inappropriate content.",
+      "Misrepresent your identity or affiliation.",
     ],
   },
 
-  "Third Party Content": {
-    title: "THIRD PARTY CONTENT:",
+  "Third-Party Services": {
+    title: "Third-Party Services",
     paragraphs: [
-      `The Website makes information of third parties available, including articles, analyst reports, news reports, tools to facilitate calculation, company information and data about financial markets, including any regulatory authority and other financial markets and other data from external sources (the "Third Party Content"). You acknowledge and agree that the Third Party Content is not created or endorsed by Infosys..`,
-    ],
-    bullets: [
-      "The Website may provides links to web sites and access to content, products and services from third parties, including users, advertisers, affiliates and sponsors of the Website i.e Third Party Content. You agree that Infosys is not responsible for the availability of, and content provided on, third party web sites. The User is requested to peruse the policies posted by other web sites regarding privacy and other topics before use. Any personal data processing by such third parties shall be governed by their respective privacy policies.",
-      "Infosys is not responsible for Third Party Content accessible through the Website, including opinions, advice, statements and advertisements, and User shall bear all risks associated with the use of such content including any intellectual property infringement claim by third parties. Infosys is not responsible for any loss or damage of any sort User may incur from dealing with any third party or Third Party Content.",
+      "The Services may contain links to or integrate with third-party websites, platforms, or services. Support Studio Technologies is not responsible for the content, security, or privacy practices of third-party services, which remain subject to their respective terms and policies.",
     ],
   },
 
-  "Confidential Information": {
-    title: "Confidential information",
+  Confidentiality: {
+    title: "Confidentiality",
     paragraphs: [
-      {
-        parts: [
-          `Infosys does not want to receive confidential or proprietary information from you through our Web site. Please note that any information or material sent to Infosys will be deemed NOT to be confidential. By sending Infosys any information or material, you grant Infosys an unrestricted, irrevocable license to copy, reproduce, publish, upload, post, transmit, distribute, publicly display, perform, modify, create derivative works from, and otherwise freely use, those materials or information. You also agree that Infosys is free to use any ideas, concepts, know-how, or techniques that you send us for any purpose. However, we will not release your name or otherwise publicize the fact that you submitted materials or other information to us unless: (a) we obtain your permission to use your name; or (b) we first notify you that the materials or other information you submit to a particular part of this site will be published or otherwise used with your name on it; or (c) we are required to do so by law. Personally-identifiable information that you submit to Infosys for the purpose of receiving products or services will be handled in accordance with our privacy policies. Please refer to Infosys `,
-          { text: "Privacy Statement", href: "https://www.infosys.com/privacy-statement.html" },
-          " for more information regarding our privacy practices.",
-        ],
-      },
-    ],
-  },
-
-  "No Warranties": {
-    title: "NO WARRANTIES:",
-    paragraphs: [
-      `This website, the information and materials on the site, and any software made available on the Website, are provided "as is" without any representation or warranty, express or implied, of any kind, including, but not limited to, warranties of merchantability, non-infringement, or fitness for any particular purpose. There is no warranty of any kind, express or implied, regarding third party content. In spite of Infosys’ best endeavors, there is no warranty on behalf of Infosys that this Website will be free of any computer viruses. Infosys shall have no responsibility for any damage to User’s computer system or loss of data that results from the download of any content, materials, information from Website. Some jurisdictions do not allow for the exclusion of implied warranties, so the above exclusions may not apply to you. Infosys makes no warranty that: (a) the Website will meet your requirements; (b) Website will be available on an uninterrupted, timely, secure, or error-free basis; (c) the results that may be obtained from the use of the website or any services offered through the Website will be accurate or reliable.`,
-    ],
-  },
-
-  "Limitation Of Damages": {
-    title: "LIMITATION OF DAMAGES:",
-    paragraphs: [
-      "TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL INFOSYS BE LIABLE TO ANY PARTY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY OR CONSEQUENTIAL DAMAGES OF ANY TYPE WHATSOEVER RELATED TO OR ARISING FROM THIS WEB SITE OR ANY USE OF THIS WEB SITE, OR OF ANY SITE OR RESOURCE LINKED TO, REFERENCED, OR ACCESSED THROUGH THIS WEB SITE, OR IN THE PRODUCTS ANY CLAIM ATTRIBUTABLE TO ERRORS, OMISSIONS OR OTHER INACCURACIES IN THE PRODUCT OR INTERPRETATIONS THEREOF OR FOR THE USE OR DOWNLOADING OF, OR ACCESS TO, ANY MATERIALS, INFORMATION, PRODUCTS, OR SERVICES, INCLUDING, WITHOUT LIMITATION, ANY LOST PROFITS, BUSINESS INTERRUPTION, LOST SAVINGS OR LOSS OF PROGRAMS OR OTHER DATA, EVEN IF INFOSYS IS EXPRESSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THIS EXCLUSION AND WAIVER OF LIABILITY APPLIES TO ALL CAUSES OF ACTION, WHETHER BASED ON CONTRACT, WARRANTY, TORT, OR ANY OTHER LEGAL THEORIES.",
+      "Confidential information shared as part of a client engagement is governed by the applicable contractual agreement or non-disclosure agreement. Users should not submit confidential business information through publicly accessible website forms unless specifically requested.",
     ],
   },
 
   Disclaimer: {
-    title: "DISCLAIMER:",
+    title: "Disclaimer",
     paragraphs: [
-      `The website may contain inaccuracies and typographical and clerical errors. Infosys expressly disclaims any obligation(s) to update this website or any of the materials on this website. Infosys does not warrant the accuracy , adequacy or completeness of the materials or the reliability of any advice, opinion, statement or other information displayed or distributed through the Website. You acknowledge that any reliance on any such opinion, advice, statement, memorandum, or information shall be at your sole risk. Infosys reserves the right, in its sole discretion, to correct any errors or omissions in any portion of the Website. Infosys may make any other changes to the Website, the materials and the products, programs, services or prices (if any) described in the Website at any time without notice. This Website is for informational purposes only and should not be construed as technical advice of any manner. If any term in this Terms of Use is found by competent judicial authority to be unenforceable in any respect, the validity of the remainder of this Terms of Use will be unaffected, provided that such unenforceability does not materially affect the parties’ rights under this Terms of Use.`,
+      `The Services are provided on an "as is" and "as available" basis, except where otherwise agreed in writing. Support Studio Technologies makes no warranties, express or implied, regarding the availability, accuracy, or fitness of the Services for a particular purpose.`,
     ],
   },
 
-  "Lawful And Prohibited Use": {
-    title: "LAWFUL AND / OR PROHIBITED USE OF THE WEBSITE:",
+  "Limitation Of Liability": {
+    title: "Limitation of Liability",
     paragraphs: [
-      `As a condition of Your use of the Website, You shall not use the Website for any purpose(s) that is unlawful or prohibited by the Terms of Use. You shall not use the Website in any manner that could damage, disable, overburden, or impair any Infosys server, or the network(s) connected to any Infosys server, or interfere with any other party's use and enjoyment of any services associated with the Website. You shall not attempt to gain unauthorized access to any section of the Website, other accounts, computer systems or networks connected to any Infosys server or to any of the services associated with the Website, through hacking, password mining or any other means. You shall not obtain or attempt to obtain any Materials or information through any means not intentionally made available through the Website.`,
-    ],
-  },
-
-  Indemnity: {
-    title: "INDEMNITY:",
-    paragraphs: [
-      "You agree to indemnify and hold harmless Infosys, its subsidiaries and affiliates from any claim, cost, expense, judgment or other loss relating to Your use, or misuseof the content and services provided through this Website in any manner, including without limitation of the foregoing, any action You take which is in violation of the terms and conditions of these Terms of Use and against any applicable law. This provision shall survive any termination of User access by Infosys at any point in time.",
+      "To the maximum extent permitted by applicable law, Support Studio Technologies shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of the Services. Liability relating to specific client engagements is governed by the applicable contractual agreement.",
     ],
   },
 
   Changes: {
-    title: "CHANGES:",
+    title: "Changes to These Terms",
     paragraphs: [
-      "Infosys reserves the rights, at its sole discretion, to change, modify, add or remove any portion of these Terms of Use in whole or in part, at any time. Changes in these Terms of Use will be effective immediately when notice of such change is posted. Your continued use of the Website after any changes to these Terms of Use are posted will be considered acceptance of those changes. Infosys may terminate, change, suspend or discontinue any aspect of the Website, including the availability of any feature(s) of the Website, at any time. Infosys may also impose limits on certain features and services or restrict Your access to certain sections or all of the Website without notice or liability. You hereby acknowledge and agree that Infosys may terminate the authorization, rights and license given above at any point of time at its own sole discretion and upon such termination; You shall immediately destroy all Materials.",
+      "Support Studio Technologies may update these Terms of Use from time to time. Continued use of the Services following the publication of revised Terms constitutes acceptance of those changes.",
     ],
   },
 
-  "International Users And Choice Of Law": {
-    title: "INTERNATIONAL USERS AND CHOICE OF LAW:",
+  "Governing Law": {
+    title: "Governing Law",
     paragraphs: [
-      "This Site is controlled, operated and administered by Infosys from its offices within India. Infosys makes no representation that Materials on this Website are appropriate or available for use at any other location(s) outside India. Any access to this Website from territories where their contents are illegal is prohibited. You may not use the Website or export the Materials in violation of any applicable export laws and regulations. If You access this Website from a location outside India, You are responsible for compliance with all local laws.",
-      "These Terms of Use shall be governed by the laws of India, without giving effect to its conflict of laws provisions. You agree that the appropriate court(s) in Bangalore, India, will have the exclusive jurisdiction to resolve all disputes arising under these Terms of Use and You hereby consent to personal jurisdiction in such forum.",
-      "These Terms of Use constitutes the entire agreement between Infosys and You with respect to Your use of the Website. Any claim You may have with respect to Your use of the Website must be commenced within one (1) year of the cause of action. If any provision(s) of this Terms of Use is held by a court of competent jurisdiction to be contrary to law then such provision(s) shall be severed from this Terms of Use and the other remaining provisions of this Terms of Use shall remain in full force and effect.",
+      "These Terms of Use shall be governed by the laws of the applicable jurisdiction. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the competent courts.",
+    ],
+  },
+
+  Contact: {
+    title: "Contact",
+    paragraphs: [
+      {
+        parts: [
+          "For questions regarding these Terms of Use, please contact Support Studio Technologies using the contact details provided on our website or by emailing ",
+          { text: "legal@isupportz.com", href: "mailto:legal@isupportz.com" },
+          ".",
+        ],
+      },
     ],
   },
 };

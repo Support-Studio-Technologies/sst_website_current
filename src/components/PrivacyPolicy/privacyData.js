@@ -2,147 +2,122 @@ export const sections = [
   "Summary",
   "How We Use Your Data",
   "How We Share Your Data",
-  "How We Keep Information Safe",
+  "How We Keep Information Secure",
   "How Long We Keep Information",
+  "Your Rights",
   "How To Contact Us",
-  "Right To Withdraw Consent",
-  "Our Commitment To Privacy",
+  "Changes To This Policy",
 ];
 
 export const sectionContent = {
   Summary: {
-    title: "Summary of our Privacy Policy",
+    title: "Summary of Our Privacy Policy",
     paragraphs: [
-      {
-        parts: [
-          "It covers every Zoho website that links here, and all of the products and services contained on those websites. The ",
-          { text: "detailed policy", href: "https://www.zoho.com/privacy.html#long" },
-          " follows the same structure as this summary and constitutes the actual legal document.",
-        ],
-      },
-      "Our privacy commitment: Zoho has never sold your information to someone else for advertising, or made money by showing you other people's ads, and we never will. This has been our approach for almost 25 years, and we remain committed to it. This policy tells you what information we collect from you, what we do with it, who can access it, and what you can do about it.",
+      "This summary covers the Support Studio Technologies website, client portals, and every product, application, and service we deliver, including our SAP consulting and implementation engagements and our custom application development and ERP/CRM integration work. The detailed Privacy Policy that follows carries the same structure as this summary and forms the actual policy that governs how we handle personal data.",
+      "Our privacy commitment: Support Studio Technologies does not sell your personal data to third parties for advertising, and we do not monetize your data by showing you other people's advertisements. As a technology services provider trusted with sensitive client systems and business data, we treat confidentiality and data protection as core to how we operate not as an afterthought. This policy explains what information we collect, how we use it, who can access it, and the choices available to you.",
     ],
   },
 
   "How We Use Your Data": {
-    title: "How we will use your personal data",
+    title: "How do We Use Your Personal Data",
     paragraphs: [
-      "We may collect different kinds of personal data in several different ways and use it for a number of different purposes:",
-      "To ensure access to our website and online services",
-      "In general, you can visit TCS.com and its affiliate websites on the World Wide Web without telling us who you are. Our web servers or Affiliates who provide analytics and performance enhancement services may collect:",
-      "- IP addresses,",
-      "- operating system details,",
-      "- browsing details,",
-      "- device and connectivity details, and/or",
-      "- language settings",
-      "This information is aggregated to measure the number of visits, average time spent on the site, pages viewed and similar information. TCS uses this information to measure the site usage, improve content and to ensure safety and security as well as enhance performance and user experience of the website. In few situations, you are required to register to access an authenticated area of the website: in these cases, we will also collect your username and password. We may also obtain data from third parties including:",
-      "- Social networks, when you grant permission to us to access your data on one or more networks through our website.",
-      "- Service providers, who help us to determine a location based on your IP address in order to customize offerings and content to your location.",
-      "- Partners with whom we offer co-branded services or engage in joint marketing activities",
+      "The following section describes how Support Studio Technologies collects and uses personal information:",
+      { text: "To Provide Access to Our Website and Client Portals", heading: true },
+      "Support Studio Technologies may collect personal information through its website, client portals, and digital platforms to facilitate access, enhance user experience, maintain security, and support the delivery of its services.",
+      "Visitors can generally access the public website without providing personal information. However, certain technical information may be collected automatically by Support Studio Technologies or its analytics service providers, including:",
       {
-        parts: [
-          "TCS uses cookies (small text files placed on your device) and similar technologies to facilitate proper functioning of our websites and to help collect data: please read here our ",
-          { text: "full cookie policy", href: "https://www.tcs.com/who-we-are/legal/tcs-cookie-policy" },
-          ". Please note that our websites may include links to websites of third parties whose privacy practices differ from those of TCS; if you provide personal data to any of those websites, your data is governed by their privacy statements.",
+        bullets: [
+          "IP address",
+          "Browser type and operating system",
+          "Pages visited and navigation patterns",
+          "Device and network information",
+          "Language and regional settings",
         ],
       },
-      "To answer your queries, support and contact requests.",
-      "If you contact us with queries, requests for more information about initiatives or products or other generic support inquiries, we may need to process personal data about you such as:",
-      "- personal and contact details, like full name, company and role, email and address,",
-      "- demographic data,",
-      "- qualifications and profession, and/or",
-      "- the content of your messages to us.",
-      "For information about managing your contact data, email subscriptions and promotional communications, please use the contact us form on the tcs.com or affiliate websites where you had given your Personal data.",
-      "Subscriptions to our promotional communications.",
-      "If you sign up to receive marketing communications from TCS we may send these by email, post, telephone or any other means of communication. For information about managing your contact data, you may reach out to the contact details provided in the event privacy notice or in the emails you receive, or you may use the contact us form on the tcs.com or affiliate websites where you had given your Personal data.",
-      "To administer events and initiatives.",
-      "TCS frequently organizes events and initiatives, either free to join or by invitation only; in these cases, this privacy notice applies to both participants and speakers, together with any other supplementary information that is provided in relation with each event. To allow participants to join the events (including communications pre and post event), we are required to collect and process a limited amount of information, such as",
-      "- full name,",
-      "- company, job title and business email address,",
-      "- telephone number,",
-      "- location, and/or",
-      "- pictures and video of you.",
-      `Where a hospitality service is provided, we may also collect, store and process “special categories” of more sensitive personal data (SPI), such as dietary requirements or personal disabilities. This will be done only and to the extent permitted by law. Events might be recorded, hence pictures and videos may be collected too; in such cases, you may be informed via a specific notice at the location of recording. This material may be used later by TCS for further compatible purposes in accordance with the notices you receive. Also, during the course of the events, we may collect from you data about yourself, which we later may use to contact you again in order to receive feedback and/or provide further commercial information about TCS; this may be done with your consent, wherever necessary. We may also obtain data from third parties including third party event organizers where the event is sponsored by TCS. Organizers might provide the attendee list. In such cases, the privacy statement of those third parties to whom you provide your personal data will apply to you.`,
-      "To promote the TCS brand, products, initiatives and values with marketing communications.",
-      "TCS has a strong legitimate interest in promoting its brand, products, initiatives and values. In order to further such goals, we process personal data about our business contacts including existing and potential TCS clients, third parties and intermediaries TCS interacts with in the course of doing business. TCS may collect details about you including name, contact details and other information such as your job title, employer, areas of business interest and other business details. We may process such data using software or platforms which allow us to manage our client relationships. We collect such data directly or indirectly from you, or from third parties, such as business partners, data brokers, social networks, marketing companies, and publicly available sources such as social media sites where lawful to do so. In such cases, we will also comply with any additional restrictions imposed by the region in which your data was collected as well as the source of the data. TCS may also collect data from our email and calendar systems concerning interactions between TCS associates and contacts or third parties.",
-      "Your data is used by us in part for administering, managing and developing our business and services; such as identifying existing and potential client business needs, analysing and evaluating the strength of our interactions with certain business contacts, performing analytics including to produce metrics such as relationship maps for our business leadership and limited profiling for the purposes of helping us to develop and offer appropriate products and services to existing and potential clients. Analytics may be performed by us using algorithms which help us analyze and rank interactions with you depending on interaction frequency and duration. We may also send you marketing communications and surveys to carry out market research or provide information to you about us and our services which we have reason to believe would be of interest to you in your professional capacity.",
-      `When reaching out to you, we may do so through different channels, such as email, phone calls, post or any other means of communication such as through social media sites such as LinkedIn. We will only send electronic marketing communications to business contacts in a business-to-business context, where we have your prior consent or where it is otherwise lawful to do so in the jurisdiction you are located in. You can opt-out from receiving such communications at any time using the contact us form on TCS.COM or affiliate websites where you had given your personal data, writing to our Data Protection Officers or Head – Global Privacy Office (see section below) or by any other given method provided from time to time (for example: unsubscribe link included at the bottom of emails).`,
-      `From time to time, we may use your name, quotes, pictures or videos to promote and amplify TCS’ brand and activities. In any such case, you will receive appropriate additional information about the usage of your personal data.`,
-      "Social Listening",
-      `TCS uses the services of a third party to monitor (primarily by key-word searches) and analyse statements, comments, opinions and similar interactions on social media channels about TCS made by TCS’s customers, employees, followers, fans and others. TCS has a legitimate interest to do so in order to identify and assess what is being said about our brand on social media, to understand sentiment, intent, mood, market trends and our stakeholders’ needs, to improve our services and to protect our brand.`,
-      "We may collect publicly accessible data from social media networks and websites, including",
-    ],
-    bullets: [
-      "user IDs",
-      "social network profile names and information",
-      "social network communications",
+      "This information is used to analyze website performance, improve functionality and content, enhance user experience, and protect our websites, applications, and client-facing platforms from security threats.",
+      "When accessing authenticated environments, such as client portals, project workspaces, support ticketing systems, or SAP, ERP, and other enterprise platforms managed by Support Studio Technologies, additional information such as usernames, login credentials, and access logs may be collected to authenticate users, administer accounts, and maintain the security and integrity of our systems.",
+      "Support Studio Technologies also uses cookies and similar technologies to support essential website functionality, enhance performance, and understand user interactions. Cookie preferences can be managed through your browser settings.",
+      { text: "Responding to Enquiries, Support Requests, and Project Communications", heading: true },
+      "Support Studio Technologies processes personal information to respond to enquiries, manage support requests, and communicate throughout client engagements. Depending on the nature of your interaction, we may collect:",
+      {
+        bullets: [
+          "Name, job title, company, and contact details",
+          "Information relating to your enquiry or business requirements",
+          "The content of communications, support requests, and any files you choose to share",
+        ],
+      },
+      "This information is used to respond to your requests, provide support, and maintain effective communication. You may update your communication preferences or opt out of marketing communications at any time.",
+      { text: "Delivering SAP, ERP, CRM, and Application Development Services", heading: true },
+      "To deliver consulting, implementation, migration, integration, managed services, and application development, Support Studio Technologies may process information contained within client systems, including configuration, master, test, or transactional data.",
+      "When processing such information, Support Studio Technologies:",
+      {
+        bullets: [
+          "Acts on behalf of the client in accordance with contractual obligations.",
+          "Limits access to authorized personnel with a legitimate business need.",
+          "Processes information only for the agreed scope of services.",
+          "Does not use client data for its own marketing or unrelated business purposes.",
+        ],
+      },
+      { text: "Administering Events, Webinars, and Training", heading: true },
+      "Support Studio Technologies may collect your name, company, job title, email address, and, where applicable, your image or voice when you participate in events, webinars, or training sessions. This information is used to manage registrations, facilitate participation, and share relevant follow-up materials.",
+      { text: "Promoting Our Services", heading: true },
+      "Support Studio Technologies may use business contact information to share updates about its services, events, and technology solutions where permitted by applicable law. You may opt out of marketing communications at any time using the unsubscribe link in our emails or by contacting us directly.",
     ],
   },
 
   "How We Share Your Data": {
-    title: "How we will share your personal data",
+    title: "How We Share Personal Information",
     paragraphs: [
-      "We may share your data with third parties, including third-party service providers and other entities in the TCS group. Please note, TCS has not in the past, nor does it currently, under any circumstances sell your personal data to any third party. Further, TCS does not share your personal data with third parties for any additional purpose (as outlined below) unless required to fulfill a legal obligation or a legitimate business purpose where permitted by law.",
-      "Why might you share my personal data with third parties?",
-      "We may share your personal data with third parties where required by law, where it is necessary for one of the activities mentioned above or where we have another legitimate legal basis in doing so. We require third parties to respect the security of your data and to treat it in accordance with the law. Where required by the law, we will request your consent before transferring data to third parties which are not part of the TCS group of companies.",
-      "Which third-party service providers process my personal data?",
-      `”Third parties” includes third-party service providers (including contractors and designated agents) and other entities within our group. The following activities may be carried out by third-party service providers: hosting and other internet services, data storage and analytics, marketing research and campaign management, event organizers and caterers. All our third-party service providers are required to take appropriate security measures to protect your personal data in line with our policies. We do not allow our third-party service providers to use your personal data for their own purposes. We only permit them to process your personal data for specified purposes and in accordance with our instructions and applicable law. We may also need to share your personal data with regulators or to otherwise comply with the law.`,
-      "When might you share my personal data with other entities in the group",
-      `We may share your personal data with other entities in the TCS group as part of our regular reporting activities on company performance, in the context of a business reorganization or group restructuring exercise, for system maintenance support and hosting of data and when it is required to do so in order to perform one of the activities listed above (see "How we will use information about you"). Other entities in the TCS group are required to take appropriate security measures to protect your personal data in line with our policies.`,
-      "Transferring your personal data outside of your country of residence",
-      `We may transfer the personal data we collect about you to one of more countries outside of your country of residence or outside of the country in which you access this website, including India, in order to perform one of the activities listed above (see "How we will use information about you"). – In such cases, we have put in place the appropriate measures to ensure that your personal data will be secure according to the laws of the country in which you reside. If you require further information about these protective measures, you can request it from our Data Protection Officers (see contacts below) or send an email to tcs.cpo@tcs.com.`,
+      "Support Studio Technologies does not sell personal information. Personal information is shared only where necessary to deliver our services, comply with legal obligations, or support legitimate business operations, and is protected by appropriate contractual and security measures.",
+      { text: "Third-Party Service Providers", heading: true },
+      "Support Studio Technologies may share personal information with trusted service providers that support our business operations, including cloud hosting, IT infrastructure, analytics, and technical support. These providers are authorized to process personal information only on our behalf and are required to maintain appropriate security and confidentiality standards.",
+      { text: "Sub-processors for Client Engagements", heading: true },
+      "Where client engagements require the involvement of approved sub-processors, such as implementation partners or hosting providers, Support Studio Technologies ensures that appropriate contractual obligations are in place to protect personal information and comply with applicable data protection requirements.",
+      { text: "International Data Transfers", heading: true },
+      "Personal information may be transferred to or accessed from countries where Support Studio Technologies, its affiliates, or its service providers operate. Where such transfers occur, appropriate safeguards are implemented in accordance with applicable data protection laws to ensure the protection of personal information.",
     ],
   },
 
-  "How We Keep Information Safe": {
-    title: "How we will keep your information safe",
+  "How We Keep Information Secure": {
+    title: "How We Keep Personal Information Secure",
     paragraphs: [
-      "We have put in place appropriate technical, organizational and security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know. They will only process your personal data on our instructions and they are subject to a duty of confidentiality.",
-      "We have put in place procedures to deal with any suspected data security breach and will notify you and any applicable regulator of a suspected breach where we are legally required to do so.",
+      "Support Studio Technologies implements appropriate technical, organizational, and administrative safeguards to protect personal information against unauthorized access, loss, misuse, alteration, or disclosure.",
+      "Security measures include access controls, the principle of least privilege, system monitoring, and confidentiality obligations for employees, contractors, and authorized third parties. These controls are designed to safeguard both our systems and the client environments we manage.",
+      "Support Studio Technologies maintains incident response procedures to address security incidents promptly and will notify affected individuals and relevant regulatory authorities of personal data breaches where required by applicable law.",
     ],
   },
 
   "How Long We Keep Information": {
-    title: "How long we will keep your information",
+    title: "How Long We Keep Personal Information",
     paragraphs: [
-      "We will only retain your personal data for as long as necessary to fulfil the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements. Details of retention periods for different aspects of your personal data are available in our retention policy upon request from our Data Protection Officers (see contact details below). To determine the appropriate retention period for personal data, we consider the amount, nature and sensitivity of the personal data, the potential risk of harm from unauthorized use or disclosure of your personal data, the purposes for which we process your personal data and whether we can achieve those purposes through other means, and the applicable legal requirements.",
-      "In some circumstances we may anonymize your personal data so that it can no longer be associated with you, in which case we may use such information without further notice to you.",
+      "Support Studio Technologies retains personal information only for as long as necessary to fulfil the purposes for which it was collected, comply with legal and contractual obligations, resolve disputes, and enforce our agreements. Client project data is retained in accordance with the applicable contractual terms and is securely returned or deleted at the end of an engagement, unless a longer retention period is required by law or agreed with the client.",
+    ],
+  },
+
+  "Your Rights": {
+    title: "Your Rights",
+    paragraphs: [
+      "Subject to applicable data protection laws, you may have the right to access, correct, update, delete, or restrict the processing of your personal information, object to certain processing activities, withdraw consent where applicable, or request data portability. Requests may be submitted using the contact details provided below.",
     ],
   },
 
   "How To Contact Us": {
-    title: "How to contact us",
+    title: "How to Contact Us",
     paragraphs: [
-      `If you have a privacy concern, complaint or a question regarding this privacy statement, please direct it to the Head – Global Privacy Office of Tata Consultancy Services at tcs.cpo@tcs.com or contact us through the “Contact us” form on tcs.com or affiliate websites where you provided your Personal data indicating your concern in detail.`,
-      "For the purposes of the data processed under this statement, the controller or business/service provider for the data processing of your personal data collected through our websites is Tata Consultancy Services Limited, TCS House, 2nd Floor, Raveline Street, Fort Mumbai 400 001, India. For all the other purposes indicated above, the controller or business/service provider is the same entity unless indicated otherwise in other privacy statement communicated in each situation.",
-    ],
-  },
-
-  "Right To Withdraw Consent": {
-    title: "Right to Withdraw Consent",
-    paragraphs: [
-      "In the limited circumstances and based on your country of residence; where you may have provided your consent to the collection, processing and transfer of your personal data for a specific purpose, you may have the right to withdraw your consent for that specific processing at any time. To withdraw your consent, please contact our Data Protection Officers (see contacts below). Once we have received notification that you have withdrawn your consent, we will no longer process your information for the purpose or purposes you originally agreed to, unless we have another legal basis for doing so.",
-      "Please find below the list of region wise Data Protection Officers",
-      "We have appointed Data Protection Officers (DPOs) to oversee compliance of TCS with applicable data protection laws and with this privacy notice. If you have any questions about this privacy notice or how we handle your personal data, please contact the DPO in your region:",
-    ],
-    dpoOfficers: [
       {
-        title: "Data Protection Officer for Middle East North Africa (MENA)",
-        email: "mena.privacy@isupportz.com",
-      },
-      {
-        title: "Data Protection Officer for Support Studio Technologies(SST)",
-        email: "sstdpo@isupportz.com",
+        parts: [
+          "For questions, requests, or concerns regarding this Privacy Policy or the processing of your personal information, please contact Support Studio Technologies at ",
+          { text: "privacy@isupportz.com", href: "mailto:privacy@isupportz.com" },
+          " or through the Contact Us section of our website.",
+        ],
       },
     ],
   },
 
-  "Our Commitment To Privacy": {
-    title: "Our Commitment to Privacy",
+  "Changes To This Policy": {
+    title: "Changes to This Privacy Policy",
     paragraphs: [
-      { text: "Click here to read more", href: "/privacyCommitment", underline: true },
-      { text: "Changes to this privacy notice", heading: true },
-      "We reserve the right to update this privacy notice at any time, and we will provide you with a new privacy notice when we make any substantial updates. We may also notify you in other ways from time to time about the processing of your personal data.",
+      "Support Studio Technologies may update this Privacy Policy from time to time to reflect changes in applicable laws, technology, business operations, or privacy practices. The latest version will be made available on our website, and material changes will be communicated where appropriate.",
     ],
   },
 };

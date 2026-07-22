@@ -1,32 +1,34 @@
 "use client";
 
-import CareersLayout from "@/components/Careers/CareersLayout";
-import CareersHeroText from "@/components/Careers/CareersHeroText";
-import JobListing from "@/components/Careers/JobListing/JobListing";
-import WhatYouWantToDo from "@/components/Careers/WhatYouWantToDo/WhatYouWantToDo";
-import TeamStory from "@/components/Careers/TeamStory/TeamStory";
-import LearningDevelopment from "@/components/Careers/LearningDevelopment/LearningDevelopment";
-import CareersFAQ from "@/components/Careers/CareersFAQ/CareersFAQ";
-import YourGrowthPartner from "@/components/Careers/YourGrowthPartner/YourGrowthPartner";
+import Footer from "@/components/Footer/Footer";
+import CareersHero from "@/components/Careers/CareersHero";
+import JoinUsPanel from "@/components/Careers/JoinUsPanel";
+import JoinUsSocialBand from "@/components/Careers/JoinUsSocialBand";
+import JobListingSection from "@/components/Careers/JobListingSection";
+import WhatYouWantToDo from "@/components/Careers/WhatYouWantToDo";
+import TeamStory from "@/components/Careers/TeamStory";
+import LearningDevelopment from "@/components/Careers/LearningDevelopment";
+import OurCulture from "@/components/Careers/OurCulture";
+import GrowthQuoteBand from "@/components/Careers/GrowthQuoteBand";
+import WhatSetsUsApart from "@/components/Careers/WhatSetsUsApart";
 
 const page = () => {
     return (
-        <CareersLayout
-            cardBg="bg-white"
-            heroContent={<CareersHeroText />}
-            afterContent={
-                <>
-                    <WhatYouWantToDo />
-                    <TeamStory />
-                    <LearningDevelopment />
-                    <YourGrowthPartner />
-                    <CareersFAQ />
-                </>
-            }
-        >
-            <JobListing />
-        </CareersLayout>
+        <div className="min-h-screen bg-white flex flex-col font-sans">
+            <CareersHero />
+            <JoinUsPanel />
+            <JobListingSection />
+            <WhatYouWantToDo />
+            <TeamStory />
+            <LearningDevelopment />
+            <GrowthQuoteBand />
+            <OurCulture />
+            <WhatSetsUsApart />
+            <JoinUsSocialBand />
+            <Footer />
+        </div>
     );
 };
 
 export default page;
+

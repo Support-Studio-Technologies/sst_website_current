@@ -96,8 +96,8 @@ export default function TermsContent() {
                 key={section}
                 onClick={() => scrollToSection(section)}
                 className={`w-full cursor-pointer text-left px-4 py-2.5 rounded-md text-sm font-medium transition-colors ${activeSection === section
-                    ? "bg-blue-600 text-white"
-                    : "text-black hover:bg-gray-100"
+                  ? "bg-blue-600 text-white"
+                  : "text-black hover:bg-gray-100"
                   }`}
               >
                 {section}
@@ -127,6 +127,13 @@ export default function TermsContent() {
               </section>
             ))}
           </div>
+        </div>
+      </div>
+      {/* Version / Last Updated Bar */}
+      <div className="bg-[#dadada] px-[59px] py-[38px]">
+        <div className="max-w-[1280px] mx-auto flex flex-col gap-[7px] text-black">
+          <p className="font-medium">Label Version: 2.0</p>
+          <p className="font-normal">Last updated on: 20th July 2026</p>
         </div>
       </div>
     </div>

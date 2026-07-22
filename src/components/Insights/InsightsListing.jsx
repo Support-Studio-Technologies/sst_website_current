@@ -1,0 +1,136 @@
+"use client";
+
+import React, { useMemo, useState } from "react";
+import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+import ContentHeader from "@/components/CommonComponents/ContentHeader";
+import Footer from "@/components/Footer/Footer";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+
+export default function InsightsListing({
+  items,
+  basePath,
+  backgroundImage,
+  subtitle,
+  title,
+  description,
+  highlights,
+  emptyStateText = "No entries found yet. Please check back soon.",
+}) {
+  const router = useRouter();
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const categories = useMemo(() => {
+    const unique = [...new Set(items.map((item) => item.category))];
+    return ["All", ...unique];
+  }, [items]);
+
+  const filteredItems = useMemo(() => {
+    if (activeCategory === "All") return items;
+    return items.filter((item) => item.category === activeCategory);
+  }, [items, activeCategory]);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-slate-100 flex flex-col font-sans">
+      <ContentHeader
+        className="bg-contain"
+        backgroundImage={backgroundImage}
+        subtitle={subtitle}
+        title={title}
+        description={description}
+        highlights={highlights}
+      />
+
+      <main className="flex-grow max-w-7xl w-full mx-auto px-6 py-12 md:py-20">
+        {/* Category Filter Chips */}
+        {categories.length > 1 && (
+          <div className="flex flex-wrap gap-3 mb-10">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all cursor-pointer ${activeCategory === cat
+                  ? "bg-blue-500 border-blue-500 text-white shadow-md shadow-blue-500/20"
+                  : "bg-white border-neutral-200 text-neutral-600 hover:border-blue-300 hover:text-blue-600"
+                  }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {filteredItems.length === 0 ? (
+          <div className="text-center py-40 border border-dashed border-neutral-200 rounded-3xl p-8 bg-white">
+            <p className="text-slate-600 text-lg">{emptyStateText}</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
+            {filteredItems.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => router.push(`${basePath}/${item.slug}`)}
+                className="cursor-pointer "
+              >
+                <CardContainer className="inter-var w-full h-full" containerClassName="py-0 flex-grow">
+                  <CardBody className="bg-white relative shadow-md hover:shadow-2xl group/card dark:hover:shadow-2xl dark:hover:shadow-blue-500/[0.1] dark:bg-neutral-900 dark:border-neutral-850 border-neutral-100 w-full h-full rounded-sm p-6 border flex flex-col justify-between">
+
+                    <div className="flex flex-col flex-grow">
+                      <CardItem translateZ="50" className="w-full mt-4 relative">
+                        <img
+                          src={item.cover_image}
+                          className="h-60 w-full object-cover group-hover/card:shadow-xl"
+                          alt={item.title}
+                        />
+
+                        {/* <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-blue-500/90 text-white text-[11px] font-bold uppercase tracking-wider shadow-md">
+                          {item.type}
+                        </span> */}
+                      </CardItem>
+
+                      <CardItem
+                        translateZ="0"
+                        className="text-lg font-bold text-neutral-900 dark:text-neutral-100 mt-4 line-clamp-2 group-hover/card:text-blue-500 transition-colors"
+                      >
+                        {item.title}
+                      </CardItem>
+                      <CardItem
+                        translateZ="0"
+                        className="text-xs font-semibold text-blue-500 uppercase tracking-wider block mt-4 mb-2"
+                      >
+                        {item.category}
+                      </CardItem>
+                      <CardItem
+                        translateZ="0"
+                        className="text-sm text-neutral-500 dark:text-neutral-400 line-clamp-2"
+                      >
+                        {item.summary}
+                      </CardItem>
+                    </div>
+                    <div className="mt-6 flex items-center justify-between pt-4 border-t border-neutral-100 dark:border-neutral-850">
+                      <CardItem translateZ={20} className="text-xs text-neutral-500">
+                        {new Date(item.publish_date).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </CardItem>
+                      <CardItem
+                        translateZ={20}
+                        as="div"
+                        className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center group-hover/card:bg-blue-50 group-hover/card:text-black transition-all duration-350 transform group-hover/card:translate-x-0.5"
+                      >
+                        <ArrowRight className="w-4 h-4" />
+                      </CardItem>
+                    </div>
+                  </CardBody>
+                </CardContainer>
+              </div>
+            ))}
+          </div>
+        )}
+      </main>
+      <Footer />
+    </div>
+  );
+}

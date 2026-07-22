@@ -1,158 +1,74 @@
-import React from "react";
-import Image from "next/image";
+"use client";
+
 import { motion } from "framer-motion";
+import { cleanPrinciples } from "@/components/Constants/About/aboutData";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
 const AboutValues = () => {
-  const headerVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 80,
-      scale: 0.9,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const values = [
-    {
-      id: 1,
-      title: "Innovation at Core",
-      description:
-        "We embrace change and continuously explore new technologies to create future-ready solutions",
-    },
-    {
-      id: 2,
-      title: "Client Success First",
-      description:
-        "We build trusted partnerships and deliver solutions that drive lasting business growth.",
-    },
-    {
-      id: 3,
-      title: "Excellence Through Integrity",
-      description:
-        "We uphold quality, transparency, and accountability to deliver reliable clint solutions.",
-    },
-  ];
-
   return (
-    <section className=" lg:py-5 px-4 overflow-x-hidden overflow-hidden">
-      <div className="max-w-7xl mx-auto ">
-        <motion.div
-          className="text-center mb-12"
-          variants={headerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
+    <>
+      <section className="w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto flex flex-col gap-10">
           <motion.div
-            className="inline-flex items-center gap-3 "
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-center max-w-[700px] mx-auto"
           >
-            <span className="text-blue-500 text-base sm:text-lg">✦</span>
-            <p className="text-xs sm:text-sm font-medium tracking-widest uppercase">
-              OUR VALUES
+            <h2 className="text-2xl sm:text-3xl font-medium text-black">Our Clean Principles</h2>
+            <p className="mt-3 text-sm sm:text-base text-[#6c6c6c] leading-relaxed">
+              We are passionate about empowering individuals and businesses to take control of
+              their finances and achieve their financial goals.
             </p>
           </motion.div>
 
-          <motion.h2
-            className="text-4xl lg:text-6xl xl:text-4xl font-normal leading-tight mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"
           >
-            The Principles That <span className="gradient-text"> Guide Us</span>
-          </motion.h2>
-        </motion.div>
+            {cleanPrinciples.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="bg-[#0a2b3e] shadow-[0px_2px_8px_rgba(0,0,0,0.19)] flex flex-col justify-end gap-3 p-6 h-[200px] sm:h-[220px]"
+              >
+                <p className="text-lg font-medium text-white">{item.title}</p>
+                <p className="text-xs text-white/80 leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          {values.slice(0, 3).map((value, index) => (
-            <motion.div
-              key={value.id}
-              className="relative overflow-hidden rounded-2xl p-8 transition-all duration-300 h-96
-               shadow-[0_0_20px_rgba(0,0,0,0.15)] hover:shadow-[0_0_25px_rgba(0,0,0,0.25)]"
-              variants={cardVariants}
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.3 },
-              }}
-            >
-              <div className="absolute inset-0">
-                <Image
-                  src="/AboutPage/OueValue.png"
-                  alt="Background Pattern"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="relative z-10 h-full flex flex-col justify-end">
-                <motion.h3
-                  className="text-2xl font-semibold text-white mb-4 leading-tight"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                >
-                  {value.title}
-                </motion.h3>
-
-                <motion.p
-                  className="text-white text-base leading-relaxed"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                >
-                  {value.description}
-                </motion.p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full bg-[#F4F4F9] py-16 sm:py-20 px-4 sm:px-6 lg:px-8"
+      >
+        <p className="max-w-[800px] mx-auto text-center text-xl sm:text-2xl font-normal text-black">
+          Trusted by <span className="text-[#2d8ec5] font-medium">300 +</span> Company for their
+          sustainable growth partner
+        </p>
+      </motion.section>
+    </>
   );
 };
 
 export default AboutValues;
-

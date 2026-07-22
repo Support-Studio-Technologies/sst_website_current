@@ -417,8 +417,8 @@ const Navbar = () => {
 
                   <li>
                     <Link
-                      href="/aboutus"
-                      className={`${navLinkClass} ${pathname === "/aboutus"
+                      href="/who-we-are"
+                      className={`${navLinkClass} ${pathname === "/who-we-are"
                         ? "text-[#2d8ec5] after:w-full"
                         : isNavbarLight
                           ? "text-black"
@@ -712,7 +712,7 @@ const Navbar = () => {
 
             <li>
               <Link
-                href="/aboutus"
+                href="/who-we-are"
                 className={`block py-3 px-4 text-2xl sm:text-3xl font-medium transition-colors duration-300 rounded-lg ${pathname === "/aboutus"
                   ? "text-[#2d8ec5] bg-gray-100"
                   : "text-gray-800 hover:text-[#2d8ec5]"

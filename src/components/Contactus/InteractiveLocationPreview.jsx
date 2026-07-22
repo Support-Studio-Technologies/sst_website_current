@@ -284,7 +284,7 @@ const InteractiveLocationPreview = () => {
                                                     variants={pinVariants}
                                                     className="absolute -left-3 -top-6 w-6 h-6"
                                                 >
-                                                    <MapPin className="w-6 h-6 text-blue-500 fill-blue-500/10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]" />
+                                                    {/* <MapPin className="w-6 h-6 text-blue-500 fill-blue-500/10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]" /> */}
                                                 </motion.div>
                                             </div>
                                         </div>

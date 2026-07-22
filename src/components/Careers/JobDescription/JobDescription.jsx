@@ -1,7 +1,10 @@
 "use client";
 
+import { useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { X, Loader2, AlertCircle } from "lucide-react";
 import locationIcon from "@/assets/career/icons/location.svg";
 import modeOfWorkIcon from "@/assets/career/icons/mode of work.svg";
 import typeOfWorkIcon from "@/assets/career/icons/type of work.svg";
@@ -9,6 +12,8 @@ import applicantsIcon from "@/assets/career/icons/applicants.svg";
 import shareIcon from "@/assets/career/icons/share.svg";
 import menuIcon from "@/assets/career/icons/menu.svg";
 import viewJobDetailsIcon from "@/assets/career/icons/view job details.svg";
+import uploadIcon from "@/assets/career/icons/upload.svg";
+
 
 function MetaItem({ icon, label }) {
     return (
@@ -53,11 +58,218 @@ function IconButton({ icon, label, onClick }) {
     );
 }
 
+function ResumeUploadModal({ isOpen, onClose, jobTitle }) {
+    const router = useRouter();
+    const [dragActive, setDragActive] = useState(false);
+    const [file, setFile] = useState(null);
+    const [error, setError] = useState("");
+    const [isParsing, setIsParsing] = useState(false);
+    const fileInputRef = useRef(null);
+
+    if (!isOpen) return null;
+
+    const handleDrag = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.type === "dragenter" || e.type === "dragover") {
+            setDragActive(true);
+        } else if (e.type === "dragleave") {
+            setDragActive(false);
+        }
+    };
+
+    const validateAndSetFile = (selectedFile) => {
+        if (!selectedFile) return;
+        const isValidType = /\.(pdf|doc|docx)$/i.test(selectedFile.name);
+        if (!isValidType) {
+            setError("Please upload a PDF or Word document (.pdf, .doc, .docx).");
+            setFile(null);
+            return;
+        }
+        if (selectedFile.size > 5 * 1024 * 1024) {
+            setError("File is too large. Maximum size is 5MB.");
+            setFile(null);
+            return;
+        }
+        setError("");
+        setFile(selectedFile);
+    };
+
+    const handleDrop = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive(false);
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            validateAndSetFile(e.dataTransfer.files[0]);
+        }
+    };
+
+    const handleFileChange = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            validateAndSetFile(e.target.files[0]);
+        }
+    };
+
+    const convertToBase64 = (fileObj) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(fileObj);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = (error) => reject(error);
+        });
+    };
+
+    const handleUpload = async () => {
+        if (!file) return;
+        setIsParsing(true);
+        setError("");
+
+        try {
+            const formData = new FormData();
+            formData.append("file", file);
+
+            const response = await fetch("/api/parse-resume", {
+                method: "POST",
+                body: formData,
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.error || "Failed to parse resume");
+            }
+
+            // Convert file to Base64 to store in sessionStorage
+            const base64Content = await convertToBase64(file);
+
+            // Set sessionStorage fields
+            sessionStorage.setItem("parsedResumeData", JSON.stringify({
+                ...result.data,
+                position: jobTitle // Automatically set position applying for
+            }));
+            sessionStorage.setItem("parsedResumeFile", JSON.stringify({
+                name: file.name,
+                type: file.type,
+                base64: base64Content
+            }));
+            sessionStorage.setItem("applyFlowType", "resume-parsed");
+
+            onClose();
+            router.push("/careers/apply");
+        } catch (err) {
+            console.error("Parsing failed, using fallback:", err);
+            // Fallback: still redirect user to application form with file pre-attached, but leaving text fields blank
+            try {
+                const base64Content = await convertToBase64(file);
+                sessionStorage.setItem("parsedResumeData", JSON.stringify({
+                    position: jobTitle
+                }));
+                sessionStorage.setItem("parsedResumeFile", JSON.stringify({
+                    name: file.name,
+                    type: file.type,
+                    base64: base64Content
+                }));
+                sessionStorage.setItem("applyFlowType", "resume-parsed-fallback");
+                onClose();
+                router.push("/careers/apply");
+            } catch (fallbackErr) {
+                setError(err.message || "An error occurred during parsing. Please try again.");
+                setIsParsing(false);
+            }
+        }
+    };
+
+    return (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+            <div className="bg-white rounded-2xl max-w-md w-full border border-black/10 p-6 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
+                <button
+                    onClick={onClose}
+                    className="absolute right-4 top-4 text-slate-400 hover:text-slate-600 transition-colors p-1 rounded-lg hover:bg-slate-100"
+                    aria-label="Close modal"
+                >
+                    <X className="w-5 h-5" />
+                </button>
+
+                <div className="mb-4">
+                    <h3 className="text-lg font-semibold text-slate-900">Upload your Resume</h3>
+                    <p className="text-sm text-slate-500 mt-1">
+                        Upload your PDF or Word document, and we&apos;ll automatically pre-fill your application.
+                    </p>
+                </div>
+
+                {!isParsing ? (
+                    <div className="space-y-4">
+                        <div
+                            onDragEnter={handleDrag}
+                            onDragOver={handleDrag}
+                            onDragLeave={handleDrag}
+                            onDrop={handleDrop}
+                            onClick={() => fileInputRef.current?.click()}
+                            className={`border-2 border-dashed rounded-xl p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all ${dragActive
+                                    ? "border-blue-500 bg-blue-50/50"
+                                    : "border-slate-200 hover:border-slate-300 bg-slate-50/50"
+                                }`}
+                        >
+                            <Image src={uploadIcon} alt="" width={36} height={36} />
+                            <span className="text-sm font-medium text-slate-700 text-center">
+                                {file ? file.name : "Drag & drop or click to upload"}
+                            </span>
+                            <span className="text-xs text-slate-400">PDF, DOC, DOCX up to 5MB</span>
+                            <input
+                                ref={fileInputRef}
+                                type="file"
+                                accept=".pdf,.doc,.docx"
+                                onChange={handleFileChange}
+                                className="hidden"
+                            />
+                        </div>
+
+                        {error && (
+                            <p className="text-sm text-red-600 flex items-start gap-1.5 bg-red-50 p-2.5 rounded-lg border border-red-100">
+                                <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                                <span>{error}</span>
+                            </p>
+                        )}
+
+                        <div className="flex gap-3 justify-end mt-6">
+                            <button
+                                type="button"
+                                onClick={onClose}
+                                className="px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                type="button"
+                                onClick={handleUpload}
+                                disabled={!file}
+                                className="px-4 py-2 bg-[#030213] text-white rounded-lg text-sm font-medium hover:bg-black transition-colors disabled:opacity-50"
+                            >
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="py-12 flex flex-col items-center justify-center gap-4 text-center">
+                        <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+                        <div>
+                            <p className="text-sm font-semibold text-slate-800">Extracting details from resume...</p>
+                            <p className="text-xs text-slate-500 mt-1">This will only take a moment.</p>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
+
 export default function JobDescription({ job, otherJobs = [] }) {
+    const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+
     const handleShare = () => {
         if (typeof window === "undefined") return;
         if (navigator.share) {
-            navigator.share({ title: job.title, url: window.location.href }).catch(() => {});
+            navigator.share({ title: job.title, url: window.location.href }).catch(() => { });
         } else {
             navigator.clipboard.writeText(window.location.href);
         }
@@ -131,14 +343,15 @@ export default function JobDescription({ job, otherJobs = [] }) {
                     </div>
 
                     <div className="flex flex-col gap-3 mt-4">
-                        <Link
-                            href="/careers/apply"
-                            className="w-full h-10 rounded-lg bg-[#030213] text-white text-sm font-medium flex items-center justify-center transition-colors hover:bg-black"
+                        <button
+                            type="button"
+                            onClick={() => setIsUploadModalOpen(true)}
+                            className="w-full h-10 rounded-lg bg-[#030213] text-white text-sm font-medium flex items-center justify-center transition-colors hover:bg-black cursor-pointer"
                         >
                             Upload your Resume
-                        </Link>
+                        </button>
                         <Link
-                            href="/careers/apply"
+                            href={`/careers/apply?position=${encodeURIComponent(job.title)}`}
                             className="w-full h-9 rounded-lg border border-black/10 bg-white text-[#0a0a0a] text-sm font-medium flex items-center justify-center transition-colors hover:bg-slate-50"
                         >
                             Apply for This Job
@@ -181,6 +394,13 @@ export default function JobDescription({ job, otherJobs = [] }) {
                     </Link>
                 </div>
             )}
+
+            <ResumeUploadModal
+                isOpen={isUploadModalOpen}
+                onClose={() => setIsUploadModalOpen(false)}
+                jobTitle={job.title}
+            />
         </div>
     );
 }
+

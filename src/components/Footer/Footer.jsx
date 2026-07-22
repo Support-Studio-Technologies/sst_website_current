@@ -123,10 +123,10 @@ const Footer = () => {
               </li> */}
                 <li>
                   <Link
-                    href="/blog"
+                    href="/bookacall"
                     className="hover:text-white transition-colors duration-200"
                   >
-                    Blog
+                    Book a call
                   </Link>
                 </li>
                 {/* <li>
@@ -330,7 +330,7 @@ const Footer = () => {
 
           {/* Support */}
           <div className="md:col-span-1 ">
-            <h3 className="text-white text-lg font-semibold md:mt-21.5 mb-4">Support</h3>
+            <h3 className="text-white text-lg font-semibold md:mt-21.5 mb-4">Insights</h3>
             <ul className="space-y-2">
               {/* <li>
                 <Link
@@ -342,10 +342,34 @@ const Footer = () => {
               </li> */}
               <li>
                 <Link
-                  href="/bookacall"
+                  href="/case-studies"
                   className="hover:text-white transition-colors duration-200"
                 >
-                  Book a call
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/whitepapers"
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  Whitepapers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industry-reports"
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  Industry Reports
                 </Link>
               </li>
             </ul>
@@ -528,7 +552,7 @@ const Footer = () => {
                 </a>
                 {" | "}
                 <a
-                  href="/cookie-policy"
+                  href="/cookiePolicy"
                   className="hover:text-gray-300 transition-colors"
                 >
                   Cookie Policy

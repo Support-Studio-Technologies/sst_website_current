@@ -255,15 +255,15 @@ export default function BlogPage() {
                                     containerClassName="py-0 flex-grow"
                                 >
                                     <CardBody
-                                        className="bg-white relative shadow-md hover:shadow-2xl group/card dark:hover:shadow-2xl dark:hover:shadow-blue-500/[0.1] dark:bg-neutral-900 dark:border-neutral-850 border-neutral-100 w-full h-full rounded-3xl p-6 border flex flex-col justify-between"
+                                        className="bg-white relative shadow-md hover:shadow-2xl group/card dark:hover:shadow-2xl dark:hover:shadow-blue-500/[0.1] dark:bg-neutral-900 dark:border-neutral-850 border-neutral-100 w-full h-full rounded-md p-6 border flex flex-col justify-between"
                                     >
                                         <div className="flex flex-col flex-grow">
-                                            <CardItem translateZ="50" className="w-full mt-4">
+                                            <CardItem translateZ="50" className="w-full mt-4 relative">
                                                 <img
                                                     src={blog.cover_image}
-                                                    height="1000"
-                                                    width="1000"
-                                                    className="h-60 w-full object-contain rounded-xl group-hover/card:shadow-xl"
+                                                    // height="1000"
+                                                    // width="1000"
+                                                    className="h-60 w-full object-contain rounded-md group-hover/card:shadow-xl"
                                                     alt={blog.title}
                                                 />
                                             </CardItem>
