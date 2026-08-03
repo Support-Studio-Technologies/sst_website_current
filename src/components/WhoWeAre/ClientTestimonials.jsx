@@ -89,7 +89,7 @@ function TestimonialsColumn({ className, testimonials, duration = 10 }) {
             <motion.ul
                 animate={{ translateY: "-50%" }}
                 transition={{ duration, repeat: Infinity, ease: "linear", repeatType: "loop" }}
-                className="flex flex-col gap-6 pb-6 bg-transparent list-none m-0 p-0"
+                className="flex flex-col gap-6 pb-6 bg-transp   arent list-none m-0 p-0"
             >
                 {new Array(2).fill(0).map((_, index) => (
                     <React.Fragment key={index}>
@@ -137,7 +137,7 @@ function TestimonialsColumn({ className, testimonials, duration = 10 }) {
 
 export default function ClientTestimonials() {
     return (
-        <section className="w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section className="w-full py-16 sm:pb-20 sm:pt-1 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

@@ -2,7 +2,8 @@
 
 import React from "react";
 import InsightsListing from "@/components/Insights/InsightsListing";
-import backgroundImage from "../../../../public/blog/hero.jpg";
+// import backgroundImage from "../../../../public/blog/hero.jpg";
+import backgroundImage from "@/assets/Whitepapers.jpg";
 import { whitepapersData } from "@/data/whitepapersData";
 
 export default function WhitepapersPage() {

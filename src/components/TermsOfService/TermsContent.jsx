@@ -85,6 +85,9 @@ export default function TermsContent() {
     }
   };
 
+  const summary = sectionContent.Summary;
+  const bodySections = sections.filter((section) => section !== "Summary");
+
   return (
     <div className="relative w-full bg-white">
       <div className="flex flex-col md:ml-7 md:flex-row">
@@ -109,13 +112,24 @@ export default function TermsContent() {
         {/* Right column: banner + main content */}
         <div className="flex-1 min-w-0">
           {/* Title Banner */}
-          <div className="bg-[#eaeaea] px-[66px] py-[62px] flex items-center h-[150px] md:h-[218px]">
-            <h1 className="text-3xl font-medium text-black">Terms of Use</h1>
+          <div
+            ref={(el) => (sectionRefs.current["Summary"] = el)}
+            className="bg-[#eaeaea] px-[66px] py-[62px]"
+          >
+            <div className="flex flex-col gap-[42px] ">
+              <h1 className="text-2xl font-semibold text-black">
+                {summary.title}
+              </h1>
+              <div>
+                {summary.paragraphs.map((item, index) => (
+                  <Paragraph key={index} item={item} />
+                ))}
+              </div>
+            </div>
           </div>
-
           {/* Main Content */}
-          <div className="px-[38px] py-[60px] space-y-[60px]">
-            {sections.map((section) => (
+          <div className="px-[66px] py-[60px] space-y-[60px] ">
+            {bodySections.map((section) => (
               <section
                 key={section}
                 ref={(el) => (sectionRefs.current[section] = el)}

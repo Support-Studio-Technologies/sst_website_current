@@ -11,6 +11,7 @@ import LearningDevelopment from "@/components/Careers/LearningDevelopment";
 import OurCulture from "@/components/Careers/OurCulture";
 import GrowthQuoteBand from "@/components/Careers/GrowthQuoteBand";
 import WhatSetsUsApart from "@/components/Careers/WhatSetsUsApart";
+import LinkedInCarousel from "@/components/WhoWeAre/LinkedInCarousel";
 
 const page = () => {
     return (
@@ -24,6 +25,7 @@ const page = () => {
             <GrowthQuoteBand />
             <OurCulture />
             <WhatSetsUsApart />
+            <LinkedInCarousel />
             <JoinUsSocialBand />
             <Footer />
         </div>

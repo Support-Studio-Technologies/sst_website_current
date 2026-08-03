@@ -4,10 +4,10 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const STRENGTHS = [
-    { value: "1000+", title: "User Training Sessions", description: "Empowering teams with the skills needed for effective software utilization." },
-    { value: "1000+", title: "User Training Sessions", description: "Empowering teams with the skills needed for effective software utilization." },
-    { value: "1000+", title: "User Training Sessions", description: "Empowering teams with the skills needed for effective software utilization." },
-    { value: "1000+", title: "User Training Sessions", description: "Empowering teams with the skills needed for effective software utilization." },
+    { value: "150+", title: "Successful Projects", description: "" },
+    { value: "1000+", title: "Expert Consultants", description: "" },
+    { value: "1000+", title: "Client Satisfaction", description: "" },
+    { value: "1000+", title: "Industries Served", description: "" },
 ];
 
 const containerVariants = {
@@ -22,7 +22,7 @@ const itemVariants = {
 
 export default function OurStrength() {
     return (
-        <section className="w-full py-16 sm:py-20 px-4 sm:px-6">
+        <section className="w-full py-16 sm:pb-20 sm:pt-10 px-4 sm:px-6">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -62,6 +62,7 @@ export default function OurStrength() {
                     </React.Fragment>
                 ))}
             </motion.div>
+            <div className="w-full h-px bg-gray-100 max-w-[1300px] mx-auto mt-16 sm:mt-20" />
         </section>
     );
 }

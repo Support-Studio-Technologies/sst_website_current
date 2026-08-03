@@ -3,10 +3,26 @@
 import { motion } from "framer-motion";
 
 const PRINCIPLES = [
-    { title: "SAP Projects Delivered", description: "Helping businesses transform with innovative SAP solutions." },
-    { title: "SAP Projects Delivered", description: "Helping businesses transform with innovative SAP solutions." },
-    { title: "SAP Projects Delivered", description: "Helping businesses transform with innovative SAP solutions." },
-    { title: "SAP Projects Delivered", description: "Helping businesses transform with innovative SAP solutions." },
+    {
+        title: "Client-Centric Approach",
+        description:
+            "Minimize custom code in the SAP core to ensure seamless upgrades and innovations.",
+    },
+    {
+        title: "Innovation with Purpose",
+        description:
+            "Build extensions on SAP Business Technology Platform to stay upgrade-safe.",
+    },
+    {
+        title: "Excellence in Delivery",
+        description:
+            "Use standard APIs and integration suites instead of direct system modifications.",
+    },
+    {
+        title: "Integrity & Trust",
+        description:
+            "Adopt cloud-native practices for scalability, agility, and continuous innovation.",
+    },
 ];
 
 const containerVariants = {
@@ -22,7 +38,7 @@ const itemVariants = {
 export default function CleanPrinciples() {
     return (
         <section className="w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-            <div className="w-full h-px bg-[#c7cbcd] max-w-[1300px] mx-auto mb-16 sm:mb-20" />
+            {/* <div className="w-full h-px bg-[#c7cbcd] max-w-[1300px] mx-auto mb-16 sm:mb-20" /> */}
 
             <div className="max-w-[1300px] mx-auto flex flex-col gap-10">
                 <motion.div

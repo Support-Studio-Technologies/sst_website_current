@@ -42,7 +42,7 @@ const itemVariants = {
 
 export default function WhatYouWantToDo() {
     return (
-        <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-10">
+        <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-5">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -82,8 +82,8 @@ export default function WhatYouWantToDo() {
                             />
                         </div>
                         <div className="p-5 text-center">
-                            <h3 className="text-sm font-medium text-black">{card.title}</h3>
-                            <p className="mt-2 text-xs text-black/80 leading-relaxed">{card.description}</p>
+                            <h3 className="text-md font-semibold font-medium text-black">{card.title}</h3>
+                            <p className="mt-2 text-sm font-light ">{card.description}</p>
                         </div>
                     </motion.div>
                 ))}

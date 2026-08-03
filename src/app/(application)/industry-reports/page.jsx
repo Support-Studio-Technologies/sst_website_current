@@ -2,7 +2,8 @@
 
 import React from "react";
 import InsightsListing from "@/components/Insights/InsightsListing";
-import backgroundImage from "../../../../public/AboutPage/hero-background.jpg";
+// import backgroundImage from "../../../../public/AboutPage/hero-background.jpg";
+import backgroundImage from "@/assets/Industry-Reports.jpg";
 import { industryReportsData } from "@/data/industryReportsData";
 
 export default function IndustryReportsPage() {

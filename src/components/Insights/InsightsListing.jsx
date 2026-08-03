@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import ContentHeader from "@/components/CommonComponents/ContentHeader";
@@ -18,6 +20,25 @@ export default function InsightsListing({
   emptyStateText = "No entries found yet. Please check back soon.",
 }) {
   const router = useRouter();
+  const containerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const contentY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -80]
+  );
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    [1, 0.85]
+  );
+
   const [activeCategory, setActiveCategory] = useState("All");
 
   const categories = useMemo(() => {
@@ -41,7 +62,15 @@ export default function InsightsListing({
         highlights={highlights}
       />
 
-      <main className="flex-grow max-w-7xl w-full mx-auto px-6 py-12 md:py-20">
+      <motion.main
+        ref={containerRef}
+        style={{
+          y: contentY,
+          opacity,
+        }}
+        className="flex-grow max-w-7xl w-full mx-auto px-6 py-12 md:py-20"
+      >
+
         {/* Category Filter Chips */}
         {categories.length > 1 && (
           <div className="flex flex-wrap gap-3 mb-10">
@@ -67,11 +96,21 @@ export default function InsightsListing({
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
             {filteredItems.map((item) => (
-              <div
+              <motion.div
                 key={item.id}
                 onClick={() => router.push(`${basePath}/${item.slug}`)}
-                className="cursor-pointer "
+                whileHover={{
+                  y: -10,
+                  scale: 1.02,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 250,
+                  damping: 20,
+                }}
+                className="cursor-pointer"
               >
+
                 <CardContainer className="inter-var w-full h-full" containerClassName="py-0 flex-grow">
                   <CardBody className="bg-white relative shadow-md hover:shadow-2xl group/card dark:hover:shadow-2xl dark:hover:shadow-blue-500/[0.1] dark:bg-neutral-900 dark:border-neutral-850 border-neutral-100 w-full h-full rounded-sm p-6 border flex flex-col justify-between">
 
@@ -125,11 +164,11 @@ export default function InsightsListing({
                     </div>
                   </CardBody>
                 </CardContainer>
-              </div>
+              </motion.div>
             ))}
           </div>
         )}
-      </main>
+      </motion.main>
       <Footer />
     </div>
   );

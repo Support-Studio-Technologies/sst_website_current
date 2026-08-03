@@ -113,7 +113,7 @@ export default function PrivacyPolicyCommitment() {
           {/* Privacy Principles */}
           <div
             ref={(el) => (sectionRefs.current[privacyPrinciples.title] = el)}
-            className="px-[38px] py-[60px] "
+            className="px-[66px] py-[60px] "
           >
             <h2 className="text-2xl font-semibold text-black mb-[42px]">
               {privacyPrinciples.title}

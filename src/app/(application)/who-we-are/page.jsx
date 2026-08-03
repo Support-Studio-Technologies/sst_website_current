@@ -19,8 +19,8 @@ const page = () => {
       <WhoWeAreHero />
       <AboutUsPanel />
       <StatsCards />
-      <CleanPrinciples />
       <TrustedByBand />
+      <CleanPrinciples />
       <DiscoverWhatSetsUsApart />
       <MissionVision />
       <OurStrength />

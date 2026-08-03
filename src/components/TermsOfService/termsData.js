@@ -1,5 +1,5 @@
 export const sections = [
-  "Introduction",
+  "Summary",
   "About the Services",
   "Intellectual Property",
   "Limited License",
@@ -14,13 +14,13 @@ export const sections = [
 ];
 
 export const sectionContent = {
-  Introduction: {
+  Summary: {
     title: "Terms of Use",
     paragraphs: [
       `These Terms of Use govern your access to and use of the Support Studio Technologies website, client portals, applications, and online services (collectively, the "Services"). By accessing or using the Services, you agree to comply with these Terms. If you do not agree, you should discontinue use of the Services.`,
     ],
   },
-
+ 
   "About the Services": {
     title: "About the Services",
     paragraphs: [

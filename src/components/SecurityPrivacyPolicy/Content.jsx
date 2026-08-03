@@ -101,7 +101,7 @@ export default function SecurityPrivacyPolicy() {
 
           <div
             ref={(el) => (sectionRefs.current[securityPolicy.title] = el)}
-            className="px-[38px] py-[60px]"
+            className="px-[66px] py-[60px]"
           >
             <h1 className="text-2xl font-semibold text-black mb-[42px]">
               {securityPolicy.title}

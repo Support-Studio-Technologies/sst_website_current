@@ -1,0 +1,53 @@
+"use client";
+
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
+import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
+import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
+
+import Hero from "@/components/WhatWeDo/CloudInfrastructure/Hero";
+import HeroText from "@/components/WhatWeDo/CloudInfrastructure/HeroText";
+import CloudConsulting from "@/components/WhatWeDo/CloudInfrastructure/CloudConsulting";
+import CloudMigration from "@/components/WhatWeDo/CloudInfrastructure/CloudMigration";
+import CloudModernization from "@/components/WhatWeDo/CloudInfrastructure/CloudModernization";
+import HybridCloud from "@/components/WhatWeDo/CloudInfrastructure/HybridCloud";
+import MultiCloudStrategy from "@/components/WhatWeDo/CloudInfrastructure/MultiCloudStrategy";
+import InfrastructureServices from "@/components/WhatWeDo/CloudInfrastructure/InfrastructureServices";
+import DevSecOps from "@/components/WhatWeDo/CloudInfrastructure/DevSecOps";
+import BackupDisasterRecovery from "@/components/WhatWeDo/CloudInfrastructure/BackupDisasterRecovery";
+import DigitalTwins from "@/components/WhatWeDo/CloudInfrastructure/DigitalTwins";
+
+const page = () => {
+    return (
+        <div className="min-h-screen bg-white flex flex-col font-sans">
+            <Navbar />
+
+            <div className="relative -mt-[64px] lg:-mt-[68px] h-[680px] sm:h-[200vh]">
+                            <div className="sticky top-0 h-[340px] sm:h-screen z-0">
+                                <Hero />
+                            </div>
+             
+                            <div className="absolute inset-x-0 top-0 h-[340px] sm:h-screen z-[5]">
+                                <HeroText />
+                            </div>
+            </div>
+            <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
+                <CloudConsulting />
+                <CloudMigration />
+            </div>
+            <CloudModernization />
+            <HybridCloud />
+            <MultiCloudStrategy />
+            <InfrastructureServices />
+            <DevSecOps />
+            <BackupDisasterRecovery />
+            <DigitalTwins />
+
+            <FutureFocusedInsights />
+            <ReadyToTransform />
+            <Footer />
+        </div>
+    );
+};
+
+export default page;

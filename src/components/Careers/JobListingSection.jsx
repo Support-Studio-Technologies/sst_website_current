@@ -187,7 +187,7 @@ export default function JobListingSection() {
                                         viewport={{ once: true, amount: 0.3 }}
                                         transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
                                         whileHover={{ scale: 1.015 }}
-                                        className="group flex h-[90px] items-center justify-between gap-4 bg-white border-l-4 border-transparent px-[35px] transition-all duration-300 hover:border-[#2d8ec5] hover:shadow-[1px_3px_12px_rgba(0,0,0,0.18)]"
+                                        className="group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border-l-4 border-transparent px-5 py-4 transition-all duration-300 hover:border-[#2d8ec5] hover:shadow-[1px_3px_12px_rgba(0,0,0,0.18)]"
                                     >
                                         <div>
                                             <p className="text-[16px] text-black">{job.title}</p>
@@ -197,7 +197,7 @@ export default function JobListingSection() {
                                         </div>
                                         <Link
                                             href={`/careers/${job.slug}`}
-                                            className="inline-flex items-center gap-2 rounded-full border border-[#7f7f7f] pl-1.5 pr-3 py-[3px] text-[14px] text-[#2d8ec5] whitespace-nowrap"
+                                            className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full border border-[#7f7f7f] px-4 py-2 text-sm text-[#2d8ec5]"
                                         >
                                             <Image src={viewJobDetailsIcon} alt="" width={13} height={13} />
                                             View Details

@@ -2,18 +2,37 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import card1Bg from "@/assets/WhoWeAre/Card1_Bg.jpg";
-import card2Bg from "@/assets/WhoWeAre/Card2_Bg.jpg";
-import card3Bg from "@/assets/WhoWeAre/Card3_Bg.jpg";
-import card4Bg from "@/assets/WhoWeAre/Card4_Bg.jpg";
+import card1Bg from "@/assets/WhoWeAre/Card1_Bg.svg";
+import card2Bg from "@/assets/WhoWeAre/Card2_Bg.svg";
+import card3Bg from "@/assets/WhoWeAre/Card3_Bg.svg";
+import card4Bg from "@/assets/WhoWeAre/Card4_Bg.svg";
 
 const CARDS = [
-    { bg: card1Bg, textColor: "text-black" },
-    { bg: card2Bg, textColor: "text-white" },
-    { bg: card3Bg, textColor: "text-black" },
-    { bg: card4Bg, textColor: "text-white" },
+    {
+        bg: card1Bg,
+        textColor: "text-white",
+        description: "Customer satisfaction rate, reflecting our dedication",
+        value: "95%",
+    },
+    {
+        bg: card2Bg,
+        textColor: "text-white",
+        description: "Projects delivered on time, showcasing our commitment",
+        value: "87%",
+    },
+    {
+        bg: card3Bg,
+        textColor: "text-white",
+        description: "Client retention year over year, proving lasting trust",
+        value: "92%",
+    },
+    {
+        bg: card4Bg,
+        textColor: "text-white",
+        description: "Team productivity growth, driving innovation forward",
+        value: "78%",
+    },
 ];
-
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
@@ -26,7 +45,7 @@ const itemVariants = {
 
 export default function StatsCards() {
     return (
-        <section className="w-full px-4 sm:px-6 lg:px-[52px] py-12 sm:py-16">
+        <section className="w-full px-4 sm:px-6 lg:px-[52px] py-12 sm:pt-1 sm:pb-16">
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
@@ -41,10 +60,14 @@ export default function StatsCards() {
                         className={`relative aspect-[258/335] flex flex-col justify-between p-6 ${card.textColor}`}
                     >
                         <Image src={card.bg} alt="" fill className="object-cover" />
+
                         <p className="relative text-base sm:text-lg font-light max-w-[196px]">
-                            Customer satisfaction rate, reflecting our dedication
+                            {card.description}
                         </p>
-                        <p className="relative text-3xl sm:text-5xl">95%</p>
+
+                        <p className="relative text-3xl sm:text-5xl font-semibold">
+                            {card.value}
+                        </p>
                     </motion.div>
                 ))}
             </motion.div>

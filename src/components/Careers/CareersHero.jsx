@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar/Navbar";
 import CareersHeroText from "./CareersHeroText";
-import heroBg from "@/assets/career/Hero Image.svg";
+// import heroBg from "@/assets/career/Hero Image.svg";
+import heroBg from "@/assets/Careers.jpg";
 
 export default function CareersHero() {
     return (

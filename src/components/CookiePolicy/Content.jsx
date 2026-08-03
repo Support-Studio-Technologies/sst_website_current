@@ -176,7 +176,7 @@ export default function CookiePolicy() {
           </div>
 
           {/* Main Content */}
-          <div className="px-[38px] py-[60px] space-y-[60px]">
+          <div className="px-[66px] py-[60px] space-y-[60px]">
             {bodySections.map((section) => (
               <section
                 key={section}
