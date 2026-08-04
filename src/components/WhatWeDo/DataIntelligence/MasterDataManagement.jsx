@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import mdmBg from "@/assets/WhatWeDo/Data Inteligent/Section9_Bg.svg";
 
@@ -61,7 +60,12 @@ export default function MasterDataManagement() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="relative w-full h-[360px] sm:h-[471px] overflow-hidden mt-10 sm:mt-0"
             >
-                <Image src={mdmBg} alt="" fill className="object-cover" />
+                <div
+                    className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
+                    style={{
+                        backgroundImage: `url(${mdmBg.src})`,
+                    }}
+                />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute inset-0 flex flex-col justify-center gap-4 sm:gap-6 px-6 sm:px-[52px] max-w-[650px]">
                     <p className="text-white text-2xl sm:text-[32px] font-medium">

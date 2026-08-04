@@ -65,7 +65,7 @@ export default function BusinessStrategy() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="lg:absolute lg:left-[50px] lg:top-0 lg:w-96 px-6 lg:px-0 pt-6 lg:pt-0 z-10"
+                className="lg:absolute lg:left-[50px] lg:top-0 lg:w-96 px-6 lg:px-0 py-6 lg:py-0 z-10"
             >
                 <h2 className="text-black text-2xl font-normal mb-2">Business Strategy</h2>
                 <p className="text-gray-700 text-lg font-normal leading-6 mb-2">
@@ -121,7 +121,7 @@ export default function BusinessStrategy() {
                             priority
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/30 to-black/70" />
-                        
+
                         <p className="absolute left-6 lg:left-[68px] right-6 lg:right-[140px] bottom-8 lg:bottom-[60px] text-white text-lg lg:text-2xl font-normal leading-relaxed lg:leading-8">
                             {currentSlide.overlay}
                         </p>
@@ -137,7 +137,7 @@ export default function BusinessStrategy() {
                 className="hidden lg:flex items-center justify-center absolute left-[497px] top-[600px] z-20 hover:opacity-75 transition-opacity"
             >
                 <svg width="28" height="56" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 2L3 21L22 40" stroke="black" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M22 2L3 21L22 40" stroke="black" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
             </button>
 
@@ -149,7 +149,7 @@ export default function BusinessStrategy() {
                 className="hidden lg:flex items-center justify-center absolute left-[1285px] top-[600px] z-20 hover:opacity-75 transition-opacity"
             >
                 <svg width="28" height="56" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2 2L21 21L2 40" stroke="black" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M2 2L21 21L2 40" stroke="black" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
             </button>
         </section>

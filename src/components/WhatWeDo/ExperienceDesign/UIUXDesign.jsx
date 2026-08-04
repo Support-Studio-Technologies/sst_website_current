@@ -68,7 +68,7 @@ export default function UIUXDesign() {
                 </div>
             </motion.div>
 
-            <div className="flex flex-col lg:flex-row gap-12 items-start">
+            <div className="flex flex-col lg:flex-row gap-0 sm:gap-12 items-start">
                 {/* Left */}
                 <div className="w-full lg:w-[420px] shrink-0">
                     <div className="space-y-5">
@@ -112,7 +112,7 @@ export default function UIUXDesign() {
 
 
                 {/* Right */}
-                <div className="relative flex-1 h-[550px] lg:h-[620px] overflow-hidden">
+                <div className="relative w-full lg:flex-1 h-[550px] lg:h-[620px] overflow-hidden">
                     <Image
                         src={sectionImage}
                         alt=""

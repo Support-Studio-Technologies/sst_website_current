@@ -149,9 +149,9 @@ const OurManagedCloudServices = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: 0.5, delay: index * 0.08 }}
-                            className="flex gap-4 rounded-[10px] bg-[#dceef8] px-6 py-4"
+                            className="flex gap-4 rounded-[10px] bg-[#E1E4E5] px-6 py-4"
                         >
-                            <div className="flex h-12 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[#003756] text-lg font-medium text-white">
+                            <div className="flex h-12 w-11 flex-shrink-0 items-center justify-center rounded-full bg-white text-lg font-medium text-black">
                                 {step.n}
                             </div>
                             <div className="flex flex-col gap-3">

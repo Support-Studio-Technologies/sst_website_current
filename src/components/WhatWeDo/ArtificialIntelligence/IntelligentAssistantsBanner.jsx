@@ -7,7 +7,10 @@ import bannerBg from "@/assets/WhatWeDo/Artificial Intelligence/Section7_Intelli
 export default function IntelligentAssistantsBanner() {
     return (
         <section className="relative w-full h-[420px] sm:h-[560px] overflow-hidden bg-black">
-            <Image src={bannerBg} alt="" fill className="object-cover" />
+            {/* Fixed Background */}
+            <div className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${bannerBg.src})` }}
+            />
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/10" />
             <div className="absolute inset-0 flex items-center px-6 sm:px-[50px] lg:px-[80px]">
                 <motion.div

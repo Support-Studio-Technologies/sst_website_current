@@ -1,15 +1,20 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import buildingPhoto from "@/assets/WhatWeDo/Innovation & Emerging Technologies/Section7_Bg.svg";
 
 export default function EdgeComputing() {
     return (
         <section className="relative w-full h-[420px] sm:h-[471px] overflow-hidden bg-[#c2e3f9]">
-            <div className="absolute inset-y-0 right-0 w-full sm:w-[55%]">
-                <Image src={buildingPhoto} alt="" fill className="object-cover" />
-            </div>
+            {/* Fixed Background Image */}
+            <div
+                className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
+                style={{
+                    backgroundImage: `url(${buildingPhoto.src})`,
+                }}
+            />
+
+            {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#c2e3f9] via-[#c2e3f9]/80 sm:via-[#c2e3f9]/30 to-transparent" />
 
             <motion.div
@@ -19,11 +24,18 @@ export default function EdgeComputing() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="relative z-10 h-full flex flex-col justify-center gap-4 sm:gap-6 px-6 sm:px-[52px] max-w-[540px]"
             >
-                <h2 className="text-black text-2xl sm:text-[32px] font-medium">Edge Computing</h2>
-                <p className="text-black text-lg sm:text-2xl font-normal">Process Data Where It Matters Most</p>
+                <h2 className="text-black text-2xl sm:text-[32px] font-medium">
+                    Edge Computing
+                </h2>
+
+                <p className="text-black text-lg sm:text-2xl font-normal">
+                    Process Data Where It Matters Most
+                </p>
+
                 <p className="text-black text-base sm:text-lg font-light leading-snug">
-                    Bring computing power closer to devices and users, enabling faster processing, lower latency, and
-                    real-time decision-making — even in bandwidth-constrained or disconnected environments.
+                    Bring computing power closer to devices and users, enabling faster
+                    processing, lower latency, and real-time decision-making — even in
+                    bandwidth-constrained or disconnected environments.
                 </p>
             </motion.div>
         </section>

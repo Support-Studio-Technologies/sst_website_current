@@ -60,7 +60,7 @@ export default function AILifecycle() {
                                 {step.number}
                             </div>
                             <p className="text-white text-base sm:text-xl font-medium">{step.title}</p>
-                            <p className="text-[#b7b7b7] text-sm sm:text-base font-light text-left translate-x-12 leading-snug">{step.desc}</p>
+                            <p className="text-[#b7b7b7] text-sm sm:text-base font-light text-center sm:text-left sm:translate-x-12 leading-snug">{step.desc}</p>
                         </div>
                     ))}
                 </div>
@@ -68,3 +68,4 @@ export default function AILifecycle() {
         </section>
     );
 }
+

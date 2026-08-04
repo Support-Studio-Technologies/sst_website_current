@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import buildingPhoto from "@/assets/WhatWeDo/Managed Services/Section3_Image.svg";
@@ -10,31 +10,32 @@ const ITEMS = [
         n: "1",
         title: "SAP Basis Administration",
         desc: "Build a scalable data architecture aligned with your digital transformation roadmap and business objectives.",
-        barOpacity: "opacity-100",
-        textOpacity: "opacity-100",
     },
     {
         n: "2",
         title: "SAP Performance Monitoring",
         desc: "Build a scalable data architecture aligned with your digital transformation roadmap and business objectives.",
-        barOpacity: "opacity-65",
-        textOpacity: "opacity-60",
     },
     {
         n: "3",
         title: "SAP System Maintenance",
         desc: "Build a scalable data architecture aligned with your digital transformation roadmap and business objectives.",
-        barOpacity: "opacity-25",
-        textOpacity: "opacity-20",
     },
 ];
 
 const AUTO_INTERVAL = 3000;
-const ITEM_HEIGHT = 145;
+const ITEM_MIN_HEIGHT = 145;
 
 export default function SAPManagedServices() {
     const [active, setActive] = useState(0);
+
     const pausedRef = useRef(false);
+    const itemRefs = useRef([]);
+
+    const [barRect, setBarRect] = useState({
+        top: 4,
+        height: ITEM_MIN_HEIGHT - 8,
+    });
 
     useEffect(() => {
         const id = setInterval(() => {
@@ -46,33 +47,83 @@ export default function SAPManagedServices() {
         return () => clearInterval(id);
     }, []);
 
+    useLayoutEffect(() => {
+        const measure = () => {
+            const el = itemRefs.current[active];
+            if (!el) return;
+
+            setBarRect({
+                top: el.offsetTop + 4,
+                height: el.offsetHeight - 8,
+            });
+        };
+
+        measure();
+
+        window.addEventListener("resize", measure);
+        return () => window.removeEventListener("resize", measure);
+    }, [active]);
+
     return (
-        <section className="w-full bg-[#efefef]">
-            <div className="max-w-[1280px] mx-auto relative py-10 sm:py-16">
+        <section className="w-full  bg-[#efefef] pb-10 sm:pb-16">
+            <div className="relative mx-auto max-w-[1280px] pt-10 sm:pt-16">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="text-black text-2xl sm:text-[32px] font-normal px-6 sm:px-[100px] leading-tight"
+                    className="px-6 text-2xl font-normal leading-tight text-black sm:px-[100px] sm:text-[32px]"
                 >
                     SAP Managed
                     <br />
                     Services
                 </motion.h2>
+            </div>
 
-                <div className="relative mt-10 sm:mt-[60px]">
-                    <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-[1520px] h-[220px] sm:h-[289px] border-y-4 border-white">
-                        <Image src={buildingPhoto} alt="" fill className="object-cover" />
-                        {/* <div className="absolute inset-0 bg-[#003756]/10" /> */}
-                    </div>
+            <div className="relative mt-10 sm:mt-[60px]">
 
+                {/* Full-width image — naturally full-width (no vw hacks), since
+                    the section already spans the page edge to edge */}
+                <div className="relative w-full h-[220px] overflow-hidden border-y-4 border-white sm:h-[289px]">
+                    <Image
+                        src={buildingPhoto}
+                        alt=""
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                </div>
+
+                {/* Card positioning layer — capped to the 1280px content grid on desktop,
+                    normal block on mobile so the card overlaps the image via flow + negative margin */}
+                <div className="relative sm:absolute sm:inset-0 sm:mx-auto sm:w-full sm:max-w-[1280px]">
                     <motion.div
                         initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="relative -mt-12 mx-6 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:right-[70px] w-full sm:w-[600px] lg:w-[620px] bg-white shadow-xl px-10 py-12 z-20"
+                        className="
+                            relative
+                            z-20
+                            mx-6
+                            -mt-12
+                            w-auto
+                            bg-white
+                            px-6
+                            py-8
+                            shadow-xl
+ 
+                            sm:absolute
+                            sm:top-1/2
+                            sm:right-[70px]
+                            sm:mx-0
+                            sm:w-[600px]
+                            sm:-translate-y-1/2
+                            sm:px-10
+                            sm:py-12
+ 
+                            lg:w-[620px]
+                        "
                     >
                         <div
                             className="relative flex flex-col"
@@ -80,11 +131,12 @@ export default function SAPManagedServices() {
                             onMouseLeave={() => (pausedRef.current = false)}
                         >
                             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#b7dcf4]" />
+
                             <motion.div
                                 className="absolute left-[-1px] w-[4px] rounded-full bg-[#1b8be0]"
                                 animate={{
-                                    top: active * ITEM_HEIGHT + 4,
-                                    height: ITEM_HEIGHT - 8,
+                                    top: barRect.top,
+                                    height: barRect.height,
                                 }}
                                 transition={{
                                     type: "spring",
@@ -94,34 +146,39 @@ export default function SAPManagedServices() {
                             />
 
                             {ITEMS.map((item, index) => {
-                                const opacity = index === active
-                                    ? 1
-                                    : index === active + 1 || index === active - 1
-                                        ? 0.45
-                                        : 0.18;
-                                // const opacity =
-                                //     distance === 0
-                                //         ? 1
-                                //         : distance === 1
-                                //             ? 0.55
-                                //             : 0.22;
+                                const opacity =
+                                    index === active
+                                        ? 1
+                                        : index === active + 1 ||
+                                            index === active - 1
+                                            ? 0.45
+                                            : 0.18;
 
                                 const isActive = index === active;
 
                                 return (
                                     <button
                                         key={item.n}
+                                        ref={(el) => {
+                                            itemRefs.current[index] = el;
+                                        }}
                                         onClick={() => setActive(index)}
-                                        style={{ height: ITEM_HEIGHT }}
-                                        className="flex flex-col justify-center pl-6 text-left"
+                                        style={{
+                                            minHeight: ITEM_MIN_HEIGHT,
+                                        }}
+                                        className="flex flex-col justify-center py-4 pl-6 text-left"
                                     >
                                         <motion.p
                                             animate={{
                                                 opacity,
-                                                color: isActive ? "#000000" : "#5a5a5a",
+                                                color: isActive
+                                                    ? "#000000"
+                                                    : "#5a5a5a",
                                             }}
-                                            transition={{ duration: 0.35 }}
-                                            className="text-[30px] font-normal leading-tight"
+                                            transition={{
+                                                duration: 0.35,
+                                            }}
+                                            className="text-xl font-normal leading-tight sm:text-[30px]"
                                         >
                                             {item.n}. {item.title}
                                         </motion.p>
@@ -130,8 +187,10 @@ export default function SAPManagedServices() {
                                             animate={{
                                                 opacity: opacity * 0.95,
                                             }}
-                                            transition={{ duration: 0.35 }}
-                                            className="mt-3 text-[16px] leading-7 text-[#7a7a7a]"
+                                            transition={{
+                                                duration: 0.35,
+                                            }}
+                                            className="mt-3 text-sm leading-6 text-[#7a7a7a] sm:text-[16px] sm:leading-7"
                                         >
                                             {item.desc}
                                         </motion.p>

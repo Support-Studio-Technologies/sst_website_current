@@ -49,7 +49,7 @@ export default function IdentityAccessManagement() {
     };
 
     return (
-        <section className="w-full py-10 sm:py-[51px] px-6 sm:px-[50px] flex flex-col items-center gap-10 sm:gap-[51px]">
+        <section className="w-full bg-[#ededed] py-10 sm:py-[51px] px-6 sm:px-[50px] flex flex-col items-center gap-10 sm:gap-[51px]">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ export default function IdentityAccessManagement() {
                 className="flex flex-col items-center gap-5 max-w-[990px] text-center"
             >
                 <h2 className="text-black text-2xl font-medium">Identity &amp; Access Management</h2>
-                <p className="text-[#3d3d4e] text-base sm:text-lg font-light">
+                <p className="text-[#6c6c6c] text-base sm:text-lg font-light">
                     Identity has become the primary security perimeter within modern organizations. Effective identity
                     management ensures that every user, application, device, and workload receives only the access
                     required to perform authorized activities.
@@ -83,15 +83,23 @@ export default function IdentityAccessManagement() {
                                 <span className="text-[#6c6c6c] text-lg sm:text-2xl lg:text-[28px] font-light">
                                     {item.title}
                                 </span>
-                                <span className="relative shrink-0 size-8 sm:size-[37px]">
+                                <span className="relative shrink-0 size-8 sm:size-[37px] flex items-center justify-center">
                                     <Image src={circleIcon} alt="" fill className="object-contain" />
+
+                                    {/* Horizontal line */}
+                                    <span className="absolute w-[14px] h-[2px] bg-[#2D8EC5] rounded-full" />
+
+                                    {/* Vertical line */}
                                     <motion.span
-                                        animate={{ rotate: isOpen ? 45 : 0 }}
-                                        transition={{ duration: 0.3, ease: "easeOut" }}
-                                        className="absolute inset-0"
-                                    >
-                                        <Image src={plusIcon} alt="" fill className="object-contain p-[10px]" />
-                                    </motion.span>
+                                        className="absolute w-[2px] h-[14px] bg-[#2D8EC5] rounded-full"
+                                        animate={{
+                                            rotate: isOpen ? 90 : 0,
+                                        }}
+                                        transition={{
+                                            duration: 0.35,
+                                            ease: [0.4, 0, 0.2, 1],
+                                        }}
+                                    />
                                 </span>
                             </button>
 

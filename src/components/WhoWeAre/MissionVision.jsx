@@ -114,7 +114,13 @@ export default function MissionVision() {
             </motion.div> */}
 
             <div className="relative w-full sm:h-[800px]">
-                <Image src={missionBg} alt="" fill className="object-cover" />
+                {/* Fixed Background */}
+                <div
+                    className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
+                    style={{
+                        backgroundImage: `url(${missionBg.src})`,
+                    }}
+                />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="relative flex flex-col sm:flex-row sm:h-full sm:items-center px-5">
                     {CARDS.map((card) => (

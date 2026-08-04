@@ -43,9 +43,10 @@ const page = () => {
             </div>
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] min-h-[300px] sm:min-h-screen bg-white">
                 <WhyCybersecurityMatters />
+                <SecurityChallenges />
             </div>
 
-            <SecurityChallenges />
+
             <IdentityAccessManagement />
             <SecurityOperations />
             <VulnerabilityAssessment />

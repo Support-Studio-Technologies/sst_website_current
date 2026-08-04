@@ -19,7 +19,7 @@ const CHALLENGES = [
 
 export default function SecurityChallenges() {
     return (
-        <section className="w-full pb-10 sm:py-[-55px] px-6 sm:px-[50px]">
+        <section className="w-full py-10 sm:py-[-55px] px-6 sm:px-[50px]">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

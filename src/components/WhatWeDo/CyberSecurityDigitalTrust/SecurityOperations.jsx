@@ -85,7 +85,7 @@ export default function SecurityOperations() {
             </motion.div>
 
             <div className="flex flex-col lg:flex-row items-stretch lg:items-end w-full md:pl-5 gap-8 lg:gap-0">
-                <div className="flex flex-col w-full lg:w-[405px] lg:h-[650px] justify-start lg:justify-between shrink-0">
+                <div className="flex flex-col w-full lg:w-[405px] lg:h-[650px] justify-start lg:justify-between shrink-0 gap-2 lg:gap-0">
                     {TABS.map((tab, index) => {
                         const isActive = activeIndex === index;
                         return (
@@ -104,7 +104,7 @@ export default function SecurityOperations() {
                     })}
                 </div>
 
-                <div className="relative flex-1 h-full min-w-0 aspect-[825/527] overflow-hidden">
+                <div className="relative w-full min-w-0 h-[430px] sm:h-[520px] lg:flex-1 lg:w-auto lg:h-full lg:aspect-[825/527] overflow-hidden">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeIndex}
@@ -147,3 +147,4 @@ export default function SecurityOperations() {
         </section>
     );
 }
+

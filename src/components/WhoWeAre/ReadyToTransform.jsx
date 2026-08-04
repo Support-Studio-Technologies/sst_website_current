@@ -2,9 +2,16 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import ctaBg from "@/assets/WhoWeAre/CTA_Bg.jpg";
 
 export default function ReadyToTransform() {
+    const router = useRouter();
+
+    const handleContactClick = () => {
+        router.push("/contact-us");
+    };
+
     return (
         <section className="relative z-0 w-full overflow-hidden">
             <Image src={ctaBg} alt="" fill className="object-cover" />
@@ -26,6 +33,7 @@ export default function ReadyToTransform() {
                 </div>
                 <button
                     type="button"
+                    onClick={handleContactClick}
                     className="rounded-full border border-[#d0d0d0] px-8 py-2 text-sm sm:text-base font-light text-white transition-colors hover:bg-white hover:text-black"
                 >
                     Contact us

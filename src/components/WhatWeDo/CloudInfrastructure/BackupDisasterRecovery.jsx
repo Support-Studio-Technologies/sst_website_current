@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import plusIcon from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/ei_plus.svg";
-
+import circleIcon from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/icons/Section4_Surrounding_Circle.svg";
 const ITEMS = [
     {
         title: "Backup Strategy",
@@ -77,13 +77,23 @@ export default function BackupDisasterRecovery() {
                                 <span className="text-[#6c6c6c] text-lg sm:text-2xl lg:text-[28px] font-light">
                                     {item.title}
                                 </span>
-                                <motion.span
-                                    animate={{ rotate: isOpen ? 45 : 0 }}
-                                    transition={{ duration: 0.3, ease: "easeOut" }}
-                                    className="relative shrink-0 size-8 sm:size-[37px]"
-                                >
-                                    <Image src={plusIcon} alt="" fill className="object-contain" />
-                                </motion.span>
+                                <span className="relative shrink-0 size-8 sm:size-[37px] flex items-center justify-center">
+                                    <Image src={circleIcon} alt="" fill className="object-contain" />
+                                    {/* Horizontal line */}
+                                    <span className="absolute w-[14px] h-[2px] bg-[#2D8EC5] rounded-full" />
+
+                                    {/* Vertical line rotates into horizontal */}
+                                    <motion.span
+                                        className="absolute w-[2px] h-[14px] bg-[#2D8EC5] rounded-full"
+                                        animate={{
+                                            rotate: isOpen ? 90 : 0,
+                                        }}
+                                        transition={{
+                                            duration: 0.35,
+                                            ease: [0.4, 0, 0.2, 1],
+                                        }}
+                                    />
+                                </span>
                             </button>
 
                             <AnimatePresence initial={false}>

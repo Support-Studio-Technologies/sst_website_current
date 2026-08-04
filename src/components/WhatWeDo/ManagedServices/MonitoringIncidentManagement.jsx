@@ -7,7 +7,10 @@ import monitoringPhoto from "@/assets/WhatWeDo/Managed Services/Section7_Image.s
 export default function MonitoringIncidentManagement() {
     return (
         <section className="relative w-full h-[420px] sm:h-[480px] overflow-hidden">
-            <Image src={monitoringPhoto} alt="" fill className="object-cover" />
+            {/* Fixed Background */}
+            <div className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${monitoringPhoto.src})` }}
+            />
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
 
             <motion.div

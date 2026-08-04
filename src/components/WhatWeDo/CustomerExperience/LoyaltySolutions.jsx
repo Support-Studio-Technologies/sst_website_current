@@ -16,7 +16,12 @@ const LOYALTY_ITEMS = [
 export default function LoyaltySolutions() {
     return (
         <section className="relative w-full h-[480px] sm:h-[560px] lg:h-[602px] overflow-hidden bg-black">
-            <Image src={loyaltyBg} alt="" fill className="object-cover" />
+            <div
+                className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
+                style={{
+                    backgroundImage: `url(${loyaltyBg.src})`,
+                }}
+            />
             {/* <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/60 to-white/10" /> */}
 
             <div className="absolute inset-0 flex items-center px-6 sm:px-[52px]">

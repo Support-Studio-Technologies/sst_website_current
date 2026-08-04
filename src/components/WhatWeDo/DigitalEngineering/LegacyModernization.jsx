@@ -38,12 +38,12 @@ export default function LegacyModernization() {
             <div className="relative w-full h-[280px] sm:h-[400px] overflow-hidden">
                 <Image src={buildingPhoto} alt="" fill className="object-cover" />
                 <div className="absolute inset-0 bg-black/30" />
-                <div className="absolute top-10 left-1/2 -translate-x-1/2 text-center text-white z-20">
-                    <h2 className="text-4xl font-light">
+                <div className="absolute top-6 sm:top-10 left-1/2 -translate-x-1/2 text-center text-white z-20 px-4 sm:px-0">
+                    <h2 className="text-2xl sm:text-4xl font-light">
                         Legacy Modernization
                     </h2>
 
-                    <p className="mt-3 max-w-3xl text-lg text-gray-200">
+                    <p className="mt-2 sm:mt-3 max-w-3xl text-sm sm:text-lg text-gray-200">
                         Transform aging enterprise applications into scalable,
                         cloud-ready platforms while preserving critical business
                         functionality.
@@ -56,7 +56,7 @@ export default function LegacyModernization() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="relative z-10 -mt-16 sm:-mt-35 mb-8 sm:mb-16 mx-4 sm:mx-auto sm:max-w-[1390px] bg-white shadow-[0px_4px_28.65px_rgba(0,0,0,0.25)]  py-8 sm:py-20"
+                className="relative z-10 -mt-8 sm:-mt-35 mb-8 sm:mb-16 mx-4 sm:mx-auto sm:max-w-[1390px] bg-white shadow-[0px_4px_28.65px_rgba(0,0,0,0.25)]  py-8 sm:py-20"
             >
                 <div className="hidden sm:flex items-center justify-between">
                     {ITEMS.map((item, i) => (
@@ -78,7 +78,7 @@ export default function LegacyModernization() {
                     ))}
                 </div>
 
-                <div className="flex sm:hidden flex-col divide-y divide-[#e5e5e5]">
+                <div className="flex sm:hidden flex-col divide-y divide-[#e5e5e5] px-4">
                     {ITEMS.map((item, i) => (
                         <div key={i} className="py-5 first:pt-0 last:pb-0">
                             <p className="text-[#0d0c22] text-lg font-light">{item.title}</p>
@@ -90,3 +90,4 @@ export default function LegacyModernization() {
         </section>
     );
 }
+

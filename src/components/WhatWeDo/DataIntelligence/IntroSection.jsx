@@ -6,7 +6,7 @@ import introImage from "@/assets/WhatWeDo/Data Inteligent/Section2_image.svg";
 
 export default function IntroSection() {
     return (
-        <section className="w-full py-10 sm:py-[40px] px-6 sm:px-[0px]">
+        <section className="w-full overflow-x-hidden py-10 sm:py-[40px] px-6 sm:px-[0px]">
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-[80px] items-center max-w-screen mx-auto">
                 <motion.div
                     initial={{ opacity: 0, x: -24 }}
@@ -22,11 +22,11 @@ export default function IntroSection() {
                         Build a Reliable Technology Foundation
                     </p>
                     <p className="text-[#3d3d4e] text-base sm:text-lg font-light leading-relaxed">
-                        Design, deploy, and manage enterprise infrastructure that supports business-critical 
-                        applications with high availability and performance .Design, deploy, and manage enterprise 
-                        infrastructure that supports business-critical applications with high availability and 
-                        performance Design, deploy, and manage enterprise infrastructure that supports business-critical 
-                        applications with high availability and performance Design, deploy, and manage enterprise infrastructure 
+                        Design, deploy, and manage enterprise infrastructure that supports business-critical
+                        applications with high availability and performance .Design, deploy, and manage enterprise
+                        infrastructure that supports business-critical applications with high availability and
+                        performance Design, deploy, and manage enterprise infrastructure that supports business-critical
+                        applications with high availability and performance Design, deploy, and manage enterprise infrastructure
                         that supports business-critical applications with high availability and performance
                     </p>
                 </motion.div>
