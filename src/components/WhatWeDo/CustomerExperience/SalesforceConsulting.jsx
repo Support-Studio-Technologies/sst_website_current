@@ -42,7 +42,7 @@ export default function SalesforceConsulting() {
 
     const service = SERVICES[active];
     return (
-        <section className="w-full py-14 sm:py-20 bg-white">
+        <section className="relative z-10 w-full py-14 sm:py-20">
             <div className="w-full mx-auto flex flex-col lg:flex-row">
                 <motion.div
                     initial={{ opacity: 0, y: 24 }}
@@ -72,7 +72,7 @@ export default function SalesforceConsulting() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                    className="relative flex-1 self-center h-[480px] bg-white shadow-[2px_2px_46px_rgba(0,0,0,0.15)] flex flex-col justify-center gap-6 px-6 sm:px-12 py-12"
+                    className="relative w-full lg:max-w-[800px] self-center h-[480px] bg-white shadow-[2px_2px_46px_rgba(0,0,0,0.15)] flex flex-col justify-center gap-6 px-6 sm:px-12 py-12"
                 >
                     <AnimatePresence mode="wait">
                         <motion.div
@@ -135,3 +135,4 @@ export default function SalesforceConsulting() {
         </section>
     );
 }
+

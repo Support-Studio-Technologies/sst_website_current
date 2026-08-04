@@ -70,32 +70,33 @@ export default function ZeroTrustArchitecture() {
         return () => clearInterval(timer);
     }, [index]);
 
+
     const goTo = (next) => setIndex((next + SLIDES.length) % SLIDES.length);
 
     return (
         <section
-            className="w-full bg-cover bg-center bg-no-repeat py-10 sm:py-16 lg:py-[71px] px-6 sm:px-10 lg:px-[50px] flex flex-col items-start"
+            className=" relative overflow-hidden w-full bg-cover bg-center bg-no-repeat py-10 sm:py-16 lg:py-[71px] px-6 sm:px-10 lg:px-[50px] flex flex-col items-start"
         >
             <AnimatePresence mode="wait">
                 <motion.div
-                    key={index}
+                    key={SLIDES[index].title}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="absolute inset-0 -z-10"
+                    className="absolute inset-0 z-0"
                 >
                     <Image
+                        key={SLIDES[index].image.src}
                         src={SLIDES[index].image}
                         alt=""
                         fill
-                        priority
                         className="object-cover"
                     />
                 </motion.div>
             </AnimatePresence>
-            <div className="w-full lg:max-w-[664px] flex flex-col gap-3 sm:gap-[14px]">
-                <h2 className="text-black text-xl sm:text-2xl lg:text-[32px] font-normal">Zero Trust Architecture</h2>
+            <div className="relative z-10 w-full lg:max-w-[664px] flex flex-col gap-3 sm:gap-[14px]">
+                <h2 className="text-white text-xl sm:text-2xl lg:text-[32px] font-normal">Zero Trust Architecture</h2>
 
                 <div className="bg-[#f4f3f9] border border-[#d9d9d9] shadow-lg w-full px-6 sm:px-8 lg:px-[53px] py-8 sm:py-10 min-h-[260px] sm:min-h-[300px] flex items-center">
                     <AnimatePresence mode="wait">

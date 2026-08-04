@@ -50,7 +50,7 @@ export default function CustomerServiceSolutions() {
     const handleNext = () => setActive((prev) => (prev + 1) % SLIDES.length);
 
     return (
-        <section className="w-full py-14 sm:py-20  bg-white">
+        <section className="w-full py-14 sm:pt-20 sm:pb-0  bg-white">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

@@ -1,17 +1,15 @@
 "use client";
-
-import Image from "next/image";
 import { motion } from "framer-motion";
 import buildingPhoto from "@/assets/WhatWeDo/Business Advisory/Section6_Bg.svg";
 
 export default function ITAdvisory() {
     return (
         <section className="relative w-full h-[420px] sm:h-[471px] overflow-hidden bg-[#cfe3f2]">
-            {/* Building image — now ~40% width to match Figma, not 60% */}
-            <div className="absolute inset-y-0 right-0 w-full sm:w-[100%]">
-                <Image src={buildingPhoto} alt="" fill className="object-cover" />
-            </div>
-
+            {/* Fixed background image */}
+            <div
+                className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${buildingPhoto.src})` }}
+            />
 
             <motion.div
                 initial={{ opacity: 0, y: 20 }}

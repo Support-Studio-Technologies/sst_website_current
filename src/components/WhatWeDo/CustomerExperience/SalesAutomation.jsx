@@ -41,7 +41,7 @@ export default function SalesAutomation() {
                 </p>
             </motion.div>
 
-            <div className="max-w-[1100px] mx-auto grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-16">
+            <div className="max-w-[1300px] mx-auto grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-16">
                 {CARDS.map((card, index) => (
                     <motion.div
                         key={card.title}
@@ -64,3 +64,4 @@ export default function SalesAutomation() {
         </section>
     );
 }
+
