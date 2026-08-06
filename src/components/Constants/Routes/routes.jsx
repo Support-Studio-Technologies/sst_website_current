@@ -1,6 +1,9 @@
 export const validRoutes = [
   "/",
   "/blog",
+  "/case-studies",
+  "/whitepapers",
+  "/industry-reports",
   "/aboutus",
   "/who-we-are",
   "/bookacall",

@@ -14,7 +14,8 @@ import MobileApplications from "@/components/WhatWeDo/DigitalEngineering/MobileA
 import APIDevelopment from "@/components/WhatWeDo/DigitalEngineering/APIDevelopment";
 import MicroservicesArchitecture from "@/components/WhatWeDo/DigitalEngineering/MicroservicesArchitecture";
 import PenetrationTesting from "@/components/WhatWeDo/DigitalEngineering/PenetrationTesting";
-import InternalDeveloperPlatforms from "@/components/WhatWeDo/DigitalEngineering/InternalDeveloperPlatforms";
+import InternalDeveloperPlatforms from "@/components/WhatWeDo/DigitalEngineering/DevOpsSection";
+import ApplicationModernization from "@/components/WhatWeDo/DigitalEngineering/ApplicationModernization";
 import DevOpsSection from "@/components/WhatWeDo/DigitalEngineering/DevOpsSection";
 import LegacyModernization from "@/components/WhatWeDo/DigitalEngineering/LegacyModernization";
 import TechnologyStack from "@/components/WhatWeDo/DigitalEngineering/TechnologyStack";
@@ -43,8 +44,8 @@ const page = () => {
             <APIDevelopment />
             <MicroservicesArchitecture />
             <PenetrationTesting />
-            <InternalDeveloperPlatforms />
             <DevOpsSection />
+            <ApplicationModernization />
             <EnterpriseApplicationDevelopment />
             <FutureFocusedInsights />
             <ReadyToTransform />

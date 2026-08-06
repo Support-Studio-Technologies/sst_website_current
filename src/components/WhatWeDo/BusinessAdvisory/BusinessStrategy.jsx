@@ -77,7 +77,7 @@ export default function BusinessStrategy() {
             </motion.div>
 
             {/* Horizontal Background & Active Slide Info */}
-            <div className="w-full lg:w-[1280px] h-64 lg:absolute lg:left-0 lg:top-[262px] bg-gradient-to-r from-stone-300 to-zinc-100 overflow-hidden flex flex-col justify-center px-6 sm:px-[50px] lg:px-0">
+            <div className="w-full h-64 lg:absolute lg:left-0 lg:top-[262px] bg-gradient-to-r from-stone-300 to-zinc-100 overflow-hidden flex flex-col justify-center px-6 sm:px-[50px] lg:px-0">
                 <div className="lg:absolute lg:left-[50px] lg:top-[61px] lg:w-72">
                     <AnimatePresence mode="wait" custom={direction}>
                         <motion.div

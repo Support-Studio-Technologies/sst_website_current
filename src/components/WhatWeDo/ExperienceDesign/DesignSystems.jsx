@@ -196,7 +196,7 @@ export default function DesignSystems() {
 
 
             <div className="flex justify-center md:justify-end md:-mt-8">
-                <div className="bg-[#141C22] border border-[#141C22] rounded-full flex items-center justify-center gap-[10px] h-[50px] sm:h-[61px] w-[210px] sm:w-[250px] px-2">
+                <div className="bg-[#f1f1f1] rounded-full flex items-center justify-center gap-[10px] h-[50px] sm:h-[61px] w-[210px] sm:w-[250px] px-2">
 
                     {/* Previous */}
                     <button
@@ -204,11 +204,7 @@ export default function DesignSystems() {
                         aria-label="Previous"
                         onClick={() => goTo(index - 1, -1)}
                         disabled={index === 0}
-                        className={`flex items-center justify-center size-[26px] sm:size-[31px]
-                rounded-full border transition-all duration-300 shrink-0
-                ${index === 0
-                                ? "border-[#666] text-[#666] cursor-not-allowed"
-                                : "border-white text-white hover:bg-white hover:text-black hover:border-black"
+                        className={`flex items-center justify-center size-[26px] sm:size-[31px] rounded-full border shrink-0 transition-transform hover:scale-110 ${index === 0 ? "border-[#a4a7a5] text-[#a4a7a5]" : "border-black text-black"
                             }`}
                     >
                         ←
@@ -226,7 +222,7 @@ export default function DesignSystems() {
                                 }
                                 className={`size-[8px] rounded-full border transition-colors duration-300 ${dotIndex === index
                                     ? "bg-[#2D8EC5] border-[#2D8EC5]"
-                                    : "border-white"
+                                    : "border-black"
                                     }`}
                             />
                         ))}
@@ -238,11 +234,7 @@ export default function DesignSystems() {
                         aria-label="Next"
                         onClick={() => goTo(index + 1, 1)}
                         disabled={index === maxIndex}
-                        className={`flex items-center justify-center size-[26px] sm:size-[31px]
-                rounded-full border transition-all duration-300 shrink-0
-                ${index === maxIndex
-                                ? "border-[#666] text-[#666] cursor-not-allowed"
-                                : "border-white text-white hover:bg-white hover:text-black hover:border-black"
+                        className={`flex items-center justify-center size-[26px] sm:size-[31px] rounded-full border shrink-0 transition-transform hover:scale-110 ${index === maxIndex ? "border-[#a4a7a5] text-[#a4a7a5]" : "border-black text-black"
                             }`}
                     >
                         →

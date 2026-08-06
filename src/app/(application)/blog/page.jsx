@@ -12,6 +12,8 @@ import backgroundImage from "@/assets/Blogs.jpg";
 import { supabase } from "@/lib/supabaseClient";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import AuthorsSection from "@/components/blog/author";
+import Hero from "@/components/blog/Hero";
+import HeroText from "@/components/blog/HeroText";
 
 export default function BlogPage() {
     const router = useRouter();
@@ -182,9 +184,19 @@ export default function BlogPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-slate-100 flex flex-col font-sans">
-            <ContentHeader
-                className="bg-contain"
+        <div className="min-h-screen flex flex-col font-sans">
+            <Navbar />
+            <div className="relative -mt-[64px] lg:-mt-[68px] h-[680px] sm:h-[200vh]">
+                <div className="sticky top-0 h-[340px] sm:h-screen z-0">
+                    <Hero />
+                </div>
+
+                <div className="absolute inset-x-0 top-0 h-[340px] sm:h-screen z-[5]">
+                    <HeroText />
+                </div>
+            </div>
+            {/* <ContentHeader
+                className="bg-cover"
                 backgroundImage={backgroundImage}
                 subtitle="Our Tech Insights"
                 title="Our Blogs"
@@ -196,14 +208,14 @@ export default function BlogPage() {
                     "Flexibility and Scalability",
                     "Security & Compliance",
                 ]}
-            />
+            /> */}
+            <div className="relative z-10 -mt-[340px] sm:-mt-[90vh] bg-white">
+                {/* Main Container */}
+                <main className="flex-grow max-w-7xl w-full mx-auto px-6 py-12 md:py-20">
 
-            {/* Main Container */}
-            <main className="flex-grow max-w-7xl w-full mx-auto px-6 py-12 md:py-20">
-
-                {/* Header Section (Inspired by KaarTech blogs page layout) */}
-                {/* <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-200 pb-8 mb-12 gap-6"> */}
-                {/* <div className="space-y-3">
+                    {/* Header Section (Inspired by KaarTech blogs page layout) */}
+                    {/* <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-200 pb-8 mb-12 gap-6"> */}
+                    {/* <div className="space-y-3">
                         <span className="text-sm font-bold uppercase tracking-wider text-blue-500">
                             SST Tech Insights
                         </span>
@@ -215,100 +227,97 @@ export default function BlogPage() {
                         </p>
                     </div> */}
 
-                {/* <button
+                    {/* <button
                         onClick={() => setIsFormOpen(true)}
                         className="flex items-center gap-2 px-6 py-3.5 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-blue-500/20 transform hover:-translate-y-0.5 transition-all duration-300 self-start md:self-end"
                     >
                         <Plus className="w-5 h-5" />
                         <span>Post a Blog</span>
                     </button> */}
-                {/* </div> */}
+                    {/* </div> */}
 
-                {/* Loading Spinner */}
-                {loading ? (
-                    <div className="flex items-center justify-center py-40">
-                        <div className="w-12 h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin" />
-                    </div>
-                ) : blogs.length === 0 ? (
-                    <div className="text-center py-40 border border-dashed border-neutral-200 dark:border-neutral-800 rounded-3xl p-8 bg-white">
-                        <p className="text-slate-600 text-lg mb-6">
-                            No blog posts found. Be the first to post an insights article!
-                        </p>
-                        <button
-                            onClick={() => setIsFormOpen(true)}
-                            className="inline-flex items-center gap-2 px-5 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl transition-colors"
-                        >
-                            <Plus className="w-5 h-5" />
-                            Write First Post
-                        </button>
-                    </div>
-                ) : (
-                    /* Cards Grid List */
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {blogs.map((blog) => (
-                            <div
-                                key={blog.id}
-                                onClick={() => router.push(`/blog/${blog.slug}`)}
-                                className="cursor-pointer"
+                    {/* Loading Spinner */}
+                    {loading ? (
+                        <div className="flex items-center justify-center py-40">
+                            <div className="w-12 h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin" />
+                        </div>
+                    ) : blogs.length === 0 ? (
+                        <div className="text-center py-40 border border-dashed border-neutral-200 dark:border-neutral-800 rounded-3xl p-8 bg-white">
+                            <p className="text-slate-600 text-lg mb-6">
+                                No blog posts found. Be the first to post an insights article!
+                            </p>
+                            <button
+                                onClick={() => setIsFormOpen(true)}
+                                className="inline-flex items-center gap-2 px-5 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl transition-colors"
                             >
-                                <CardContainer
-                                    className="inter-var w-full h-full"
-                                    containerClassName="py-0 flex-grow"
+                                <Plus className="w-5 h-5" />
+                                Write First Post
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {blogs.map((blog) => (
+                                <div
+                                    key={blog.id}
+                                    onClick={() => router.push(`/blog/${blog.slug}`)}
+                                    className="cursor-pointer h-full"
                                 >
-                                    <CardBody
-                                        className="bg-white relative shadow-md hover:shadow-2xl group/card dark:hover:shadow-2xl dark:hover:shadow-blue-500/[0.1] dark:bg-neutral-900 dark:border-neutral-850 border-neutral-100 w-full h-full rounded-md p-6 border flex flex-col justify-between"
+                                    <CardContainer
+                                        className="inter-var h-[491px]"
+                                        containerClassName="h-full py-0"
                                     >
-                                        <div className="flex flex-col flex-grow">
-                                            <CardItem translateZ="50" className="w-full mt-4 relative">
-                                                <img
-                                                    src={blog.cover_image}
-                                                    // height="1000"
-                                                    // width="1000"
-                                                    className="h-60 w-full object-contain rounded-md group-hover/card:shadow-xl"
-                                                    alt={blog.title}
-                                                />
-                                            </CardItem>
+                                        <CardBody className="bg-[#F3F6F9] p-6 border shadow-md hover:shadow-2xl flex flex-col h-full">
 
-                                            <CardItem
-                                                translateZ="0"
-                                                className="text-lg font-bold text-neutral-900 dark:text-neutral-100 mt-4 line-clamp-2 group-hover/card:text-blue-500 transition-colors"
-                                            >
-                                                {blog.title}
-                                            </CardItem>
-                                            <CardItem
-                                                translateZ="0"
-                                                className="text-xs font-semibold text-blue-500 uppercase tracking-wider block mt-4 mb-2"
-                                            >
-                                                By {blog.author}
-                                            </CardItem>
+                                            <div className="flex-1 my-7">
+                                                <div className="h-52 overflow-hidden">
+                                                    <img
+                                                        src={blog.cover_image}
+                                                        alt={blog.title}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                </div>
 
-                                        </div>
-                                        <div className="mt-6 flex items-center justify-between pt-4 border-t border-neutral-100 dark:border-neutral-850">
-                                            <CardItem
-                                                translateZ={20}
-                                                className="text-xs text-neutral-500"
-                                            >
-                                                {new Date(blog.publish_date).toLocaleDateString("en-US", {
-                                                    year: "numeric",
-                                                    month: "short",
-                                                    day: "numeric",
-                                                })}
-                                            </CardItem>
-                                            <CardItem
-                                                translateZ={20}
-                                                as="div"
-                                                className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center group-hover/card:bg-blue-50 group-hover/card:text-black transition-all duration-350 transform group-hover/card:translate-x-0.5"
-                                            >
-                                                <ArrowRight className="w-4 h-4" />
-                                            </CardItem>
-                                        </div>
-                                    </CardBody>
-                                </CardContainer>
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </main>
+                                                <CardItem
+                                                    translateZ="0"
+                                                    className="mt-4 text-lg  line-clamp-2 min-h-[56px]"
+                                                >
+                                                    {blog.title}
+                                                </CardItem>
+
+                                                <CardItem
+                                                    translateZ="0"
+                                                    className="mt-3 text-xs uppercase tracking-wider text-[#0A3A52]"
+                                                >
+                                                    By {blog.author}
+                                                </CardItem>
+                                            </div>
+
+                                            <div className="mt-auto flex items-center justify-between border-t pt-4">
+                                                <CardItem translateZ={20} className="text-xs text-neutral-500">
+                                                    {new Date(blog.publish_date).toLocaleDateString("en-US", {
+                                                        year: "numeric",
+                                                        month: "short",
+                                                        day: "numeric",
+                                                    })}
+                                                </CardItem>
+
+                                                <CardItem
+                                                    translateZ={20}
+                                                    as="div"
+                                                    className="w-8 h-8 rounded-full border border-black bg-[#F3F6F9] flex items-center justify-center"
+                                                >
+                                                    <ArrowRight className="w-4 h-4" />
+                                                </CardItem>
+                                            </div>
+
+                                        </CardBody>
+                                    </CardContainer>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </main>
+            </div>
 
             {/* Creation Modal Dialog */}
             <AnimatePresence>

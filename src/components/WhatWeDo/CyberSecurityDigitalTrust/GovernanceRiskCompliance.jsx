@@ -8,11 +8,12 @@ export default function GovernanceRiskCompliance() {
     return (
         <div className="relative h-[140vh] sm:h-[200vh]">
             <div className="sticky top-0 h-[70vh] sm:h-screen w-full overflow-hidden">
-                <Image
-                    src={grcBg}
-                    alt=""
-                    fill
-                    className="object-cover object-right"
+                {/* Fixed Background */}
+                <div
+                    className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
+                    style={{
+                        backgroundImage: `url(${grcBg.src})`,
+                    }}
                 />
 
                 <div className="absolute inset-0 bg-black/40 sm:hidden" />

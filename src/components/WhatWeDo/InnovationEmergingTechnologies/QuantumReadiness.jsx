@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import lockIcon from "@/assets/WhatWeDo/Innovation & Emerging Technologies/icons/6462990f476598b6fd0c9d62_Lock-2.svg.svg";
 import searchIcon from "@/assets/WhatWeDo/Innovation & Emerging Technologies/icons/6462990f476598b6fd0c9d72_Search.svg.svg";
 import codeIcon from "@/assets/WhatWeDo/Innovation & Emerging Technologies/icons/6462990f476598b6fd0c9d61_Code.svg.svg";
-import offsiteIcon from "@/assets/WhatWeDo/Innovation & Emerging Technologies/icons/6462990f476598b6fd0c9d79_Offsite%20Bold.svg.svg";
+import offsiteIcon from "@/assets/WhatWeDo/Innovation & Emerging Technologies/icons/6462990f476598b6fd0c9d79_Offsite.svg.svg";
 import frameIcon1 from "@/assets/WhatWeDo/Innovation & Emerging Technologies/icons/6462990f476598b6fd0c9d71_Frame.svg.svg";
 import frameIcon2 from "@/assets/WhatWeDo/Innovation & Emerging Technologies/icons/6462990f476598b6fd0c9d5f_Frame.svg.svg";
 
