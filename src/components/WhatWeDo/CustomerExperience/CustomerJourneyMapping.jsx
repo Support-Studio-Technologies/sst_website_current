@@ -6,24 +6,24 @@ import journeyMapImg from "@/assets/WhatWeDo/Customer Experience/Section7_Image.
 
 const ITEMS = [
     {
-        title: "Customer Persona Development",
-        desc: "Build detailed personas grounded in real behavior, needs, and goals to guide every experience decision.",
+        title: " CRM Strategy",
+        desc: "Modern cyber threats require continuous monitoring supported by advanced analytics, automation, and threat intelligence.",
     },
     {
-        title: "Journey Stage Mapping",
-        desc: "Chart every stage a customer moves through, from awareness to advocacy, to understand the full journey.",
+        title: " Salesforce Consulting",
+        desc: "We define the customer engagement model and platform architecture before a single system gets configured",
     },
     {
         title: "Experience Optimization",
-        desc: "Identify the moments that matter most and redesign them to remove friction and delight customers.",
+        desc: "We implement and optimize Salesforce to match how your sales, service, and marketing teams actually work",
     },
     {
-        title: "Pain Point Identification",
-        desc: "Pinpoint where customers struggle or drop off so you can prioritize the fixes that matter most.",
+        title: "Omnichannel Experience",
+        desc: "We connect every customer touchpoint, web, mobile, call center, in-store, into one consistent journey",
     },
     {
-        title: "Touchpoint Assessment",
-        desc: "Evaluate every channel and interaction for consistency, relevance, and impact on the overall journey.",
+        title: "Customer Engagement",
+        desc: "We design connected touchpoints so context carries seamlessly from initial campaign to customer service.",
     },
 ];
 
@@ -38,14 +38,10 @@ export default function CustomerJourneyMapping() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="flex flex-col items-center gap-4 max-w-[1074px] mx-auto text-center"
                 >
-                    <h2 className="text-black text-2xl font-medium">Customer Journey Mapping</h2>
-                    <p className="text-[#3d3d4e] text-lg font-normal">
-                        Map Every Touchpoint That Shapes the Experience
-                    </p>
+                    <h2 className="text-black text-2xl font-medium">Connected CRM & Omnichannel Strategy
+                    </h2>
                     <p className="text-[#3d3d4e] text-base sm:text-lg font-light">
-                        Visualize how customers discover, evaluate, and engage with your business across every
-                        channel — so you can design experiences that reduce friction and build loyalty at every
-                        step.
+                        Primary capabilities across CRM platforms, Salesforce, and journey execution.
                     </p>
                 </motion.div>
 

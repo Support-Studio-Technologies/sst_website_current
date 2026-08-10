@@ -8,18 +8,22 @@ import buildingPhoto from "@/assets/WhatWeDo/Managed Services/Section3_Image.svg
 const ITEMS = [
     {
         n: "1",
-        title: "SAP Basis Administration",
-        desc: "Build a scalable data architecture aligned with your digital transformation roadmap and business objectives.",
+        title: "SAP Managed Services",
+        desc: "We provide ongoing support, monitoring, and optimization your SAP landscape, from ECC to S/4HANA.",
     },
     {
         n: "2",
-        title: "SAP Performance Monitoring",
-        desc: "Build a scalable data architecture aligned with your digital transformation roadmap and business objectives.",
+        title: "Application Management Services",
+        desc: "We manage the day-to-day performance, fixes, and enhancements of your enterprise applications",
     },
     {
         n: "3",
-        title: "SAP System Maintenance",
-        desc: "Build a scalable data architecture aligned with your digital transformation roadmap and business objectives.",
+        title: "L1/L2/L3 Support",
+        desc: "Tiered support that resolves issues at the right level, fast, without unnecessary escalation.",
+    }, {
+        n: "4",
+        title: "Monitoring & Incident Management",
+        desc: "Continuous system monitoring paired with structured incident response that limits business impact.",
     },
 ];
 
@@ -65,8 +69,8 @@ export default function SAPManagedServices() {
     }, [active]);
 
     return (
-        <section className="w-full  bg-[#efefef] pb-10 sm:pb-16">
-            <div className="relative mx-auto max-w-[1280px] pt-10 sm:pt-16">
+        <section className="w-full sm:h-[750px] overflow-hidden  bg-[#efefef] pb-10 sm:pb-16">
+            <div className="relative mx-auto max-w-[1280px] pt-10 sm:mt-10 sm:pt-16">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -74,10 +78,11 @@ export default function SAPManagedServices() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="px-6 text-2xl font-normal leading-tight text-black sm:px-[100px] sm:text-[32px]"
                 >
-                    SAP Managed
-                    <br />
-                    Services
+                    SAP AMS & Tiered Support
                 </motion.h2>
+                <p className="px-6 text-base font-light text-black sm:px-[100px] sm:text-lg">
+                    Complete management, support tiers, and incident monitoring.
+                </p>
             </div>
 
             <div className="relative mt-10 sm:mt-[60px]">
@@ -106,7 +111,7 @@ export default function SAPManagedServices() {
                             relative
                             z-20
                             mx-6
-                            -mt-12
+                            
                             w-auto
                             bg-white
                             px-6

@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
 import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
-
 import Hero from "@/components/WhatWeDo/ExperienceDesign/Hero";
 import HeroText from "@/components/WhatWeDo/ExperienceDesign/HeroText";
 import UIUXDesign from "@/components/WhatWeDo/ExperienceDesign/UIUXDesign";
@@ -14,8 +13,12 @@ import ProductDesign from "@/components/WhatWeDo/ExperienceDesign/ProductDesign"
 import Prototyping from "@/components/WhatWeDo/ExperienceDesign/Prototyping";
 import Accessibility from "@/components/WhatWeDo/ExperienceDesign/Accessibility";
 import ServiceDesign from "@/components/WhatWeDo/ExperienceDesign/ServiceDesign";
+import EnterpriseUXModernization from "@/components/WhatWeDo/ExperienceDesign/EnterpriseUXModernization";
 import DesignProcess from "@/components/WhatWeDo/ExperienceDesign/DesignProcess";
 import DesignToolsTechnologies from "@/components/WhatWeDo/ExperienceDesign/DesignToolsTechnologies";
+import EnterpriseArchitecture from "@/components/WhatWeDo/ExperienceDesign/EnterpriseArchitecture";
+import ITAdvisory from "@/components/WhatWeDo/ExperienceDesign/ITAdvisory";
+import Intro from "@/components/WhatWeDo/ExperienceDesign/Intro";
 
 const page = () => {
     return (
@@ -31,19 +34,23 @@ const page = () => {
                 </div>
             </div>
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] min-h-[300px] sm:min-h-screen bg-white">
-                <UIUXDesign /></div>
-            <UserResearch />
+                <EnterpriseArchitecture />
+                {/* <UIUXDesign /> */}
+            </div>
+            {/* <ServiceDesign /> */}
+            <EnterpriseUXModernization />
+            <ITAdvisory />
+            <Accessibility />
+            <Intro />
+            <ReadyToTransform />
+            <Footer />
+            {/* <UserResearch />
             <DesignSystems />
             <ProductDesign />
             <Prototyping />
-            <Accessibility />
-            <ServiceDesign />
             <DesignProcess />
             <DesignToolsTechnologies />
-
-            <FutureFocusedInsights />
-            <ReadyToTransform />
-            <Footer />
+            <FutureFocusedInsights /> */}
         </div>
     );
 };

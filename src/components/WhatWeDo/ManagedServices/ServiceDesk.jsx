@@ -10,39 +10,32 @@ import ticketLifecyclePhoto from "@/assets/WhatWeDo/Managed Services/Section6_Im
 
 const ITEMS = [
     {
-        title: "Incident Management",
+        title: "Infrastructure Management",
         desc: "Detect, triage, and resolve incidents quickly with defined severity levels and escalation paths that keep downtime to a minimum.",
         image: incidentManagementPhoto,
         companionTitle: "Round-the-Clock Coverage",
-        companionDesc: "24/7 monitoring and rapid-response teams ensure incidents are contained before they affect the business.",
+        companionDesc: "Ongoing operation and optimization of the infrastructure your enterprise applications run on.",
     },
     {
         title: "Service Requests",
         desc: "Standardized workflows for provisioning access, changes, and routine requests, tracked from submission to fulfillment.",
         image: serviceRequestsPhoto,
         companionTitle: "Self-Service Enablement",
-        companionDesc: "A self-service portal lets users log and track requests without waiting on a phone call.",
+        companionDesc: "A single point of contact for your teams, staffed to resolve issues quickly and track them properly.",
     },
     {
-        title: "User Support",
+        title: "SLA Management",
         desc: "Multilingual, multichannel support that resolves everyday issues and keeps end users productive.",
         image: userSupportPhoto,
         companionTitle: "Consistent Experience",
-        companionDesc: "Every ticket follows the same quality standards, regardless of channel, geography, or time zone.",
+        companionDesc: "Clear, measurable service commitments with transparent reporting against them.",
     },
     {
-        title: "Knowledge Management",
+        title: " Continuous Improvement",
         desc: "A living knowledge base that captures fixes and best practices so issues get resolved faster the next time.",
         image: knowledgeManagementPhoto,
         companionTitle: "Continuous Learning",
-        companionDesc: "Every resolved ticket feeds back into documentation, reducing repeat incidents over time.",
-    },
-    {
-        title: "Ticket Lifecycle Management",
-        desc: "End-to-end visibility into every ticket, from intake through resolution and closure, with clear SLAs at each stage.",
-        image: ticketLifecyclePhoto,
-        companionTitle: "Full Transparency",
-        companionDesc: "Stakeholders get real-time visibility into ticket status, ownership, and time-to-resolution.",
+        companionDesc: "Ongoing performance tuning and enhancement recommendations, not just break-fix support.",
     },
 ];
 
@@ -82,10 +75,9 @@ export default function ServiceDesk() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col items-center gap-4 max-w-[736px] mx-auto text-center mb-12 sm:mb-[60px]"
             >
-                <h2 className="text-black text-2xl font-medium">Service Desk</h2>
+                <h2 className="text-black text-2xl font-medium">Infrastructure Management & SLAs</h2>
                 <p className="text-[#515151] text-base sm:text-lg font-light">
-                    Offer a centralized service desk that handles incidents, requests, and user support efficiently
-                    through standardized IT service management practices.
+                    Extended support capabilities, desk management, and clear SLAs.
                 </p>
             </motion.div>
 

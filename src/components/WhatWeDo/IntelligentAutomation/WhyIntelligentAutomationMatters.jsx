@@ -14,14 +14,13 @@ export default function WhyIntelligentAutomationMatters() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col gap-7 w-full sm:w-[623px] shrink-0"
             >
-                <h2 className="text-black text-2xl font-normal">Why Intelligent Automation Matters</h2>
-                <p className="text-black text-lg font-light">Work Smarter. Automate Faster.</p>
+                <h2 className="text-black text-2xl font-normal">Positioning Statement</h2>
+                {/* <p className="text-black text-lg font-light">Work Smarter. Automate Faster.</p> */}
                 <p className="text-[#3d3d4e] text-lg font-light">
-                    Organizations spend valuable time on repetitive, manual processes that reduce productivity and
-                    increase operational risk. Intelligent Automation combines AI, machine learning, and workflow
-                    automation to streamline operations, eliminate repetitive work, and empower employees to focus on
-                    higher-value activities. At SST, we design automation strategies that deliver measurable
-                    improvements in speed, accuracy, scalability, and operational excellence.
+                    Manual, repetitive processes quietly drain enterprise capacity. We
+                    identify where automation delivers real time and cost savings, then build the RPA, workflow,
+                    and AI-powered automation to capture it, without adding fragile, unmanageable bots to
+                    your environment.
                 </p>
             </motion.div>
 

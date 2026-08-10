@@ -11,35 +11,26 @@ import rpaGovernancePhoto from "@/assets/WhatWeDo/Intelligent Automation/Section
 
 const CARDS = [
     {
-        title: "RPA Strategy & Consulting",
-        desc: "Identify the highest-value automation opportunities and build a roadmap before writing a single bot.",
+        title: "Robotic Process Automation (RPA)",
+        desc: "We analyze how processes actually run today, uncovering the inefficiencies worth automating first.",
         image: rpaStrategyPhoto,
     },
     {
-        title: "Process Automation",
-        desc: "Automate multi-step business processes end-to-end, from trigger to completion.",
+        title: "Process Mining",
+        desc: "We automate rule-based, repetitive tasks across your systems, freeing your teams for higher-value work.",
         image: processAutomationPhoto,
     },
     {
-        title: "Bot Development",
-        desc: "Build and deploy software robots that handle repetitive, rules-based tasks reliably at scale.",
+        title: "Hyperautomation",
+        desc: "We combine RPA, AI, and workflow automation to automate processes end to end, not in isolated steps.",
         image: botDevelopmentPhoto,
     },
     {
-        title: "Legacy System Automation",
-        desc: "Automate around legacy systems that can't be easily replaced, without disrupting what already works.",
+        title: "Intelligent Document Processing",
+        desc: "We extract and process data from documents automatically, cutting manual data entry to a minimum.",
         image: legacySystemPhoto,
     },
-    {
-        title: "Bot Monitoring & Maintenance",
-        desc: "Keep your automation fleet healthy with proactive monitoring, exception handling, and upkeep.",
-        image: botMonitoringPhoto,
-    },
-    {
-        title: "RPA Governance",
-        desc: "Establish the controls and standards that keep a growing bot fleet secure, auditable, and manageable.",
-        image: rpaGovernancePhoto,
-    },
+
 ];
 
 export default function OurIntelligentAutomationServices() {
@@ -52,14 +43,13 @@ export default function OurIntelligentAutomationServices() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col items-center gap-4 max-w-[1055px] mx-auto text-center mb-10 sm:mb-[45px]"
             >
-                <h2 className="text-black text-2xl font-medium">Our Intelligent Automation Services</h2>
+                <h2 className="text-black text-2xl font-medium">Process Mining, RPA & Hyperautomation</h2>
                 <p className="text-[#6c6c6c] text-base sm:text-lg font-light">
-                    Use predictive analytics and AI models to forecast trends, reduce risks, optimize operations, and
-                    support proactive decision-making.
+                    Primary technologies for modernizing enterprise processes.
                 </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-[33px] max-w-[1400px] mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-[33px] max-w-[1400px] mx-auto">
                 {CARDS.map((card, index) => {
                     const imageOnBottom = index % 3 === 1;
                     return (
@@ -69,9 +59,8 @@ export default function OurIntelligentAutomationServices() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.3 }}
                             transition={{ duration: 0.5, ease: "easeOut", delay: (index % 3) * 0.08 }}
-                            className={`bg-[#f5f5f5] flex flex-col gap-4 p-4 ${
-                                imageOnBottom ? "flex-col-reverse" : ""
-                            }`}
+                            className={`bg-[#f5f5f5] flex flex-col gap-4 p-4 ${imageOnBottom ? "flex-col-reverse" : ""
+                                }`}
                         >
                             <div className="relative w-full h-[138px] border border-[#d4d3d3] shrink-0">
                                 <Image src={card.image} alt="" fill className="object-cover" />

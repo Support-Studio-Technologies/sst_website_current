@@ -13,39 +13,35 @@ import siAiIcon from "@/assets/WhatWeDo/Business Advisory/icons/si_ai-fill.svg";
 const ITEMS = [
     {
         icon: sapIcon,
-        title: "PMO Setup & Optimization",
-        desc: "Stand up or refine your PMO with the governance model, tools, and cadences that fit how your organization actually works.",
+        title: "Process Assessment",
+        desc: "Targeted advisory domains including PMO, digital strategy, and IT evaluation.",
     },
     {
         icon: msIcon,
-        title: "Project Governance",
-        desc: "Establish clear decision rights, stage gates, and reporting standards that keep every project accountable.",
+        title: "Lean Transformation",
+        desc: "Independent guidance on technology decisions, vendor selection, and IT investment priorities",
     },
     {
         icon: analyticsIcon,
-        title: "Portfolio Management",
-        desc: "Prioritize and sequence initiatives across the portfolio to maximize value and keep capacity realistic.",
+        title: "Automation Opportunities",
+        desc: "Redesigned processes that remove inefficiency, not just automate the inefficiency that already exists.",
     },
     {
         icon: processIcon,
-        title: "Risk Management",
-        desc: "Identify, track, and mitigate project risks before they become costly surprises.",
+        title: "Workflow Standardization",
+        desc: "Structured change programs that get your people adopting new ways of working, not resisting them.",
     },
     {
         icon: aiIcon,
-        title: "Resource Planning",
-        desc: "Allocate people and budget across projects based on real capacity, not guesswork.",
+        title: "Process Documentation",
+        desc: "Our AI-powered bot automatically and accurately answers support questions with zero training required. Instantly generate replies, recap conversations for other agents, and create new help articles.",
     },
     {
         icon: siAiIcon,
-        title: "Vendor & Contract Management",
-        desc: "Manage vendor relationships and contracts so external work stays aligned with project goals.",
+        title: "Technology Assessment",
+        desc: "An objective evaluation of your current technology landscape against where the business needs to go.",
     },
-    {
-        icon: siAiIcon,
-        title: "Performance Reporting",
-        desc: "Give leadership a real-time view into project health, spend, and delivery timelines.",
-    },
+
 ];
 
 export default function PMOAdvisory() {
@@ -58,13 +54,9 @@ export default function PMOAdvisory() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col items-center gap-4 max-w-[814px] text-center"
             >
-                <h2 className="text-black text-2xl font-normal">PMO Advisory</h2>
+                <h2 className="text-black text-2xl font-normal">Reengineering & PMO Governance</h2>
                 <p className="text-[#515151] text-base sm:text-lg font-light">
-                    Deliver Projects with Confidence
-                    <br />
-                    <br />
-                    Strengthen project governance, portfolio management, and execution through a structured Project
-                    Management Office (PMO) framework.
+                    Targeted advisory domains including PMO, digital strategy, and IT evaluation
                 </p>
             </motion.div>
 

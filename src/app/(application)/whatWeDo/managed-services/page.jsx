@@ -16,6 +16,7 @@ import MonitoringIncidentManagement from "@/components/WhatWeDo/ManagedServices/
 import DesignToolsTechnologies from "@/components/WhatWeDo/ManagedServices/DesignToolsTechnologies";
 import ContinuousImprovement from "@/components/WhatWeDo/ManagedServices/ContinuousImprovement";
 import OurManagedCloudServices from "@/components/WhatWeDo/ManagedServices/OurManagedCloudServices";
+import SalesforceConsulting from "@/components/WhatWeDo/ManagedServices/SalesforceConsulting";
 
 const page = () => {
     return (
@@ -32,18 +33,19 @@ const page = () => {
                 </div>
             </div>
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
-                <ApplicationManagementServices />
+                {/* <MonitoringIncidentManagement /> */}
+                <SAPManagedServices />
+                <L1L2L3Support />
+                {/* <ApplicationManagementServices /> */}
             </div>
-            <SAPManagedServices />
-            <InfrastructureManagement />
-            <L1L2L3Support />
+            {/* <InfrastructureManagement /> */}
             <ServiceDesk />
-            <MonitoringIncidentManagement />
-            <DesignToolsTechnologies />
-            <ContinuousImprovement />
-            <OurManagedCloudServices />
+            {/* <DesignToolsTechnologies /> */}
+            {/* <ContinuousImprovement /> */}
+            {/* <OurManagedCloudServices /> */}
 
-            <FutureFocusedInsights />
+            {/* <FutureFocusedInsights /> */}
+            <SalesforceConsulting />
             <ReadyToTransform />
             <Footer />
         </div>

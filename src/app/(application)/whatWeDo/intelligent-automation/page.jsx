@@ -17,6 +17,7 @@ import BusinessRulesAutomationZigzag from "@/components/WhatWeDo/IntelligentAuto
 import HyperAutomation from "@/components/WhatWeDo/IntelligentAutomation/HyperAutomation";
 import AIPoweredAutomation from "@/components/WhatWeDo/IntelligentAutomation/AIPoweredAutomation";
 import OurAutomationApproach from "@/components/WhatWeDo/IntelligentAutomation/OurAutomationApproach";
+import ITAdvisory from "@/components/WhatWeDo/IntelligentAutomation/ITAdvisory";
 
 const page = () => {
     return (
@@ -27,7 +28,7 @@ const page = () => {
                 <div className="sticky top-0 h-[340px] sm:h-screen z-0">
                     <Hero />
                 </div>
- 
+
                 <div className="absolute inset-x-0 top-0 h-[340px] sm:h-screen z-[5]">
                     <HeroText />
                 </div>
@@ -37,15 +38,17 @@ const page = () => {
                 <WhyIntelligentAutomationMatters />
                 <OurIntelligentAutomationServices />
             </div>
-            <WorkflowAutomation />
-            <IntelligentDocumentProcessing />
+
+            {/* <IntelligentDocumentProcessing /> */}
             <ProcessMining />
-            <BusinessRulesAutomationGrid />
-            <BusinessRulesAutomationZigzag />
-            <HyperAutomation />
-            <AIPoweredAutomation />
-            <OurAutomationApproach />
-            <FutureFocusedInsights />
+            <ITAdvisory />
+            {/* <BusinessRulesAutomationGrid /> */}
+            {/* <BusinessRulesAutomationZigzag /> */}
+            {/* <HyperAutomation /> */}
+            {/* <AIPoweredAutomation /> */}
+            {/* <OurAutomationApproach /> */}
+            {/* <FutureFocusedInsights /> */}
+            <WorkflowAutomation />
             <ReadyToTransform />
             <Footer />
         </div>

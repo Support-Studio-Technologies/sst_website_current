@@ -32,7 +32,7 @@ const CARDS = [
         desc: "Right-size resources and eliminate waste with continuous FinOps practices built into every environment.",
         icon: null,
     },
-    {
+     {
         title: "Cloud Governance & Compliance",
         desc: "Put policy, access, and security guardrails in place so teams can move fast without introducing risk.",
         icon: null,
@@ -76,7 +76,7 @@ export default function CloudConsulting() {
                 <div className="flex flex-col gap-6 w-full min-w-0">
                     <div
                         ref={trackRef}
-                        className="flex gap-5 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-2"
+                        className="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-2"
                     >
                         {CARDS.map((card, index) => (
                             <motion.div

@@ -5,24 +5,20 @@ import { motion } from "framer-motion";
 
 const CARDS = [
     {
-        title: "Digital Maturity Assessment",
+        title: "Business Strategy",
         desc: "Benchmark your current digital capabilities against industry standards to identify gaps and prioritize investment.",
     },
     {
-        title: "Digital Transformation Strategy",
-        desc: "Chart a phased transformation path that modernizes systems and processes without disrupting day-to-day operations.",
+        title: " Enterprise Architecture",
+        desc: "We design the architecture that keeps your systems, processes, and data aligned to strategy as you scale.",
     },
     {
-        title: "Customer Experience Strategy",
+        title: "Transformation Roadmap",
         desc: "Design digital touchpoints that meet customers where they are and deepen engagement across every channel.",
     },
     {
-        title: "Technology Roadmap",
+        title: "Business Process Consulting",
         desc: "Sequence technology investments against business priorities so every initiative compounds toward long-term goals.",
-    },
-    {
-        title: "Innovation Planning",
-        desc: "Build a structured pipeline for evaluating and piloting emerging technologies before committing at scale.",
     },
 ];
 
@@ -81,9 +77,8 @@ export default function DigitalStrategy() {
                 <div
                     ref={trackRef}
                     onScroll={updateProgress}
-                    className={`flex gap-4 sm:gap-[25px] w-full overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ${
-                        !isScrollable ? "lg:justify-center" : ""
-                    }`}
+                    className={`flex gap-4 sm:gap-[25px] w-full overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ${!isScrollable ? "lg:justify-center" : ""
+                        }`}
                 >
                     {CARDS.map((card) => (
                         <div

@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import processMiningPhoto from "@/assets/WhatWeDo/Intelligent Automation/Section6_Bg.svg";
 
 const CARDS = [
-    { title: "Process Discovery", desc: "Automatically reconstruct how work actually flows across systems, using event logs instead of assumptions." },
-    { title: "Bottleneck Analysis", desc: "Pinpoint exactly where handoffs stall and work piles up so fixes target the real constraint." },
-    { title: "Compliance Monitoring", desc: "Continuously verify that processes run the way they're supposed to, flagging deviations in real time." },
+    { title: "Workflow Automation", desc: "Automated approval and routing workflows that eliminate delays across departments." },
+    { title: "Business Rules Automation", desc: "Decision logic automated and centralized, so policy is applied consistently every time." },
+    { title: "AI-Powered Automation", desc: "Automation enhanced with AI to handle exceptions and unstructured data, not just fixed rules." },
 ];
 
 export default function ProcessMining() {
@@ -29,8 +29,8 @@ export default function ProcessMining() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="absolute left-0 bottom-0 sm:bottom-auto sm:top-[267px] w-[85%] sm:w-[477px] sm:h-60 bg-[#2d8ec5]/90 text-white flex flex-col justify-center gap-2 px-6 sm:px-[76px] py-6 sm:py-0 z-0"
                 >
-                    <p className="text-2xl sm:text-3xl font-medium">Process Mining</p>
-                    <p className="text-lg sm:text-2xl font-light">Discover Opportunities for Automation</p>
+                    <p className="text-2xl sm:text-3xl font-medium">Advanced Decision Logic & Workflow</p>
+                    <p className="text-lg sm:text-2xl font-light">Extended automation capabilities for complex business rules.</p>
                 </motion.div>
 
                 {/* Cards — normal flow right after the photo, with only a small

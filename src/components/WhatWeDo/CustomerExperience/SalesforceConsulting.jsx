@@ -10,23 +10,9 @@ const SERVICES = [
     {
         heading: "Salesforce Implementation",
         title: "Maximize the Value of Salesforce",
-        desc: "We design, implement, customize, and optimize Salesforce solutions that empower your sales, service, and marketing teams through tailored configuration, seamless integrations, and ongoing platform optimization.",
+        desc: "Certified Salesforce delivery expertise SAP and CRM integration experience Journey- first design approach Regional customer behavior insight Omnichannel implementation capability Analytics - driven optimization",
     },
-    {
-        heading: "Salesforce Sales Cloud",
-        title: "Accelerate Your Sales Process",
-        desc: "Streamline lead management, opportunity tracking, forecasting, and sales automation to help your teams close deals faster and improve productivity.",
-    },
-    {
-        heading: "Salesforce Service Cloud",
-        title: "Deliver Exceptional Customer Support",
-        desc: "Empower service teams with intelligent case management, omnichannel support, knowledge bases, and AI-powered assistance for superior customer experiences.",
-    },
-    {
-        heading: "Salesforce Marketing Cloud",
-        title: "Create Personalized Customer Journeys",
-        desc: "Build targeted campaigns, automate customer engagement, and deliver personalized experiences across email, mobile, social, and digital channels.",
-    },
+
 ];
 
 export default function SalesforceConsulting() {
@@ -59,10 +45,9 @@ export default function SalesforceConsulting() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/40" />
                     <div className="absolute top-8 sm:top-[32px] left-6 sm:left-[35px] flex flex-col gap-4 max-w-[374px] px-2">
-                        <h2 className="text-white text-2xl font-medium">Salesforce Consulting</h2>
+                        <h2 className="text-white text-2xl font-medium">Why Partner With Us</h2>
                         <p className="text-white/90 text-base sm:text-lg font-light">
-                            Design, implement, customize, and optimize Salesforce solutions that empower your
-                            sales, service, and marketing teams.
+                            Core operational standards driving our managed delivery..
                         </p>
                     </div>
                 </motion.div>
@@ -98,38 +83,7 @@ export default function SalesforceConsulting() {
                             </div>
                         </motion.div>
                     </AnimatePresence>
-                    <div className="mt-8 flex items-center justify-between">
-                        {/* Previous */}
-                        <div>
-                            <button
-                                onClick={handlePrev}
-                                className="rotate-180 transition-transform duration-300 hover:-translate-x-1"
-                            >
-                                <Image
-                                    src={nextArrow}
-                                    alt="Previous"
-                                    width={52}
-                                    height={52}
-                                />
-                            </button>
-                        </div>
 
-                        {/* Next */}
-                        <div className="flex items-center justify-center size-[52px] self-end">
-                            <button
-                                onClick={handleNext}
-                                className="flex items-center justify-center size-[52px] self-end transition-transform duration-300 hover:translate-x-1"
-                            >
-                                <Image
-                                    src={nextArrow}
-                                    alt="Next"
-                                    width={52}
-                                    height={52}
-                                />
-                            </button>
-                        </div>
-
-                    </div>
                 </motion.div>
             </div>
         </section>

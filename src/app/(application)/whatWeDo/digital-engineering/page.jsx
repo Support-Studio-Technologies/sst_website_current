@@ -19,6 +19,10 @@ import ApplicationModernization from "@/components/WhatWeDo/DigitalEngineering/A
 import DevOpsSection from "@/components/WhatWeDo/DigitalEngineering/DevOpsSection";
 import LegacyModernization from "@/components/WhatWeDo/DigitalEngineering/LegacyModernization";
 import TechnologyStack from "@/components/WhatWeDo/DigitalEngineering/TechnologyStack";
+import DataGovernance from "@/components/WhatWeDo/DigitalEngineering/DataGovernance";
+import ServiceDesign from "@/components/WhatWeDo/DigitalEngineering/ServiceDesign";
+import ChangeManagement from "@/components/WhatWeDo/DigitalEngineering/ChangeManagement";
+import Intro from "@/components/WhatWeDo/DigitalEngineering/Intro";
 
 const page = () => {
     return (
@@ -36,18 +40,22 @@ const page = () => {
             </div>
 
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
-                <IntroSection />
+                {/* <IntroSection /> */}
+                <Intro />
+                <DataGovernance />
             </div>
-            <LegacyModernization />
-            <TechnologyFocus />
-            <MobileApplications />
-            <APIDevelopment />
-            <MicroservicesArchitecture />
+            {/* <LegacyModernization /> */}
+            {/* <TechnologyFocus /> */}
+            {/* <MobileApplications /> */}
+            {/* <APIDevelopment /> */}
+            {/* <MicroservicesArchitecture /> */}
+            <ServiceDesign />
+            <ChangeManagement />
             <PenetrationTesting />
-            <DevOpsSection />
-            <ApplicationModernization />
-            <EnterpriseApplicationDevelopment />
-            <FutureFocusedInsights />
+            {/* <DevOpsSection /> */}
+            {/* <ApplicationModernization /> */}
+            {/* <EnterpriseApplicationDevelopment /> */}
+            {/* <FutureFocusedInsights /> */}
             <ReadyToTransform />
             <Footer />
         </div>

@@ -4,14 +4,17 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import workflowPhoto from "@/assets/WhatWeDo/Intelligent Automation/Section4_image.svg";
 
+
 const SERVICES = [
-    "Invoice Processing",
-    "Contract Data Extraction",
-    "Document Classification",
-    "OCR Solutions",
-    "Data Validation",
-    "Automated Document Workflows",
+    "Process Mining Before Automation",
+    "SAP-Integrated Automation Delivery",
+    "Hyper Automation Capability",
+    "Governance and Monitoring Built In",
+    "Exception Handling by Design",
+    "Proven High-Volume Deployments",
 ];
+
+
 
 const BENEFITS = [
     "Faster document processing",
@@ -34,22 +37,19 @@ export default function WorkflowAutomation() {
                     className="absolute left-[411px] top-0 w-[870px] h-[628px] bg-[#e2e2e2] overflow-hidden"
                 >
                     <h2 className="absolute left-9 top-[58px] w-[721px] text-black text-[32px] font-normal">
-                        Workflow Automation
+                        Why Partner With Us
+
                     </h2>
 
                     <div className="absolute left-[149px] top-[134px] w-[518px] flex flex-col gap-3">
-                        <p className="text-black text-xl font-normal leading-8">
-                            Streamline End-to-End Business Processes
-                        </p>
                         <p className="text-[#6c6c6c] text-lg font-light leading-7">
-                            Digitize and automate business workflows to improve collaboration, accelerate approvals,
-                            and eliminate process bottlenecks.
+                            Our proven methods for building automation that remains maintainable at scale.
                         </p>
                     </div>
 
                     <div className="absolute left-[149px] top-[295px] flex gap-20">
-                        <div className="w-64">
-                            <p className="text-black text-xl font-normal mb-3">Services</p>
+                        <div className="w-70">
+
                             <ul className="space-y-1">
                                 {SERVICES.map((item) => (
                                     <li
@@ -61,7 +61,7 @@ export default function WorkflowAutomation() {
                                 ))}
                             </ul>
                         </div>
-                        <div className="w-64">
+                        {/* <div className="w-64">
                             <p className="text-black text-xl font-normal mb-3">Benefits</p>
                             <ul className="space-y-1">
                                 {BENEFITS.map((item) => (
@@ -73,7 +73,7 @@ export default function WorkflowAutomation() {
                                     </li>
                                 ))}
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </motion.div>
 
@@ -99,12 +99,10 @@ export default function WorkflowAutomation() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="relative bg-[#e2e2e2] px-6 py-10 flex flex-col gap-8"
                 >
-                    <h2 className="text-black text-2xl font-normal">Workflow Automation</h2>
+                    <h2 className="text-black text-2xl font-normal">Why Partner With Us</h2>
                     <div className="flex flex-col gap-2">
-                        <p className="text-black text-lg font-normal">Streamline End-to-End Business Processes</p>
                         <p className="text-[#6c6c6c] text-base font-light">
-                            Digitize and automate business workflows to improve collaboration, accelerate approvals,
-                            and eliminate process bottlenecks.
+                            Our proven methods for building automation that remains maintainable at scale.
                         </p>
                     </div>
                     <div className="flex gap-8">
@@ -118,7 +116,7 @@ export default function WorkflowAutomation() {
                                 ))}
                             </ul>
                         </div>
-                        <div>
+                        {/* <div>
                             <p className="text-black text-lg font-normal mb-3">Benefits</p>
                             <ul className="list-disc list-inside space-y-1">
                                 {BENEFITS.map((item) => (
@@ -127,7 +125,7 @@ export default function WorkflowAutomation() {
                                     </li>
                                 ))}
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </motion.div>
             </div>

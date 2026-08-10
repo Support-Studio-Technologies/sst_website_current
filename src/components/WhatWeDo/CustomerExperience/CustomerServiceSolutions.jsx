@@ -58,10 +58,9 @@ export default function CustomerServiceSolutions() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col items-center gap-4 max-w-[767px] mx-auto text-center mb-10 sm:mb-14"
             >
-                <h2 className="text-black text-2xl font-medium">Customer Service Solutions</h2>
+                <h2 className="text-black text-2xl font-medium">Team Adoption & Seamless Context</h2>
                 <p className="text-black text-base sm:text-lg font-light">
-                    Provide responsive, personalized customer service through modern service management
-                    platforms and intelligent support solutions
+                    Why our approach to customer experience drives long-term adoption.
                 </p>
             </motion.div>
 

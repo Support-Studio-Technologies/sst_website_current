@@ -21,12 +21,15 @@ export default function MasterDataManagement() {
                 className="flex flex-col lg:flex-row items-center gap-6 lg:gap-[50px] max-w-[1180px] mx-auto px-6 sm:px-[50px] mb-10 sm:mb-[50px]"
             >
                 <h2 className="text-black text-xl sm:text-2xl font-medium shrink-0 lg:w-[280px]">
-                    Discover Opportunities Hidden in Your Data
-                </h2>
+                    Why Partner With Us                </h2>
                 <div className="hidden lg:block w-px h-[100px] bg-[#a4a7a5] shrink-0" />
                 <p className="text-[#3d3d4e] text-base sm:text-lg font-light">
-                    Leverage advanced analytical techniques to predict trends, optimize operations, and support
-                    strategic business planning across every function of the enterprise.
+                    SAP-certified delivery teams
+                    GCC regulatory awareness
+                    Governance built into every deployment
+                    Proven enterprise integration experience
+                    Outcome-based engagement models
+                    Cross-industry delivery track record
                 </p>
             </motion.div>
 
@@ -53,7 +56,7 @@ export default function MasterDataManagement() {
                 </motion.div>
             </div>
 
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
@@ -77,7 +80,7 @@ export default function MasterDataManagement() {
                         and governing enterprise information.
                     </p>
                 </div>
-            </motion.div>
+            </motion.div> */}
         </section>
     );
 }

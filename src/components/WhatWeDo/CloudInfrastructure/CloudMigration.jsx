@@ -8,23 +8,23 @@ import hoverImg from "@/assets/WhatWeDo/Cloud and Infrastructure/Section3_Image.
 
 const STEPS = [
     {
-        title: "Application Migration",
+        title: "Cloud Consulting",
         desc: "Move business-critical applications to the cloud with minimal downtime and disruption.",
     },
     {
-        title: "Database Migration",
+        title: "Infrastructure Services",
         desc: "Implement preventive controls across applications, infrastructure, users, and data.Implement preventive controls across applications, infrastructure, users, and data.",
     },
     {
-        title: "Server Migration",
+        title: " DevSecOps",
         desc: "Relocate on-premise servers and workloads to scalable, cloud-native infrastructure.",
     },
     {
-        title: "Storage Migration",
+        title: "Backup & Disaster Recovery",
         desc: "Transfer files, backups, and archives to durable, cost-effective cloud storage.",
     },
     {
-        title: "Cloud Rehosting",
+        title: "Infrastructure Automation",
         desc: "Lift-and-shift existing workloads to the cloud quickly, with modernization to follow.",
     },
 ];
@@ -37,6 +37,7 @@ export default function CloudMigration() {
 
     return (
         <section className="w-full pb-10 sm:pb-0 flex flex-col items-center gap-8 sm:gap-[62px]">
+
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -107,9 +108,8 @@ export default function CloudMigration() {
                                     onMouseEnter={() => setHovered(index)}
                                     onFocus={() => setHovered(index)}
                                     onBlur={() => setHovered(null)}
-                                    className={`relative h-full w-full flex flex-col items-center justify-center text-center gap-3 px-4 lg:px-6 overflow-hidden transition-colors duration-300 ${
-                                        isActive ? "bg-black" : "bg-white"
-                                    }`}
+                                    className={`relative h-full w-full flex flex-col items-center justify-center text-center gap-3 px-4 lg:px-6 overflow-hidden transition-colors duration-300 ${isActive ? "bg-black" : "bg-white"
+                                        }`}
                                 >
                                     {/* Hover artwork: an actual image swap, not a color tint */}
                                     {isActive && (
@@ -125,9 +125,8 @@ export default function CloudMigration() {
                                     )}
 
                                     <p
-                                        className={`relative z-10 text-lg lg:text-xl font-medium leading-tight ${
-                                            isActive ? "text-white" : "text-black"
-                                        }`}
+                                        className={`relative z-10 text-lg lg:text-xl font-medium leading-tight ${isActive ? "text-white" : "text-black"
+                                            }`}
                                     >
                                         {step.title}
                                     </p>

@@ -17,6 +17,8 @@ import QuantumReadiness from "@/components/WhatWeDo/InnovationEmergingTechnologi
 import Industry4 from "@/components/WhatWeDo/InnovationEmergingTechnologies/Industry4";
 import SmartEnterpriseSolutions from "@/components/WhatWeDo/InnovationEmergingTechnologies/SmartEnterpriseSolutions";
 import OurInnovationFramework from "@/components/WhatWeDo/InnovationEmergingTechnologies/OurInnovationFramework";
+import AIIntegration from "@/components/WhatWeDo/InnovationEmergingTechnologies/AIIntegration";
+import Accessibility from "@/components/WhatWeDo/InnovationEmergingTechnologies/Accessibility";
 
 const page = () => {
     return (
@@ -42,21 +44,23 @@ const page = () => {
             </div>
 
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
-                <Intro />
-                <IoT />
+                {/* <Intro /> */}
+                {/* <IoT /> */}
+                <Accessibility />
             </div>
 
 
-            <DigitalTwins />
-            <ScenarioAnalysis />
-            <ExtendedReality />
+            {/* <DigitalTwins /> */}
             <EdgeComputing />
-            <QuantumReadiness />
-            <Industry4 />
-            <SmartEnterpriseSolutions />
-            <OurInnovationFramework />
+            <AIIntegration />
+            <ScenarioAnalysis />
+            {/* <ExtendedReality /> */}
+            {/* <QuantumReadiness /> */}
+            {/* <Industry4 /> */}
+            {/* <SmartEnterpriseSolutions /> */}
+            {/* <OurInnovationFramework /> */}
 
-            <FutureFocusedInsights />
+            {/* <FutureFocusedInsights /> */}
             <ReadyToTransform />
             <Footer />
         </div>

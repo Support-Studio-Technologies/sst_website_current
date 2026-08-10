@@ -17,6 +17,8 @@ import GovernanceRiskCompliance from "@/components/WhatWeDo/CyberSecurityDigital
 import CloudSecurity from "@/components/WhatWeDo/CyberSecurityDigitalTrust/CloudSecurity";
 import ZeroTrustArchitecture from "@/components/WhatWeDo/CyberSecurityDigitalTrust/ZeroTrustArchitecture";
 import CybersecurityDeliveryFramework from "@/components/WhatWeDo/CyberSecurityDigitalTrust/CybersecurityDeliveryFramework";
+import BusinessRulesAutomationZigzag from "@/components/WhatWeDo/CyberSecurityDigitalTrust/BusinessRulesAutomationZigzag";
+import AIIntegration from "@/components/WhatWeDo/CyberSecurityDigitalTrust/AIIntegration";
 
 const page = () => {
     return (
@@ -42,26 +44,28 @@ const page = () => {
                 </div>
             </div>
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] min-h-[300px] sm:min-h-screen bg-white">
+                <BusinessRulesAutomationZigzag />
                 <WhyCybersecurityMatters />
-                <SecurityChallenges />
             </div>
 
 
-            <IdentityAccessManagement />
-            <SecurityOperations />
+            {/* <IdentityAccessManagement /> */}
+            {/* <SecurityOperations /> */}
+            <AIIntegration />
             <VulnerabilityAssessment />
-            <PenetrationTesting />
+            {/* <PenetrationTesting /> */}
 
             {/* Pinned GRC background parallax, then Cloud Security curtains over it */}
-            <GovernanceRiskCompliance />
-            <div className="relative z-10 -mt-[70vh] sm:-mt-[100vh] min-h-[70vh] sm:min-h-screen bg-white">
+            {/* <GovernanceRiskCompliance /> */}
+            {/* <div className="relative z-10 -mt-[70vh] sm:-mt-[100vh] min-h-[70vh] sm:min-h-screen bg-white">
                 <CloudSecurity />
-            </div>
+            </div> */}
 
-            <ZeroTrustArchitecture />
-            <CybersecurityDeliveryFramework />
+            {/* <ZeroTrustArchitecture /> */}
+            {/* <CybersecurityDeliveryFramework /> */}
 
-            <FutureFocusedInsights />
+            {/* <FutureFocusedInsights /> */}
+            <SecurityChallenges />
             <ReadyToTransform />
             <Footer />
         </div>

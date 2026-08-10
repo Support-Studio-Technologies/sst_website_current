@@ -6,18 +6,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import blockchainPhoto from "@/assets/WhatWeDo/Innovation & Emerging Technologies/Section5_Bg.svg";
 
 const ITEMS = [
-    { title: "Blockchain Strategy", desc: "Define where blockchain genuinely adds value across your business, from settlement to provenance tracking." },
-    { title: "Smart Contract Development", desc: "Build and audit smart contracts that automate agreements without sacrificing security or compliance." },
+    { title: "Extended Reality (AR/VR)", desc: "Define where blockchain genuinely adds value across your business, from settlement to provenance tracking." },
+    { title: "Smart Enterprise Solutions", desc: "Integrated combinations of emerging technology matched to specific operational challenges." },
     { title: "Supply Chain Traceability", desc: "Track goods and materials end-to-end on an immutable ledger that every partner can trust." },
-    { title: "Digital Asset Management", desc: "Issue, custody, and manage tokenized assets with enterprise-grade controls." },
-    { title: "Identity Verification", desc: "Give users and partners a portable, verifiable digital identity that reduces fraud and friction." },
+    { title: "Blockchain:", desc: "Issue, custody, and manage tokenized assets with enterprise-grade controls." },
+    { title: "Quantum Readiness:", desc: "Give users and partners a portable, verifiable digital identity that reduces fraud and friction." },
 ];
 
 export default function ScenarioAnalysis() {
     const [hovered, setHovered] = useState(null);
 
     return (
-        <section className="w-full py-10 sm:py-16 flex flex-col items-center gap-8 sm:gap-[62px]">
+        <section className="w-full py-10 sm:pt-16 sm:pb-0 flex flex-col items-center gap-8 sm:gap-[62px]">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

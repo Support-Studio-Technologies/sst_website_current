@@ -39,8 +39,9 @@ const slideVariants = {
 function LinkArrow({ light }) {
     return (
         <span
-            className={`flex items-center justify-center size-7 rounded-full border ${light ? "border-white/40" : "border-[#6c6c6c]/60"
-                }`}
+            className={`flex items-center justify-center size-7 rounded-full border ${
+                light ? "border-white/40" : "border-[#6c6c6c]/60"
+            }`}
         >
             <Image src={linkIcon} alt="" width={11} height={11} className={light ? "invert" : ""} />
         </span>
@@ -116,10 +117,9 @@ export default function HybridCloud() {
                         aria-label="Previous"
                         onClick={() => goTo(index - 1, -1)}
                         disabled={index === 0}
-                        className={`flex items-center justify-center size-[26px] sm:size-[31px] rounded-full border shrink-0 transition-transform hover:scale-110 ${index === 0 ? "border-[#a4a7a5] text-[#a4a7a5]" : "border-black text-black"
-                            }`}
+                        className="flex items-center justify-center size-[26px] sm:size-[31px] shrink-0 transition-transform hover:scale-110 disabled:opacity-30"
                     >
-                        ←
+                        <Image src={arrowIcon} alt="" width={24} height={24} className="-rotate-180" />
                     </button>
                     <div className="flex items-center gap-[10px]">
                         {ITEMS.map((item, dotIndex) => (
@@ -127,9 +127,10 @@ export default function HybridCloud() {
                                 key={item.title}
                                 type="button"
                                 aria-label={`Go to slide ${dotIndex + 1}`}
-                                onClick={() => goTo(Math.min(dotIndex, maxIndex), dotIndex > index ? 1 : -1)}
-                                className={`size-[8px] rounded-full border-[0.5px] transition-colors ${dotIndex === index ? "bg-[#2d8ec5] border-[#2d8ec5]" : "border-black"
-                                    }`}
+                                onClick={() => goTo(dotIndex, dotIndex > index ? 1 : -1)}
+                                className={`size-[8px] rounded-full border-[0.5px] transition-colors ${
+                                    dotIndex === index ? "bg-[#2d8ec5] border-[#2d8ec5]" : "border-black"
+                                }`}
                             />
                         ))}
                     </div>
@@ -138,10 +139,9 @@ export default function HybridCloud() {
                         aria-label="Next"
                         onClick={() => goTo(index + 1, 1)}
                         disabled={index === maxIndex}
-                        className={`flex items-center justify-center size-[26px] sm:size-[31px] rounded-full border shrink-0 transition-transform hover:scale-110 ${index === maxIndex ? "border-[#a4a7a5] text-[#a4a7a5]" : "border-black text-black"
-                            }`}
+                        className="flex items-center justify-center size-[26px] sm:size-[31px] shrink-0 transition-transform hover:scale-110 disabled:opacity-30"
                     >
-                        →
+                        <Image src={arrowIcon} alt="" width={24} height={24} className="rotate-0" />
                     </button>
                 </div>
             </div>

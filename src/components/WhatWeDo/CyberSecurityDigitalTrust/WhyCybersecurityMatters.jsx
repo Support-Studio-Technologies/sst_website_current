@@ -8,10 +8,10 @@ import card3 from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/card3.svg";
 import card4 from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/card4.svg";
 
 const CARDS = [
-    { image: card1, title: "Protect critical business systems", desc: "Helping businesses transform with innovative SAP solutions." },
-    { image: card2, title: "Reduce cyber risks", desc: "Helping businesses transform with innovative SAP solutions." },
-    { image: card3, title: "Strengthen regulatory compliance", desc: "Helping businesses transform with innovative SAP solutions." },
-    { image: card4, title: "Secure cloud transformation", desc: "Helping businesses transform with innovative SAP solutions." },
+    { image: card1, title: "Identity & Access Management", desc: "Helping businesses transform with innovative SAP solutions." },
+    { image: card2, title: "Security Operations", desc: "We monitor, detect, and respond to threats continuously, not just during scheduled reviews." },
+    { image: card3, title: "Governance, Risk & Compliance", desc: "Helping businesses transform with innovative SAP solutions." },
+    { image: card4, title: " Zero Trust Architecture", desc: "Helping businesses transform with innovative SAP solutions." },
 ];
 
 const containerVariants = {
@@ -34,10 +34,9 @@ export default function WhyCybersecurityMatters() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col items-center gap-4 max-w-[1073px] text-center"
             >
-                <h2 className="text-[#0d0c22] text-2xl font-medium">Why Cybersecurity Matters</h2>
+                <h2 className="text-[#0d0c22] text-2xl font-medium">Identity Management & Continuous Operations</h2>
                 <p className="text-[#6c6c6c] text-base sm:text-lg font-light">
-                    Cyber threats continue to evolve faster than traditional security approaches can respond. Organizations must adopt a proactive,
-                    intelligence-driven security strategy that protects every user, device, application, workload, and data asset.
+                    Core protective pillars including IAM, GRC, SOC, and Zero Trust.
                 </p>
             </motion.div>
 

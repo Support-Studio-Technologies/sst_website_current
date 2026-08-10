@@ -5,16 +5,12 @@ import { motion } from "framer-motion";
 import challengeImage from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/Sectin3_Image.svg";
 
 const CHALLENGES = [
-    "Expanding cloud environments",
-    "Increasing ransomware attacks",
-    "Insider threats",
-    "Identity-based attacks",
-    "Third-party security risks",
-    "Regulatory compliance requirements",
-    "Legacy infrastructure vulnerabilities",
-    "Supply chain cyber risks",
-    "Remote workforce security",
-    "Limited security visibility across hybrid environments",
+    "SAP segregation of duties expertise",
+    "Continuous security operations",
+    "GCC regulatory compliance depth",
+    "Real-world penetration testing",
+    "Zero trust architecture experience",
+    "Governance tied to business risk",
 ];
 
 export default function SecurityChallenges() {
@@ -27,10 +23,9 @@ export default function SecurityChallenges() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col items-center gap-4 max-w-[767px] mx-auto text-center mb-10 sm:mb-[60px]"
             >
-                <h2 className="text-[#0d0c22] text-2xl font-medium">Security Challenges Facing Modern Enterprises</h2>
+                <h2 className="text-[#0d0c22] text-2xl font-medium">Our Security Advantages</h2>
                 <p className="text-[#3d3d4e] text-base sm:text-lg font-light">
-                    Organizations today operate within increasingly complex technology ecosystems where security risks continue
-                    to evolve faster than traditional defense mechanisms.
+                    Regional compliance depth and SAP security expertise.
                 </p>
             </motion.div>
 

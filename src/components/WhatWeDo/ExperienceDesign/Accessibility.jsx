@@ -6,20 +6,20 @@ import highlightBg from "@/assets/WhatWeDo/Experience Design/Section7_UserResear
 
 const COLUMNS = [
     {
-        title: "Accessibility Audits",
-        items: ["Inclusive user experiences", "Regulatory compliance", "Expanded audience reach", "Improved usability for all users"],
+        title: " Service Design",
+        items: ["We design the end-to-end service experience, not just the interface, across every touchpoint."],
     },
     {
-        title: "User Research",
-        items: ["Understanding user needs", "Identifying pain points", "Validating design decisions", "Enhancing product functionality"],
+        title: " Prototyping",
+        items: ["Interactive prototypes that let you test and validate design decisions before development begins."],
     },
     {
-        title: "Prototyping",
-        items: ["Rapid iteration", "User testing feedback", "Cost-effective design validation", "Clear communication of ideas"],
+        title: "Accessibility",
+        items: ["Design that meets accessibility standards, so every user can engage with your platform"],
     },
     {
-        title: "Visual Design",
-        items: ["Brand identity alignment", "Emotional connection with users", "Enhanced aesthetics and engagement", "Consistency across platforms"],
+        title: "Interaction Design",
+        items: ["Micro-interactions and flows designed to make digital products feel responsive and intuitive."],
     },
 ];
 
@@ -33,10 +33,10 @@ export default function Accessibility() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col items-center gap-4 max-w-[767px] mx-auto text-center mb-10 sm:mb-[46px] px-6"
             >
-                <h2 className="text-[#0d0c22] text-2xl font-medium">Accessibility</h2>
+                <h2 className="text-[#0d0c22] text-2xl font-medium">Specialized Design Disciplines
+                </h2>
                 <p className="text-black text-base sm:text-lg font-light">
-                    We create inclusive digital experiences that are accessible to users of all abilities while
-                    meeting international accessibility standards.
+                    Additional services including service design, prototyping, and accessibility.
                 </p>
             </motion.div>
 

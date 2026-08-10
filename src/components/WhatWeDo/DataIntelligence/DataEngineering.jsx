@@ -9,23 +9,23 @@ import dataIntegrationPhoto from "@/assets/WhatWeDo/Data Inteligent/Section3_car
 
 const CARDS = [
     {
-        title: "Cloud Data Engineering",
-        desc: "Design and build scalable cloud-native data pipelines that collect, process, and prepare enterprise data for analytics and AI.",
+        title: "Data\Engineering",
+        desc: "We build the pipelines that move and transform data reliably from source systems into a form your business can use.",
         image: cloudDataEngineeringPhoto,
     },
     {
-        title: "ETL & ELT Solutions",
-        desc: "Automate the extraction, transformation, and loading of data across systems with reliable, high-performance pipelines.",
+        title: "Data Warehousing",
+        desc: "We design centralized data platforms that consolidate SAP and non-SAP sources into a single source of truth.",
         image: etlEltPhoto,
     },
     {
-        title: "Data Lake Implementation",
-        desc: "Build centralized data lakes that store structured and unstructured data at scale, ready for advanced analytics.",
+        title: "Advanced Analytic",
+        desc: "We build predictive and prescriptive models that move reporting from hindsight to foresight.",
         image: dataLakePhoto,
     },
     {
-        title: "Data Integration",
-        desc: "Connect disparate systems and sources into a unified data layer that keeps every application in sync.",
+        title: "Business Intelligence",
+        desc: "We deliver reporting and dashboards that give decision-makers clarity, not just charts.",
         image: dataIntegrationPhoto,
     },
 ];
@@ -40,10 +40,9 @@ export default function DataEngineering() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col items-center gap-4 max-w-[767px] mx-auto text-center mb-10 sm:mb-[50px]"
             >
-                <h2 className="text-[#0d0c22] text-2xl font-medium">Data Engineering</h2>
+                <h2 className="text-[#0d0c22] text-2xl font-medium">Enterprise Data Foundations</h2>
                 <p className="text-[#3d3d4e] text-base sm:text-lg font-light">
-                    Design and implement modern data pipelines that collect, process, integrate, and prepare
-                    enterprise data for analytics and AI.
+                    Core engineering capabilities for data platforms and business intelligence
                 </p>
             </motion.div>
 

@@ -18,6 +18,8 @@ import ChangeManagement from "@/components/WhatWeDo/BusinessAdvisory/ChangeManag
 import PMOAdvisory from "@/components/WhatWeDo/BusinessAdvisory/PMOAdvisory";
 import TechnologyAssessment from "@/components/WhatWeDo/BusinessAdvisory/TechnologyAssessment";
 import TransformationRoadmap from "@/components/WhatWeDo/BusinessAdvisory/TransformationRoadmap";
+import APIDevelopment from "@/components/WhatWeDo/BusinessAdvisory/APIDevelopment";
+import SalesforceConsulting from "@/components/WhatWeDo/BusinessAdvisory/SalesforceConsulting";
 
 const page = () => {
     return (
@@ -41,20 +43,23 @@ const page = () => {
                 </div>
             </div>
             <div className="relative z-10 -mt-[340px] sm:-mt-[420px] min-h-[340px] sm:min-h-[420px] bg-white">
-                <WhyBusinessAdvisoryMatters />
+                <DigitalStrategy />
+                {/* <WhyBusinessAdvisoryMatters /> */}
             </div>
-            <BusinessStrategy />
-            <DigitalStrategy />
-            <EnterpriseArchitecture />
-            <ITAdvisory />
-            <BusinessProcessConsulting />
-            <ProcessReengineering />
-            <ChangeManagement />
-            <PMOAdvisory />
-            <TechnologyAssessment />
-            <TransformationRoadmap />
 
-            <FutureFocusedInsights />
+            <APIDevelopment />
+            {/* <BusinessStrategy /> */}
+            {/* <EnterpriseArchitecture /> */}
+            {/* <ITAdvisory /> */}
+            {/* <BusinessProcessConsulting /> */}
+            {/* <ProcessReengineering /> */}
+            {/* <ChangeManagement /> */}
+            <PMOAdvisory />
+            {/* <TechnologyAssessment /> */}
+            {/* <TransformationRoadmap /> */}
+
+            {/* <FutureFocusedInsights /> */}
+            <SalesforceConsulting />
             <ReadyToTransform />
             <Footer />
         </div>

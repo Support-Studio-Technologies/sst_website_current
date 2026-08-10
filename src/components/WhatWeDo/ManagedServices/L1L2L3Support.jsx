@@ -7,19 +7,15 @@ import skylinePhoto from "@/assets/WhatWeDo/Managed Services/Secton5_Image.svg";
 const TIERS = [
     {
         n: "L1",
-        title: "L1: First-Level Support & Ticket Resolution",
-        desc: "Experienced delivery managers to coordinate stakeholders, timelines, governance, and project execution.",
+        title: " Support That Understands SAP, Not Just Tickets",
+        desc: "Our managed services teams bring real SAP process knowledge to every incident, so issues get resolved at the root cause, not just closed and reopened next month",
     },
     {
         n: "L2",
-        title: "L2: Technical Troubleshooting & Configuration",
-        desc: "Experienced delivery managers to coordinate stakeholders, timelines, governance, and project execution.",
+        title: " From Keeping the Lights On to Continuous Improvement",
+        desc: "We don’t just fix what breaks — we analyze recurring issues, optimize configurations, and implement preventive measures that reduce tickets by 20–30% over time",
     },
-    {
-        n: "L3",
-        title: "L3: Advanced Engineering & Product Expertise",
-        desc: "Experienced delivery managers to coordinate stakeholders, timelines, governance, and project execution.",
-    },
+
 ];
 
 export default function L1L2L3Support() {
@@ -35,7 +31,7 @@ export default function L1L2L3Support() {
                 />
 
                 {/* Left Black Panel */}
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -51,14 +47,14 @@ export default function L1L2L3Support() {
                     <p className="mt-8 text-white text-[24px] leading-snug font-light max-w-[320px]">
                         Multi-Level Technical Support for Every Challenge
                     </p>
-                </motion.div>
+                </motion.div> */}
 
                 {/* White Background */}
                 <div className="absolute top-[37%] left-0 w-full z-10">
 
                     {/* Cards */}
                     <div className="bg-white/90 pt-20 pb-16">
-                        <div className="w-[92%] mx-auto grid grid-cols-3 gap-3">
+                        <div className="w-[92%] mx-auto grid grid-cols-2 gap-3">
                             {TIERS.map((tier, index) => (
                                 <motion.div
                                     key={tier.n}
@@ -91,12 +87,10 @@ export default function L1L2L3Support() {
                     </div>
                     <div className="bg-black px-6 py-8 flex flex-col gap-4">
                         <h2 className="text-white text-3xl font-medium leading-[1.2]">
-                            L1 / L2 / L3
-                            <br />
-                            Support
+                            Process-Aware Support & Root-Cause Resolution
                         </h2>
                         <p className="text-white text-lg font-light leading-[1.2]">
-                            Multi-Level Technical Support for Every Challenge
+                            Moving beyond ticket resolution to continuous system improvement
                         </p>
                     </div>
                     <div className="flex flex-col gap-4 px-6 py-6 bg-[#f5f5f5]">

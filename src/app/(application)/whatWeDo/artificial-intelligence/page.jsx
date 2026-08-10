@@ -19,6 +19,7 @@ import ConversationalAI from "@/components/WhatWeDo/ArtificialIntelligence/Conve
 import TechnologyStack from "@/components/WhatWeDo/ArtificialIntelligence/TechnologyStack";
 import AIGovernance from "@/components/WhatWeDo/ArtificialIntelligence/AIGovernance";
 import AILifecycle from "@/components/WhatWeDo/ArtificialIntelligence/AILifecycle";
+import WhyPartnerWithUs from "@/components/WhatWeDo/ArtificialIntelligence/WhyPartnerWithUs";
 
 const page = () => {
     return (
@@ -36,20 +37,21 @@ const page = () => {
             </div>
 
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
-                <WhyAIMatters />
+                {/* <WhyAIMatters /> */}
                 <OurAIServices />
+                <AIIntegration />
             </div>
-            <MachineLearning />
-            <IntelligentAssistantsCards />
-            <AIStrategy />
-            <IntelligentAssistantsBanner />
-            <AIIntegration />
-            <PredictiveIntelligence />
-            <ConversationalAI />
+            {/* <IntelligentAssistantsCards /> */}
+            {/* <AIStrategy /> */}
+            {/* <PredictiveIntelligence /> */}
+            {/* <ConversationalAI /> */}
             <TechnologyStack />
-            <AIGovernance />
-            <AILifecycle />
-            <FutureFocusedInsights />
+            {/* <AIGovernance /> */}
+            {/* <AILifecycle /> */}
+            <MachineLearning />
+            {/* <IntelligentAssistantsBanner /> */}
+            <WhyPartnerWithUs />
+            {/* <FutureFocusedInsights /> */}
             <ReadyToTransform />
             <Footer />
         </div>

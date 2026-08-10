@@ -15,6 +15,11 @@ import DataVisualization from "@/components/WhatWeDo/DataIntelligence/DataVisual
 import MasterDataManagement from "@/components/WhatWeDo/DataIntelligence/MasterDataManagement";
 import DataGovernance from "@/components/WhatWeDo/DataIntelligence/DataGovernance";
 import RealTimeAnalytics from "@/components/WhatWeDo/DataIntelligence/RealTimeAnalytics";
+import HybridCloud from "@/components/WhatWeDo/DataIntelligence/HybridCloud";
+import AIIntegration from "@/components/WhatWeDo/DataIntelligence/AIIntegration";
+import TechnologyStack from "@/components/WhatWeDo/DataIntelligence/TechnologyStack";
+import LegacyModernization from "@/components/WhatWeDo/DataIntelligence/LegacyModernization";
+
 
 const page = () => {
     return (
@@ -25,23 +30,27 @@ const page = () => {
                 <div className="sticky top-0 h-[340px] sm:h-screen z-0">
                     <Hero />
                 </div>
- 
+
                 <div className="absolute inset-x-0 top-0 h-[340px] sm:h-screen z-[5]">
                     <HeroText />
                 </div>
             </div>
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
-            <IntroSection />
-            <DataEngineering />
+                {/* <IntroSection /> */}
+                <DataEngineering />
             </div>
-            <DataWarehousing />
-            <BusinessIntelligence />
-            <DataVisualization />
+            <HybridCloud />
+            {/* <DataWarehousing /> */}
+            {/* <BusinessIntelligence /> */}
+            {/* <DataVisualization /> */}
+            <AIIntegration />
+            <TechnologyStack />
+            <LegacyModernization />
             <MasterDataManagement />
-            <DataGovernance />
-            <RealTimeAnalytics />
+            {/* <DataGovernance /> */}
+            {/* <RealTimeAnalytics /> */}
 
-            <FutureFocusedInsights />
+            {/* <FutureFocusedInsights /> */}
             <ReadyToTransform />
             <Footer />
         </div>

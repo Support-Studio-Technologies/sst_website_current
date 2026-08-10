@@ -5,19 +5,11 @@ import { motion } from "framer-motion";
 import serviceDesignPhoto from "@/assets/WhatWeDo/Experience Design/Section8_ServiceDesign_Image.jpg";
 
 const SERVICES = [
-    "Service Blueprinting",
-    "Customer Journey Mapping",
-    "Process Design",
-    "Experience Strategy",
-    "Cross-Channel Optimization",
-    "Stakeholder Workshop",
+    "We redesign enterprise interfaces around how people actually complete their work, removing steps and screens that exist for the system's convenience rather than the user's.",
 ];
 
 const BENEFITS = [
-    "Consistent customer experiences",
-    "Improved operational efficiency",
-    "Better service delivery",
-    "Enhanced customer loyalty",
+    "We create scalable design systems that ensure visual consistency and reduce development time across your entire product suite.",
 ];
 
 export default function ServiceDesign() {
@@ -30,12 +22,9 @@ export default function ServiceDesign() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col gap-3 max-w-[1390px] mx-auto mb-10 sm:mb-[47px]"
             >
-                <h2 className="text-[#0d0c22] text-2xl font-medium">Service Design</h2>
+                <h2 className="text-[#0d0c22] text-2xl font-medium">Enterprise UX Modernization</h2>
                 <p className="text-black text-base sm:text-lg font-light">
-                    Design Connected End-to-End Experiences
-                    <br className="hidden sm:block" />
-                    Service Design focuses on optimizing every customer interaction across digital and physical
-                    touchpoints to deliver consistent and meaningful experiences.
+                    Eliminating unnecessary complexity in software and scaling interface standards.
                 </p>
             </motion.div>
 
@@ -48,7 +37,9 @@ export default function ServiceDesign() {
                     className="flex flex-col sm:flex-row gap-6 sm:gap-8 w-full lg:w-auto shrink-0"
                 >
                     <div className="bg-[#f3f1f1] w-full sm:w-[307px] min-h-[331px] p-8 flex flex-col gap-6">
-                        <p className="text-black text-2xl font-normal">Services</p>
+                        <p className="text-black text-2xl font-normal">
+                            Simplifying What Enterprise Software Gets Wrong
+                        </p>
                         <ul className="list-disc pl-5 flex flex-col gap-2 text-[#7f7f7f] text-lg font-light">
                             {SERVICES.map((item) => (
                                 <li key={item}>{item}</li>
@@ -56,7 +47,9 @@ export default function ServiceDesign() {
                         </ul>
                     </div>
                     <div className="bg-[#f3f1f1] w-full sm:w-[307px] min-h-[331px] p-8 flex flex-col gap-6">
-                        <p className="text-black text-2xl font-normal">Benefits</p>
+                        <p className="text-black text-2xl font-normal">
+                            Design Systems That Scale With Your Product
+                        </p>
                         <ul className="list-disc pl-5 flex flex-col gap-2 text-[#7f7f7f] text-lg font-light">
                             {BENEFITS.map((item) => (
                                 <li key={item}>{item}</li>
