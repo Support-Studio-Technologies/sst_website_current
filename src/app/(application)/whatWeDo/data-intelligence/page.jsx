@@ -17,8 +17,8 @@ import DataGovernance from "@/components/WhatWeDo/DataIntelligence/DataGovernanc
 import RealTimeAnalytics from "@/components/WhatWeDo/DataIntelligence/RealTimeAnalytics";
 import GovernanceSAPDataDepth from "@/components/WhatWeDo/DataIntelligence/GovernanceSAPDataDepth";
 import ScalableAIDeployment from "@/components/WhatWeDo/DataIntelligence/ScalableAIDeployment ";
-import IndustryImpact from "@/components/WhatWeDo/DataIntelligence/IndustryImpact";
-import WebDevelopment from "@/components/WhatWeDo/DataIntelligence/WebDevelopment";
+import Sectors from "@/components/WhatWeDo/DataIntelligence/Sectors";
+import RealTimeAnalyticsAndMasterDataManagement from "@/components/WhatWeDo/DataIntelligence/RealTimeAnalyticsAndMasterDataManagement";
 
 
 const page = () => {
@@ -38,14 +38,14 @@ const page = () => {
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
                 {/* <IntroSection /> */}
                 <EnterpriseDataFoundations />
+                <GovernanceSAPDataDepth />
             </div>
-            <GovernanceSAPDataDepth />
             {/* <DataWarehousing /> */}
             {/* <BusinessIntelligence /> */}
             {/* <DataVisualization /> */}
             <ScalableAIDeployment />
-            <IndustryImpact />
-            <WebDevelopment />
+            <Sectors />
+            <RealTimeAnalyticsAndMasterDataManagement />
             <WhyPartnerWithUsMetrix />
             {/* <DataGovernance /> */}
             {/* <RealTimeAnalytics /> */}

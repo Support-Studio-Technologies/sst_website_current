@@ -20,7 +20,7 @@ import WhyPartnerWithUs from "@/components/WhatWeDo/ManagedServices/WhyPartnerWi
 
 const page = () => {
     return (
-        <div className="min-h-screen bg-white flex flex-col font-sans">
+        <div className="min-h-screen overflow-x-hidden bg-white flex flex-col font-sans">
             <Navbar />
 
             <div className="relative -mt-[64px] lg:-mt-[68px] h-[680px] sm:h-[200vh]">

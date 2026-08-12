@@ -22,7 +22,7 @@ import TechnologyStack from "@/components/WhatWeDo/DigitalEngineering/Technology
 import EnterpriseSoftware from "@/components/WhatWeDo/DigitalEngineering/EnterpriseSoftware";
 import LongevityLegacyRefactoring from "@/components/WhatWeDo/DigitalEngineering/LongevityLegacyRefactoring";
 import ChangeManagement from "@/components/WhatWeDo/DigitalEngineering/ChangeManagement";
-import Intro from "@/components/WhatWeDo/DigitalEngineering/Intro";
+import SoftwareScalability from "@/components/WhatWeDo/DigitalEngineering/SoftwareScalability";
 
 const page = () => {
     return (
@@ -41,7 +41,7 @@ const page = () => {
 
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
                 {/* <IntroSection /> */}
-                <Intro />
+                <SoftwareScalability />
                 <EnterpriseSoftware />
             </div>
             {/* <LegacyModernization /> */}

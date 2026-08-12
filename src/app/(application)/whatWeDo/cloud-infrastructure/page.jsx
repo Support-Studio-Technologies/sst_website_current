@@ -15,8 +15,8 @@ import InfrastructureServices from "@/components/WhatWeDo/CloudInfrastructure/In
 import ArchitecturalResilienceStrategy from "@/components/WhatWeDo/CloudInfrastructure/ArchitecturalResilienceStrategy";
 import BackupDisasterRecovery from "@/components/WhatWeDo/CloudInfrastructure/BackupDisasterRecovery";
 import DigitalTwins from "@/components/WhatWeDo/CloudInfrastructure/DigitalTwins";
-import DataVisualization from "@/components/WhatWeDo/CloudInfrastructure/DataVisualization";
-import ProductDesign from "@/components/WhatWeDo/CloudInfrastructure/ProductDesign";
+import DisruptionFreeMigrationScalability from "@/components/WhatWeDo/CloudInfrastructure/DisruptionFreeMigrationScalability";
+import CloudMigrationHybridStrategy from "@/components/WhatWeDo/CloudInfrastructure/CloudMigrationHybridStrategy";
 
 const page = () => {
     return (
@@ -36,8 +36,8 @@ const page = () => {
                 <CoreEngineeringPillars />
                 <ArchitecturalResilienceStrategy />
             </div>
-            <DataVisualization />
-            <ProductDesign />
+            <DisruptionFreeMigrationScalability />
+            <CloudMigrationHybridStrategy />
             <CloudMigration />
             <ReadyToTransform
                 title="Ready to build infrastructure that scales with you?"

@@ -18,7 +18,7 @@ import DesignProcess from "@/components/WhatWeDo/ExperienceDesign/DesignProcess"
 import DesignToolsTechnologies from "@/components/WhatWeDo/ExperienceDesign/DesignToolsTechnologies";
 import UserResearchAndDesignSystems from "@/components/WhatWeDo/ExperienceDesign/UserResearchAndDesignSystems";
 import DesignPhilosophy from "@/components/WhatWeDo/ExperienceDesign/DesignPhilosophy";
-import Intro from "@/components/WhatWeDo/ExperienceDesign/Intro";
+import OurDesignCapabilities from "@/components/WhatWeDo/ExperienceDesign/OurDesignCapabilities";
 
 const page = () => {
     return (
@@ -41,7 +41,7 @@ const page = () => {
             <EnterpriseUXModernization />
             <DesignPhilosophy />
             <Accessibility />
-            <Intro />
+            <OurDesignCapabilities />
             <ReadyToTransform
                 title="Ready to design an experience people actually enjoy using?"
                 description="Talk to our design team about your next product or platform."
