@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import cloudMigrationIcon from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/CloudMigration.svg";
-import modernizationIcon from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/Modernization.svg";
+import modernizationIcon from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/modernization.svg";
 import hybridCloudIcon from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/HybridCloud.svg";
 import multiCloudStrategyIcon from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/MultiCloudStrategy.svg";
 

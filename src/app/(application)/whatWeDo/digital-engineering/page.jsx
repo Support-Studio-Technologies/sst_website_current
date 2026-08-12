@@ -21,7 +21,7 @@ import LegacyModernization from "@/components/WhatWeDo/DigitalEngineering/Legacy
 import TechnologyStack from "@/components/WhatWeDo/DigitalEngineering/TechnologyStack";
 import EnterpriseSoftware from "@/components/WhatWeDo/DigitalEngineering/EnterpriseSoftware";
 import LongevityLegacyRefactoring from "@/components/WhatWeDo/DigitalEngineering/LongevityLegacyRefactoring";
-import ChangeManagement from "@/components/WhatWeDo/DigitalEngineering/ChangeManagement";
+import ModernStackAPIEngineering from "@/components/WhatWeDo/DigitalEngineering/ModernStackAPIEngineering";
 import SoftwareScalability from "@/components/WhatWeDo/DigitalEngineering/SoftwareScalability";
 
 const page = () => {
@@ -50,7 +50,7 @@ const page = () => {
             {/* <APIDevelopment /> */}
             {/* <MicroservicesArchitecture /> */}
             <LongevityLegacyRefactoring />
-            <ChangeManagement />
+            <ModernStackAPIEngineering />
             <CorePhilosophy />
             {/* <DevOpsSection /> */}
             {/* <ApplicationModernization /> */}

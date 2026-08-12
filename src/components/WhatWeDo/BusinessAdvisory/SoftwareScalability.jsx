@@ -35,7 +35,7 @@ export default function SoftwareScalability() {
                 completely. A flex row can't overlap its children by construction, and `flex-1`
                 on the image lets it fill whatever width the text column doesn't use at any
                 size, so there's nothing left to keep manually in sync across breakpoints. */}
-            <div className="w-full flex flex-col sm:flex-row sm:items-stretch gap-6 sm:gap-10 lg:gap-[60px] sm:px-[70px]">
+            <div className="w-full flex flex-col sm:flex-row sm:items-stretch gap-8 sm:gap-16 lg:gap-[100px] sm:px-[70px]">
                 <motion.div
                     initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export default function SoftwareScalability() {
                         duration: 0.5,
                         ease: "easeInOut",
                     }}
-                    className="w-full sm:w-[59.5%] bg-white flex items-center px-6 py-10"
+                    className="w-full sm:w-[59.5%] bg-white flex items-center  py-10"
                 >
                     <div className="flex flex-col gap-5 sm:gap-[34px] text-black w-full">
                         <p className="text-xl sm:text-[32px] font-normal">

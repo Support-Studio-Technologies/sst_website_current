@@ -11,7 +11,7 @@ import UserResearch from "@/components/WhatWeDo/ExperienceDesign/UserResearch";
 import DesignSystems from "@/components/WhatWeDo/ExperienceDesign/DesignSystems";
 import ProductDesign from "@/components/WhatWeDo/ExperienceDesign/ProductDesign";
 import Prototyping from "@/components/WhatWeDo/ExperienceDesign/Prototyping";
-import Accessibility from "@/components/WhatWeDo/ExperienceDesign/Accessibility";
+import SpecializedDesignDisciplines from "@/components/WhatWeDo/ExperienceDesign/SpecializedDesignDisciplines";
 import ServiceDesign from "@/components/WhatWeDo/ExperienceDesign/ServiceDesign";
 import EnterpriseUXModernization from "@/components/WhatWeDo/ExperienceDesign/EnterpriseUXModernization";
 import DesignProcess from "@/components/WhatWeDo/ExperienceDesign/DesignProcess";
@@ -40,7 +40,7 @@ const page = () => {
             {/* <ServiceDesign /> */}
             <EnterpriseUXModernization />
             <DesignPhilosophy />
-            <Accessibility />
+            <SpecializedDesignDisciplines />
             <OurDesignCapabilities />
             <ReadyToTransform
                 title="Ready to design an experience people actually enjoy using?"

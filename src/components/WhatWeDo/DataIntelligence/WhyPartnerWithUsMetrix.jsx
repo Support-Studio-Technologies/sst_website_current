@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import mdmBg from "@/assets/WhatWeDo/Data Inteligent/Section9_Bg.svg";
 
 const STATS = [
-    { value: "70+", label: "Security Monitoring" },
-    { value: "100+", label: "Security Monitoring" },
-    { value: "56", label: "Security Monitoring" },
-    { value: "100%", label: "Security Monitoring" },
+    { value: "500+", label: "Data Pipelines Built" },
+    { value: "99.9%", label: "Data Accuracy" },
+    { value: "40%", label: "Faster Business Insights" },
+    { value: "30+", label: "AI Models Deployed" },
 ];
 
 const POINTS = [
@@ -62,7 +62,7 @@ export default function WhyPartnerWithUsMetrix() {
             </div>
 
 
-            <div className="bg-[#F3F6F9] w-full py-10 sm:py-[71px] px-6 sm:px-[86px] flex flex-col items-center gap-10 sm:gap-[63px]">
+            <div className="bg-[#F3F6F9] w-full py-10 sm:py-[71px] px-6 sm:px-[86px] flex flex-col items-center ">
                 <motion.h3
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}

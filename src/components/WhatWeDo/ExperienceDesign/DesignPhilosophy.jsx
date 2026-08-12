@@ -16,7 +16,7 @@ export default function DesignPhilosophy() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="relative z-10 h-full flex flex-col items-center justify-center text-center gap-8 sm:gap-12 px-6 sm:px-[52px]"
+                className="relative z-10 h-full flex flex-col  justify-center  gap-8 sm:gap-12 px-6 sm:px-[52px]"
             >
                 <div className="flex flex-col gap-2 sm:gap-3 max-w-[420px]">
                     <h2 className="text-black text-2xl font-normal">

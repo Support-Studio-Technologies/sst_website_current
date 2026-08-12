@@ -15,7 +15,7 @@ const capabilities = [
 
 export default function OurDesignCapabilities() {
     return (
-        <section className="w-full px-6 py-10 sm:pl-[72px] sm:pr-[40px] sm:py-[40px]">
+        <section className="w-full px-6 py-10 sm:pl-[72px] sm:pr-[70px] sm:py-[40px]">
 
             {/* Heading */}
             <motion.div
@@ -35,7 +35,7 @@ export default function OurDesignCapabilities() {
             </motion.div>
 
             {/* Content */}
-            <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[143px]">
+            <div className="flex flex-col lg:flex-row items-center lg:justify-between sm:px- gap-10 lg:gap-[143px]">
 
                 {/* Capabilities List */}
                 <motion.div
@@ -47,9 +47,9 @@ export default function OurDesignCapabilities() {
                         ease: "easeOut",
                         delay: 0.1,
                     }}
-                    className="flex flex-col gap-7 w-full lg:w-[623px] shrink-0"
+                    className="flex flex-col gap-7 w-full lg:flex-[623] lg:max-w-[623px] min-w-0"
                 >
-                    <ul className="text-[#3d3d4e] text-lg font-light list-disc pl-5 space-y-1">
+                    <ul className="text-[#3d3d4e] text-lg sm:text-xl font-light list-disc pl-5 space-y-4">
                         {capabilities.map((item) => (
                             <li key={item}>{item}</li>
                         ))}
@@ -66,7 +66,7 @@ export default function OurDesignCapabilities() {
                         ease: "easeOut",
                         delay: 0.2,
                     }}
-                    className="relative w-full lg:w-[467px] lg:ml-auto shrink-0 aspect-[467/357] overflow-hidden bg-black"
+                    className="relative w-full lg:flex-[560] lg:max-w-[560px] aspect-[467/357] overflow-hidden bg-black"
                 >
                     <Image
                         src={introPhoto}
