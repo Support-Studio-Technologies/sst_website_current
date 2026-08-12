@@ -1,12 +1,12 @@
 "use client";
-
+ 
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ceaImage1 from "@/assets/WhatWeDo/Digital Engineering/Section3_CEA_Image.svg";
 import ceaImage2 from "@/assets/WhatWeDo/Digital Engineering/Section3_CEA_Image2.jpg";
 import ceaImage3 from "@/assets/WhatWeDo/Digital Engineering/Section3_CEA_Image3.jpg";
-
+ 
 const TABS = [
     {
         code: "Sales Automation",
@@ -39,10 +39,10 @@ const TABS = [
         image: ceaImage2,
     },
 ];
-
+ 
 export default function SpecializedCXAutomationAnalytics() {
     const [active, setActive] = useState(0);
-
+ 
     return (
         <section className=" bg-[#f4f3f9] sm:mb-5 w-full py-10 sm:py-16">
             <motion.div
@@ -57,7 +57,7 @@ export default function SpecializedCXAutomationAnalytics() {
                     Automation, analytics, and loyalty tools for customer retention.
                 </p>
             </motion.div>
-
+ 
             <div className="bg-[#f4f3f9] w-full px-4 sm:px-[50px] py-8 sm:py-[42px]">
                 <div className="flex flex-col gap-2.5 sm:flex-row sm:gap-[37px] h-auto sm:h-[560px] max-w-[1180px] mx-auto">
                     {TABS.map((tab, i) => {
@@ -68,30 +68,22 @@ export default function SpecializedCXAutomationAnalytics() {
                                 type="button"
                                 onClick={() => setActive(i)}
                                 aria-expanded={isActive}
-                                className={`group relative w-full min-h-[56px] sm:h-full shrink-0 overflow-hidden text-left transition-[width] duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] sm:border-r sm:border-[#a4a7a5] ${isActive ? "bg-white sm:w-[573px]" : "bg-[#f4f3f9] sm:w-[78px]"
+                                className={`group relative w-full min-h-[56px] sm:h-full shrink-0 overflow-hidden text-left transition-[width] duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive ? "bg-white sm:w-[573px]" : "bg-[#f4f3f9] sm:w-[78px] sm:border-r sm:border-[#a4a7a5]"
                                     }`}
                             >
-                                {isActive && (
-                                    <div className="hidden sm:flex absolute left-0 top-0 bottom-0 w-[63px] items-center justify-center">
-                                        <span className="-rotate-90 whitespace-nowrap text-[#2d8ec5] text-2xl sm:text-[32px] font-normal">
-                                            {tab.code}
-                                        </span>
-                                    </div>
-                                )}
-
                                 {isActive ? (
                                     <motion.div
                                         key={tab.code}
                                         initial={{ opacity: 0, y: 12 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
-                                        className="flex h-full flex-col items-start gap-6 overflow-hidden p-6 sm:gap-[34px] sm:p-[40px] sm:pl-[83px] sm:pr-[36px]"
+                                        className="flex h-full flex-col items-start gap-6 overflow-hidden p-6 sm:gap-[34px] sm:p-[40px]"
                                     >
-                                        <p className="text-black text-xl sm:text-2xl font-light">{tab.title}</p>
                                         <div className="relative w-full h-[180px] sm:h-[243px] bg-black shrink-0">
                                             <Image src={tab.image} alt="" fill className="object-cover" />
                                         </div>
                                         <p className="text-[#6c6c6c] text-base sm:text-lg font-light">{tab.desc}</p>
+                                        <p className="text-[#2d8ec5] text-xl sm:text-2xl font-medium">{tab.title}</p>
                                     </motion.div>
                                 ) : (
                                     <div className="flex h-full w-full items-center justify-center px-2 transition-colors group-hover:bg-white/50">
@@ -108,3 +100,5 @@ export default function SpecializedCXAutomationAnalytics() {
         </section>
     );
 }
+ 
+ 
