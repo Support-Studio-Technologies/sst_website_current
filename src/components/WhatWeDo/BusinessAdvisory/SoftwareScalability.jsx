@@ -27,24 +27,15 @@ export default function SoftwareScalability() {
 
             </motion.div>
 
-            <div className="relative w-full aspect-[1280/487] min-h-[420px] sm:min-h-[200px] overflow-hidden">
-                <div className="absolute inset-y-0 right-0 w-full sm:w-[40.5%]">
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="relative w-full h-full"
-                    >
-                        <Image
-                            src={codeBg}
-                            alt="RESTful & GraphQL APIs"
-                            fill
-                            className="object-cover"
-                        />
-                    </motion.div>
-                </div>
-
+            {/* Flex row instead of two absolutely-positioned panels: the old markup gave the
+                text panel `sm:w-[65%] lg:w-[59.5%]` and the image `sm:w-[40.5%]` with no lg
+                override, so between sm and lg (65 + 40.5 = 105.5%) the two panels actually
+                overlapped by 5.5% — and below sm, both were `w-full inset-y-0`, so on mobile
+                the opaque white text panel sat directly on top of the image and hid it
+                completely. A flex row can't overlap its children by construction, and `flex-1`
+                on the image lets it fill whatever width the text column doesn't use at any
+                size, so there's nothing left to keep manually in sync across breakpoints. */}
+            <div className="w-full flex flex-col sm:flex-row sm:items-stretch gap-6 sm:gap-10 lg:gap-[60px] sm:px-[70px]">
                 <motion.div
                     initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -53,17 +44,14 @@ export default function SoftwareScalability() {
                         duration: 0.5,
                         ease: "easeInOut",
                     }}
-                    className="absolute inset-y-0 left-0 w-full sm:w-[65%] lg:w-[59.5%] bg-white flex items-center px-6 sm:px-10 lg:px-[53px] py-10"
+                    className="w-full sm:w-[59.5%] bg-white flex items-center px-6 py-10"
                 >
-                    <div className="flex flex-col gap-5 sm:gap-[34px] text-black max-w-full sm:w-full">
-
+                    <div className="flex flex-col gap-5 sm:gap-[34px] text-black w-full">
                         <p className="text-xl sm:text-[32px] font-normal">
                             Strategy That Becomes a Roadmap, Not a Deck
                         </p>
 
                         <p className="text-sm sm:text-lg font-light">
-
-
                             We translate business and digital strategy
                             into a sequenced transformation roadmap with clear ownership, dependencies, and
                             milestones, so it survives the handoff from strategy to delivery.
@@ -78,6 +66,25 @@ export default function SoftwareScalability() {
                             no matter how sound the design.
                         </p>
                     </div>
+                </motion.div>
+
+                {/* aspect-[4/3] gives the image a sensible height while it's stacked full-width
+                    on mobile; sm:aspect-auto cancels that once the row layout kicks in, letting
+                    it stretch (via sm:items-stretch on the parent) to match the text column's
+                    own content-driven height instead. */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="relative w-full sm:flex-1 aspect-[4/3] sm:aspect-auto"
+                >
+                    <Image
+                        src={codeBg}
+                        alt="RESTful & GraphQL APIs"
+                        fill
+                        className="object-cover"
+                    />
                 </motion.div>
             </div>
         </section>

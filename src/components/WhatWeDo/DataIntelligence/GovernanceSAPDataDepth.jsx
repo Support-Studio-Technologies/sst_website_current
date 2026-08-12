@@ -17,16 +17,12 @@ const ITEMS = [
         desc: "Deep knowledge of SAP data structures means faster, more accurate integration than generalist data teams deliver.",
     },
     {
-        title: "Cloud Connectivity",
-        desc: "Establish secure, high-throughput links between on-premise systems and cloud environments.",
+        title: " Built for Decision-Makers",
+        desc: "We design analytics around the decisions executives actually need to make, not around available data fields.",
     },
     {
-        title: "Data Residency & Compliance",
-        desc: "Keep sensitive workloads on-premise while extending flexibility to the cloud where it counts.",
-    },
-    {
-        title: "Unified Management",
-        desc: "Monitor, govern, and operate hybrid environments from a single control plane.",
+        title: " Governed at Scale",
+        desc: "Our data platforms carry governance and access controls that hold up as data volume and users grow",
     },
 ];
 
@@ -56,7 +52,7 @@ export default function GovernanceSAPDataDepth() {
     const goTo = (nextIndex, dir) => setPage([Math.max(0, Math.min(maxIndex, nextIndex)), dir]);
 
     return (
-        <section className="w-full bg-[#f2f2f2] py-10 sm:py-16 px-6 sm:px-[40px] flex flex-col items-center gap-10 sm:gap-[62px]">
+        <section className="w-full bg-[#F3F6F9] py-10 sm:py-16 px-6 sm:px-[50px] flex flex-col items-center gap-10 sm:gap-[62px]">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -70,12 +66,12 @@ export default function GovernanceSAPDataDepth() {
                 </p>
             </motion.div>
 
-            <div className="relative max-w-[1400px] w-full h-[520px] sm:h-[592px] overflow-hidden">
+            <div className="relative w-full h-[520px] sm:h-[592px] overflow-hidden">
                 <div className="absolute inset-y-0 left-0 w-full sm:w-1/2 bg-[#5c5c5c]">
                     <Image src={hybridPhoto} alt="" fill className="object-cover" />
                 </div>
 
-                <div className="absolute inset-x-4 sm:inset-x-auto sm:left-[35%] top-1/2 -translate-y-1/2 flex flex-col sm:flex-row gap-4 sm:gap-[21px]">
+                <div className="absolute inset-x-4 sm:inset-x-auto sm:right-0 top-1/2 -translate-y-1/2 flex flex-col sm:flex-row gap-4 sm:gap-[21px]">
                     <AnimatePresence mode="wait" custom={direction}>
                         <motion.div
                             key={index}
@@ -87,19 +83,19 @@ export default function GovernanceSAPDataDepth() {
                             transition={{ duration: 0.5, ease: "easeInOut" }}
                             className="flex flex-col sm:flex-row gap-4 sm:gap-[21px]"
                         >
-                            <div className="bg-[#0a2b3e] w-full sm:w-[380px] h-[280px] sm:h-[377px] p-6 sm:p-[27px] flex flex-col justify-between gap-4 text-white">
+                            <div className="bg-[#0A2B3E] w-full sm:w-[439px] h-[280px] sm:h-[377px] p-6 sm:p-[27px] flex flex-col justify-between gap-4 text-white">
                                 <div className="flex flex-col gap-4 sm:gap-6">
                                     <p className="text-xl sm:text-2xl font-medium">{active.title}</p>
-                                    <p className="text-[#ce9d9d] sm:mt-25 text-sm sm:text-base font-light leading-relaxed">
+                                    <p className="text-white sm:mt-25 text-sm sm:text-base font-light leading-relaxed">
                                         {active.desc}
                                     </p>
                                 </div>
 
                             </div>
-                            <div className="hidden sm:flex bg-white w-full sm:w-[380px] h-[280px] sm:h-[377px] p-6 sm:p-[27px] flex-col justify-between gap-4 text-black">
+                            <div className="hidden sm:flex bg-white w-full sm:w-[439px] h-[280px] sm:h-[377px] p-6 sm:p-[27px] flex-col justify-between gap-4 text-black">
                                 <div className="flex flex-col gap-4 sm:gap-6">
                                     <p className="text-xl sm:text-2xl font-medium">{next.title}</p>
-                                    <p className="text-[#6c6c6c] sm:mt-25 text-sm sm:text-base font-light leading-relaxed">
+                                    <p className="text-[#3D3D4E] sm:mt-25 text-sm sm:text-base font-light leading-relaxed">
                                         {next.desc}
                                     </p>
                                 </div>
@@ -147,3 +143,4 @@ export default function GovernanceSAPDataDepth() {
         </section>
     );
 }
+

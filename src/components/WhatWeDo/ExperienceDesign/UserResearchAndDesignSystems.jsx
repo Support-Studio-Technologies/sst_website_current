@@ -10,25 +10,25 @@ const TABS = [
         label: " UI/UX Design",
         title: " UI/UX Design",
         subtitle: "Make Smarter Technology Decisions",
-        desc: "Provide strategic IT consulting to optimize technology investments, improve governance, and modernize enterprise systems. Our assessments help identify operational bottlenecks, align systems, and establish a foundation for scalable growth."
+        desc: "We design interfaces that make even complex enterprise workflows intuitive to navigate."
     },
     {
         label: "Product Design",
         title: "Product Design",
         subtitle: "Optimize Your Software Portfolio",
-        desc: "Rationalize and modernize your application landscape to reduce complexity, lower operational costs, and support business agility. We design robust architectures that ensure seamless application communication and long-term sustainability."
+        desc: "Rationalize and modernize your application landscape to reduce complexity, lower operational costs, and support business agility."
     },
     {
         label: " User Research",
         title: " User Research",
         subtitle: "Build a Resilient Infrastructure",
-        desc: "Establish modern infrastructure, hardware, and network blueprints that support high performance, scalability, and security. We design tech stacks that adapt to changing business demands and future technological trends."
+        desc: "Establish modern infrastructure, hardware, and network blueprints that support high performance, scalability, and security."
     },
     {
         label: " Design Systems",
         title: " Design Systems",
         subtitle: "Bridge Strategy and Operations",
-        desc: "Align your business strategies with operational structures, capabilities, and key processes. We help define organizational structures and workflow paths that make strategy execution smoother and more predictable."
+        desc: "Align your business strategies with operational structures, capabilities, and key processes."
     },
 ];
 
@@ -62,8 +62,8 @@ export default function UserResearchAndDesignSystems() {
                 </p>
             </motion.div>
 
-            {/* Matches Figma "Frame 2147240196": justify-between, pl-14 (55px), gap 100px, h-[520px] */}
-            <div className="flex flex-col lg:flex-row lg:justify-between items-center gap-8 lg:gap-[100px] w-full lg:h-[520px] lg:pl-34">
+            {/* Matches Figma "Frame 2147240196": justify-between, pl-14 (55px), gap 100px — row height now follows the image's own aspect ratio instead of a fixed px cap */}
+            <div className="flex flex-col lg:flex-row lg:justify-between items-center gap-8 lg:gap-[100px] w-full lg:pl-[50px]">
                 {/* Tabs column: Figma "size-96" — w-96 h-96, items packed tight with justify-between */}
                 <div className="flex flex-col justify-between w-full lg:w-96 h-auto lg:h-96 gap-2 lg:gap-0 shrink-0">
                     {TABS.map((tab, index) => (
@@ -79,17 +79,17 @@ export default function UserResearchAndDesignSystems() {
                             }}
                             onClick={() => setActive(index)}
                             className={`text-left border-l-[3px] flex items-center h-12 px-3.5 transition-colors ${index === active
-                                    ? "border-[#2d8ec5] text-black"
-                                    : "border-[#6c6c6c] text-[#6c6c6c] opacity-70"
+                                ? "border-[#2d8ec5] text-black"
+                                : "border-[#6c6c6c] text-[#6c6c6c] opacity-70"
                                 }`}
                         >
-                            <span className="text-base sm:text-lg font-light">{tab.label}</span>
+                            <span className="text-base sm:text-2xl font-light">{tab.label}</span>
                         </button>
                     ))}
                 </div>
 
-                {/* Image panel: Figma spec is a fixed 687x519 box, not a stretched aspect ratio */}
-                <div className="relative w-full lg:w-[687px] aspect-[687/581] lg:aspect-auto lg:h-[519px] max-w-[687px] mx-auto lg:mx-0 overflow-hidden">
+                {/* Image panel: ~55% of the viewport at desktop (Figma's 687px was 55% of its own ~1249px reference frame, not a literal cap) */}
+                <div className="relative w-full lg:w-[50vw] lg:max-w-[950px] aspect-[687/581] mx-auto lg:mx-0 overflow-hidden">
                     <Image src={architecturePhoto} alt="" fill className="object-cover" />
                     {/* Clear at top, solid black at bottom — matches Figma's from-black/0 to-black */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
@@ -100,11 +100,9 @@ export default function UserResearchAndDesignSystems() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.3 }}
-                            className="absolute left-6 sm:left-[40px] right-6 sm:right-[40px] bottom-6 sm:bottom-[40px] text-white flex flex-col gap-2"
+                            className="absolute left-[8%] sm:left-[16%] right-[8%] sm:right-auto top-[38%] sm:top-[45%] sm:w-[61%] text-[#e4e4e4]"
                         >
-                            <p className="text-white text-2xl sm:text-3xl font-medium">{activeTab.title}</p>
-                            <p className="text-white text-xl sm:text-2xl font-normal">{activeTab.subtitle}</p>
-                            <p className="text-white/95 text-sm sm:text-lg font-light leading-relaxed max-w-[580px]">
+                            <p className="text-lg sm:text-2xl font-light leading-[1.4] sm:leading-[41px]">
                                 {activeTab.desc}
                             </p>
                         </motion.div>
@@ -114,3 +112,4 @@ export default function UserResearchAndDesignSystems() {
         </section>
     );
 }
+

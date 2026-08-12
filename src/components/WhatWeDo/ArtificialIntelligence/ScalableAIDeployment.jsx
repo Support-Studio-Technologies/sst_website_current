@@ -6,10 +6,10 @@ import integrationImage1 from "@/assets/WhatWeDo/Artificial Intelligence/Section
 import integrationImage2 from "@/assets/WhatWeDo/Artificial Intelligence/Section8_AIIntegration_Image2.jpg";
 
 const STATS = [
-    { value: "99.9%", label: "Availability" },
-    { value: "< 2 Sec", label: "Average Response Time" },
-    { value: "24×7", label: "Application Monitoring" },
-    { value: "Zero", label: "Downtime Deployment Strategy" },
+    { value: "50+", label: "AI Solutions Delivered" },
+    { value: "40%", label: "Faster Decision Cycles" },
+    { value: "60%+", label: "Processes Automated" },
+    { value: "99.9%", label: "AI Operations Availability" },
 ];
 
 export default function ScalableAIDeployment() {
@@ -31,8 +31,7 @@ export default function ScalableAIDeployment() {
                     </h2>
 
                     <p className="text-[#515151] text-sm sm:text-base font-light">
-                        Detailed look at moving AI from proof-of-concept to
-                        production and agent-led automation.
+                        Detailed look at moving AI from proof-of-concept to production and agent-led automation.
                     </p>
                 </motion.div>
 
@@ -48,12 +47,12 @@ export default function ScalableAIDeployment() {
                         className="flex flex-col lg:flex-row items-center gap-8 lg:gap-[100px]"
                     >
                         <div className="flex flex-col gap-5 w-full">
-                            <p className="text-black text-lg sm:text-2xl font-light">
+                            <p className="text-[#10161D] text-lg sm:text-2xl font-light">
                                 From Pilot to Production
                             </p>
 
-                            <p className="text-[#4a5568] text-base sm:text-lg font-light">
-                                Integrate AI capabilities seamlessly into existing business applications, workflows, and enterprise platforms to maximize business impact.
+                            <p className="text-[#4A5568] text-base sm:text-lg font-light">
+                                Most AI initiatives stall between proof of concept and enterprise rollout. We close that gap with implementation discipline: data readiness, integration architecture, and change management planned from the start, so pilots become platforms, not shelf ware.
                             </p>
 
 
@@ -87,12 +86,12 @@ export default function ScalableAIDeployment() {
                         </div>
 
                         <div className="flex flex-col gap-5 w-full">
-                            <p className="text-black text-lg sm:text-2xl font-light">
+                            <p className="text-[#10161D] text-lg sm:text-2xl font-light">
                                 AI Agents That Work Inside Your Processes
                             </p>
 
-                            <p className="text-[#4a5568] text-base sm:text-lg font-light">
-                                We design agents around real business workflows: approvals, exceptions, reconciliations, service requests, with clear boundaries for what they execute autonomously and what they escalate to your teams
+                            <p className="text-[#4A5568] text-base sm:text-lg font-light">
+                                We design agents around real business workflows: approvals, exceptions, reconciliations, service requests, with clear boundaries for what they execute autonomously and what they escalate to your teams.
                             </p>
                         </div>
                     </motion.div>

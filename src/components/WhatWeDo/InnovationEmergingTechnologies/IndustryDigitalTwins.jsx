@@ -40,7 +40,7 @@ export default function IndustryDigitalTwins() {
                 </p>
             </motion.div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 border border-black/70 w-full  mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-4  w-full  mx-auto">
                 {COLUMNS.map((col, index) => (
                     <motion.div
                         key={col.title}
@@ -48,7 +48,18 @@ export default function IndustryDigitalTwins() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
-                        className="group relative border border-black/70  px-6 py-10 sm:py-14 min-h-[380px] sm:min-h-[550px] overflow-hidden text-black transition-colors duration-300 hover:text-white"
+                        className={`group relative px-6 py-10 sm:py-14 min-h-[380px] sm:min-h-[550px] overflow-hidden text-black transition-colors duration-300 hover:text-white
+                                /* Mobile */
+                                border border-black /70 
+                                border-l-0
+                                ${index > 1 ? "border-t-0" : ""}
+
+                                /* Desktop */
+                                lg:border-t
+                                lg:border-b
+                                lg:border-r
+                                lg:border-l-0
+                                ${index === 3 ? "lg:border-r-0" : ""}`}
                     >
                         <div
                             aria-hidden
@@ -70,6 +81,6 @@ export default function IndustryDigitalTwins() {
                     </motion.div>
                 ))}
             </div>
-        </section>
+        </section >
     );
 }

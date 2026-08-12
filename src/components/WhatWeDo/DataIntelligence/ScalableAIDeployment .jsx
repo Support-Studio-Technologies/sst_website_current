@@ -8,14 +8,14 @@ import integrationImage2 from "@/assets/WhatWeDo/Artificial Intelligence/Section
 
 export default function ScalableAIDeployment() {
     return (
-        <section className="w-full py-10 sm:py-16 px-6 sm:px-[100px]">
+        <section className="w-full py-10 sm:py-16 px-6 sm:px-[85px]">
             <div className="flex flex-col gap-10 sm:gap-[70px] max-w-screen mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col items-center gap-4 max-w-[760px] mx-auto text-center"
+                    className="flex flex-col items-center gap-4 max-w-[560px] mx-auto text-center"
                 >
                     <h2 className="text-black text-2xl sm:text-[28px] font-medium">
                         Scalable AI Deployment &amp; Operational Workflows
@@ -30,7 +30,7 @@ export default function ScalableAIDeployment() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col lg:flex-row items-center gap-8 lg:gap-[23px]"
+                    className="flex flex-col lg:flex-row items-center gap-8 lg:gap-[100px]"
                 >
                     <div className="flex flex-col gap-5 w-full">
                         <p className="text-black text-lg sm:text-2xl font-light">From Pilot to Production:</p>
@@ -49,7 +49,7 @@ export default function ScalableAIDeployment() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="flex flex-col lg:flex-row items-center gap-8 lg:gap-[23px]"
+                        className="flex flex-col lg:flex-row items-center gap-8 lg:gap-[100px]"
                     >
                         <div className="relative w-full lg:w-[560px] h-[220px] lg:h-[297px] shrink-0 bg-[#565656]">
                             <Image src={integrationImage2} alt="" fill className="object-cover" />

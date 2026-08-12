@@ -8,10 +8,10 @@ import card3 from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/card3.svg";
 import card4 from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/card4.svg";
 
 const CARDS = [
-    { image: card1, title: "Identity & Access Management", desc: "Helping businesses transform with innovative SAP solutions." },
+    { image: card1, title: "Identity & Access Management", desc: "We design access controls that enforce least privilege across SAP and enterprise systems, including segregation of duties." },
     { image: card2, title: "Security Operations", desc: "We monitor, detect, and respond to threats continuously, not just during scheduled reviews." },
-    { image: card3, title: "Governance, Risk & Compliance", desc: "Helping businesses transform with innovative SAP solutions." },
-    { image: card4, title: " Zero Trust Architecture", desc: "Helping businesses transform with innovative SAP solutions." },
+    { image: card3, title: "Governance, Risk & Compliance", desc: "We build GRC programs that meet regional regulatory requirements and give leadership real risk visibility." },
+    { image: card4, title: " Zero Trust Architecture", desc: "We design access models that verify every request, so trust is never assumed by network location." },
 ];
 
 const containerVariants = {
@@ -26,7 +26,7 @@ const itemVariants = {
 
 export default function IdentityManagementContinuousOperations() {
     return (
-        <div className="w-full h-full flex flex-col items-center justify-center gap-10 sm:gap-[82px] px-6 sm:px-[70px] py-10 sm:py-[40px] pb-0">
+        <div className="w-full h-full flex flex-col items-center justify-center gap-10 sm:gap-[82px] px-6 sm:px-[70px] py-10 sm:py-[40px] pb-0c border-y-2 border-[#cac9c9]/70">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

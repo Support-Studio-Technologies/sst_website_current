@@ -68,6 +68,15 @@ export default function CloudMigration() {
                 per breakpoint. */}
             <div className="relative hidden sm:block w-full aspect-[1280/682] min-h-[460px] overflow-hidden">
                 <Image src={migrationBg} alt="" fill className="object-cover" priority />
+                <div className="absolute top-6 sm:top-10 left-1/2 -translate-x-1/2 text-center text-white z-20 px-4 sm:px-0">
+                    <h2 className="text-xl sm:text-2xl font-medium">
+                        Modern Infrastructure & Security Operations
+                    </h2>
+
+                    <p className="mt-2 sm:mt-3 max-w-3xl text-sm sm:text-lg text-gray-200">
+                        Extended technical services including DevSecOps, automation, and recovery
+                    </p>
+                </div>
 
                 {/* Card row sits at the same top/bottom offsets as the Figma frame
                     (244px / 138px of a 682px-tall frame => 35.8% / 20.2%), full-bleed
@@ -93,7 +102,7 @@ export default function CloudMigration() {
                                     onMouseEnter={() => setHovered(index)}
                                     onFocus={() => setHovered(index)}
                                     onBlur={() => setHovered(null)}
-                                    className={`relative h-full w-full flex flex-col items-center justify-center text-center gap-3 px-4 lg:px-6 overflow-hidden transition-colors duration-300 ${isActive ? "bg-[#1C5F85]" : "bg-white"
+                                    className={`relative h-full w-full flex flex-col items-center justify-center text-center gap-3 px-4 lg:px-8 overflow-hidden transition-colors duration-300 ${isActive ? "bg-[#2D8EC5]/80" : "bg-white"
                                         }`}
                                 >
                                     <p
@@ -121,3 +130,4 @@ export default function CloudMigration() {
         </section>
     );
 }
+

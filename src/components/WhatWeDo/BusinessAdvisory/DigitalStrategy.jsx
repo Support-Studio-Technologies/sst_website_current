@@ -11,7 +11,7 @@ const CARDS = [
     {
         image: card1,
         title: "Business Strategy",
-        desc: "Benchmark your current digital capabilities against industry standards to identify gaps and prioritize investment.",
+        desc: "We help leadership define the strategic direction that technology and operations investment should follow.",
     },
     {
         image: card2,
@@ -21,12 +21,12 @@ const CARDS = [
     {
         image: card3,
         title: "Transformation Roadmap",
-        desc: "Design digital touchpoints that meet customers where they are and deepen engagement across every channel.",
+        desc: "We translate strategy into a sequenced, resourced roadmap that leadership can actually execute against.",
     },
     {
         image: card4,
         title: "Business Process Consulting",
-        desc: "Sequence technology investments against business priorities so every initiative compounds toward long-term goals.",
+        desc: "We assess how your business actually operates and identify where process change delivers real value.",
     },
 ];
 
@@ -42,7 +42,7 @@ const itemVariants = {
 
 export default function DigitalStrategy() {
     return (
-        <div className="w-full h-full flex flex-col items-center justify-center gap-10 sm:gap-[82px] px-6 sm:px-[70px] py-10 sm:py-[40px] pb-0">
+        <div className="w-full h-full bg-[#F3F6F9] flex flex-col items-center justify-center gap-10 sm:gap-[82px] px-6 sm:px-[70px] py-10 sm:py-[40px] pb-0">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

@@ -108,24 +108,46 @@ export default function CoreEngineeringPillars() {
     };
 
     // Pointer-drag-to-scroll for desktop (mouse) users; touch keeps native swipe.
+    //
+    // Scroll-snap and a manually-driven scrollLeft fight each other while the
+    // drag is in progress (the browser keeps tugging the track back toward
+    // the nearest snap point on every write), which is what made the drag
+    // feel sticky/juddery. So snapping is switched off for the duration of
+    // the drag and restored on release — settle() (via the existing scroll
+    // debounce) then eases the track smoothly into the nearest slide once
+    // snapping is back on. Writes are also batched to one per animation
+    // frame so a high-poll-rate mouse can't queue up redundant layout work.
+    const rafId = useRef(null);
+
     const onPointerDown = (e) => {
         if (e.pointerType !== "mouse") return;
         const el = trackRef.current;
         if (!el) return;
         dragState.current = { startX: e.clientX, startScroll: el.scrollLeft };
+        el.style.scrollSnapType = "none";
         el.setPointerCapture(e.pointerId);
     };
 
     const onPointerMove = (e) => {
         if (e.pointerType !== "mouse" || !dragState.current) return;
-        const el = trackRef.current;
-        if (!el) return;
-        el.scrollLeft = dragState.current.startScroll - (e.clientX - dragState.current.startX);
+        const clientX = e.clientX;
+        if (rafId.current) cancelAnimationFrame(rafId.current);
+        rafId.current = requestAnimationFrame(() => {
+            const el = trackRef.current;
+            if (!el || !dragState.current) return;
+            el.scrollLeft = dragState.current.startScroll - (clientX - dragState.current.startX);
+        });
     };
 
     const endDrag = (e) => {
         if (e.pointerType !== "mouse") return;
+        if (rafId.current) {
+            cancelAnimationFrame(rafId.current);
+            rafId.current = null;
+        }
         dragState.current = null;
+        const el = trackRef.current;
+        if (el) el.style.scrollSnapType = "x mandatory";
     };
 
     return (
@@ -191,3 +213,4 @@ export default function CoreEngineeringPillars() {
         </section>
     );
 }
+

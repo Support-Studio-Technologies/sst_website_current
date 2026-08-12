@@ -22,7 +22,7 @@ export default function DesignToolsTechnologies() {
     const marqueeLogos = [...LOGOS, ...LOGOS];
 
     return (
-        <section className="relative w-full overflow-hidden py-10 sm:py-16 px-6">
+        <section className="relative w-full bg-[#F3F6F9] overflow-hidden py-10 sm:py-16 px-6">
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

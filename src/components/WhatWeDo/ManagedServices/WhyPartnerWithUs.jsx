@@ -58,8 +58,8 @@ export default function WhyPartnerWithUs() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                    className="relative flex w-full flex-col justify-center bg-white px-6 py-10 shadow-[2px_2px_46px_rgba(0,0,0,0.15)] sm:px-12 sm:py-14 lg:h-[501px] lg:max-w-[656px] lg:flex-1 lg:self-center lg:px-[93px] lg:py-0"
-                >
+                    className="relative w-full lg:max-w-[800px] self-center min-h-[400px] lg:h-[480px] bg-white shadow-[2px_2px_46px_rgba(0,0,0,0.15)] flex flex-col justify-center px-6 sm:px-12 py-12" >
+
                     <ul className="list-disc pl-5 text-lg font-light leading-[48px] text-black sm:pl-6">
                         {BENEFITS.map((benefit) => (
                             <li key={benefit}>{benefit}</li>

@@ -48,13 +48,12 @@ export default function AdvancedMachineLearning() {
                 className="flex flex-col items-center gap-4 max-w-[780px] mx-auto text-center mb-10 sm:mb-[50px] sm:px-[50px]"
             >
                 <h2 className="text-black text-2xl font-medium">Advanced Machine Learning &amp; Governance</h2>
-                <p className="text-[#6c6c6c] text-base sm:text-lg font-light">Targeted AI and machine learning execution services</p>
+                <p className="text-[#4A5568] text-base sm:text-lg font-light">Targeted AI and machine learning execution services</p>
             </motion.div>
 
             <div className="flex flex-col lg:flex-row max-w-screen mx-auto lg:h-[466px] pt-0 md:pt-10">
                 <div className="relative w-full h-[220px] lg:h-full lg:w-[35%] shrink-0 overflow-hidden">
-                    <Image src={mainImage} alt="" fill className="object-cover" />
-                    <div className="absolute inset-0 bg-[#003756] mix-blend-hue" />
+
                     <Image src={sideImage} alt="" fill className="object-cover opacity-60" />
                 </div>
 
@@ -66,12 +65,12 @@ export default function AdvancedMachineLearning() {
                                 key={item.title}
                                 type="button"
                                 onClick={() => setActive(index)}
-                                className="relative text-left flex flex-col justify-center gap-3 px-6 sm:px-8 py-6 sm:py-0 sm:h-1/4 border-b border-[#cac9c9] last:border-b-0 overflow-hidden bg-[#fdfcfc]"
+                                className="relative text-left flex flex-col justify-center gap-3 px-6 sm:px-8 py-6 sm:py-0 sm:h-1/4 border-b border-[#cac9c9] last:border-b-0 overflow-hidden bg-[#F8FAFC]"
                             >
                                 {isActive && (
                                     <motion.div
                                         layoutId="ml-active-highlight"
-                                        className="absolute inset-0 bg-[#ebeeef] border-l-[12px] border-l-[#015788]"
+                                        className="absolute inset-0 bg-[#E8EBEF] border-l-[12px] border-l-[#1C5F85]"
                                         transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
                                     />
                                 )}
@@ -84,7 +83,7 @@ export default function AdvancedMachineLearning() {
                                                 animate={{ opacity: 1, height: "auto" }}
                                                 exit={{ opacity: 0, height: 0 }}
                                                 transition={{ duration: 0.35, ease: "easeInOut" }}
-                                                className="overflow-hidden text-black text-base sm:text-xl font-normal"
+                                                className="overflow-hidden text-[#4A5568] text-base sm:text-xl font-normal"
                                             >
                                                 {item.desc}
                                             </motion.p>

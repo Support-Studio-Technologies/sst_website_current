@@ -3,32 +3,28 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import governanceImage from "@/assets/WhatWeDo/Data Inteligent/Section10_Bg.svg";
+import laptopPhoto from "@/assets/WhatWeDo/Digital Engineering/EnterpriseSoftware_Laptop_Photo.jpg";
 
 const TABS = [
     {
         label: "Enterprise Application Development",
         title: "Enterprise Application Development",
-        subtitle: "Ensure Accuracy You Can Trust",
-        desc: "Implement automated profiling and validation rules that catch inconsistencies, duplicates, and formatting errors before they reach your reports. We help you build a single source of truth for confident decision-making."
+        desc: "We build custom applications engineered to your business processes, not forced to fit a generic template."
     },
     {
         label: "Application Modernization",
         title: "Application Modernization",
-        subtitle: "Understand Your Data's Context",
-        desc: "Capture business definitions, technical schemas, and usage context in a centralized repository. Our metadata frameworks make it easy for teams to find, understand, and trust the data they work with."
+        desc: "We modernize legacy applications into scalable, cloud-native systems without disrupting the business processes that depend on them."
     },
     {
         label: "System Integration",
         title: "System Integration",
-        subtitle: "Protect Sensitive Information",
-        desc: "Design privacy controls and consent management processes that align with global regulations. We help you classify sensitive data and apply the right safeguards without slowing down your teams."
+        desc: "We connect disparate systems and platforms into a unified architecture, so data and processes flow cleanly across your enterprise."
     },
     {
         label: "Platform Engineering",
         title: "Platform Engineering",
-        subtitle: "Trace Data From Source to Insight",
-        desc: "Build searchable catalogs and visual lineage maps that show exactly where data originates, how it transforms, and where it's consumed. Gain full transparency across your data pipelines."
+        desc: "We build the internal platforms and tooling that let engineering teams ship faster, safer, and with less operational overhead."
     },
 ];
 
@@ -47,7 +43,7 @@ export default function EnterpriseSoftware() {
     const activeTab = TABS[active];
 
     return (
-        <section className="w-full py-10 sm:py-16 px-6 sm:px-[50px] flex flex-col items-center gap-8 sm:gap-[45px]">
+        <section className="w-full py-10 sm:py-16 px-6 sm:px-0 flex flex-col items-center gap-8 sm:gap-[45px]">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -61,8 +57,9 @@ export default function EnterpriseSoftware() {
                 </p>
             </motion.div>
 
-            <div className="flex flex-col lg:flex-row lg:justify-between items-center lg:items-center gap-8 lg:gap-3.5 w-full lg:py-[60px] lg:px-[57px]">
-                <div className="flex flex-col justify-between w-full lg:w-96 h-auto lg:h-[553px] shrink-0">
+            <div className="flex flex-col lg:flex-row lg:justify-between items-center gap-8 lg:gap-[100px] w-full lg:pl-[50px]">
+                {/* Tabs column: dimensions match User Research & Design Systems */}
+                <div className="flex flex-col justify-between w-full lg:w-96 h-auto lg:h-96 gap-2 lg:gap-0 shrink-0">
                     {TABS.map((tab, index) => (
                         <button
                             key={tab.label}
@@ -85,27 +82,31 @@ export default function EnterpriseSoftware() {
                     ))}
                 </div>
 
-                <div className="relative flex-1 w-full max-w-[800px] h-[500px] lg:h-[581px] mx-auto lg:mx-0 overflow-visible">
-                    {/* Full Image */}
-                    <div className="relative w-full h-full overflow-hidden">
-                        <Image src={governanceImage} alt="" fill className="object-cover" />
+                {/* Image panel: Figma's own spec for this section is wider/shorter (798:446) than User Research's, and runs flush to the screen's right edge */}
+                <div className="relative w-full lg:flex-1 aspect-[798/446] mx-auto lg:mx-0 overflow-hidden">
+                    <Image src={laptopPhoto} alt="" fill className="object-cover" />
+                    {/* Clear at top, dark at bottom — for white text legibility, matches Figma */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
-
-                        {/* Overlapping Text Card */}
-                        <AnimatePresence mode="wait">
-                            <motion.div key={active} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.35, ease: "easeOut" }}
-                                className="absolute left-6 sm:left-[40px] right-6 sm:right-[40px] bottom-6 sm:bottom-[40px] text-white flex flex-col gap-2 bg-white p-6 sm:p-8 lg:p-10 shadow-xl z-10 " >
-                                <div className="flex flex-col gap-2">
-                                    <p className="text-black text-2xl sm:text-3xl font-medium"> {activeTab.title} </p>
-                                    <p className="text-black text-xl sm:text-2xl font-normal"> {activeTab.subtitle} </p>
-                                    <p className="text-[#3d3d4e] text-sm sm:text-lg font-light leading-relaxed"> {activeTab.desc} </p>
-                                </div>
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={active}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.3 }}
+                            className="absolute left-6 right-6 sm:left-[55px] sm:right-auto bottom-6 sm:bottom-[46px] sm:w-[462px] text-white flex flex-col gap-3"
+                        >
+                            <p className="text-2xl font-medium">{activeTab.title}</p>
+                            <p className="text-white/90 text-base sm:text-lg font-light leading-relaxed">
+                                {activeTab.desc}
+                            </p>
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
             </div>
         </section>
     );
 }
+
 

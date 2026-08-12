@@ -41,7 +41,7 @@ export default function WhyPartnerWithUsMetrix() {
 
                     {/* Middle Line */}
                     <div className="hidden lg:flex justify-center px-10">
-                        <div className="w-0.5 h-40 bg-gradient-to-b from-[#58d2ff] via-[#2d8ec5] to-[#1e6ea1]" />
+                        <div className="w-0.5 h-60 bg-[#2D8EC5]" />
                     </div>
 
                     {/* Right */}
@@ -62,7 +62,7 @@ export default function WhyPartnerWithUsMetrix() {
             </div>
 
 
-            <div className="bg-[#EDEDED] w-full py-10 sm:py-[71px] px-6 sm:px-[86px] flex flex-col items-center gap-10 sm:gap-[63px]">
+            <div className="bg-[#F3F6F9] w-full py-10 sm:py-[71px] px-6 sm:px-[86px] flex flex-col items-center gap-10 sm:gap-[63px]">
                 <motion.h3
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +70,7 @@ export default function WhyPartnerWithUsMetrix() {
                     transition={{ duration: 0.5, ease: "easeOut" }}
                     className="text-[#2d8ec5] text-2xl font-medium text-center"
                 >
-                    Metrix
+
                 </motion.h3>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-[47px] w-full max-w-[1076px]">
                     {STATS.map((stat, index) => (
@@ -82,8 +82,8 @@ export default function WhyPartnerWithUsMetrix() {
                             transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
                             className="bg-[#FFFFFF] aspect-[233/161] flex flex-col items-center justify-center gap-2"
                         >
-                            <p className="text-[#2d8ec5] text-xl sm:text-2xl font-medium">{stat.value}</p>
-                            <p className="text-black text-sm sm:text-lg font-light text-center px-2">{stat.label}</p>
+                            <p className="text-[#10161D] text-xl sm:text-2xl font-medium">{stat.value}</p>
+                            <p className="text-[#10161D] text-sm sm:text-lg font-light text-center px-2">{stat.label}</p>
                         </motion.div>
                     ))}
                 </div>

@@ -25,7 +25,7 @@ export default function SalesforceConsulting() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="relative w-full lg:max-w-[800px] self-center bg-white shadow-[2px_2px_46px_rgba(0,0,0,0.15)] flex flex-col justify-center px-6 sm:px-12 lg:px-16 py-12"
+                    className="relative w-full lg:max-w-[800px] self-center min-h-[400px] lg:h-[480px] bg-white shadow-[2px_2px_46px_rgba(0,0,0,0.15)] flex flex-col justify-center px-6 sm:px-12 py-12"
                 >
 
                     <ul className="list-disc marker:text-[#7f7f7f] pl-6 space-y-3 text-[#3D3D4E] text-base sm:text-lg font-light">
@@ -52,7 +52,7 @@ export default function SalesforceConsulting() {
 
                     <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/40" />
 
-                    <div className="absolute left-6 right-6 sm:left-[35px] sm:right-[35px] top-[55%] -translate-y-1/2 flex flex-col gap-4 max-w-[480px]">
+                    <div className="absolute inset-x-6 bottom-6 flex flex-col gap-3 sm:bottom-8 lg:inset-x-auto lg:bottom-[24%] lg:left-[20.8%] lg:right-[14.5%]">
                         <h2 className="text-white text-2xl sm:text-3xl font-medium">
                             Salesforce Consulting
                         </h2>

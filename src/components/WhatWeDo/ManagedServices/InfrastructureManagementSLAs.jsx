@@ -50,7 +50,7 @@ function CompanionBlock({ item }) {
         <div className="flex w-full max-w-[480px] items-center gap-4 px-2 sm:gap-5 sm:px-6 lg:max-w-[504px] lg:flex-1 lg:px-6">
             <div className="w-[4px] shrink-0 self-stretch bg-[#808a99] sm:w-[8px]" />
             <div>
-                <p className="text-lg leading-snug text-[#808a99] sm:text-2xl">{item.companionTitle}</p>
+                {/* <p className="text-lg leading-snug text-[#808a99] sm:text-2xl">{item.companionTitle}</p> */}
                 <p className="mt-1 text-lg leading-snug text-[#808a99] sm:text-2xl">{item.companionDesc}</p>
             </div>
         </div>
@@ -63,7 +63,7 @@ export default function InfrastructureManagementSLAs() {
             {/* Figma pads this whole section 40px on every side (not just
                 left/right), so padding lives on one wrapper here rather than
                 split across mismatched horizontal/vertical padding values. */}
-            <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-12 p-6 sm:gap-16 sm:p-10 lg:gap-[88px]">
+            <div className="mx-auto flex w-full sm:px-[70px] flex-col items-center gap-12 p-6 sm:gap-16 sm:p-10 lg:gap-[88px]">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export default function InfrastructureManagementSLAs() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.3 }}
                                 transition={{ duration: 0.5, ease: "easeOut" }}
-                                className={`flex flex-col items-center gap-8 lg:gap-8 ${isEven ? "lg:flex-row-reverse" : "lg:flex-row"
+                                className={`flex flex-col items-center gap-8 lg:gap-60 ${isEven ? "lg:flex-row-reverse" : "lg:flex-row"
                                     }`}
                             >
                                 <CardBlock item={item} />

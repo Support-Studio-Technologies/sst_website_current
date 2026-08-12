@@ -41,8 +41,8 @@ export default function OurAIServices() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col items-center gap-4 max-w-[767px] mx-auto text-center mb-10 sm:mb-[50px]"
             >
-                <h2 className="text-black text-2xl font-medium">Our Artificial Intelligence Services</h2>
-                <p className="text-black text-base sm:text-lg font-light">Create Smarter Content, Code, and Business Solutions</p>
+                <h2 className="text-[#10161D] text-2xl font-medium">Our Artificial Intelligence Services</h2>
+                <p className="text-[#4A5568] text-base sm:text-lg font-light">Core areas where we deploy AI to transform enterprise workflow</p>
 
             </motion.div>
 

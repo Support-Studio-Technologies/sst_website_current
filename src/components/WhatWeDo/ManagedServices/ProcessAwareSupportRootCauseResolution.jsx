@@ -13,7 +13,7 @@ const TIERS = [
     {
         n: "L2",
         title: "From Keeping the Lights On to Continuous Improvement",
-        desc: "We don’t just fix what breaks — we analyze recurring issues, optimize configurations, and implement preventive measures that reduce tickets by 20–30% over time",
+        desc: "We treat managed services as an ongoing opportunity to tune performance and reduce recurring issues, not a static support contract that only reacts to tickets.",
     },
 ];
 
@@ -44,7 +44,7 @@ export default function ProcessAwareSupportRootCauseResolution() {
                     >
                         Process-Aware Support &amp; Root-Cause Resolution
                     </motion.h2>
-                    <p className="mt-[21px] text-lg font-light leading-snug text-white">
+                    <p className="mt-[21px] text-lg font-light leading-snug text-black">
                         Moving beyond ticket resolution to continuous system improvement
                     </p>
                 </div>
@@ -53,7 +53,7 @@ export default function ProcessAwareSupportRootCauseResolution() {
                     61.8%, matching the Figma proportions), so it scales with the
                     image instead of being sized off the cards' content. */}
                 <div className="absolute inset-x-0 top-[29.3%] flex h-[61.8%] items-center justify-center bg-white/[0.94]">
-                    <div className="grid w-[94%] max-w-[1204px] grid-cols-2 gap-[3.7%]">
+                    <div className="grid w-full sm:px-[70px] grid-cols-2 gap-[3.7%]">
                         {TIERS.map((tier, index) => (
                             <motion.div
                                 key={tier.n}
@@ -66,10 +66,10 @@ export default function ProcessAwareSupportRootCauseResolution() {
                                 }}
                                 className="aspect-[580/313] border border-black px-[clamp(1rem,2.4vw,2.5rem)] py-[clamp(1.25rem,2.6vw,2.5rem)]"
                             >
-                                <h3 className="text-2xl font-normal leading-snug text-black">
+                                <h3 className="text-2xl sm:w-[90%] font-normal leading-snug text-black">
                                     {tier.title}
                                 </h3>
-                                <p className="mt-8 text-lg font-light leading-snug text-black">
+                                <p className="mt-8 text-lg sm:w-[90%] font-light leading-snug text-black">
                                     {tier.desc}
                                 </p>
                             </motion.div>
