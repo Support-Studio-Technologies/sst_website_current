@@ -131,7 +131,7 @@ const OurManagedCloudServices = () => {
                     transition={{ duration: 0.6 }}
                     className="max-w-2xl text-center"
                 >
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black mb-4">
+                    <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-medium text-black mb-4">
                         How We Manage Your Cloud
                     </h2>
                     <p className="text-lg sm:text-xl font-light text-[#515151]">

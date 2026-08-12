@@ -3,17 +3,17 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
-import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
+import ReadyToTransform from "@/components/WhatWeDo/ReadyToTransform";
 
 import Hero from "@/components/WhatWeDo/ArtificialIntelligence/Hero";
 import HeroText from "@/components/WhatWeDo/ArtificialIntelligence/HeroText";
 import WhyAIMatters from "@/components/WhatWeDo/ArtificialIntelligence/WhyAIMatters";
 import OurAIServices from "@/components/WhatWeDo/ArtificialIntelligence/OurAIServices";
-import MachineLearning from "@/components/WhatWeDo/ArtificialIntelligence/MachineLearning";
+import AdvancedMachineLearning from "@/components/WhatWeDo/ArtificialIntelligence/AdvancedMachineLearning";
 import IntelligentAssistantsCards from "@/components/WhatWeDo/ArtificialIntelligence/IntelligentAssistantsCards";
 import AIStrategy from "@/components/WhatWeDo/ArtificialIntelligence/AIStrategy";
 import IntelligentAssistantsBanner from "@/components/WhatWeDo/ArtificialIntelligence/IntelligentAssistantsBanner";
-import AIIntegration from "@/components/WhatWeDo/ArtificialIntelligence/AIIntegration";
+import ScalableAIDeployment from "@/components/WhatWeDo/ArtificialIntelligence/ScalableAIDeployment";
 import PredictiveIntelligence from "@/components/WhatWeDo/ArtificialIntelligence/PredictiveIntelligence";
 import ConversationalAI from "@/components/WhatWeDo/ArtificialIntelligence/ConversationalAI";
 import TechnologyStack from "@/components/WhatWeDo/ArtificialIntelligence/TechnologyStack";
@@ -39,7 +39,7 @@ const page = () => {
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
                 {/* <WhyAIMatters /> */}
                 <OurAIServices />
-                <AIIntegration />
+                <ScalableAIDeployment />
             </div>
             {/* <IntelligentAssistantsCards /> */}
             {/* <AIStrategy /> */}
@@ -48,11 +48,14 @@ const page = () => {
             <TechnologyStack />
             {/* <AIGovernance /> */}
             {/* <AILifecycle /> */}
-            <MachineLearning />
+            <AdvancedMachineLearning />
             {/* <IntelligentAssistantsBanner /> */}
             <WhyPartnerWithUs />
             {/* <FutureFocusedInsights /> */}
-            <ReadyToTransform />
+            <ReadyToTransform
+                title="Ready to build infrastructure that scales with you?"
+                description="Talk to our infrastructure team about the environment your business actually needs."
+            />
             <Footer />
         </div>
     );

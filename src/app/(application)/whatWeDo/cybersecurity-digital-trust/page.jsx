@@ -3,22 +3,22 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
-import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
+import ReadyToTransform from "@/components/WhatWeDo/ReadyToTransform";
 
 import Hero from "@/components/WhatWeDo/CyberSecurityDigitalTrust/Hero";
 import HeroText from "@/components/WhatWeDo/CyberSecurityDigitalTrust/HeroText";
-import WhyCybersecurityMatters from "@/components/WhatWeDo/CyberSecurityDigitalTrust/WhyCybersecurityMatters";
+import IdentityManagementContinuousOperations from "@/components/WhatWeDo/CyberSecurityDigitalTrust/IdentityManagementContinuousOperations";
 import SecurityChallenges from "@/components/WhatWeDo/CyberSecurityDigitalTrust/SecurityChallenges";
 import IdentityAccessManagement from "@/components/WhatWeDo/CyberSecurityDigitalTrust/IdentityAccessManagement";
 import SecurityOperations from "@/components/WhatWeDo/CyberSecurityDigitalTrust/SecurityOperations";
-import VulnerabilityAssessment from "@/components/WhatWeDo/CyberSecurityDigitalTrust/VulnerabilityAssessment";
+import SecurityAssessmentCloudDefense from "@/components/WhatWeDo/CyberSecurityDigitalTrust/SecurityAssessmentCloudDefense";
 import PenetrationTesting from "@/components/WhatWeDo/CyberSecurityDigitalTrust/PenetrationTesting";
 import GovernanceRiskCompliance from "@/components/WhatWeDo/CyberSecurityDigitalTrust/GovernanceRiskCompliance";
 import CloudSecurity from "@/components/WhatWeDo/CyberSecurityDigitalTrust/CloudSecurity";
 import ZeroTrustArchitecture from "@/components/WhatWeDo/CyberSecurityDigitalTrust/ZeroTrustArchitecture";
 import CybersecurityDeliveryFramework from "@/components/WhatWeDo/CyberSecurityDigitalTrust/CybersecurityDeliveryFramework";
-import BusinessRulesAutomationZigzag from "@/components/WhatWeDo/CyberSecurityDigitalTrust/BusinessRulesAutomationZigzag";
-import AIIntegration from "@/components/WhatWeDo/CyberSecurityDigitalTrust/AIIntegration";
+import BusinessEnablementThroughSecurity from "@/components/WhatWeDo/CyberSecurityDigitalTrust/BusinessEnablementThroughSecurity";
+import AccessControlSimulatedAttacks from "@/components/WhatWeDo/CyberSecurityDigitalTrust/AccessControlSimulatedAttacks";
 
 const page = () => {
     return (
@@ -44,15 +44,15 @@ const page = () => {
                 </div>
             </div>
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] min-h-[300px] sm:min-h-screen bg-white">
-                <BusinessRulesAutomationZigzag />
-                <WhyCybersecurityMatters />
+                <BusinessEnablementThroughSecurity />
+                <IdentityManagementContinuousOperations />
             </div>
 
 
             {/* <IdentityAccessManagement /> */}
             {/* <SecurityOperations /> */}
-            <AIIntegration />
-            <VulnerabilityAssessment />
+            <AccessControlSimulatedAttacks />
+            <SecurityAssessmentCloudDefense />
             {/* <PenetrationTesting /> */}
 
             {/* Pinned GRC background parallax, then Cloud Security curtains over it */}
@@ -66,7 +66,10 @@ const page = () => {
 
             {/* <FutureFocusedInsights /> */}
             <SecurityChallenges />
-            <ReadyToTransform />
+            <ReadyToTransform
+                title="Ready to strengthen your security posture?"
+                description="Talk to our cybersecurity team about protecting what your business is building."
+            />
             <Footer />
         </div>
     );

@@ -16,7 +16,7 @@ export default function HeroText() {
                 </p>
                 <div className="mt-3 sm:mt-4 h-px w-full bg-white/40" />
                 <h1 className="text-white text-2xl sm:text-4xl lg:text-5xl font-medium capitalize mt-6 sm:mt-8 leading-tight">
-                    Embedding AI across the enterprise to improve productivity and decision-making
+                    AI that moves enterprise decisions,not just enterprise data.
                 </h1>
             </motion.div>
         </div>

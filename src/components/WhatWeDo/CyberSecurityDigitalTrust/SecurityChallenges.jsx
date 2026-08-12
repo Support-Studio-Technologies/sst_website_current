@@ -15,48 +15,47 @@ const CHALLENGES = [
 
 export default function SecurityChallenges() {
     return (
-        <section className="w-full py-10 sm:py-[-55px] px-6 sm:px-[50px]">
+        // No horizontal padding on the section: Figma's blue panel is flush to the true left
+        // edge with zero gap, so any container padding here would reproduce the exact gap the
+        // design doesn't have. Vertical rhythm only (py-10/16); the previous py-[-55px] was an
+        // invalid negative value that would've been dropped by the browser anyway.
+        <section className="w-full py-10 sm:py-16">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col items-center gap-4 max-w-[767px] mx-auto text-center mb-10 sm:mb-[60px]"
+                className="relative w-full flex flex-col gap-6 sm:gap-8 lg:block lg:aspect-[1240/569]"
             >
-                <h2 className="text-[#0d0c22] text-2xl font-medium">Our Security Advantages</h2>
-                <p className="text-[#3d3d4e] text-base sm:text-lg font-light">
-                    Regional compliance depth and SAP security expertise.
-                </p>
-            </motion.div>
-
-            <div className="flex flex-col lg:relative lg:w-full max-w-full mx-auto lg:aspect-[1181/592]">
-                <motion.div
-                    initial={{ opacity: 0, x: -24 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="relative w-full h-[240px] sm:h-[340px] lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-[51.4%] bg-[#5c5c5c]"
-                >
+                {/* Panel: Figma is landscape (701x566 — wider than tall, the opposite of the
+                    previous portrait crop) and left-flush with zero gap. w-[56.5%] + inset-y-0
+                    left-0 reproduce that against the aspect-locked wrapper below at any width. */}
+                <div className="relative w-full aspect-[701/566] lg:aspect-auto lg:absolute lg:inset-y-0 lg:left-0 lg:w-[56.5%]">
                     <Image src={challengeImage} alt="" fill className="object-cover" />
-                </motion.div>
+                </div>
 
-                <motion.div
-                    initial={{ opacity: 0, x: 24 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                    className="w-full lg:absolute lg:top-[6.4%] lg:left-[35.1%] lg:h-[85.5%] lg:w-[63.4%] bg-[#f4f3f9] flex items-center px-6 sm:px-10 lg:px-[40px] py-10 sm:py-12"
-                >
-                    <div className="flex gap-6 sm:gap-[69px] items-stretch w-full">
-                        <div className="w-[3px] shrink-0 rounded-full bg-[#2d8ec5]" />
-                        <ul className="list-disc marker:text-[#7f7f7f] pl-5 space-y-3 sm:space-y-4 text-[#7f7f7f] text-base sm:text-xl font-light">
-                            {CHALLENGES.map((item) => (
-                                <li key={item}>{item}</li>
-                            ))}
-                        </ul>
+                {/* Card: right-flush against the wrapper (left 37.7% + width 62.3% = 100%),
+                    76.3% of the wrapper's height vs. the panel's ~100% — visibly shorter than
+                    the panel, matching Figma, instead of the two being near-equal height. Title +
+                    description + list now live inside the card itself (Figma has no separate
+                    page-level heading above this row), and the blue accent bar Figma doesn't
+                    have has been removed. */}
+                <div className="relative w-full lg:absolute lg:top-[13.5%] lg:left-[37.7%] lg:h-[76.3%] lg:w-[62.3%] bg-[#F3F6F9] overflow-hidden flex items-center px-6 sm:pl-[7.5%] sm:pr-[15%] py-8 sm:py-10">
+                    <div className="flex flex-col gap-8 sm:gap-[49px] w-full sm:max-w-[58.5%]">
+                        <p className="font-heading text-black text-xl sm:text-2xl font-medium">Our Security Advantages</p>
+                        <div className="flex flex-col gap-4">
+                            <p className="text-black text-xl sm:text-2xl font-light">
+                                Regional compliance depth and SAP security expertise.
+                            </p>
+                            <ul className="list-disc marker:text-[#6c6c6c] pl-[27px] text-[#6c6c6c] text-lg font-light [&>li]:leading-[34px]">
+                                {CHALLENGES.map((item) => (
+                                    <li key={item}>{item}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
-                </motion.div>
-            </div>
+                </div>
+            </motion.div>
         </section>
     );
 }

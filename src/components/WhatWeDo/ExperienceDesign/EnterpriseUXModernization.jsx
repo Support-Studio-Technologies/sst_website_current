@@ -31,18 +31,18 @@ export default function EnterpriseUXModernization() {
                 </p>
             </motion.div>
 
-            <div className="flex flex-col lg:flex-row items-end lg:justify-between gap-8 max-w-[1390px] mx-auto">
+            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-10 max-w-[1390px] mx-auto">
                 <motion.div
                     initial={{ opacity: 0, x: -24 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col sm:flex-row gap-6 sm:gap-8 w-full lg:w-auto shrink-0"
+                    className="flex flex-col sm:flex-row gap-6 sm:gap-8 w-full lg:w-auto shrink-0 mt-0 md:mt-[180px]"
                 >
                     {BOXES.map((box) => (
                         <div
                             key={box.title}
-                            className="bg-white w-full sm:w-[307px] min-h-[331px] p-8 flex flex-col justify-between gap-6"
+                            className="bg-white w-full sm:w-[350px] min-h-[331px] p-8 flex flex-col justify-between gap-6"
                         >
                             <p className="text-black text-2xl font-medium">{box.title}</p>
                             <p className="text-[#6c6c6c] text-base font-light">{box.desc}</p>
@@ -55,7 +55,7 @@ export default function EnterpriseUXModernization() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                    className="relative w-full lg:w-[475px] h-[300px] sm:h-[420px] shrink-0 overflow-hidden"
+                    className="relative w-full lg:w-[600px] h-[300px] sm:h-[480px] lg:h-[560px] overflow-hidden"
                 >
                     <Image src={serviceDesignPhoto} alt="" fill className="object-cover" />
                 </motion.div>
@@ -63,4 +63,3 @@ export default function EnterpriseUXModernization() {
         </section>
     );
 }
-

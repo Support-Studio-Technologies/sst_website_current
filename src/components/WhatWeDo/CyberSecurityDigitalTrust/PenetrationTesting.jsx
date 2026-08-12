@@ -21,7 +21,7 @@ export default function PenetrationTesting() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="justify-self-start text-2xl font-medium text-black"
+                        className="font-heading justify-self-start text-2xl font-medium text-black"
                     >
                         Penetration Testing
                     </motion.h2>

@@ -3,25 +3,25 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
-import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
+import ReadyToTransform from "@/components/WhatWeDo/ReadyToTransform";
 
 import Hero from "@/components/WhatWeDo/IntelligentAutomation/Hero";
 import HeroText from "@/components/WhatWeDo/IntelligentAutomation/HeroText";
-import WhyIntelligentAutomationMatters from "@/components/WhatWeDo/IntelligentAutomation/WhyIntelligentAutomationMatters";
-import OurIntelligentAutomationServices from "@/components/WhatWeDo/IntelligentAutomation/OurIntelligentAutomationServices";
-import WorkflowAutomation from "@/components/WhatWeDo/IntelligentAutomation/WorkflowAutomation";
+import PositioningStatement from "@/components/WhatWeDo/IntelligentAutomation/PositioningStatement";
+import ProcessMiningRPAHyperautomation from "@/components/WhatWeDo/IntelligentAutomation/ProcessMiningRPAHyperautomation";
+import WhyPartnerWithUs from "@/components/WhatWeDo/IntelligentAutomation/WhyPartnerWithUs";
 import IntelligentDocumentProcessing from "@/components/WhatWeDo/IntelligentAutomation/IntelligentDocumentProcessing";
-import ProcessMining from "@/components/WhatWeDo/IntelligentAutomation/ProcessMining";
+import AdvancedDecisionLogiWorkflow from "@/components/WhatWeDo/IntelligentAutomation/AdvancedDecisionLogiWorkflow";
 import BusinessRulesAutomationGrid from "@/components/WhatWeDo/IntelligentAutomation/BusinessRulesAutomationGrid";
 import BusinessRulesAutomationZigzag from "@/components/WhatWeDo/IntelligentAutomation/BusinessRulesAutomationZigzag";
 import HyperAutomation from "@/components/WhatWeDo/IntelligentAutomation/HyperAutomation";
 import AIPoweredAutomation from "@/components/WhatWeDo/IntelligentAutomation/AIPoweredAutomation";
 import OurAutomationApproach from "@/components/WhatWeDo/IntelligentAutomation/OurAutomationApproach";
-import ITAdvisory from "@/components/WhatWeDo/IntelligentAutomation/ITAdvisory";
+import CostofInefficiency from "@/components/WhatWeDo/IntelligentAutomation/CostofInefficiency";
 
 const page = () => {
     return (
-        <div className="min-h-screen bg-white flex flex-col font-sans">
+        <div className="min-h-screen overflow-x-hidden bg-white flex flex-col font-sans">
             <Navbar />
 
             <div className="relative -mt-[64px] lg:-mt-[68px] h-[680px] sm:h-[200vh]">
@@ -35,21 +35,24 @@ const page = () => {
             </div>
 
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
-                <WhyIntelligentAutomationMatters />
-                <OurIntelligentAutomationServices />
+                <PositioningStatement />
+                <ProcessMiningRPAHyperautomation />
             </div>
 
             {/* <IntelligentDocumentProcessing /> */}
-            <ProcessMining />
-            <ITAdvisory />
+            <AdvancedDecisionLogiWorkflow />
+            <CostofInefficiency />
             {/* <BusinessRulesAutomationGrid /> */}
             {/* <BusinessRulesAutomationZigzag /> */}
             {/* <HyperAutomation /> */}
             {/* <AIPoweredAutomation /> */}
             {/* <OurAutomationApproach /> */}
             {/* <FutureFocusedInsights /> */}
-            <WorkflowAutomation />
-            <ReadyToTransform />
+            <WhyPartnerWithUs />
+            <ReadyToTransform
+                title="Ready to remove manual work from your business processes?"
+                description="Talk to our automation team about where intelligent automation pays off fastest."
+            />
             <Footer />
         </div>
     );

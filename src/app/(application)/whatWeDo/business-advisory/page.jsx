@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
-import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
+import ReadyToTransform from "@/components/WhatWeDo/ReadyToTransform";
 
 import Hero from "@/components/WhatWeDo/BusinessAdvisory/Hero";
 import HeroText from "@/components/WhatWeDo/BusinessAdvisory/HeroText";
@@ -15,10 +15,10 @@ import ITAdvisory from "@/components/WhatWeDo/BusinessAdvisory/ITAdvisory";
 import BusinessProcessConsulting from "@/components/WhatWeDo/BusinessAdvisory/BusinessProcessConsulting";
 import ProcessReengineering from "@/components/WhatWeDo/BusinessAdvisory/ProcessReengineering";
 import ChangeManagement from "@/components/WhatWeDo/BusinessAdvisory/ChangeManagement";
-import PMOAdvisory from "@/components/WhatWeDo/BusinessAdvisory/PMOAdvisory";
+import ReengineeringPMOGovernance from "@/components/WhatWeDo/BusinessAdvisory/ReengineeringPMOGovernance";
 import TechnologyAssessment from "@/components/WhatWeDo/BusinessAdvisory/TechnologyAssessment";
 import TransformationRoadmap from "@/components/WhatWeDo/BusinessAdvisory/TransformationRoadmap";
-import APIDevelopment from "@/components/WhatWeDo/BusinessAdvisory/APIDevelopment";
+import SoftwareScalability from "@/components/WhatWeDo/BusinessAdvisory/SoftwareScalability";
 import SalesforceConsulting from "@/components/WhatWeDo/BusinessAdvisory/SalesforceConsulting";
 
 const page = () => {
@@ -47,20 +47,23 @@ const page = () => {
                 {/* <WhyBusinessAdvisoryMatters /> */}
             </div>
 
-            <APIDevelopment />
+            <SoftwareScalability />
             {/* <BusinessStrategy /> */}
             {/* <EnterpriseArchitecture /> */}
             {/* <ITAdvisory /> */}
             {/* <BusinessProcessConsulting /> */}
             {/* <ProcessReengineering /> */}
             {/* <ChangeManagement /> */}
-            <PMOAdvisory />
+            <ReengineeringPMOGovernance />
             {/* <TechnologyAssessment /> */}
             {/* <TransformationRoadmap /> */}
 
             {/* <FutureFocusedInsights /> */}
             <SalesforceConsulting />
-            <ReadyToTransform />
+            <ReadyToTransform
+                title="Ready to build infrastructure that scales with you?"
+                description="Talk to our infrastructure team about the environment your business actually needs."
+            />
             <Footer />
         </div>
     );

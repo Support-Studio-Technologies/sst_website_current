@@ -30,7 +30,7 @@ export default function DesignToolsTechnologies() {
                 transition={{ duration: 0.6 }}
                 className="text-[#0d0c22] text-2xl font-medium text-center mb-10 sm:mb-12"
             >
-                Design Tools &amp; Technologies
+                Industry Impact
             </motion.h2>
 
             <div className="max-w-[1180px] mx-auto overflow-hidden">

@@ -1,70 +1,57 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
+import card1 from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/card1.svg";
+import card2 from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/card2.jpg";
+import card3 from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/card3.svg";
+import card4 from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/card4.svg";
 
 const CARDS = [
     {
+        image: card1,
         title: "Business Strategy",
         desc: "Benchmark your current digital capabilities against industry standards to identify gaps and prioritize investment.",
     },
     {
-        title: " Enterprise Architecture",
+        image: card2,
+        title: "Enterprise Architecture",
         desc: "We design the architecture that keeps your systems, processes, and data aligned to strategy as you scale.",
     },
     {
+        image: card3,
         title: "Transformation Roadmap",
         desc: "Design digital touchpoints that meet customers where they are and deepen engagement across every channel.",
     },
     {
+        image: card4,
         title: "Business Process Consulting",
         desc: "Sequence technology investments against business priorities so every initiative compounds toward long-term goals.",
     },
 ];
 
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
 export default function DigitalStrategy() {
-    const trackRef = useRef(null);
-    const [progress, setProgress] = useState(0);
-    const [isScrollable, setIsScrollable] = useState(false);
-
-    const updateProgress = useCallback(() => {
-        const el = trackRef.current;
-        if (!el) return;
-        const maxScroll = el.scrollWidth - el.clientWidth;
-        setProgress(maxScroll > 0 ? el.scrollLeft / maxScroll : 0);
-    }, []);
-
-    const checkScrollable = useCallback(() => {
-        const el = trackRef.current;
-        if (!el) return;
-        setIsScrollable(el.scrollWidth > el.clientWidth);
-    }, []);
-
-    useEffect(() => {
-        checkScrollable();
-        window.addEventListener("resize", checkScrollable);
-        return () => window.removeEventListener("resize", checkScrollable);
-    }, [checkScrollable]);
-
-    const scrollByCard = (direction) => {
-        const el = trackRef.current;
-        if (!el) return;
-        const card = el.querySelector("[data-card]");
-        const cardWidth = card ? card.getBoundingClientRect().width + 25 : 275;
-        el.scrollBy({ left: direction * cardWidth, behavior: "smooth" });
-    };
-
     return (
-        <section className="w-full py-10 sm:py-[46px] px-6 sm:px-[50px] flex flex-col items-center gap-8 sm:gap-[46px]">
+        <div className="w-full h-full flex flex-col items-center justify-center gap-10 sm:gap-[82px] px-6 sm:px-[70px] py-10 sm:py-[40px] pb-0">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col items-center gap-4 max-w-[1011px] text-center"
+                className="flex flex-col items-center gap-4 text-center"
             >
-                <h2 className="text-black text-2xl font-medium">Digital Strategy</h2>
-                <p className="text-[#3d3d4e] text-base sm:text-lg font-light">
+                <h2 className="font-heading text-[#0d0c22] text-2xl font-medium">Digital Strategy</h2>
+                <p className="text-[#6c6c6c] text-base sm:text-lg font-light">
                     Accelerate Your Digital Transformation
                     <br />
                     <br />
@@ -73,54 +60,35 @@ export default function DigitalStrategy() {
                 </p>
             </motion.div>
 
-            <div className="flex flex-col gap-6 sm:gap-[30px] w-full">
-                <div
-                    ref={trackRef}
-                    onScroll={updateProgress}
-                    className={`flex gap-4 sm:gap-[25px] w-full overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ${!isScrollable ? "lg:justify-center" : ""
-                        }`}
-                >
-                    {CARDS.map((card) => (
-                        <div
-                            key={card.title}
-                            data-card
-                            className="snap-start shrink-0 w-[220px] sm:w-[250px] aspect-[250/338] border-x border-b border-black/70 border-t-[5px] border-t-black flex flex-col gap-8 sm:gap-[141px] items-start px-4 pt-[18px]"
-                        >
-                            <p className="text-black text-lg sm:text-2xl font-normal w-full">{card.title}</p>
-                            <p className="text-[#3d3d4e] text-sm sm:text-lg font-light">{card.desc}</p>
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-[18px] w-full"
+            >
+                {CARDS.map((card) => (
+                    <motion.div
+                        key={card.title}
+                        variants={itemVariants}
+                        className="group relative w-full aspect-[278/290] overflow-hidden shadow-[0px_2px_8px_rgba(0,0,0,0.19)]"
+                    >
+                        <Image src={card.image} alt="" fill className="object-cover" />
+                        {/* Bottom-anchored text block: default state shows only the title sitting
+                            low in the card (~12% inset); hover reveals the description below it.
+                            Anchoring to `bottom` instead of `top` means the block grows upward as the
+                            description expands, matching the Identity Management card behavior. */}
+                        <div className="absolute left-[12%] right-[12%] bottom-[10%] sm:bottom-[12%] flex flex-col text-white">
+                            <p className="text-2xl font-light">{card.title}</p>
+                            <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out">
+                                <div className="overflow-hidden">
+                                    <p className="text-base font-light pt-2">{card.desc}</p>
+                                </div>
+                            </div>
                         </div>
-                    ))}
-                </div>
-
-                {isScrollable && (
-                    <div className="flex items-center gap-4 sm:gap-6 w-full">
-                        <div className="relative flex-1 h-[10px] rounded-full bg-[#d9d9d9] overflow-hidden">
-                            <div
-                                className="absolute inset-y-0 left-0 rounded-full bg-[#2d8ec5] transition-all duration-300"
-                                style={{ width: `${Math.max(progress * 100, 8)}%` }}
-                            />
-                        </div>
-                        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-                            <button
-                                type="button"
-                                aria-label="Previous"
-                                onClick={() => scrollByCard(-1)}
-                                className="flex items-center justify-center size-[31px] rounded-full border border-[#6c6c6c] text-[#6c6c6c] hover:bg-black hover:text-white hover:border-black transition-colors"
-                            >
-                                ←
-                            </button>
-                            <button
-                                type="button"
-                                aria-label="Next"
-                                onClick={() => scrollByCard(1)}
-                                className="flex items-center justify-center size-[31px] rounded-full border border-[#6c6c6c] text-[#6c6c6c] hover:bg-black hover:text-white hover:border-black transition-colors"
-                            >
-                                →
-                            </button>
-                        </div>
-                    </div>
-                )}
-            </div>
-        </section>
+                    </motion.div>
+                ))}
+            </motion.div>
+        </div>
     );
 }

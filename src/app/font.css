@@ -1,11 +1,91 @@
+/* ---------------------------------------------------------------- */
+/* Manrope — body / default text font                                */
+/* Single variable file covers the full weight range (200-800).      */
+/* ---------------------------------------------------------------- */
 @font-face {
-  font-family: 'Gelion';
-  src: url('../fonts/gelion/Gelion-Regular.woff2') format('woff2');
-  font-weight: 300 400 500 600 700 800 900;
+  font-family: 'Manrope';
+  src: url('../fonts/Manrope/Manrope-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 800;
   font-style: normal;
   font-display: swap;
 }
 
-.font-gelion {
-  font-family: 'Gelion';
+/* ---------------------------------------------------------------- */
+/* Urbane — heading font (main section titles only)                  */
+/* Static weights; Urbane ships without a 400/Regular cut, so normal  */
+/* text falls back to the nearest available weight.                  */
+/* ---------------------------------------------------------------- */
+@font-face {
+  font-family: 'Urbane';
+  src: url('../fonts/urbane/Urbane-Thin.woff2') format('woff2'),
+       url('../fonts/urbane/Urbane-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src: url('../fonts/urbane/Urbane-ExtraLight.woff2') format('woff2'),
+       url('../fonts/urbane/Urbane-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src: url('../fonts/urbane/Urbane-Light.woff2') format('woff2'),
+       url('../fonts/urbane/Urbane-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src: url('../fonts/urbane/Urbane-Medium.woff2') format('woff2'),
+       url('../fonts/urbane/Urbane-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src: url('../fonts/urbane/Urbane-DemiBold.woff2') format('woff2'),
+       url('../fonts/urbane/Urbane-DemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src: url('../fonts/urbane/Urbane-Bold.woff2') format('woff2'),
+       url('../fonts/urbane/Urbane-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src: url('../fonts/urbane/Urbane-Heavy.woff2') format('woff2'),
+       url('../fonts/urbane/Urbane-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Manual override utilities, for the rare case a heading/body element
+   needs the "other" font explicitly (e.g. a non-h1/h2 title that should
+   still read as a main section title, or a heading that should stay
+   body-styled). */
+.font-urbane {
+  font-family: 'Urbane', sans-serif;
+}
+
+.font-manrope {
+  font-family: 'Manrope', sans-serif;
 }

@@ -3,22 +3,22 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
-import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
+import ReadyToTransform from "@/components/WhatWeDo/ReadyToTransform";
 
 import Hero from "@/components/WhatWeDo/DataIntelligence/Hero";
 import HeroText from "@/components/WhatWeDo/DataIntelligence/HeroText";
 import IntroSection from "@/components/WhatWeDo/DataIntelligence/IntroSection";
-import DataEngineering from "@/components/WhatWeDo/DataIntelligence/DataEngineering";
+import EnterpriseDataFoundations from "@/components/WhatWeDo/DataIntelligence/EnterpriseDataFoundations";
 import DataWarehousing from "@/components/WhatWeDo/DataIntelligence/DataWarehousing";
 import BusinessIntelligence from "@/components/WhatWeDo/DataIntelligence/BusinessIntelligence";
 import DataVisualization from "@/components/WhatWeDo/DataIntelligence/DataVisualization";
-import MasterDataManagement from "@/components/WhatWeDo/DataIntelligence/MasterDataManagement";
+import WhyPartnerWithUsMetrix from "@/components/WhatWeDo/DataIntelligence/WhyPartnerWithUsMetrix";
 import DataGovernance from "@/components/WhatWeDo/DataIntelligence/DataGovernance";
 import RealTimeAnalytics from "@/components/WhatWeDo/DataIntelligence/RealTimeAnalytics";
-import HybridCloud from "@/components/WhatWeDo/DataIntelligence/HybridCloud";
-import AIIntegration from "@/components/WhatWeDo/DataIntelligence/AIIntegration";
-import TechnologyStack from "@/components/WhatWeDo/DataIntelligence/TechnologyStack";
-import LegacyModernization from "@/components/WhatWeDo/DataIntelligence/LegacyModernization";
+import GovernanceSAPDataDepth from "@/components/WhatWeDo/DataIntelligence/GovernanceSAPDataDepth";
+import ScalableAIDeployment from "@/components/WhatWeDo/DataIntelligence/ScalableAIDeployment ";
+import IndustryImpact from "@/components/WhatWeDo/DataIntelligence/IndustryImpact";
+import WebDevelopment from "@/components/WhatWeDo/DataIntelligence/WebDevelopment";
 
 
 const page = () => {
@@ -37,21 +37,24 @@ const page = () => {
             </div>
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
                 {/* <IntroSection /> */}
-                <DataEngineering />
+                <EnterpriseDataFoundations />
             </div>
-            <HybridCloud />
+            <GovernanceSAPDataDepth />
             {/* <DataWarehousing /> */}
             {/* <BusinessIntelligence /> */}
             {/* <DataVisualization /> */}
-            <AIIntegration />
-            <TechnologyStack />
-            <LegacyModernization />
-            <MasterDataManagement />
+            <ScalableAIDeployment />
+            <IndustryImpact />
+            <WebDevelopment />
+            <WhyPartnerWithUsMetrix />
             {/* <DataGovernance /> */}
             {/* <RealTimeAnalytics /> */}
 
             {/* <FutureFocusedInsights /> */}
-            <ReadyToTransform />
+            <ReadyToTransform
+                title="Ready to trust your data again?"
+                description="Talk to our data and analytics team about building a platform your business can rely on."
+            />
             <Footer />
         </div>
     );

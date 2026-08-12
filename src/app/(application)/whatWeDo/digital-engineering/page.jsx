@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
-import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
+import ReadyToTransform from "@/components/WhatWeDo/ReadyToTransform";
 
 import Hero from "@/components/WhatWeDo/DigitalEngineering/Hero";
 import HeroText from "@/components/WhatWeDo/DigitalEngineering/HeroText";
@@ -13,14 +13,14 @@ import TechnologyFocus from "@/components/WhatWeDo/DigitalEngineering/Technology
 import MobileApplications from "@/components/WhatWeDo/DigitalEngineering/MobileApplications";
 import APIDevelopment from "@/components/WhatWeDo/DigitalEngineering/APIDevelopment";
 import MicroservicesArchitecture from "@/components/WhatWeDo/DigitalEngineering/MicroservicesArchitecture";
-import PenetrationTesting from "@/components/WhatWeDo/DigitalEngineering/PenetrationTesting";
+import CorePhilosophy from "@/components/WhatWeDo/DigitalEngineering/CorePhilosophy";
 import InternalDeveloperPlatforms from "@/components/WhatWeDo/DigitalEngineering/DevOpsSection";
 import ApplicationModernization from "@/components/WhatWeDo/DigitalEngineering/ApplicationModernization";
 import DevOpsSection from "@/components/WhatWeDo/DigitalEngineering/DevOpsSection";
 import LegacyModernization from "@/components/WhatWeDo/DigitalEngineering/LegacyModernization";
 import TechnologyStack from "@/components/WhatWeDo/DigitalEngineering/TechnologyStack";
-import DataGovernance from "@/components/WhatWeDo/DigitalEngineering/DataGovernance";
-import ServiceDesign from "@/components/WhatWeDo/DigitalEngineering/ServiceDesign";
+import EnterpriseSoftware from "@/components/WhatWeDo/DigitalEngineering/EnterpriseSoftware";
+import LongevityLegacyRefactoring from "@/components/WhatWeDo/DigitalEngineering/LongevityLegacyRefactoring";
 import ChangeManagement from "@/components/WhatWeDo/DigitalEngineering/ChangeManagement";
 import Intro from "@/components/WhatWeDo/DigitalEngineering/Intro";
 
@@ -42,21 +42,24 @@ const page = () => {
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
                 {/* <IntroSection /> */}
                 <Intro />
-                <DataGovernance />
+                <EnterpriseSoftware />
             </div>
             {/* <LegacyModernization /> */}
             {/* <TechnologyFocus /> */}
             {/* <MobileApplications /> */}
             {/* <APIDevelopment /> */}
             {/* <MicroservicesArchitecture /> */}
-            <ServiceDesign />
+            <LongevityLegacyRefactoring />
             <ChangeManagement />
-            <PenetrationTesting />
+            <CorePhilosophy />
             {/* <DevOpsSection /> */}
             {/* <ApplicationModernization /> */}
             {/* <EnterpriseApplicationDevelopment /> */}
             {/* <FutureFocusedInsights /> */}
-            <ReadyToTransform />
+            <ReadyToTransform
+                title="Ready to build software that scales with your business?"
+                description="Talk to our engineering team about your next application or modernization initiative."
+            />
             <Footer />
         </div>
     );

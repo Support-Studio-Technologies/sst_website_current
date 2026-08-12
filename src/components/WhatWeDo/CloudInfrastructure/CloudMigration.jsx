@@ -4,28 +4,27 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import migrationBg from "@/assets/WhatWeDo/Cloud and Infrastructure/Section3_Bg.svg";
-import hoverImg from "@/assets/WhatWeDo/Cloud and Infrastructure/Section3_Image.svg";
 
 const STEPS = [
     {
         title: "Cloud Consulting",
-        desc: "Move business-critical applications to the cloud with minimal downtime and disruption.",
+        desc: "Independent guidance on platform selection, architecture, and cost, grounded in your business priorities.",
     },
     {
         title: "Infrastructure Services",
-        desc: "Implement preventive controls across applications, infrastructure, users, and data.Implement preventive controls across applications, infrastructure, users, and data.",
+        desc: "End-to-end management of the compute, network, and storage layers your enterprise systems depend on.",
     },
     {
-        title: " DevSecOps",
-        desc: "Relocate on-premise servers and workloads to scalable, cloud-native infrastructure.",
+        title: "DevSecOps",
+        desc: "Security embedded into every stage of your development and deployment pipeline, not applied after the fact.",
     },
     {
         title: "Backup & Disaster Recovery",
-        desc: "Transfer files, backups, and archives to durable, cost-effective cloud storage.",
+        desc: "Recovery architectures tested against real failure scenarios, so downtime never becomes data loss",
     },
     {
         title: "Infrastructure Automation",
-        desc: "Lift-and-shift existing workloads to the cloud quickly, with modernization to follow.",
+        desc: "Automated provisioning and configuration that cuts manual effort and reduces environment drift.",
     },
 ];
 
@@ -37,20 +36,6 @@ export default function CloudMigration() {
 
     return (
         <section className="w-full pb-10 sm:pb-0 flex flex-col items-center gap-8 sm:gap-[62px]">
-
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col items-center gap-4 max-w-[767px] text-center px-6"
-            >
-                <h2 className="text-[#0d0c22] text-2xl font-medium">Cloud Migration</h2>
-                <p className="text-[#3d3d4e] text-base sm:text-lg font-light">
-                    Move workloads to the cloud in the right order, at the right pace, with business continuity
-                    protected at every step.
-                </p>
-            </motion.div>
 
             {/* Mobile: stacked list — the 5-column image banner has no room to breathe
                 this narrow, so swap it for the same card-list pattern used by
@@ -108,22 +93,9 @@ export default function CloudMigration() {
                                     onMouseEnter={() => setHovered(index)}
                                     onFocus={() => setHovered(index)}
                                     onBlur={() => setHovered(null)}
-                                    className={`relative h-full w-full flex flex-col items-center justify-center text-center gap-3 px-4 lg:px-6 overflow-hidden transition-colors duration-300 ${isActive ? "bg-black" : "bg-white"
+                                    className={`relative h-full w-full flex flex-col items-center justify-center text-center gap-3 px-4 lg:px-6 overflow-hidden transition-colors duration-300 ${isActive ? "bg-[#1C5F85]" : "bg-white"
                                         }`}
                                 >
-                                    {/* Hover artwork: an actual image swap, not a color tint */}
-                                    {isActive && (
-                                        <>
-                                            <Image
-                                                src={hoverImg}
-                                                alt=""
-                                                fill
-                                                className="object-cover"
-                                            />
-                                            <div className="absolute inset-0 bg-black/55" />
-                                        </>
-                                    )}
-
                                     <p
                                         className={`relative z-10 text-lg lg:text-xl font-medium leading-tight ${isActive ? "text-white" : "text-black"
                                             }`}

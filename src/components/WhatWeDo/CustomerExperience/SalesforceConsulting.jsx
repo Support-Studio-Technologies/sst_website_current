@@ -7,11 +7,12 @@ import consultingImg from "@/assets/WhatWeDo/Customer Experience/Section6_Image.
 import nextArrow from "@/assets/WhatWeDo/Customer Experience/Icons/Section6_Arrow.svg";
 
 const SERVICES = [
-    {
-        heading: "Salesforce Implementation",
-        title: "Maximize the Value of Salesforce",
-        desc: "Certified Salesforce delivery expertise SAP and CRM integration experience Journey- first design approach Regional customer behavior insight Omnichannel implementation capability Analytics - driven optimization",
-    },
+    "Certified Salesforce delivery expertise",
+    "SAP and CRM integration experience",
+    "Journey-first design approach",
+    "Regional customer behavior insight",
+    "Omnichannel implementation capability",
+    "Analytics-driven optimization"
 
 ];
 
@@ -52,38 +53,11 @@ export default function SalesforceConsulting() {
                     </div>
                 </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                    className="relative w-full lg:max-w-[800px] self-center h-[480px] bg-white shadow-[2px_2px_46px_rgba(0,0,0,0.15)] flex flex-col justify-center gap-6 px-6 sm:px-12 py-12"
-                >
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={active}
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -30 }}
-                            transition={{ duration: 0.35 }}
-                            className="flex flex-col gap-6"
-                        >
-                            <h3 className="text-black text-2xl font-normal">
-                                {service.heading}
-                            </h3>
-
-                            <div className="flex flex-col gap-4">
-                                <p className="text-black text-lg font-medium">
-                                    {service.title}
-                                </p>
-
-                                <p className="text-[#3d3d4e] text-base sm:text-lg font-light max-w-[545px]">
-                                    {service.desc}
-                                </p>
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
-
+                <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.1, }}
+                    className="relative w-full lg:max-w-[800px] self-center min-h-[400px] lg:h-[480px] bg-white shadow-[2px_2px_46px_rgba(0,0,0,0.15)] flex flex-col justify-center px-6 sm:px-12 py-12" >
+                    <ul className="list-disc marker:text-[#7f7f7f] pl-6 sm:pl-8 space-y-4 text-[#3D3D4E] text-base sm:text-lg font-light">
+                        {SERVICES.map((service) => (<li key={service}> {service} </li>))}
+                    </ul>
                 </motion.div>
             </div>
         </section>

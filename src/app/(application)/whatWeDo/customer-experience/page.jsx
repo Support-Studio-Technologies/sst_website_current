@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
-import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
+import ReadyToTransform from "@/components/WhatWeDo/ReadyToTransform";
 import Hero from "@/components/WhatWeDo/CustomerExperience/Hero";
 import HeroText from "@/components/WhatWeDo/CustomerExperience/HeroText";
 import CRMStrategy from "@/components/WhatWeDo/CustomerExperience/CRMStrategy";
@@ -11,13 +11,13 @@ import SalesAutomation from "@/components/WhatWeDo/CustomerExperience/SalesAutom
 import CustomerServiceSolutions from "@/components/WhatWeDo/CustomerExperience/CustomerServiceSolutions";
 import MarketingAutomation from "@/components/WhatWeDo/CustomerExperience/MarketingAutomation";
 import SalesforceConsulting from "@/components/WhatWeDo/CustomerExperience/SalesforceConsulting";
-import CustomerJourneyMapping from "@/components/WhatWeDo/CustomerExperience/CustomerJourneyMapping";
+import ConnectedCRMAndOmnichannelStrategy from "@/components/WhatWeDo/CustomerExperience/ConnectedCRMAndOmnichannelStrategy";
 import OmnichannelExperience from "@/components/WhatWeDo/CustomerExperience/OmnichannelExperience";
 import CustomerAnalytics from "@/components/WhatWeDo/CustomerExperience/CustomerAnalytics";
 import LoyaltySolutions from "@/components/WhatWeDo/CustomerExperience/LoyaltySolutions";
-import IntelligentDocumentProcessing from "@/components/WhatWeDo/CustomerExperience/IntelligentDocumentProcessing";
-import EnterpriseApplicationDevelopment from "@/components/WhatWeDo/CustomerExperience/EnterpriseApplicationDevelopment";
-import ServiceDesign from "@/components/WhatWeDo/CustomerExperience/ServiceDesign";
+import SingleCustomerView from "@/components/WhatWeDo/CustomerExperience/SingleCustomerView";
+import SpecializedCXAutomationAnalytics from "@/components/WhatWeDo/CustomerExperience/SpecializedCXAutomationAnalytics";
+import TeamAdoption from "@/components/WhatWeDo/CustomerExperience/TeamAdoption";
 
 const page = () => {
     return (
@@ -34,14 +34,17 @@ const page = () => {
                 </div>
             </div>
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
-                <CustomerJourneyMapping />
-                <IntelligentDocumentProcessing />
+                <ConnectedCRMAndOmnichannelStrategy />
+                <SingleCustomerView />
             </div>
             {/* <CustomerServiceSolutions /> */}
-            <ServiceDesign />
+            <TeamAdoption />
             <SalesforceConsulting />
-            <EnterpriseApplicationDevelopment />
-            <ReadyToTransform />
+            <SpecializedCXAutomationAnalytics />
+            <ReadyToTransform
+                title="Ready to design a customer experience that earns loyalty?"
+                description="Talk to our CX team about connecting every customer touchpoint that matters."
+            />
             <Footer />
             {/* <CRMStrategy />
             <SalesAutomation />

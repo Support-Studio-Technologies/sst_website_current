@@ -7,8 +7,17 @@
 body {
   margin: 0;
   /* padding: 0 1rem; */
-  font-family: 'Gelion', sans-serif;
+  font-family: 'Manrope', sans-serif;
   /* background: linear-gradient(to right, #e6f0fa, #e6f0fa, #e6f0fa); */
+}
+
+/* Main section titles (h1/h2) use Urbane; everything else — sub headings,
+   card titles, body copy — stays on Manrope via inheritance from body.
+   Use the .font-manrope / .font-urbane utilities (see font.css) for the
+   rare heading that needs to opt out of, or in to, this default. */
+h1,
+h2 {
+  font-family: 'Urbane', sans-serif;
 }
 
 .primary-Button{

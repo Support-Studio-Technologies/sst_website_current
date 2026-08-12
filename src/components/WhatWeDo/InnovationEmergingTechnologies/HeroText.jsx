@@ -16,8 +16,7 @@ export default function HeroText() {
                 </p>
                 <div className="mt-3 sm:mt-4 h-px w-full bg-white/40" />
                 <h1 className="text-white text-2xl sm:text-4xl lg:text-5xl font-medium capitalize mt-6 sm:mt-8 leading-tight">
-                    Helping organizations prepare for the future with next-generation technologies
-                </h1>
+                    Next-generation technology, evaluated for real enterprise value.                </h1>
             </motion.div>
         </div>
     );

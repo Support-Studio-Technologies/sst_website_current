@@ -3,20 +3,20 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
-import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
+import ReadyToTransform from "@/components/WhatWeDo/ReadyToTransform";
 
 import Hero from "@/components/WhatWeDo/ManagedServices/Hero";
 import HeroText from "@/components/WhatWeDo/ManagedServices/HeroText";
 import ApplicationManagementServices from "@/components/WhatWeDo/ManagedServices/ApplicationManagementServices";
-import SAPManagedServices from "@/components/WhatWeDo/ManagedServices/SAPManagedServices";
+import SAPAMSTieredSupport from "@/components/WhatWeDo/ManagedServices/SAPAMSTieredSupport";
 import InfrastructureManagement from "@/components/WhatWeDo/ManagedServices/InfrastructureManagement";
-import L1L2L3Support from "@/components/WhatWeDo/ManagedServices/L1L2L3Support";
-import ServiceDesk from "@/components/WhatWeDo/ManagedServices/ServiceDesk";
+import ProcessAwareSupportRootCauseResolution from "@/components/WhatWeDo/ManagedServices/ProcessAwareSupportRootCauseResolution";
+import InfrastructureManagementSLAs from "@/components/WhatWeDo/ManagedServices/InfrastructureManagementSLAs";
 import MonitoringIncidentManagement from "@/components/WhatWeDo/ManagedServices/MonitoringIncidentManagement";
 import DesignToolsTechnologies from "@/components/WhatWeDo/ManagedServices/DesignToolsTechnologies";
 import ContinuousImprovement from "@/components/WhatWeDo/ManagedServices/ContinuousImprovement";
 import OurManagedCloudServices from "@/components/WhatWeDo/ManagedServices/OurManagedCloudServices";
-import SalesforceConsulting from "@/components/WhatWeDo/ManagedServices/SalesforceConsulting";
+import WhyPartnerWithUs from "@/components/WhatWeDo/ManagedServices/WhyPartnerWithUs";
 
 const page = () => {
     return (
@@ -34,19 +34,22 @@ const page = () => {
             </div>
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
                 {/* <MonitoringIncidentManagement /> */}
-                <SAPManagedServices />
-                <L1L2L3Support />
+                <SAPAMSTieredSupport />
+                <ProcessAwareSupportRootCauseResolution />
                 {/* <ApplicationManagementServices /> */}
             </div>
             {/* <InfrastructureManagement /> */}
-            <ServiceDesk />
+            <InfrastructureManagementSLAs />
             {/* <DesignToolsTechnologies /> */}
             {/* <ContinuousImprovement /> */}
             {/* <OurManagedCloudServices /> */}
 
             {/* <FutureFocusedInsights /> */}
-            <SalesforceConsulting />
-            <ReadyToTransform />
+            <WhyPartnerWithUs />
+            <ReadyToTransform
+                title="Ready for systems that just keep working?"
+                description="Talk to our advisory team about the roadmap your transformation needs."
+            />
             <Footer />
         </div>
     );

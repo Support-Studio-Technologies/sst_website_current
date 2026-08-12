@@ -3,31 +3,31 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import selectProductIcon from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/select-product_svgrepo.com.svg";
-import vector1Icon from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/Vector-1.svg";
-import vector2Icon from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/Vector-2.svg";
-import vector3Icon from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/Vector-3.svg";
+import ResilienceFirst from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/ResilienceFirst.svg";
+import Security from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/Security.svg";
+import Platform from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/Platform.svg";
+import Built from "@/assets/WhatWeDo/Cloud and Infrastructure/icons/Built.svg";
 
 const ITEMS = [
     {
-        title: "Resilience First:",
+        title: "Resilience First",
         desc: "We design for failure, not just performance, so your critical systems keep running when something goes wrong.",
-        icon: selectProductIcon,
+        icon: ResilienceFirst,
     },
     {
-        title: " Security Embedded, Not Bolted On:",
+        title: "Security Embedded, Not Bolted On",
         desc: "Security controls are part of the architecture from day one, across every layer of the stack.",
-        icon: vector1Icon,
+        icon: Security,
     },
     {
-        title: "Cost & Vendor Management",
-        desc: "Track and optimize spend across providers while keeping negotiating leverage with every vendor.",
-        icon: vector2Icon,
+        title: "Platform-Agnostic Judgment",
+        desc: "We recommend the platform that fits your workload, not the one we happen to resell.",
+        icon: Platform,
     },
     {
-        title: "Disaster Resilience",
-        desc: "Spread critical workloads across providers so a single vendor outage never becomes your outage.",
-        icon: vector3Icon,
+        title: "Built for SAP Performance",
+        desc: "Our infrastructure designs are shaped by what SAP landscapes actually need to run well.",
+        icon: Built,
     },
 ];
 
@@ -151,7 +151,7 @@ export default function CoreEngineeringPillars() {
                 onPointerUp={endDrag}
                 onPointerLeave={endDrag}
                 onPointerCancel={endDrag}
-                className="w-full max-w-[1280px] flex gap-6 sm:gap-10 overflow-x-auto cursor-grab active:cursor-grabbing select-none touch-pan-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [scroll-snap-type:x_mandatory]"
+                className="w-full max-w-[14000px] flex gap-6 sm:gap-10 overflow-x-auto cursor-grab active:cursor-grabbing select-none touch-pan-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [scroll-snap-type:x_mandatory]"
             >
                 {SLIDES.map((item, index) => {
                     const isClone = index < REAL_LEN || index >= REAL_LEN * 2;
@@ -159,13 +159,13 @@ export default function CoreEngineeringPillars() {
                         <div
                             key={`slide-${index}`}
                             aria-hidden={isClone || undefined}
-                            className="shrink-0 w-[80%] sm:w-[55%] md:w-[42%] lg:w-[32%] flex flex-col gap-6 py-4 border-b border-[#d9d9d9] [scroll-snap-align:start]"
+                            className="shrink-0 w-[80%] sm:w-[40%] flex flex-col gap-6 py-4 [scroll-snap-align:start] px-10"
                         >
-                            <div className="flex items-start gap-5">
+                            <div className="flex items-start gap-10">
                                 <div className="relative shrink-0 size-[50px] sm:size-[60px]">
                                     <Image src={item.icon} alt="" fill className="object-contain" draggable={false} />
                                 </div>
-                                <div className="w-px self-stretch bg-[#d9d9d9]" />
+                                <div className="w-px self-stretch bg-[#7F7F7F]" />
                                 <div className="flex flex-col gap-3">
                                     <p className="text-black text-xl sm:text-2xl font-normal">{item.title}</p>
                                     <p className="text-[#7f7f7f] text-base sm:text-lg font-light">{item.desc}</p>

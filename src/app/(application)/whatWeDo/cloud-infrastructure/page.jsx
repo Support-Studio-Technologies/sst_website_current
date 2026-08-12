@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
-import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
+import ReadyToTransform from "@/components/WhatWeDo/ReadyToTransform";
 import Hero from "@/components/WhatWeDo/CloudInfrastructure/Hero";
 import HeroText from "@/components/WhatWeDo/CloudInfrastructure/HeroText";
 import CloudConsulting from "@/components/WhatWeDo/CloudInfrastructure/CloudConsulting";
@@ -12,7 +12,7 @@ import CloudModernization from "@/components/WhatWeDo/CloudInfrastructure/CloudM
 import HybridCloud from "@/components/WhatWeDo/CloudInfrastructure/HybridCloud";
 import CoreEngineeringPillars from "@/components/WhatWeDo/CloudInfrastructure/CoreEngineeringPillars";
 import InfrastructureServices from "@/components/WhatWeDo/CloudInfrastructure/InfrastructureServices";
-import DevSecOps from "@/components/WhatWeDo/CloudInfrastructure/DevSecOps";
+import ArchitecturalResilienceStrategy from "@/components/WhatWeDo/CloudInfrastructure/ArchitecturalResilienceStrategy";
 import BackupDisasterRecovery from "@/components/WhatWeDo/CloudInfrastructure/BackupDisasterRecovery";
 import DigitalTwins from "@/components/WhatWeDo/CloudInfrastructure/DigitalTwins";
 import DataVisualization from "@/components/WhatWeDo/CloudInfrastructure/DataVisualization";
@@ -34,12 +34,15 @@ const page = () => {
             </div>
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
                 <CoreEngineeringPillars />
-                <DevSecOps />
+                <ArchitecturalResilienceStrategy />
             </div>
             <DataVisualization />
             <ProductDesign />
             <CloudMigration />
-            <ReadyToTransform />
+            <ReadyToTransform
+                title="Ready to build infrastructure that scales with you?"
+                description="Talk to our infrastructure team about the environment your business actually needs."
+            />
             <Footer />
 
             {/* <CloudConsulting />

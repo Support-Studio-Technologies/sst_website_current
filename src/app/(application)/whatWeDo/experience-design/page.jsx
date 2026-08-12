@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
-import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
+import ReadyToTransform from "@/components/WhatWeDo/ReadyToTransform";
 import Hero from "@/components/WhatWeDo/ExperienceDesign/Hero";
 import HeroText from "@/components/WhatWeDo/ExperienceDesign/HeroText";
 import UIUXDesign from "@/components/WhatWeDo/ExperienceDesign/UIUXDesign";
@@ -16,8 +16,8 @@ import ServiceDesign from "@/components/WhatWeDo/ExperienceDesign/ServiceDesign"
 import EnterpriseUXModernization from "@/components/WhatWeDo/ExperienceDesign/EnterpriseUXModernization";
 import DesignProcess from "@/components/WhatWeDo/ExperienceDesign/DesignProcess";
 import DesignToolsTechnologies from "@/components/WhatWeDo/ExperienceDesign/DesignToolsTechnologies";
-import EnterpriseArchitecture from "@/components/WhatWeDo/ExperienceDesign/EnterpriseArchitecture";
-import ITAdvisory from "@/components/WhatWeDo/ExperienceDesign/ITAdvisory";
+import UserResearchAndDesignSystems from "@/components/WhatWeDo/ExperienceDesign/UserResearchAndDesignSystems";
+import DesignPhilosophy from "@/components/WhatWeDo/ExperienceDesign/DesignPhilosophy";
 import Intro from "@/components/WhatWeDo/ExperienceDesign/Intro";
 
 const page = () => {
@@ -34,15 +34,18 @@ const page = () => {
                 </div>
             </div>
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] min-h-[300px] sm:min-h-screen bg-white">
-                <EnterpriseArchitecture />
+                <UserResearchAndDesignSystems />
                 {/* <UIUXDesign /> */}
             </div>
             {/* <ServiceDesign /> */}
             <EnterpriseUXModernization />
-            <ITAdvisory />
+            <DesignPhilosophy />
             <Accessibility />
             <Intro />
-            <ReadyToTransform />
+            <ReadyToTransform
+                title="Ready to design an experience people actually enjoy using?"
+                description="Talk to our design team about your next product or platform."
+            />
             <Footer />
             {/* <UserResearch />
             <DesignSystems />

@@ -3,22 +3,22 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FutureFocusedInsights from "@/components/WhoWeAre/FutureFocusedInsights";
-import ReadyToTransform from "@/components/WhoWeAre/ReadyToTransform";
+import ReadyToTransform from "@/components/WhatWeDo/ReadyToTransform";
 
 import Hero from "@/components/WhatWeDo/InnovationEmergingTechnologies/Hero";
 import HeroText from "@/components/WhatWeDo/InnovationEmergingTechnologies/HeroText";
 import Intro from "@/components/WhatWeDo/InnovationEmergingTechnologies/Intro";
 import IoT from "@/components/WhatWeDo/InnovationEmergingTechnologies/IoT";
 import DigitalTwins from "@/components/WhatWeDo/InnovationEmergingTechnologies/DigitalTwins";
-import ScenarioAnalysis from "@/components/WhatWeDo/InnovationEmergingTechnologies/ScenarioAnalysis";
+import ARVR from "@/components/WhatWeDo/InnovationEmergingTechnologies/ARVR";
 import ExtendedReality from "@/components/WhatWeDo/InnovationEmergingTechnologies/ExtendedReality";
-import EdgeComputing from "@/components/WhatWeDo/InnovationEmergingTechnologies/EdgeComputing";
+import SSTInnovatioEdge from "@/components/WhatWeDo/InnovationEmergingTechnologies/SSTInnovatioEdge";
 import QuantumReadiness from "@/components/WhatWeDo/InnovationEmergingTechnologies/QuantumReadiness";
 import Industry4 from "@/components/WhatWeDo/InnovationEmergingTechnologies/Industry4";
 import SmartEnterpriseSolutions from "@/components/WhatWeDo/InnovationEmergingTechnologies/SmartEnterpriseSolutions";
 import OurInnovationFramework from "@/components/WhatWeDo/InnovationEmergingTechnologies/OurInnovationFramework";
-import AIIntegration from "@/components/WhatWeDo/InnovationEmergingTechnologies/AIIntegration";
-import Accessibility from "@/components/WhatWeDo/InnovationEmergingTechnologies/Accessibility";
+import ScalingPilotsSmartOperations from "@/components/WhatWeDo/InnovationEmergingTechnologies/ScalingPilotsSmartOperations";
+import IndustryDigitalTwins from "@/components/WhatWeDo/InnovationEmergingTechnologies/IndustryDigitalTwins";
 
 const page = () => {
     return (
@@ -46,14 +46,14 @@ const page = () => {
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
                 {/* <Intro /> */}
                 {/* <IoT /> */}
-                <Accessibility />
+                <IndustryDigitalTwins />
             </div>
 
 
             {/* <DigitalTwins /> */}
-            <EdgeComputing />
-            <AIIntegration />
-            <ScenarioAnalysis />
+            <SSTInnovatioEdge />
+            <ScalingPilotsSmartOperations />
+            <ARVR />
             {/* <ExtendedReality /> */}
             {/* <QuantumReadiness /> */}
             {/* <Industry4 /> */}
@@ -61,7 +61,10 @@ const page = () => {
             {/* <OurInnovationFramework /> */}
 
             {/* <FutureFocusedInsights /> */}
-            <ReadyToTransform />
+            <ReadyToTransform
+                title="Ready to explore what's next for your enterprise?"
+                description="Talk to our innovation team about the emerging technologies worth your attention."
+            />
             <Footer />
         </div>
     );

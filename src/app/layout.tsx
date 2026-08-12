@@ -1,4 +1,3 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./font.css";
 // import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
@@ -7,16 +6,6 @@ import CookieConsent from "../components/Cookies/CookieConsent";
 import ContactUsButton from "../components/Contactusbutton/contact_us_button";
 import { generateOrganizationSchema } from "@/lib/seo";
 import { Metadata, Viewport } from "next";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const viewport: Viewport = {
   themeColor: "#0f172a",
@@ -111,7 +100,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-blue-500 selection:text-white`}>
+      <body className="antialiased selection:bg-blue-500 selection:text-white">
         <main id="main-content" className="min-h-screen">
           {children}
         </main>
