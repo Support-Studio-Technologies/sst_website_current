@@ -8,7 +8,13 @@ export default function ArchitecturalResilienceStrategy() {
     return (
         <section className="w-full px-6 sm:px-0">
             <div className="relative w-full max-w-screen mx-auto h-[380px] sm:h-[440px] lg:h-[488px] overflow-hidden">
-                <Image src={devSecOpsBg} alt="" fill className="object-cover" />
+                {/* Fixed Background Image */}
+                <div
+                    className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
+                    style={{
+                        backgroundImage: `url(${devSecOpsBg.src})`,
+                    }}
+                />
                 <div className="absolute inset-0 bg-gradient-to-r from-white/90 sm:from-white/80 via-white/10 to-transparent" />
 
                 <motion.div
@@ -24,7 +30,7 @@ export default function ArchitecturalResilienceStrategy() {
                     </p>
                     <p className="text-black text-base sm:text-lg font-light max-w-[500px]">
                         Infrastructure should be the thing your business never has to think about.
-                        <br /> 
+                        <br />
                         That takes deliberate design.
                     </p>
 

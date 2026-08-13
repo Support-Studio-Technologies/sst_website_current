@@ -42,7 +42,7 @@ export default function CloudMigrationHybridStrategy() {
                     className="flex flex-col gap-4 w-full lg:w-[442px] shrink-0 lg:sticky lg:top-28"
                 >
                     <h2 className="text-[#0d0c22] text-2xl font-medium">Cloud Migration &amp; Hybrid Strategy</h2>
-                    <p className="text-black text-lg font-light">
+                    <p className="text-[#4A5568] text-lg font-light">
                         Modernization, hybrid models, and multi-cloud environments.
                     </p>
                 </motion.div>
@@ -63,7 +63,7 @@ export default function CloudMigrationHybridStrategy() {
                                 <div className="hidden sm:block w-px self-stretch bg-[#7f7f7f]" />
                                 <div className="flex-1 min-w-0 flex flex-col gap-2 sm:gap-3">
                                     <p className="text-black text-xl sm:text-[28px] font-normal">{item.title}</p>
-                                    <p className="text-[#7f7f7f] text-base sm:text-xl font-light">{item.desc}</p>
+                                    <p className="text-[#4A5568] text-base sm:text-xl font-light">{item.desc}</p>
                                 </div>
                             </div>
                             <div className="h-px w-full bg-[#a4a7a5]" />

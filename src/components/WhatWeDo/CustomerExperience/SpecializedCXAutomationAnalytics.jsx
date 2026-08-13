@@ -1,12 +1,12 @@
 "use client";
- 
+
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ceaImage1 from "@/assets/WhatWeDo/Digital Engineering/Section3_CEA_Image.svg";
 import ceaImage2 from "@/assets/WhatWeDo/Digital Engineering/Section3_CEA_Image2.jpg";
 import ceaImage3 from "@/assets/WhatWeDo/Digital Engineering/Section3_CEA_Image3.jpg";
- 
+
 const TABS = [
     {
         code: "Sales Automation",
@@ -39,10 +39,10 @@ const TABS = [
         image: ceaImage2,
     },
 ];
- 
+
 export default function SpecializedCXAutomationAnalytics() {
     const [active, setActive] = useState(0);
- 
+
     return (
         <section className=" bg-[#f4f3f9] sm:mb-5 w-full py-10 sm:py-16">
             <motion.div
@@ -57,7 +57,7 @@ export default function SpecializedCXAutomationAnalytics() {
                     Automation, analytics, and loyalty tools for customer retention.
                 </p>
             </motion.div>
- 
+
             <div className="bg-[#f4f3f9] w-full px-4 sm:px-[50px] py-8 sm:py-[42px]">
                 <div className="flex flex-col gap-2.5 sm:flex-row sm:gap-[37px] h-auto sm:h-[560px] max-w-[1180px] mx-auto">
                     {TABS.map((tab, i) => {
@@ -100,5 +100,4 @@ export default function SpecializedCXAutomationAnalytics() {
         </section>
     );
 }
- 
- 
+

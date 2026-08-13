@@ -46,7 +46,30 @@ export default function EnterpriseDataFoundations() {
                 </p>
             </motion.div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-[43px] w-full">
+            {/* Mobile: simple static stacked cards — no hover, description always visible.
+                Layout/design ported from OurAIServices' mobile treatment. */}
+            <div className="flex sm:hidden flex-col gap-4 max-w-[1280px] mx-auto">
+                {CARDS.map((card, index) => (
+                    <motion.div
+                        key={card.title}
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.5, delay: index * 0.08 }}
+                        className="relative w-full h-[220px] overflow-hidden"
+                    >
+                        <Image src={card.image} alt="" fill className="object-cover" />
+                        <div className="absolute inset-0 bg-black/60" />
+                        <div className="absolute inset-0 flex flex-col justify-start gap-2 px-4 pt-5">
+                            <p className="text-white text-xl font-normal">{card.title}</p>
+                            <p className="text-white/85 text-sm font-light max-w-[280px]">{card.desc}</p>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+
+            {/* Desktop: unchanged hover-reveal grid */}
+            <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-[43px] w-full">
                 {CARDS.map((card, index) => (
                     <motion.div
                         key={card.title}
@@ -63,17 +86,10 @@ export default function EnterpriseDataFoundations() {
                             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-black/70" />
-                        {/* Mobile: no hover, so title + description sit together, always visible */}
-                        <div className="absolute inset-0 flex sm:hidden flex-col items-center justify-center px-3 text-left">
-                            <p className="text-white text-xl font-normal">{card.title}</p>
-                            <p className="text-white/85 text-sm font-light mt-2">{card.desc}</p>
-                        </div>
-
-                        {/* Desktop: unchanged hover-reveal behavior */}
-                        <div className="absolute inset-0 hidden sm:flex items-top justify-right px-6 py-10 text-center">
+                        <div className="absolute inset-0 flex items-top justify-right px-6 py-10 text-center">
                             <p className="text-white text-xl sm:text-3xl font-normal">{card.title}</p>
                         </div>
-                        <div className="absolute inset-x-0 bottom-0 px-6 pb-6 hidden sm:grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out group-hover:grid-rows-[1fr]">
+                        <div className="absolute inset-x-0 bottom-0 px-6 pb-6 grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out group-hover:grid-rows-[1fr]">
                             <div className="overflow-hidden">
                                 <p className="text-white/85 text-xl font-light pt-2">{card.desc}</p>
                             </div>
@@ -84,4 +100,3 @@ export default function EnterpriseDataFoundations() {
         </section>
     );
 }
-

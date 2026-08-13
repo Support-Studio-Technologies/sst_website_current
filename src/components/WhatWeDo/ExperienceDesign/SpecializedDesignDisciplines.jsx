@@ -49,9 +49,9 @@ export default function SpecializedDesignDisciplines() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
-                        className={`group relative px-6 sm:px-8 py-8 sm:py-10 min-h-[380px] sm:min-h-[480px] overflow-hidden text-black transition-colors duration-300 hover:text-white flex items-center"
+                        className={`group relative px-6 sm:px-8 py-8 sm:py-10 min-h-[380px] sm:min-h-[480px] overflow-hidden text-black transition-colors duration-300 hover:text-white flex items-center
                                 /* Mobile */
-                                border border-black /70 
+                                border border-[#8794A3] 
                                 border-l-0
                                 ${index > 1 ? "border-t-0" : ""}
 

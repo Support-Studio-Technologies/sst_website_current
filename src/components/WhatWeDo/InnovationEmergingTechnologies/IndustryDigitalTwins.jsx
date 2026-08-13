@@ -50,7 +50,7 @@ export default function IndustryDigitalTwins() {
                         transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
                         className={`group relative px-6 py-10 sm:py-14 min-h-[380px] sm:min-h-[550px] overflow-hidden text-black transition-colors duration-300 hover:text-white
                                 /* Mobile */
-                                border border-black /70 
+                                border border-[#8794A3] 
                                 border-l-0
                                 ${index > 1 ? "border-t-0" : ""}
 

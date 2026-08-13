@@ -16,7 +16,7 @@ import IntelligentAssistantsBanner from "@/components/WhatWeDo/ArtificialIntelli
 import ScalableAIDeployment from "@/components/WhatWeDo/ArtificialIntelligence/ScalableAIDeployment";
 import PredictiveIntelligence from "@/components/WhatWeDo/ArtificialIntelligence/PredictiveIntelligence";
 import ConversationalAI from "@/components/WhatWeDo/ArtificialIntelligence/ConversationalAI";
-import TechnologyStack from "@/components/WhatWeDo/ArtificialIntelligence/TechnologyStack";
+import IndustryImpact from "@/components/WhatWeDo/ArtificialIntelligence/IndustryImpact";
 import AIGovernance from "@/components/WhatWeDo/ArtificialIntelligence/AIGovernance";
 import AILifecycle from "@/components/WhatWeDo/ArtificialIntelligence/AILifecycle";
 import WhyPartnerWithUs from "@/components/WhatWeDo/ArtificialIntelligence/WhyPartnerWithUs";
@@ -45,7 +45,7 @@ const page = () => {
             {/* <AIStrategy /> */}
             {/* <PredictiveIntelligence /> */}
             {/* <ConversationalAI /> */}
-            <TechnologyStack />
+            <IndustryImpact />
             {/* <AIGovernance /> */}
             {/* <AILifecycle /> */}
             <AdvancedMachineLearning />

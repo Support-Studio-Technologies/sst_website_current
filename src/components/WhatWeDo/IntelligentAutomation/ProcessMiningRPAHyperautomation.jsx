@@ -49,7 +49,16 @@ export default function ProcessMiningRPAHyperautomation() {
                 </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-[40px] max-w-[1300px] mx-auto">
+            {/* Card proportions (padding, gaps, image height, text width cap)
+                match the Figma component exactly. Its 1055px frame was just
+                Figma's isolated component-preview width, not this page's
+                actual content width — the other sections on this page (e.g.
+                OurAutomationApproach) settle around 1280px, so the grid is
+                capped there instead of at 1055. That lets the cards scale up
+                and fill the row like the rest of the page, keeping the same
+                tight x-axis padding relationship Figma shows rather than
+                leaving a big unused margin on typical desktop widths. */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-[59px] gap-y-6 sm:gap-y-16 max-w-[1280px] mx-auto">
                 {CARDS.map((card, index) => {
 
                     return (
@@ -59,13 +68,13 @@ export default function ProcessMiningRPAHyperautomation() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.3 }}
                             transition={{ duration: 0.5, ease: "easeOut", delay: (index % 3) * 0.08 }}
-                            className="bg-[#f5f5f5] flex flex-col gap-4 p-4">
-                            <div className="relative w-full h-[150px] border border-[#d4d3d3] shrink-0">
+                            className="bg-[#e8ebef] flex flex-col gap-4 px-[19px] py-4">
+                            <div className="relative w-full h-[138px] shrink-0">
                                 <Image src={card.image} alt="" fill className="object-cover" />
                             </div>
-                            <div className="border border-[#d4d3d3] sm:h-[200px] p-4 flex flex-col gap-4">
-                                <p className="text-black text-xl sm:text-2xl font-normal">{card.title}</p>
-                                <p className="text-[#7f7f7f] text-sm sm:text-base sm:w-[200px] font-light">{card.desc}</p>
+                            <div className="border border-[#d4d3d3] p-[10px] flex flex-col gap-4 sm:gap-[41px] flex-1">
+                                <p className="text-black text-xl sm:text-2xl font-normal max-w-[268px]">{card.title}</p>
+                                <p className="text-[#7f7f7f] text-sm sm:text-base max-w-[268px] font-light">{card.desc}</p>
                             </div>
                         </motion.div>
                     );

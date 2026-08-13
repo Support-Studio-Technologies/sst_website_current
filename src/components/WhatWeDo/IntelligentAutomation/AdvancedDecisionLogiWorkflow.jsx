@@ -14,24 +14,35 @@ export default function AdvancedDecisionLogiWorkflow() {
     return (
         <section className="w-full bg-[#e6e6e6]">
             <div className="relative max-w-screen mx-auto">
-                {/* Photo */}
-                <div className="relative w-full h-[220px] sm:h-96">
-                    <Image src={processMiningPhoto} alt="" fill className="object-cover" />
-                </div>
+                {/* Photo + blue box share their own relative wrapper, sized
+                    to the photo alone. Without this, the blue box's
+                    absolute "bottom-0" (mobile) resolved against the whole
+                    section — photo + the stacked cards below it — so it
+                    snapped to the bottom of the last card instead of the
+                    bottom of the photo, overlapping the 3rd card. Scoping it
+                    to just the photo fixes that; the cards grid is now a
+                    separate sibling below. */}
+                <div className="relative">
+                    <div className="relative w-full h-[220px] sm:h-96">
+                        <Image src={processMiningPhoto} alt="" fill className="object-cover" />
+                    </div>
 
-                {/* Blue box — sits mostly on the photo but its bottom edge
-                    pokes past the photo into the grey area below, matching Figma
-                    (top: 267px, height: 240px against a 384px-tall photo) */}
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="absolute left-0 bottom-0 sm:bottom-auto sm:top-[267px] w-[85%] sm:w-[477px] sm:h-60 bg-[#2d8ec5]/90 text-white flex flex-col justify-center gap-2 px-6 sm:px-[76px] py-6 sm:py-0 z-0"
-                >
-                    <p className="text-2xl sm:text-3xl font-medium">Advanced Decision Logic & Workflow</p>
-                    <p className="text-lg sm:text-2xl font-light">Extended automation capabilities for complex business rules.</p>
-                </motion.div>
+                    {/* Blue box — on desktop it sits mostly on the photo but
+                        its bottom edge pokes past the photo into the grey
+                        area below, matching Figma (top: 267px, height: 240px
+                        against a 384px-tall photo). On mobile it's flush
+                        with the photo's bottom edge instead. */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="absolute left-0 bottom-0 sm:bottom-auto sm:top-[267px] w-[85%] sm:w-[477px] sm:h-60 bg-[#2d8ec5]/90 text-white flex flex-col justify-center gap-2 px-6 sm:px-[76px] py-6 sm:py-0 z-0"
+                    >
+                        <p className="text-2xl sm:text-3xl font-medium">Advanced Decision Logic & Workflow</p>
+                        <p className="text-lg sm:text-2xl font-light">Extended automation capabilities for complex business rules.</p>
+                    </motion.div>
+                </div>
 
                 {/* Cards — normal flow right after the photo, with only a small
                     top offset (44px) so they clip just the bottom sliver of the

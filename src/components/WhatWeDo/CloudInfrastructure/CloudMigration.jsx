@@ -55,7 +55,7 @@ export default function CloudMigration() {
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="text-black text-base font-medium">{step.title}</p>
-                            <p className="text-[#3d3d4e] text-sm font-light leading-snug">{step.desc}</p>
+                            <p className="text-[#4A5568] text-sm font-light leading-snug">{step.desc}</p>
                         </div>
                     </motion.div>
                 ))}
@@ -73,7 +73,7 @@ export default function CloudMigration() {
                         Modern Infrastructure & Security Operations
                     </h2>
 
-                    <p className="mt-2 sm:mt-3 max-w-3xl text-sm sm:text-lg text-gray-200">
+                    <p className="mt-2 sm:mt-3 max-w-3xl text-sm sm:text-lg text-[#4A5568]">
                         Extended technical services including DevSecOps, automation, and recovery
                     </p>
                 </div>
