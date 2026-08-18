@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import scalabilityPhoto from "@/assets/WhatWeDo/Digital Engineering/SoftwareScalability_Photo.jpg";
+import scalabilityPhoto from "@/assets/WhatWeDo/Digital Engineering/new/software.jpg";
 
 export default function SoftwareScalability() {
     return (

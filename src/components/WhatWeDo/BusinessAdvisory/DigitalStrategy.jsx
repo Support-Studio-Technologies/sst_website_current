@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import card1 from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/card1.svg";
-import card2 from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/card2.jpg";
-import card3 from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/card3.svg";
-import card4 from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/card4.svg";
+import card1 from "@/assets/WhatWeDo/Business Advisory/new/card_1.jpg";
+import card2 from "@/assets/WhatWeDo/Business Advisory/new/card_2.jpg";
+import card3 from "@/assets/WhatWeDo/Business Advisory/new/card_3.jpg";
+import card4 from "@/assets/WhatWeDo/Business Advisory/new/card_4.jpg";
 
 const CARDS = [
     {
@@ -50,13 +50,9 @@ export default function DigitalStrategy() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col items-center gap-4 text-center"
             >
-                <h2 className="font-heading text-[#0d0c22] text-2xl font-medium">Digital Strategy</h2>
+                <h2 className="font-heading text-[#0d0c22] text-2xl font-medium">Strategic Planning & Architecture</h2>
                 <p className="text-[#6c6c6c] text-base sm:text-lg font-light">
-                    Accelerate Your Digital Transformation
-                    <br />
-                    <br />
-                    Create comprehensive digital strategies that leverage modern technologies to improve customer
-                    experiences, operational efficiency, and business agility.
+                    Defining transformation roadmaps, business architecture, and process change.
                 </p>
             </motion.div>
 

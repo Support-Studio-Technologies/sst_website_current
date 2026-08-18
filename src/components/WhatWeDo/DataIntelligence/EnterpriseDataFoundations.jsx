@@ -2,31 +2,31 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import cloudDataEngineeringPhoto from "@/assets/WhatWeDo/Data Inteligent/Section3_card1_cloud_data_engineering.svg";
-import etlEltPhoto from "@/assets/WhatWeDo/Data Inteligent/Section3_card2_ETL_ELT.svg";
-import dataLakePhoto from "@/assets/WhatWeDo/Data Inteligent/Section3_card3_Data_Lake_Implementation.svg";
-import dataIntegrationPhoto from "@/assets/WhatWeDo/Data Inteligent/Section3_card4_Data_Integration.svg";
+import DataEngineering from "@/assets/WhatWeDo/Data Inteligent/new/card_1.jpg";
+import DataWarehousing from "@/assets/WhatWeDo/Data Inteligent/new/card_2.jpg";
+import AdvancedAnalytics from "@/assets/WhatWeDo/Data Inteligent/new/card_3.jpg";
+import BusinessIntelligence from "@/assets/WhatWeDo/Data Inteligent/new/card_4.jpg";
 
 const CARDS = [
     {
-        title: "Data \\ Engineering",
+        title: "Data Engineering",
         desc: "We build the pipelines that move and transform data reliably from source systems into a form your business can use.",
-        image: cloudDataEngineeringPhoto,
+        image: DataEngineering,
     },
     {
         title: "Data Warehousing",
         desc: "We design centralized data platforms that consolidate SAP and non-SAP sources into a single source of truth.",
-        image: etlEltPhoto,
+        image: DataWarehousing,
     },
     {
         title: "Advanced Analytic",
         desc: "We build predictive and prescriptive models that move reporting from hindsight to foresight.",
-        image: dataLakePhoto,
+        image: AdvancedAnalytics,
     },
     {
         title: "Business Intelligence",
         desc: "We deliver reporting and dashboards that give decision-makers clarity, not just charts.",
-        image: dataIntegrationPhoto,
+        image: BusinessIntelligence,
     },
 ];
 
@@ -86,7 +86,7 @@ export default function EnterpriseDataFoundations() {
                             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-black/70" />
-                        <div className="absolute inset-0 flex items-top justify-right px-6 py-10 text-center">
+                        <div className="absolute inset-0 flex items-top justify-right px-6 py-10 text-left">
                             <p className="text-white text-xl sm:text-3xl font-normal">{card.title}</p>
                         </div>
                         <div className="absolute inset-x-0 bottom-0 px-6 pb-6 grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out group-hover:grid-rows-[1fr]">

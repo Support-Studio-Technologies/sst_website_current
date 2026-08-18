@@ -13,7 +13,7 @@ const page = () => {
 
     if (!job) {
         return (
-            <CareersLayout shadow={false}>
+            <CareersLayout>
                 <div className="max-w-3xl mx-auto text-center py-8">
                     <h1 className="text-2xl font-semibold text-slate-900 mb-3">Job Not Found</h1>
                     <p className="text-slate-500 mb-6">
@@ -21,7 +21,7 @@ const page = () => {
                     </p>
                     <Link
                         href="/careers"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-2xl transition-colors"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold transition-colors"
                     >
                         Back to Careers
                     </Link>
@@ -34,7 +34,6 @@ const page = () => {
 
     return (
         <CareersLayout
-            shadow={false}
             showContactBand
             breadcrumbs={
                 <>

@@ -23,6 +23,9 @@ import EnterpriseSoftware from "@/components/WhatWeDo/DigitalEngineering/Enterpr
 import LongevityLegacyRefactoring from "@/components/WhatWeDo/DigitalEngineering/LongevityLegacyRefactoring";
 import ModernStackAPIEngineering from "@/components/WhatWeDo/DigitalEngineering/ModernStackAPIEngineering";
 import SoftwareScalability from "@/components/WhatWeDo/DigitalEngineering/SoftwareScalability";
+import QualityPerformanceEngineering from "@/components/WhatWeDo/DigitalEngineering/QualityPerformanceEngineering";
+import ProductPlatformEngineering from "@/components/WhatWeDo/DigitalEngineering/ProductPlatformEngineering";
+import customBg from "@/assets/WhatWeDo/Digital Engineering/new/footercta.jpg";
 
 const page = () => {
     return (
@@ -49,7 +52,9 @@ const page = () => {
             {/* <MobileApplications /> */}
             {/* <APIDevelopment /> */}
             {/* <MicroservicesArchitecture /> */}
+            <QualityPerformanceEngineering />
             <LongevityLegacyRefactoring />
+            <ProductPlatformEngineering />
             <ModernStackAPIEngineering />
             <CorePhilosophy />
             {/* <DevOpsSection /> */}
@@ -59,6 +64,7 @@ const page = () => {
             <ReadyToTransform
                 title="Ready to build software that scales with your business?"
                 description="Talk to our engineering team about your next application or modernization initiative."
+                bgImage={customBg}
             />
             <Footer />
         </div>

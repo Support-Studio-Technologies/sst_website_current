@@ -21,7 +21,7 @@ const ContactInfo = () => {
   return (
     <div className="bg-white p-8 lg:p-12">
       <div className="max-w-md">
-        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
+        <h2 className="text-2xl lg:text-2xl text-gray-900 mb-2">
           Contact Information
         </h2>
         <p className="text-gray-600 mb-8 lg:mb-12">

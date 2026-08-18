@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import dashboardsImage from "@/assets/WhatWeDo/Data Inteligent/Section6_Bg1.svg";
-import reportsImage from "@/assets/WhatWeDo/Data Inteligent/Section6_Bg2.svg";
+import dashboardsImage from "@/assets/WhatWeDo/Cloud and Infrastructure/webp/Cloud_Card_1.webp";
+import reportsImage from "@/assets/WhatWeDo/Cloud and Infrastructure/webp/Cloud_Card_2.webp";
 
 const ROWS = [
     {
@@ -28,9 +28,9 @@ export default function DisruptionFreeMigrationScalability() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="w-full px-7 pt-6 pb-8 text-left sm:px-8 sm:pt-8 sm:pb-0"
+                className="w-full px-7 pt-6 pb-8 text-center sm:px-8 sm:pt-8 sm:pb-0"
             >
-                <div className="max-w-[420px]">
+                <div className="max-w-[700px] mx-auto">
                     <h2
                         className="text-black text-[22px] leading-[1.2] font-normal tracking-[-0.02em] sm:text-[26px] lg:text-[30px]"
                     >
@@ -38,7 +38,7 @@ export default function DisruptionFreeMigrationScalability() {
                     </h2>
 
                     <p
-                        className="mt-3 max-w-[430px] text-[#666666] text-[13px] leading-[1.4] font-light sm:text-[15px] lg:text-[16px]"
+                        className="mt-3 text-[#666666] text-[13px] leading-[1.4] font-light sm:text-[15px] lg:text-[16px]"
                     >
                         How we manage cloud migrations without disrupting
                         business operations.
@@ -79,4 +79,5 @@ export default function DisruptionFreeMigrationScalability() {
         </section>
     );
 }
+
 

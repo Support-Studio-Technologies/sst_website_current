@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-import consultingImg from "@/assets/WhatWeDo/Customer Experience/Section6_Image.svg";
+import consultingImg from "@/assets/WhatWeDo/Business Advisory/new/Section.jpg";
 
 const SERVICES = [
     "Independent, outcome-focused advisory",

@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import ContentHeader from "@/components/CommonComponents/ContentHeader";
 import Footer from "@/components/Footer/Footer";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
@@ -53,14 +52,7 @@ export default function InsightsListing({
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-slate-100 flex flex-col font-sans">
-      <ContentHeader
-        className="bg-contain"
-        backgroundImage={backgroundImage}
-        subtitle={subtitle}
-        title={title}
-        description={description}
-        highlights={highlights}
-      />
+
 
       <motion.main
         ref={containerRef}
@@ -68,7 +60,7 @@ export default function InsightsListing({
           y: contentY,
           opacity,
         }}
-        className="flex-grow max-w-7xl w-full mx-auto px-6 py-12 md:py-20"
+        className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-gradient-to-b from-sky-50 via-white to-slate-100 flex-grow  w-full mx-auto px-6 py-12 md:py-20"
       >
 
         {/* Category Filter Chips */}
@@ -78,7 +70,7 @@ export default function InsightsListing({
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all cursor-pointer ${activeCategory === cat
+                className={`px-4 py-2 rounded-full text-sm border transition-all cursor-pointer ${activeCategory === cat
                   ? "bg-blue-500 border-blue-500 text-white shadow-md shadow-blue-500/20"
                   : "bg-white border-neutral-200 text-neutral-600 hover:border-blue-300 hover:text-blue-600"
                   }`}
@@ -129,7 +121,7 @@ export default function InsightsListing({
 
                       <CardItem
                         translateZ="0"
-                        className="text-lg font-bold text-neutral-900 dark:text-neutral-100 mt-4 line-clamp-2 group-hover/card:text-blue-500 transition-colors"
+                        className="text-lg  text-neutral-900 dark:text-neutral-100 mt-4 line-clamp-2 group-hover/card:text-blue-500 transition-colors"
                       >
                         {item.title}
                       </CardItem>

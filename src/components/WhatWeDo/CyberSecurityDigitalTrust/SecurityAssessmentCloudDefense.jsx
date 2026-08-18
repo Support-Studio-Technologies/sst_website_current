@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import assessmentImage from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/Section6_Assessment_Area_Image.svg";
+import assessmentImage from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/new/Security.jpg";
 
 const AREAS = [
     {
@@ -11,7 +11,7 @@ const AREAS = [
     },
     {
         title: "Cybersecurity Consulting",
-        desc: ":Systematic identification of weaknesses across your infrastructure, applications, and SAP landscape.",
+        desc: "Systematic identification of weaknesses across your infrastructure, applications, and SAP landscape.",
     },
     {
         title: "Vulnerability Assessment",

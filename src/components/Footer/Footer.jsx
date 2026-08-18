@@ -258,7 +258,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/whatWeDo/cybersecurity-and-digital-trust"
+                  href="/whatWeDo/cybersecurity-digital-trust"
                   className="hover:text-white transition-colors duration-200"
                 >
                   Cybersecurity & Digital Trust
@@ -292,7 +292,7 @@ const Footer = () => {
           </div>
 
           {/* Industries */}
-          <div className="md:col-span-1">
+          {/* <div className="md:col-span-1">
             <h3 className="text-white text-lg font-semibold md:mt-21.5 mb-4">Industries</h3>
             <ul className="space-y-2">
               <li>
@@ -376,7 +376,7 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Support */}
           <div className="md:col-span-1 ">
@@ -414,14 +414,14 @@ const Footer = () => {
                   Blog
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/industry-reports"
                   className="hover:text-white transition-colors duration-200"
                 >
                   Industry Reports
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 

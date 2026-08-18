@@ -2,42 +2,42 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import pmoPhoto from "@/assets/WhatWeDo/Business Advisory/Section10_PMO_Advisory_Bg.svg";
-import sapIcon from "@/assets/WhatWeDo/Business Advisory/icons/Frame 1000003968.svg";
-import msIcon from "@/assets/WhatWeDo/Business Advisory/icons/Frame 1000003969.svg";
-import analyticsIcon from "@/assets/WhatWeDo/Business Advisory/icons/analytics_svgrepo.com.svg";
-import processIcon from "@/assets/WhatWeDo/Business Advisory/icons/process_svgrepo.com.svg";
-import aiIcon from "@/assets/WhatWeDo/Business Advisory/icons/ai_svgrepo.com.svg";
-import siAiIcon from "@/assets/WhatWeDo/Business Advisory/icons/si_ai-fill.svg";
+import pmoPhoto from "@/assets/WhatWeDo/Business Advisory/new/Reengineering.jpg";
+import ProcessAssessment from "@/assets/WhatWeDo/Business Advisory/icons/ProcessAssessment.svg";
+import LeanTransformation from "@/assets/WhatWeDo/Business Advisory/icons/LeanTransformation.svg";
+import AutomationOpportunities from "@/assets/WhatWeDo/Business Advisory/icons/AutomationOpportunities.svg";
+import WorkflowStandardization from "@/assets/WhatWeDo/Business Advisory/icons/WorkflowStandardization.svg";
+import ProcessDocumentation from "@/assets/WhatWeDo/Business Advisory/icons/ProcessDocumentation.svg";
+import TechnologyAssessment from "@/assets/WhatWeDo/Business Advisory/icons/TechnologyAssessment.svg";
 
 const ITEMS = [
     {
-        icon: sapIcon,
+        icon: ProcessAssessment,
         title: "Process Assessment",
         desc: "Targeted advisory domains including PMO, digital strategy, and IT evaluation.",
     },
     {
-        icon: msIcon,
+        icon: LeanTransformation,
         title: "Lean Transformation",
         desc: "Independent guidance on technology decisions, vendor selection, and IT investment priorities",
     },
     {
-        icon: analyticsIcon,
+        icon: AutomationOpportunities,
         title: "Automation Opportunities",
         desc: "Redesigned processes that remove inefficiency, not just automate the inefficiency that already exists.",
     },
     {
-        icon: processIcon,
+        icon: WorkflowStandardization,
         title: "Workflow Standardization",
         desc: "Structured change programs that get your people adopting new ways of working, not resisting them.",
     },
     {
-        icon: aiIcon,
+        icon: ProcessDocumentation,
         title: "Process Documentation",
         desc: "Our AI-powered bot automatically and accurately answers support questions with zero training required. Instantly generate replies, recap conversations for other agents, and create new help articles.",
     },
     {
-        icon: siAiIcon,
+        icon: TechnologyAssessment,
         title: "Technology Assessment",
         desc: "An objective evaluation of your current technology landscape against where the business needs to go.",
     },
@@ -90,8 +90,8 @@ export default function ReengineeringPMOGovernance() {
                             transition={{ duration: 0.4, delay: index * 0.05 }}
                             className="flex gap-4 sm:gap-5 items-start"
                         >
-                            <div className="shrink-0 size-[65px] rounded-[10px] bg-black/5 flex items-center justify-center">
-                                <Image src={item.icon} alt="" width={35} height={35} className="object-contain" />
+                            <div className="shrink-0 size-[65px]  flex items-center justify-center">
+                                <Image src={item.icon} alt="" width={40} height={40} className="object-contain" />
                             </div>
                             <div className="flex flex-col gap-2 sm:gap-3">
                                 <p className="text-black text-lg sm:text-xl font-normal">{item.title}</p>

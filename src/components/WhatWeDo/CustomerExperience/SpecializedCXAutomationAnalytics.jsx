@@ -3,9 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import ceaImage1 from "@/assets/WhatWeDo/Digital Engineering/Section3_CEA_Image.svg";
-import ceaImage2 from "@/assets/WhatWeDo/Digital Engineering/Section3_CEA_Image2.jpg";
-import ceaImage3 from "@/assets/WhatWeDo/Digital Engineering/Section3_CEA_Image3.jpg";
+import ceaImage1 from "@/assets/WhatWeDo/Customer Experience/new/Sales_Automation.jpg";
+import ceaImage2 from "@/assets/WhatWeDo/Customer Experience/new/Customer_Service_Solutions.jpg";
+import ceaImage3 from "@/assets/WhatWeDo/Customer Experience/new/Marketing_Automation.jpg";
+import ceaImage4 from "@/assets/WhatWeDo/Customer Experience/new/Analytics.jpg";
+import ceaImage5 from "@/assets/WhatWeDo/Customer Experience/new/Loyalty_Solutions.jpg";
 
 const TABS = [
     {
@@ -30,13 +32,13 @@ const TABS = [
         code: "Analytics",
         title: "Analytics",
         desc: "Design and build cloud-native applications leveraging containers, orchestration, and managed services for elasticity and resilience.",
-        image: ceaImage1,
+        image: ceaImage4,
     },
     {
         code: "Loyalty Solutions",
         title: "Loyalty Solutions",
         desc: "Re-architect legacy enterprise systems into modern, maintainable platforms without disrupting day-to-day business operations.",
-        image: ceaImage2,
+        image: ceaImage5,
     },
 ];
 

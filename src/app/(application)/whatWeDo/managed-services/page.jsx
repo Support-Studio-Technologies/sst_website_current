@@ -17,6 +17,8 @@ import DesignToolsTechnologies from "@/components/WhatWeDo/ManagedServices/Desig
 import ContinuousImprovement from "@/components/WhatWeDo/ManagedServices/ContinuousImprovement";
 import OurManagedCloudServices from "@/components/WhatWeDo/ManagedServices/OurManagedCloudServices";
 import WhyPartnerWithUs from "@/components/WhatWeDo/ManagedServices/WhyPartnerWithUs";
+import ProactiveSystemOperations from "@/components/WhatWeDo/ManagedServices/ProactiveSystemOperations";
+import customBg from "@/assets/WhatWeDo/Managed Services/new/footercta.jpg";
 
 const page = () => {
     return (
@@ -35,6 +37,7 @@ const page = () => {
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
                 {/* <MonitoringIncidentManagement /> */}
                 <SAPAMSTieredSupport />
+                <ProactiveSystemOperations />
                 <ProcessAwareSupportRootCauseResolution />
                 {/* <ApplicationManagementServices /> */}
             </div>
@@ -49,6 +52,7 @@ const page = () => {
             <ReadyToTransform
                 title="Ready for systems that just keep working?"
                 description="Talk to our advisory team about the roadmap your transformation needs."
+                bgImage={customBg}
             />
             <Footer />
         </div>

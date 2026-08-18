@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import buildingPhoto from "@/assets/WhatWeDo/Business Advisory/Section6_Bg.svg";
+import buildingPhoto from "@/assets/WhatWeDo/Experience Design/new/Design.jpg";
 
 export default function DesignPhilosophy() {
     return (
@@ -19,10 +19,10 @@ export default function DesignPhilosophy() {
                 className="relative z-10 h-full flex flex-col  justify-center  gap-8 sm:gap-12 px-6 sm:px-[52px]"
             >
                 <div className="flex flex-col gap-2 sm:gap-3 max-w-[420px]">
-                    <h2 className="text-black text-2xl font-normal">
+                    <h2 className="text-white text-2xl font-normal">
                         Design Philosophy
                     </h2>
-                    <p className="text-black text-lg font-light">
+                    <p className="text-white text-lg font-light">
                         The core principle behind our approach to experience design.
                     </p>
                 </div>

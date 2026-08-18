@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import incidentManagementPhoto from "@/assets/WhatWeDo/Managed Services/Section6_Image1.svg";
-import serviceRequestsPhoto from "@/assets/WhatWeDo/Managed Services/Section6_Image2.svg";
-import userSupportPhoto from "@/assets/WhatWeDo/Managed Services/Section6_Image3.svg";
-import knowledgeManagementPhoto from "@/assets/WhatWeDo/Managed Services/Section6_Image4.svg";
+import incidentManagementPhoto from "@/assets/WhatWeDo/Managed Services/new/card_1.jpg";
+import serviceRequestsPhoto from "@/assets/WhatWeDo/Managed Services/new/card_2.jpg";
+import userSupportPhoto from "@/assets/WhatWeDo/Managed Services/new/card_3.jpg";
+import knowledgeManagementPhoto from "@/assets/WhatWeDo/Managed Services/new/card_4.jpg";
 
 const ITEMS = [
     {

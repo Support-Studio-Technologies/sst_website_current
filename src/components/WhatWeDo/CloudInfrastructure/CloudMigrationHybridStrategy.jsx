@@ -32,16 +32,16 @@ const ITEMS = [
 
 export default function CloudMigrationHybridStrategy() {
     return (
-        <section className="w-full py-10 sm:py-[55px] px-6 sm:px-[50px]">
-            <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-[79px] max-w-[1390px] mx-auto">
+        <section className="w-full py-8 sm:py-[40px] px-6 sm:px-[40px]">
+            <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-12 max-w-[1390px] mx-auto">
                 <motion.div
                     initial={{ opacity: 0, x: -24 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col gap-4 w-full lg:w-[442px] shrink-0 lg:sticky lg:top-28"
+                    className="flex flex-col gap-4 w-full lg:w-[43%] shrink-0 lg:sticky lg:top-28"
                 >
-                    <h2 className="text-[#0d0c22] text-2xl font-medium">Cloud Migration &amp; Hybrid Strategy</h2>
+                    <h2 className="text-[#10161d] text-2xl sm:text-[28px] font-medium">Cloud Migration &amp; Hybrid Strategy</h2>
                     <p className="text-[#4A5568] text-lg font-light">
                         Modernization, hybrid models, and multi-cloud environments.
                     </p>
@@ -52,21 +52,20 @@ export default function CloudMigrationHybridStrategy() {
                     viewport={{ once: true, amount: 0.3 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                    className="flex flex-col gap-8 sm:gap-14 w-full"
+                    className="flex flex-col gap-8 sm:gap-10 w-full lg:flex-1 lg:min-w-0"
                 >
                     {ITEMS.map((item) => (
-                        <div key={item.title} className="flex flex-col gap-4 sm:gap-[22px]">
-                            <div className="flex items-center gap-6 sm:gap-9">
-                                <div className="relative size-[44px] sm:size-[72px] shrink-0">
+                        <div key={item.title} className="flex flex-col gap-4 sm:gap-[18px]">
+                            <div className="flex items-start gap-x-[clamp(1.5rem,5vw,4rem)] gap-y-2">
+                                <div className="relative size-10 sm:size-12 shrink-0">
                                     <Image src={item.icon} alt="" fill className="object-contain" />
                                 </div>
-                                <div className="hidden sm:block w-px self-stretch bg-[#7f7f7f]" />
                                 <div className="flex-1 min-w-0 flex flex-col gap-2 sm:gap-3">
-                                    <p className="text-black text-xl sm:text-[28px] font-normal">{item.title}</p>
-                                    <p className="text-[#4A5568] text-base sm:text-xl font-light">{item.desc}</p>
+                                    <p className="text-[#10161d] text-xl sm:text-2xl font-medium">{item.title}</p>
+                                    <p className="text-[#4A5568] text-base sm:text-lg font-light">{item.desc}</p>
                                 </div>
                             </div>
-                            <div className="h-px w-full bg-[#a4a7a5]" />
+                            <div className="h-px w-full bg-[#E2E5EA]" />
                         </div>
                     ))}
                 </motion.div>
@@ -74,3 +73,4 @@ export default function CloudMigrationHybridStrategy() {
         </section>
     );
 }
+

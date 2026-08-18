@@ -26,7 +26,7 @@ function MetaItem({ icon, label }) {
 
 function Badge({ children }) {
     return (
-        <span className="inline-flex items-center rounded-lg bg-[#eceef2] px-2.5 py-1 text-xs font-medium text-[#030213]">
+        <span className="inline-flex items-center bg-[#eceef2] px-2.5 py-1 text-xs font-medium text-[#030213]">
             {children}
         </span>
     );
@@ -51,7 +51,7 @@ function IconButton({ icon, label, onClick }) {
             type="button"
             aria-label={label}
             onClick={onClick}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/10 bg-white text-[#0a0a0a] transition-colors hover:bg-slate-50"
+            className="flex h-9 w-9 items-center justify-center border border-black/10 bg-white text-[#0a0a0a] transition-colors hover:bg-slate-50"
         >
             <Image src={icon} alt="" width={16} height={16} />
         </button>
@@ -181,10 +181,10 @@ function ResumeUploadModal({ isOpen, onClose, jobTitle }) {
 
     return (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-            <div className="bg-white rounded-2xl max-w-md w-full border border-black/10 p-6 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
+            <div className="bg-white max-w-md w-full border border-black/10 p-6 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
                 <button
                     onClick={onClose}
-                    className="absolute right-4 top-4 text-slate-400 hover:text-slate-600 transition-colors p-1 rounded-lg hover:bg-slate-100"
+                    className="absolute right-4 top-4 text-slate-400 hover:text-slate-600 transition-colors p-1 hover:bg-slate-100"
                     aria-label="Close modal"
                 >
                     <X className="w-5 h-5" />
@@ -205,7 +205,7 @@ function ResumeUploadModal({ isOpen, onClose, jobTitle }) {
                             onDragLeave={handleDrag}
                             onDrop={handleDrop}
                             onClick={() => fileInputRef.current?.click()}
-                            className={`border-2 border-dashed rounded-xl p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all ${dragActive
+                            className={`border-2 border-dashed p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all ${dragActive
                                     ? "border-blue-500 bg-blue-50/50"
                                     : "border-slate-200 hover:border-slate-300 bg-slate-50/50"
                                 }`}
@@ -225,7 +225,7 @@ function ResumeUploadModal({ isOpen, onClose, jobTitle }) {
                         </div>
 
                         {error && (
-                            <p className="text-sm text-red-600 flex items-start gap-1.5 bg-red-50 p-2.5 rounded-lg border border-red-100">
+                            <p className="text-sm text-red-600 flex items-start gap-1.5 bg-red-50 p-2.5 border border-red-100">
                                 <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
                                 <span>{error}</span>
                             </p>
@@ -235,7 +235,7 @@ function ResumeUploadModal({ isOpen, onClose, jobTitle }) {
                             <button
                                 type="button"
                                 onClick={onClose}
-                                className="px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+                                className="px-4 py-2 border border-slate-200 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
                             >
                                 Cancel
                             </button>
@@ -243,7 +243,7 @@ function ResumeUploadModal({ isOpen, onClose, jobTitle }) {
                                 type="button"
                                 onClick={handleUpload}
                                 disabled={!file}
-                                className="px-4 py-2 bg-[#030213] text-white rounded-lg text-sm font-medium hover:bg-black transition-colors disabled:opacity-50"
+                                className="px-4 py-2 bg-[#030213] text-white text-sm font-medium hover:bg-black transition-colors disabled:opacity-50"
                             >
                                 Continue
                             </button>
@@ -276,9 +276,9 @@ export default function JobDescription({ job, otherJobs = [] }) {
     };
 
     return (
-        <div className="max-w-5xl mx-auto ml-2.5 space-y-4">
+        <div className="w-full space-y-4">
             {/* Job Details Card */}
-            <div className="bg-white border border-black/10 rounded-[14px] p-5 sm:p-6">
+            <div className="bg-white border border-black/10 p-5 sm:p-6">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                     <div className="flex gap-4">
                         <div className="border-l-5 border-[#2d8ec5] pl-4">
@@ -329,12 +329,12 @@ export default function JobDescription({ job, otherJobs = [] }) {
             </div>
 
             {/* Instant Apply Card */}
-            <div className="bg-white border border-black/10 rounded-[14px] p-5 sm:p-6">
+            <div className="bg-white border border-black/10 p-5 sm:p-6">
                 <h3 className="text-base font-medium text-[#0a0a0a]">Instant Apply</h3>
                 <p className="text-sm text-[#4a5565] mt-1">Apply with one tap using your saved profile</p>
 
                 <div className="border-t border-black/10 mt-4 pt-4">
-                    <div className="bg-[#eff6ff] border border-[#bedbff] rounded-[10px] px-3.5 py-3">
+                    <div className="bg-[#eff6ff] border border-[#bedbff] px-3.5 py-3">
                         <p className="text-xs leading-4 text-[#1c398e]">
                             <span className="font-bold">How Instant Apply works:</span> Upload your resume to apply in
                             seconds. We&apos;ll review your profile and contact you if there&apos;s a suitable
@@ -346,13 +346,13 @@ export default function JobDescription({ job, otherJobs = [] }) {
                         <button
                             type="button"
                             onClick={() => setIsUploadModalOpen(true)}
-                            className="w-full h-10 rounded-lg bg-[#030213] text-white text-sm font-medium flex items-center justify-center transition-colors hover:bg-black cursor-pointer"
+                            className="w-full h-10 bg-[#030213] text-white text-sm font-medium flex items-center justify-center transition-colors hover:bg-black cursor-pointer"
                         >
                             Upload your Resume
                         </button>
                         <Link
                             href={`/careers/apply?position=${encodeURIComponent(job.title)}`}
-                            className="w-full h-9 rounded-lg border border-black/10 bg-white text-[#0a0a0a] text-sm font-medium flex items-center justify-center transition-colors hover:bg-slate-50"
+                            className="w-full h-9 border border-black/10 bg-white text-[#0a0a0a] text-sm font-medium flex items-center justify-center transition-colors hover:bg-slate-50"
                         >
                             Apply for This Job
                         </Link>
@@ -362,7 +362,7 @@ export default function JobDescription({ job, otherJobs = [] }) {
 
             {/* View More Jobs Card */}
             {otherJobs.length > 0 && (
-                <div className="bg-white border border-black/10 rounded-[14px] p-5 sm:p-6">
+                <div className="bg-white border border-black/10 p-5 sm:p-6">
                     <h4 className="text-base font-medium text-[#0a0a0a] mb-3">View More Jobs</h4>
                     <div className="space-y-4">
                         {otherJobs.map((other) => (
@@ -378,7 +378,7 @@ export default function JobDescription({ job, otherJobs = [] }) {
                                 </div>
                                 <Link
                                     href={`/careers/${other.slug}`}
-                                    className="inline-flex items-center gap-1.5 rounded-full border border-[#7f7f7f] px-3 py-1.5 text-xs text-[#2d8ec5] whitespace-nowrap transition-colors hover:bg-slate-50"
+                                    className="inline-flex items-center gap-1.5 border border-[#7f7f7f] px-3 py-1.5 text-xs text-[#2d8ec5] whitespace-nowrap transition-colors hover:bg-slate-50"
                                 >
                                     View Job Details
                                     <Image src={viewJobDetailsIcon} alt="" width={8} height={8} />
@@ -388,7 +388,7 @@ export default function JobDescription({ job, otherJobs = [] }) {
                     </div>
                     <Link
                         href="/careers"
-                        className="mt-4 w-full h-9 rounded-lg border border-black/10 bg-white text-[#0a0a0a] text-sm font-medium flex items-center justify-center transition-colors hover:bg-slate-50"
+                        className="mt-4 w-full h-9 border border-black/10 bg-white text-[#0a0a0a] text-sm font-medium flex items-center justify-center transition-colors hover:bg-slate-50"
                     >
                         View More Jobs
                     </Link>

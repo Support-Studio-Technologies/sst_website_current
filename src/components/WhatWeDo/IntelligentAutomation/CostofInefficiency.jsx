@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import buildingPhoto from "@/assets/WhatWeDo/Business Advisory/Section6_Bg.svg";
+import buildingPhoto from "@/assets/WhatWeDo/Intelligent Automation/new/Cost.jpg";
 
 export default function CostofInefficiency() {
     return (

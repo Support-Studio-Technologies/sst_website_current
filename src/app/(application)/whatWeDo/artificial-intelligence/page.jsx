@@ -20,6 +20,8 @@ import IndustryImpact from "@/components/WhatWeDo/ArtificialIntelligence/Industr
 import AIGovernance from "@/components/WhatWeDo/ArtificialIntelligence/AIGovernance";
 import AILifecycle from "@/components/WhatWeDo/ArtificialIntelligence/AILifecycle";
 import WhyPartnerWithUs from "@/components/WhatWeDo/ArtificialIntelligence/WhyPartnerWithUs";
+import AIUseCaseValueEnablement from "@/components/WhatWeDo/ArtificialIntelligence/AIUseCaseValueEnablement";
+import customBg from "@/assets/WhatWeDo/Artificial Intelligence/AI_Imgs/AI_CTA_2560_1200.webp";
 
 const page = () => {
     return (
@@ -50,11 +52,13 @@ const page = () => {
             {/* <AILifecycle /> */}
             <AdvancedMachineLearning />
             {/* <IntelligentAssistantsBanner /> */}
+            <AIUseCaseValueEnablement />
             <WhyPartnerWithUs />
             {/* <FutureFocusedInsights /> */}
             <ReadyToTransform
                 title="Ready to build infrastructure that scales with you?"
                 description="Talk to our infrastructure team about the environment your business actually needs."
+                bgImage={customBg}
             />
             <Footer />
         </div>

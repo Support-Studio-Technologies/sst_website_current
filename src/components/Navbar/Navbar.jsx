@@ -223,7 +223,7 @@ const Navbar = () => {
                       alt="Support Studio Technologies"
                       width={260}
                       height={40}
-                      className="h-10 w-auto"
+                      className="h-10 w-auto object-cover"
                     />
                   </div>
                 </Link>
@@ -310,8 +310,8 @@ const Navbar = () => {
                           : "bg-neutral-900/80 border-white/20 text-white"
                           }`}
                       >
-                        <div className="grid grid-cols-4 gap-10">
-                          {/* <div className="grid grid-cols-2 gap-10"> */}
+                        {/* <div className="grid grid-cols-4 gap-10"> */}
+                        <div className="grid grid-cols-2 gap-10">
 
                           {/* Capability Column 1 */}
                           <div>
@@ -359,7 +359,7 @@ const Navbar = () => {
                           </div>
 
                           {/* Industry Column 1 */}
-                          <div>
+                          {/* <div>
                             <h3
                               className={`text-sm font-semibold uppercase tracking-wider mb-5 ${isNavbarLight ? "text-black" : "text-white"
                                 }`}
@@ -382,10 +382,10 @@ const Navbar = () => {
                                 </li>
                               ))}
                             </ul>
-                          </div>
+                          </div> */}
 
                           {/* Industry Column 2 */}
-                          <div className="pt-9">
+                          {/* <div className="pt-9">
                             <ul className="space-y-2">
                               {industryColumns[1].map((item) => (
                                 <li key={item.name}>
@@ -401,7 +401,7 @@ const Navbar = () => {
                                 </li>
                               ))}
                             </ul>
-                          </div>
+                          </div> */}
 
                         </div>
                       </div>
@@ -457,7 +457,9 @@ const Navbar = () => {
               <div className="hidden lg:flex items-center gap-3">
                 <LanguageSelector isNavbarLight={isNavbarLight} />
                 {/* <ContactUsButton /> */}
-                <BookAcallButton setShowCalendly={setShowCalendly} />
+                <BookAcallButton
+                  isNavbarLight={isNavbarLight}
+                  setShowCalendly={setShowCalendly} />
               </div>
             </div>
           </div>

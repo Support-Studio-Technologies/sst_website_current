@@ -19,7 +19,8 @@ import GovernanceSAPDataDepth from "@/components/WhatWeDo/DataIntelligence/Gover
 import HighComplianceIndustrySolutions from "@/components/WhatWeDo/DataIntelligence/HighComplianceIndustrySolutions";
 import IndustryImpact from "@/components/WhatWeDo/DataIntelligence/IndustryImpact";
 import RealTimeAnalyticsAndMasterDataManagement from "@/components/WhatWeDo/DataIntelligence/RealTimeAnalyticsAndMasterDataManagement";
-
+import DataModernizationIntegration from "@/components/WhatWeDo/DataIntelligence/DataModernizationIntegration"
+import customBg from "@/assets/WhatWeDo/Data Inteligent/new/footercta.jpg";
 
 const page = () => {
     return (
@@ -38,6 +39,7 @@ const page = () => {
             <div className="relative z-10 -mt-[340px] sm:-mt-[100vh] bg-white">
                 {/* <IntroSection /> */}
                 <EnterpriseDataFoundations />
+                <DataModernizationIntegration />
                 <GovernanceSAPDataDepth />
             </div>
             {/* <DataWarehousing /> */}
@@ -54,6 +56,7 @@ const page = () => {
             <ReadyToTransform
                 title="Ready to trust your data again?"
                 description="Talk to our data and analytics team about building a platform your business can rely on."
+                bgImage={customBg}
             />
             <Footer />
         </div>

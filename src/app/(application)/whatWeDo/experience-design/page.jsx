@@ -19,6 +19,7 @@ import DesignToolsTechnologies from "@/components/WhatWeDo/ExperienceDesign/Desi
 import UserResearchAndDesignSystems from "@/components/WhatWeDo/ExperienceDesign/UserResearchAndDesignSystems";
 import DesignPhilosophy from "@/components/WhatWeDo/ExperienceDesign/DesignPhilosophy";
 import OurDesignCapabilities from "@/components/WhatWeDo/ExperienceDesign/OurDesignCapabilities";
+import customBg from "@/assets/WhatWeDo/Experience Design/new/footercta.jpg";
 
 const page = () => {
     return (
@@ -45,6 +46,7 @@ const page = () => {
             <ReadyToTransform
                 title="Ready to design an experience people actually enjoy using?"
                 description="Talk to our design team about your next product or platform."
+                bgImage={customBg}
             />
             <Footer />
             {/* <UserResearch />

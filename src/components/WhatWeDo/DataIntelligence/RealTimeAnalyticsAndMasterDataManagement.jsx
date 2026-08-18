@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import dataCenterPhoto from "@/assets/WhatWeDo/Data Inteligent/Section14_RealTimeAnalytics_MDM_Hero.jpg";
+import dataCenterPhoto from "@/assets/WhatWeDo/Data Inteligent/new/real.jpg";
 
 const ITEMS = [
     {

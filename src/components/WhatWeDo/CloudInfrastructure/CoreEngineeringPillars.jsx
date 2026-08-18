@@ -32,6 +32,7 @@ const ITEMS = [
 ];
 
 const REAL_LEN = ITEMS.length;
+const AUTO_SCROLL_INTERVAL = 4000;
 
 // Render three full copies of the list back-to-back and keep the scroll
 // position parked in the middle copy. That guarantees a full extra set of
@@ -106,6 +107,19 @@ export default function CoreEngineeringPillars() {
         scrollToSlide(REAL_LEN + index);
         setActive(index);
     };
+
+    // Auto-advance one slide at a time; reschedules off `active` so it also
+    // restarts cleanly from wherever a manual dot-click or drag left off,
+    // instead of drifting out of sync with the user's own navigation. Skips
+    // a tick while a mouse drag is in progress so autoplay can't yank the
+    // track out from under an active drag.
+    useEffect(() => {
+        const timer = setInterval(() => {
+            if (dragState.current) return;
+            goTo((active + 1) % REAL_LEN);
+        }, AUTO_SCROLL_INTERVAL);
+        return () => clearInterval(timer);
+    }, [active]);
 
     // Pointer-drag-to-scroll for desktop (mouse) users; touch keeps native swipe.
     //
@@ -187,7 +201,7 @@ export default function CoreEngineeringPillars() {
                                 <div className="relative shrink-0 size-[50px] sm:size-[60px]">
                                     <Image src={item.icon} alt="" fill className="object-contain" draggable={false} />
                                 </div>
-                                <div className="w-px self-stretch bg-[#7F7F7F]" />
+                                <div className="w-px h-[50px] sm:h-[60px] shrink-0 bg-[#7F7F7F]" />
                                 <div className="flex flex-col gap-3">
                                     <p className="text-black text-xl sm:text-2xl font-normal">{item.title}</p>
                                     <p className="text-[#7f7f7f] text-base sm:text-lg font-light">{item.desc}</p>

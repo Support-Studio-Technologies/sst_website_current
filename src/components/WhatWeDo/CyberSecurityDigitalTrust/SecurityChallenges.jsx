@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import challengeImage from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/Sectin3_Image.svg";
+import challengeImage from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/new/our_Security.jpg";
 
 const CHALLENGES = [
     "SAP segregation of duties expertise",
@@ -19,7 +19,7 @@ export default function SecurityChallenges() {
         // edge with zero gap, so any container padding here would reproduce the exact gap the
         // design doesn't have. Vertical rhythm only (py-10/16); the previous py-[-55px] was an
         // invalid negative value that would've been dropped by the browser anyway.
-        <section className="w-full py-10 sm:py-16">
+        <section className="w-full ">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

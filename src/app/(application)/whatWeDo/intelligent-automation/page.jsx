@@ -18,6 +18,8 @@ import HyperAutomation from "@/components/WhatWeDo/IntelligentAutomation/HyperAu
 import AIPoweredAutomation from "@/components/WhatWeDo/IntelligentAutomation/AIPoweredAutomation";
 import OurAutomationApproach from "@/components/WhatWeDo/IntelligentAutomation/OurAutomationApproach";
 import CostofInefficiency from "@/components/WhatWeDo/IntelligentAutomation/CostofInefficiency";
+import AutomationOperationsControl from "@/components/WhatWeDo/IntelligentAutomation/AutomationOperationsControl";
+import customBg from "@/assets/WhatWeDo/Intelligent Automation/new/footercta.jpg";
 
 const page = () => {
     return (
@@ -40,6 +42,7 @@ const page = () => {
             </div>
 
             {/* <IntelligentDocumentProcessing /> */}
+            <AutomationOperationsControl />
             <AdvancedDecisionLogiWorkflow />
             <CostofInefficiency />
             {/* <BusinessRulesAutomationGrid /> */}
@@ -52,6 +55,7 @@ const page = () => {
             <ReadyToTransform
                 title="Ready to remove manual work from your business processes?"
                 description="Talk to our automation team about where intelligent automation pays off fastest."
+                bgImage={customBg}
             />
             <Footer />
         </div>

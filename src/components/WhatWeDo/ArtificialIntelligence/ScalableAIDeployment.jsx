@@ -1,9 +1,10 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import integrationImage1 from "@/assets/WhatWeDo/Artificial Intelligence/Section8_AIIntegration_Image1.jpg";
-import integrationImage2 from "@/assets/WhatWeDo/Artificial Intelligence/Section8_AIIntegration_Image2.jpg";
+import { motion, useInView } from "framer-motion";
+import integrationImage1 from "@/assets/WhatWeDo/Artificial Intelligence/AI_Imgs/AI_Scalable_AI_1.webp";
+import integrationImage2 from "@/assets/WhatWeDo/Artificial Intelligence/AI_Imgs/AI_Scalable_AI_2.webp";
 
 const STATS = [
     { value: "50+", label: "AI Solutions Delivered" },
@@ -11,6 +12,54 @@ const STATS = [
     { value: "60%+", label: "Processes Automated" },
     { value: "99.9%", label: "AI Operations Availability" },
 ];
+
+// Splits e.g. "99.9%" into { prefix: "", number: 99.9, suffix: "%", decimals: 1 } so the
+// count-up below can animate just the numeric part while reproducing the original
+// formatting (suffix and decimal precision) exactly once the animation finishes.
+function parseStatValue(raw) {
+    const match = raw.match(/^([^\d.]*)([\d.]+)(.*)$/);
+    if (!match) return { prefix: "", number: 0, suffix: raw, decimals: 0 };
+    const [, prefix, numberStr, suffix] = match;
+    const decimals = numberStr.includes(".") ? numberStr.split(".")[1].length : 0;
+    return { prefix, number: parseFloat(numberStr), suffix, decimals };
+}
+
+// Counts up from 0 to the stat's value once it scrolls into view (`once: true`, matching
+// the whileInView pattern used elsewhere in this file), via requestAnimationFrame rather
+// than an interval so the rate stays tied to the browser's paint cadence.
+function AnimatedStat({ value }) {
+    const { prefix, number, suffix, decimals } = parseStatValue(value);
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.5 });
+    const [display, setDisplay] = useState(0);
+
+    useEffect(() => {
+        if (!isInView) return;
+
+        const duration = 1400;
+        let start;
+        let frame;
+
+        const tick = (timestamp) => {
+            if (start === undefined) start = timestamp;
+            const progress = Math.min((timestamp - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+            setDisplay(number * eased);
+            if (progress < 1) frame = requestAnimationFrame(tick);
+        };
+
+        frame = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(frame);
+    }, [isInView, number]);
+
+    return (
+        <p ref={ref} className="text-black text-2xl sm:text-4xl font-normal leading-tight">
+            {prefix}
+            {display.toFixed(decimals)}
+            {suffix}
+        </p>
+    );
+}
 
 export default function ScalableAIDeployment() {
     return (
@@ -24,7 +73,7 @@ export default function ScalableAIDeployment() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col items-center gap-4 max-w-[600px] mx-auto text-center mb-14"
+                    className="flex flex-col items-center gap-4 w-full mx-auto text-center mb-14"
                 >
                     <h2 className="text-black text-xl sm:text-2xl font-normal">
                         Scalable AI Deployment & Operational Workflows
@@ -112,9 +161,7 @@ export default function ScalableAIDeployment() {
                                     ${index > 0 ? "lg:border-l lg:border-black" : ""}
                                 `}
                             >
-                                <p className="text-black text-2xl sm:text-4xl font-normal leading-tight">
-                                    {stat.value}
-                                </p>
+                                <AnimatedStat value={stat.value} />
 
                                 <p className="text-black text-sm sm:text-base font-normal leading-tight mt-2">
                                     {stat.label}

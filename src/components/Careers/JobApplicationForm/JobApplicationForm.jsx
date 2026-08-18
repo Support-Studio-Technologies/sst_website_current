@@ -9,10 +9,10 @@ import dropdownIcon from "@/assets/career/icons/dropdown.svg";
 import uploadIcon from "@/assets/career/icons/upload.svg";
 
 const inputClass =
-    "w-full h-9 bg-[#f3f3f5] rounded-lg px-3 text-sm text-slate-900 placeholder:text-[#717182] border border-transparent outline-none focus:ring-2 focus:ring-blue-500/30 transition-all duration-300";
+    "w-full h-9 bg-[#f3f3f5] px-3 text-sm text-slate-900 placeholder:text-[#717182] border border-transparent outline-none focus:ring-2 focus:ring-blue-500/30 transition-all duration-300";
 
 const textareaClass =
-    "w-full min-h-16 bg-[#f3f3f5] rounded-lg px-3 py-2 text-sm text-slate-900 placeholder:text-[#717182] border border-transparent outline-none focus:ring-2 focus:ring-blue-500/30 transition-all duration-300 resize-none";
+    "w-full min-h-16 bg-[#f3f3f5] px-3 py-2 text-sm text-slate-900 placeholder:text-[#717182] border border-transparent outline-none focus:ring-2 focus:ring-blue-500/30 transition-all duration-300 resize-none";
 
 const labelClass = "block text-sm font-medium text-[#0a0a0a] mb-2";
 
@@ -93,7 +93,7 @@ function SelectField({ label, required, className, options, placeholder, isPreFi
 
 function Card({ title, description, children }) {
     return (
-        <div className="bg-white border border-black/10 rounded-[14px]">
+        <div className="bg-white border border-black/10">
             <div className="px-6 pt-6 pb-2">
                 <h3 className="text-base font-medium text-[#0a0a0a]">{title}</h3>
                 {description && <p className="text-sm text-[#717182] mt-1">{description}</p>}
@@ -277,7 +277,7 @@ export default function JobApplicationForm() {
                 aria-live="polite"
                 className="max-w-4xl mx-auto text-center"
             >
-                <div className="w-16 h-16 rounded-2xl bg-blue-600 text-white flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-blue-600 text-white flex items-center justify-center mx-auto mb-6">
                     <CheckCircle className="w-9 h-9" aria-hidden="true" />
                 </div>
                 <h2 className="text-2xl font-semibold text-slate-900 mb-3">Application Submitted</h2>
@@ -296,7 +296,7 @@ export default function JobApplicationForm() {
             </div>
 
             {showPreFilledBanner && (
-                <div className="mb-6 p-4 bg-blue-50/70 border border-blue-200 rounded-xl flex items-start gap-3 animate-in fade-in slide-in-from-top-4 duration-300">
+                <div className="mb-6 p-4 bg-blue-50/70 border border-blue-200 flex items-start gap-3 animate-in fade-in slide-in-from-top-4 duration-300">
                     <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <div>
                         <p className="text-sm font-semibold text-blue-800">Application details pre-filled!</p>
@@ -351,7 +351,7 @@ export default function JobApplicationForm() {
                         <button
                             type="button"
                             onClick={() => fileInputRef.current?.click()}
-                            className={`w-full border-2 border-dashed rounded-[10px] p-6 flex flex-col items-center justify-center gap-2 transition-all cursor-pointer ${
+                            className={`w-full border-2 border-dashed p-6 flex flex-col items-center justify-center gap-2 transition-all cursor-pointer ${
                                 resumeFile 
                                     ? "border-blue-300 bg-blue-50/10 hover:border-blue-400" 
                                     : "border-[#d1d5dc] hover:border-blue-400"
@@ -416,7 +416,7 @@ export default function JobApplicationForm() {
                     <button
                         type="submit"
                         disabled={status === "submitting"}
-                        className="bg-[#030213] hover:bg-black text-white text-sm font-medium rounded-lg h-[45px] min-w-[200px] px-6 flex items-center justify-center gap-2 transition-colors disabled:opacity-60 cursor-pointer"
+                        className="bg-[#030213] hover:bg-black text-white text-sm font-medium h-[45px] min-w-[200px] px-6 flex items-center justify-center gap-2 transition-colors disabled:opacity-60 cursor-pointer"
                     >
                         {status === "submitting" ? (
                             <>

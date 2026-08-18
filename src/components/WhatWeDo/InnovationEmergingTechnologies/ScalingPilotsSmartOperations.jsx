@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import integrationImage1 from "@/assets/WhatWeDo/Artificial Intelligence/Section8_AIIntegration_Image1.jpg";
-import integrationImage2 from "@/assets/WhatWeDo/Artificial Intelligence/Section8_AIIntegration_Image2.jpg";
+import integrationImage1 from "@/assets/WhatWeDo/Innovation & Emerging Technologies/new/Pilot.jpg";
+import integrationImage2 from "@/assets/WhatWeDo/Innovation & Emerging Technologies/new/Industry.jpg";
 
 
 

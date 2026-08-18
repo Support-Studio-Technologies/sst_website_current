@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import decisionAutomationPhoto from "@/assets/WhatWeDo/Intelligent Automation/Section8_Bg_image1.svg";
+import decisionAutomationPhoto from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/new/Business.jpg";
 
 const ITEMS = [
     {
@@ -39,9 +39,9 @@ export default function BusinessEnablementThroughSecurity() {
                         the panel stays proportional at any viewport and self-adjusts to the panel's
                         height instead of a fixed 918x313 box pinned to a magic top offset. */}
                     <div className="relative sm:absolute sm:left-[4.5%] sm:top-1/2 sm:-translate-y-1/2 bg-[#F3F6F9] w-full sm:w-[60%] -mt-4 sm:mt-0 overflow-hidden flex flex-col justify-center gap-6 px-6 py-8 sm:pl-[10%] sm:pr-[20%] sm:pt-[49px] sm:pb-8">
-                        <p className="font-heading text-black text-xl sm:text-2xl font-normal">{item.eyebrow}</p>
+                        <h2 className="font-heading text-black text-xl sm:text-2xl font-medium">{item.eyebrow}</h2>
                         <div className="flex flex-col gap-3">
-                            <p className="text-black text-xl sm:text-2xl font-normal">{item.title}</p>
+                            <p className="text-black text-base sm:text-lg font-light">{item.title}</p>
                             <p className="text-[#515151] text-base sm:text-lg font-light">{item.desc}</p>
                         </div>
                     </div>

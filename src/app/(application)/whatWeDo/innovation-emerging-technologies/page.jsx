@@ -19,6 +19,8 @@ import SmartEnterpriseSolutions from "@/components/WhatWeDo/InnovationEmergingTe
 import OurInnovationFramework from "@/components/WhatWeDo/InnovationEmergingTechnologies/OurInnovationFramework";
 import ScalingPilotsSmartOperations from "@/components/WhatWeDo/InnovationEmergingTechnologies/ScalingPilotsSmartOperations";
 import IndustryDigitalTwins from "@/components/WhatWeDo/InnovationEmergingTechnologies/IndustryDigitalTwins";
+import customBg from "@/assets/WhatWeDo/Innovation & Emerging Technologies/new/footercta.jpg";
+import EmergingTechnologyAssessment from "@/components/WhatWeDo/InnovationEmergingTechnologies/EmergingTechnologyAssessment";
 
 const page = () => {
     return (
@@ -32,7 +34,7 @@ const page = () => {
             <Navbar />
 
             {/* Fixed hero reveal: background stays pinned while the Intro section curtains
-                over it, matching whatWeDo/cybersecurity-digital-trust's hero pattern */}
+                over it, matching WhatWeDo/cybersecurity-digital-trust's hero pattern */}
             <div className="relative -mt-[64px] lg:-mt-[68px] h-[680px] sm:h-[200vh]">
                 <div className="sticky top-0 h-[340px] sm:h-screen z-0">
                     <Hero />
@@ -52,8 +54,9 @@ const page = () => {
 
             {/* <DigitalTwins /> */}
             <SSTInnovatioEdge />
-            <ScalingPilotsSmartOperations />
+            <EmergingTechnologyAssessment />
             <ARVR />
+            <ScalingPilotsSmartOperations />
             {/* <ExtendedReality /> */}
             {/* <QuantumReadiness /> */}
             {/* <Industry4 /> */}
@@ -64,6 +67,7 @@ const page = () => {
             <ReadyToTransform
                 title="Ready to explore what's next for your enterprise?"
                 description="Talk to our innovation team about the emerging technologies worth your attention."
+                bgImage={customBg}
             />
             <Footer />
         </div>

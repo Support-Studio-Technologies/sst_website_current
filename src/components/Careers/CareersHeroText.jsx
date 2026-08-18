@@ -4,22 +4,22 @@ import { motion } from "framer-motion";
 
 export default function CareersHeroText() {
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="w-full"
-        >
-            <div className="flex items-center gap-4 sm:gap-6">
-                <p className="text-white text-base sm:text-3xl shrink-0">Career</p>
-            </div>
-            <div className="flex-1 h-px bg-white/30" />
-            <h1 className="text-white/90 text-3xl sm:text-5xl lg:text-6xl font-medium mt-3 max-w-4xl">
-                Opportunities don&apos;t happen, you create them.
-            </h1>
-            <p className="text-white text-xs sm:text-xl mt-3 max-w-xl">
-                We are always interested in receiving and reviewing resumes
-            </p>
-        </motion.div>
+        <div className="absolute inset-x-0 top-[18%] sm:top-[23%] px-6 py-6 sm:py-0 sm:px-10 md:ml-7 lg:px-[57px]">
+            <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="w-full max-w-[1057px]"
+            >
+                <p className="text-white/90 text-sm sm:text-lg lg:text-xl uppercase tracking-wide font-light">
+                    Career
+                </p>
+                <div className="mt-3 sm:mt-4 h-px w-full bg-white/40" />
+                <h1 className="text-white text-2xl sm:text-4xl lg:text-5xl font-medium capitalize mt-6 sm:mt-8 leading-tight">
+                    Opportunities don&apos;t happen, you create them.
+                </h1>
+
+            </motion.div>
+        </div>
     );
 }

@@ -11,6 +11,7 @@ export default function ReadyToTransform({
     title = "Ready to Transform Your Business?",
     description = "Let's Build innovative Solution that drive growth efficiency for your Business",
     buttonLabel = "Book a Consultation",
+    bgImage = ctaBg,
 }) {
     const [showCalendly, setShowCalendly] = useState(false);
 
@@ -21,7 +22,7 @@ export default function ReadyToTransform({
     return (
         <>
             <section className="relative z-0 w-full overflow-hidden">
-                <Image src={ctaBg} alt="" fill className="object-cover" />
+                <Image src={bgImage} alt="" fill className="object-cover" />
                 <div className="absolute inset-0 bg-black/20" />
 
                 <motion.div

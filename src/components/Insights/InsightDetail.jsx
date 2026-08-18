@@ -170,9 +170,9 @@ export default function InsightDetail({ item, basePath, backLabel }) {
                             {item.type}
                         </span>
 
-                        <h1 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight">
+                        <h2 className="text-[#0d0c22] text-2xl font-medium">
                             {item.title}
-                        </h1>
+                        </h2>
 
                         {item.tags?.length > 0 && (
                             <div className="flex flex-wrap gap-2 pt-1">
@@ -224,17 +224,17 @@ export default function InsightDetail({ item, basePath, backLabel }) {
                         </div>
 
                         {/* Download CTA (whitepapers / industry reports) */}
-                        {item.downloadUrl && (
-                            <a
-                                href={item.downloadUrl}
-                                className="inline-flex items-center gap-2 mt-2 px-5 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl shadow-md hover:shadow-blue-500/20 transition-all self-start"
-                            >
-                                <Download className="w-4 h-4" /> Download {item.type}
-                                {item.fileInfo && (
-                                    <span className="font-normal text-blue-100 text-xs">· {item.fileInfo}</span>
-                                )}
-                            </a>
-                        )}
+                        {/* {item.downloadUrl && (
+                            // <a
+                            //     href={item.downloadUrl}
+                            //     className="inline-flex items-center gap-2 mt-2 px-5 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl shadow-md hover:shadow-blue-500/20 transition-all self-start"
+                            // >
+                            //     <Download className="w-4 h-4" /> Download {item.type}
+                            //     {item.fileInfo && (
+                            //         <span className="font-normal text-blue-100 text-xs">· {item.fileInfo}</span>
+                            //     )}
+                            // </a>
+                        )} */}
 
                         {/* Share Section */}
                         <div className="flex items-center gap-4 pt-2">
@@ -281,11 +281,11 @@ export default function InsightDetail({ item, basePath, backLabel }) {
 
                     {/* Right: Cover Image */}
                     <div className="lg:col-span-6 flex justify-center">
-                        <div className="inline-flex rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
+                        <div className="inline-flex rounded-none overflow-hidden shadow-lg bg-neutral-100">
                             <img
                                 src={item.cover_image}
                                 alt={item.title}
-                                className="block max-h-[250px] md:max-h-[400px] w-auto object-contain rounded-2xl"
+                                className="block max-h-[250px] md:max-h-[400px] w-auto object-contain rounded-none"
                             />
                         </div>
                     </div>
@@ -339,7 +339,7 @@ export default function InsightDetail({ item, basePath, backLabel }) {
                                                 scrollToSection(targetId);
                                                 setIsDropdownOpen(false);
                                             }}
-                                            className={`flex items-center justify-between px-6 py-2.5 text-left text-sm font-semibold transition-colors cursor-pointer ${isActive
+                                            className={`flex items-center justify-between px-6 py-2.5 text-left text-sm  transition-colors cursor-pointer ${isActive
                                                 ? "text-blue-500 bg-blue-50/50 dark:bg-blue-900/10 font-bold"
                                                 : "text-slate-655 dark:text-slate-350 hover:bg-slate-50 dark:hover:bg-neutral-800"
                                                 }`}
@@ -362,7 +362,7 @@ export default function InsightDetail({ item, basePath, backLabel }) {
                     {/* Left Sticky Sidebar (Desktop only) */}
                     <aside className="hidden lg:block lg:col-span-3">
                         <div className="sticky top-28 space-y-6">
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                            <h3 className="text-xs uppercase tracking-wider text-slate-400">
                                 Table of Contents
                             </h3>
                             <ul className="relative border-l border-slate-300 ml-2">
@@ -398,14 +398,14 @@ export default function InsightDetail({ item, basePath, backLabel }) {
                                 })}
                             </ul>
 
-                            {item.downloadUrl && (
-                                <a
-                                    href={item.downloadUrl}
-                                    className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl shadow-md hover:shadow-blue-500/20 transition-all text-sm"
-                                >
-                                    <Download className="w-4 h-4" /> Download {item.type}
-                                </a>
-                            )}
+                            {/* {item.downloadUrl && (
+                                // <a
+                                //     href={item.downloadUrl}
+                                //     className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl shadow-md hover:shadow-blue-500/20 transition-all text-sm"
+                                // >
+                                //     <Download className="w-4 h-4" /> Download {item.type}
+                                // </a>
+                            )} */}
                         </div>
                     </aside>
 
@@ -415,22 +415,22 @@ export default function InsightDetail({ item, basePath, backLabel }) {
                             <section key={idx} className="space-y-4 border-b border-slate-100 pb-8 last:border-none last:pb-0">
                                 <h2
                                     id={`section-${idx}`}
-                                    className="text-2xl md:text-3xl font-black text-slate-900 scroll-mt-28 pt-2"
+                                    className="text-[#0d0c22] text-2xl font-medium  pt-2"
                                 >
                                     {sec.heading}
                                 </h2>
-                                <div className="text-slate-655 dark:text-neutral-350 text-base md:text-lg leading-relaxed whitespace-pre-wrap font-normal">
+                                <div className="text-[#4A5568] dark:text-neutral-350 text-base md:text-lg leading-relaxed whitespace-pre-wrap font-normal">
                                     {sec.content}
                                 </div>
 
                                 {sec.image && (
                                     <div className="my-6 space-y-2">
                                         <div className="flex justify-center">
-                                            <div className="inline-flex rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-neutral-100 p-2.5">
+                                            <div className="inline-flex rounded-none overflow-hidden border border-slate-200 shadow-md bg-neutral-100 p-2.5">
                                                 <img
                                                     src={sec.image}
                                                     alt={sec.caption || sec.heading}
-                                                    className="block max-h-[350px] w-auto object-contain rounded-2xl"
+                                                    className="block max-h-[350px] w-auto object-contain rounded-none"
                                                 />
                                             </div>
                                         </div>

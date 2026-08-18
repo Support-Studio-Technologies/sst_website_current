@@ -19,6 +19,9 @@ import ZeroTrustArchitecture from "@/components/WhatWeDo/CyberSecurityDigitalTru
 import CybersecurityDeliveryFramework from "@/components/WhatWeDo/CyberSecurityDigitalTrust/CybersecurityDeliveryFramework";
 import BusinessEnablementThroughSecurity from "@/components/WhatWeDo/CyberSecurityDigitalTrust/BusinessEnablementThroughSecurity";
 import AccessControlSimulatedAttacks from "@/components/WhatWeDo/CyberSecurityDigitalTrust/AccessControlSimulatedAttacks";
+import SecurityArchitectureResilience from "@/components/WhatWeDo/CyberSecurityDigitalTrust/SecurityArchitectureResilience";
+import DataProtectionPrivacy from "@/components/WhatWeDo/CyberSecurityDigitalTrust/DataProtectionPrivacy";
+import customBg from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/new/footercta.jpg";
 
 const page = () => {
     return (
@@ -51,8 +54,10 @@ const page = () => {
 
             {/* <IdentityAccessManagement /> */}
             {/* <SecurityOperations /> */}
-            <AccessControlSimulatedAttacks />
+            <SecurityArchitectureResilience />
             <SecurityAssessmentCloudDefense />
+            <DataProtectionPrivacy />
+            <AccessControlSimulatedAttacks />
             {/* <PenetrationTesting /> */}
 
             {/* Pinned GRC background parallax, then Cloud Security curtains over it */}
@@ -69,6 +74,7 @@ const page = () => {
             <ReadyToTransform
                 title="Ready to strengthen your security posture?"
                 description="Talk to our cybersecurity team about protecting what your business is building."
+                bgImage={customBg}
             />
             <Footer />
         </div>

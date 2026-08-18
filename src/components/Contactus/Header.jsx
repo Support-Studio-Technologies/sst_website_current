@@ -3,6 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Navbar from "../Navbar/Navbar";
 import RectangleHeader from "../../../public/blog/2807cc98147a21e2764581df7af98cfbb12fa24a.jpg";
+import contact from "src/assets/contactus/contus.jpg";
 
 
 const ContactHeader = () => {
@@ -42,7 +43,7 @@ const ContactHeader = () => {
         <div className="relative h-[55vh] md:h-[75vh] w-full flex flex-col">
           {/* Background Image */}
           <Image
-            src={RectangleHeader}
+            src={contact}
             alt="Contact Background"
             fill
             priority
@@ -62,29 +63,22 @@ const ContactHeader = () => {
           <Navbar />
 
           {/* Content - Left Aligned */}
-          <div className="flex-1 flex items-start justify-center px-4 sm:px-8 lg:px-16 relative z-20 pt-8 md:pt-16">
+          <div className="flex-1 flex items-start px-4 sm:px-8 lg:px-16 relative z-20 pt-8 md:pt-16">
             <div className="w-full max-w-5xl">
               <motion.div
-                className="text-left"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="w-full max-w-[1057px]"
               >
-                {/* Title */}
-                <motion.h1
-                  variants={titleVariants}
-                  className="text-white
-                     text-[clamp(1.6rem,3vw,2.4rem)]
-                     md:text-[clamp(2rem,3.5vw,2.8rem)]
-                     lg:text-[clamp(2.4rem,4vw,3.2rem)]
-                     xl:text-[clamp(2.8rem,4.5vw,3.6rem)]
-                     tracking-wide leading-tight
-                     drop-shadow-[0_4px_10px_rgba(0,0,0,0.4)]
-                     max-w-3xl"
-                >
+                <p className="text-white/90 text-sm sm:text-lg lg:text-xl uppercase tracking-wide font-light">
+                  Contact Us
+                </p>
+                <div className="mt-3 sm:mt-4 h-px w-full bg-white/40" />
+                <h1 className="text-white text-2xl sm:text-4xl lg:text-5xl font-medium capitalize mt-6 sm:mt-8 leading-tight">
                   Get in touch with us. We're <br />
                   here to assist you.
-                </motion.h1>
+                </h1>
               </motion.div>
             </div>
           </div>

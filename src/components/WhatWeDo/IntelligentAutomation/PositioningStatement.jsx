@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import matterPhoto from "@/assets/WhatWeDo/Intelligent Automation/Section2_image.svg";
+import matterPhoto from "@/assets/WhatWeDo/Intelligent Automation/new/Positioning.jpg";
 
 export default function PositioningStatement() {
     return (
-        <section className="w-full px-6 py-10 sm:pl-[72px] sm:pr-[40px] sm:py-[40px]">
+        <section className="w-full px-6 py-10 sm:pl-[72px] sm:pr-[40px] sm:py-[40px] bg-[#f3f6f9]">
             {/* Heading */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -63,4 +63,5 @@ export default function PositioningStatement() {
         </section>
     );
 }
+
 

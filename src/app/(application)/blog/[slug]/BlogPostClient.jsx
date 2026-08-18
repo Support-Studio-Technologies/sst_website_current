@@ -190,7 +190,7 @@ export default function BlogPostClient() {
             <div className="min-h-screen bg-slate-50 dark:bg-neutral-950 flex flex-col font-sans">
                 <Navbar />
                 <div className="flex-grow flex flex-col items-center justify-center py-40 px-6 text-center">
-                    <h1 className="text-4xl font-black text-slate-800 dark:text-white mb-4">
+                    <h1 className="text-2xl font-black text-slate-800 dark:text-white mb-4">
                         Article Not Found
                     </h1>
                     <p className="text-slate-500 dark:text-neutral-400 mb-8 max-w-md">
@@ -228,9 +228,9 @@ export default function BlogPostClient() {
                         >
                             <ArrowLeft className="w-4 h-4" /> Back to Blogs
                         </Link>
-                        <h1 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight">
+                        <p className="text-2xl md:text-2xl font-black ">
                             {blog.title}
-                        </h1>
+                        </p>
                         <div className="flex items-center gap-6 pt-6 border-t border-slate-100 dark:border-neutral-850 mt-6 text-slate-500 dark:text-neutral-400">
                             <div className="flex items-center gap-2">
                                 <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500">
@@ -238,7 +238,7 @@ export default function BlogPostClient() {
                                 </div>
                                 <div>
                                     <span className="block text-[10px] uppercase tracking-wider text-slate-400 font-bold">Author</span>
-                                    <span className="font-semibold text-slate-800 text-sm">{blog.author}</span>
+                                    <span className=" text-slate-800 text-sm">{blog.author}</span>
                                 </div>
                             </div>
                             <div className="flex items-center gap-2">
@@ -303,11 +303,11 @@ export default function BlogPostClient() {
 
                     {/* Right: Cover Image */}
                     <div className="lg:col-span-6 flex justify-center">
-                        <div className="inline-flex rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
+                        <div className="inline-flex rounded-none overflow-hidden shadow-lg bg-neutral-100">
                             <img
                                 src={blog.cover_image}
                                 alt={blog.title}
-                                className="block max-h-[250px] md:max-h-[400px] w-auto object-contain rounded-2xl"
+                                className="block max-h-[250px] md:max-h-[400px] w-auto object-contain rounded-none"
                             />
                         </div>
                     </div>
@@ -346,7 +346,7 @@ export default function BlogPostClient() {
                                                 scrollToSection(targetId);
                                                 setIsDropdownOpen(false);
                                             }}
-                                            className={`flex items-center justify-between px-6 py-2.5 text-left text-sm font-semibold transition-colors cursor-pointer ${isActive
+                                            className={`flex items-center justify-between px-6 py-2.5 text-left text-sm transition-colors cursor-pointer ${isActive
                                                 ? "text-blue-500 bg-blue-50/50 dark:bg-blue-900/10 font-bold"
                                                 : "text-slate-655 dark:text-slate-350 hover:bg-slate-50 dark:hover:bg-neutral-800"
                                                 }`}
@@ -411,12 +411,12 @@ export default function BlogPostClient() {
                     <div className="lg:col-span-9 space-y-12">
                         {sections.map((sec, idx) => (
                             <section key={idx} className="space-y-4 border-b border-slate-100 pb-8 last:border-none last:pb-0">
-                                <h2
+                                <p
                                     id={`section-${idx}`}
-                                    className="text-2xl md:text-3xl font-black text-slate-900 scroll-mt-28 pt-2"
+                                    className="text-2xl md:text-2xl font-black scroll-mt-28 pt-2"
                                 >
                                     {sec.heading}
-                                </h2>
+                                </p>
                                 <div className="text-slate-655 dark:text-neutral-350 text-base md:text-lg leading-relaxed whitespace-pre-wrap font-normal">
                                     {sec.content}
                                 </div>
@@ -424,11 +424,11 @@ export default function BlogPostClient() {
                                 {sec.image && (
                                     <div className="my-6 space-y-2">
                                         <div className="flex justify-center">
-                                            <div className="inline-flex rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-neutral-100 p-2.5">
+                                            <div className="inline-flex rounded-none overflow-hidden border border-slate-200 shadow-md bg-neutral-100 p-2.5">
                                                 <img
                                                     src={sec.image}
                                                     alt={sec.caption || sec.heading}
-                                                    className="block max-h-[350px] w-auto object-contain rounded-2xl"
+                                                    className="block max-h-[350px] w-auto object-contain rounded-none"
                                                 />
                                             </div>
                                         </div>

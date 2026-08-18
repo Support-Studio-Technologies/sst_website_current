@@ -3,7 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import buildingPhoto from "@/assets/WhatWeDo/Managed Services/Section3_Image.svg";
+import buildingPhoto from "@/assets/WhatWeDo/Managed Services/new/SAP.jpg";
 
 const ITEMS = [
     {
@@ -351,10 +351,9 @@ export default function SAPAMSTieredSupport() {
 
                                                 sm:text-2xl
 
-                                                ${
-                                                    isRevealed
-                                                        ? "translate-y-0 opacity-100"
-                                                        : "translate-y-3 opacity-40"
+                                                ${isRevealed
+                                                    ? "translate-y-0 opacity-100"
+                                                    : "translate-y-3 opacity-40"
                                                 }
                                             `}
                                         >
@@ -376,10 +375,9 @@ export default function SAPAMSTieredSupport() {
                                                 sm:text-lg
                                                 sm:leading-snug
 
-                                                ${
-                                                    isRevealed
-                                                        ? "translate-y-0 opacity-100"
-                                                        : "translate-y-3 opacity-40"
+                                                ${isRevealed
+                                                    ? "translate-y-0 opacity-100"
+                                                    : "translate-y-3 opacity-40"
                                                 }
                                             `}
                                         >

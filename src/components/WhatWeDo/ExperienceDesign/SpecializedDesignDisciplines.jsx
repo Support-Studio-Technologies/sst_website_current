@@ -33,7 +33,7 @@ export default function SpecializedDesignDisciplines() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col items-center gap-4 w-full mx-auto text-center mb-10 sm:mb-[46px] px-6"
             >
-                <h2 className="text-[#0D0C22] text-2xl sm:text-[40px] leading-tight">
+                <h2 className="text-[#0D0C22] text-2xl font-medium">
                     Specialized Design Disciplines
                 </h2>
                 <p className="text-[#3D3D4E] text-base sm:text-lg font-light">
@@ -66,7 +66,7 @@ export default function SpecializedDesignDisciplines() {
                             aria-hidden
                             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                         >
-                            <div className="absolute inset-0 bg-[#0a2b3e]/90" />
+                            <div className="absolute inset-0 bg-[#1C5F85]" />
                         </div>
                         <div className="relative flex flex-col gap-8 sm:gap-10 text-left">
                             <p className="text-2xl sm:text-[32px] font-light">{col.title}</p>

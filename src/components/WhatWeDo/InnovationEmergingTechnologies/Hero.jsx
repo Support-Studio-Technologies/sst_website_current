@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import heroBg from "@/assets/WhatWeDo/Innovation & Emerging Technologies/Section1_hero_Bg.svg";
+import heroBg from "@/assets/WhatWeDo/Innovation & Emerging Technologies/new/Innovation.jpg";
 
 export default function Hero() {
     return (

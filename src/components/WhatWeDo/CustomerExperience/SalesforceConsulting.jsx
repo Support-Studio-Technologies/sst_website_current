@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import consultingImg from "@/assets/WhatWeDo/Customer Experience/Section6_Image.svg";
+import consultingImg from "@/assets/WhatWeDo/Customer Experience/new/Expertise.jpg";
 import nextArrow from "@/assets/WhatWeDo/Customer Experience/Icons/Section6_Arrow.svg";
 
 const SERVICES = [

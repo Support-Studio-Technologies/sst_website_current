@@ -18,6 +18,8 @@ import LoyaltySolutions from "@/components/WhatWeDo/CustomerExperience/LoyaltySo
 import SingleCustomerView from "@/components/WhatWeDo/CustomerExperience/SingleCustomerView";
 import SpecializedCXAutomationAnalytics from "@/components/WhatWeDo/CustomerExperience/SpecializedCXAutomationAnalytics";
 import TeamAdoption from "@/components/WhatWeDo/CustomerExperience/TeamAdoption";
+import CustomerPersonalizationEngagement from "@/components/WhatWeDo/CustomerExperience/CustomerPersonalizationEngagement";
+import customBg from "@/assets/WhatWeDo/Customer Experience/new/footercta.jpg";
 
 const page = () => {
     return (
@@ -39,11 +41,13 @@ const page = () => {
             </div>
             {/* <CustomerServiceSolutions /> */}
             <TeamAdoption />
+            <CustomerPersonalizationEngagement />
             <SalesforceConsulting />
             <SpecializedCXAutomationAnalytics />
             <ReadyToTransform
                 title="Ready to design a customer experience that earns loyalty?"
                 description="Talk to our CX team about connecting every customer touchpoint that matters."
+                bgImage={customBg}
             />
             <Footer />
             {/* <CRMStrategy />

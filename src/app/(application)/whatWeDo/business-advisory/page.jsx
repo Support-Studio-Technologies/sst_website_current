@@ -13,13 +13,14 @@ import DigitalStrategy from "@/components/WhatWeDo/BusinessAdvisory/DigitalStrat
 import EnterpriseArchitecture from "@/components/WhatWeDo/BusinessAdvisory/EnterpriseArchitecture";
 import ITAdvisory from "@/components/WhatWeDo/BusinessAdvisory/ITAdvisory";
 import BusinessProcessConsulting from "@/components/WhatWeDo/BusinessAdvisory/BusinessProcessConsulting";
-import ProcessReengineering from "@/components/WhatWeDo/BusinessAdvisory/ProcessReengineering";
+import BusinessTransformationAdvisory from "@/components/WhatWeDo/BusinessAdvisory/BusinessTransformationAdvisory";
 import ChangeManagement from "@/components/WhatWeDo/BusinessAdvisory/ChangeManagement";
 import ReengineeringPMOGovernance from "@/components/WhatWeDo/BusinessAdvisory/ReengineeringPMOGovernance";
 import TechnologyAssessment from "@/components/WhatWeDo/BusinessAdvisory/TechnologyAssessment";
 import TransformationRoadmap from "@/components/WhatWeDo/BusinessAdvisory/TransformationRoadmap";
 import SoftwareScalability from "@/components/WhatWeDo/BusinessAdvisory/SoftwareScalability";
 import SalesforceConsulting from "@/components/WhatWeDo/BusinessAdvisory/SalesforceConsulting";
+import customBg from "@/assets/WhatWeDo/Business Advisory/new/footercta.jpg";
 
 const page = () => {
     return (
@@ -52,7 +53,7 @@ const page = () => {
             {/* <EnterpriseArchitecture /> */}
             {/* <ITAdvisory /> */}
             {/* <BusinessProcessConsulting /> */}
-            {/* <ProcessReengineering /> */}
+            <BusinessTransformationAdvisory />
             {/* <ChangeManagement /> */}
             <ReengineeringPMOGovernance />
             {/* <TechnologyAssessment /> */}
@@ -63,6 +64,7 @@ const page = () => {
             <ReadyToTransform
                 title="Ready to build infrastructure that scales with you?"
                 description="Talk to our infrastructure team about the environment your business actually needs."
+                bgImage={customBg}
             />
             <Footer />
         </div>

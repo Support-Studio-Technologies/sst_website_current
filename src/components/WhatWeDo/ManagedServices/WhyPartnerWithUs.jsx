@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import buildingImg from "@/assets/WhatWeDo/Customer Experience/Section6_Image.svg";
+import buildingImg from "@/assets/WhatWeDo/Managed Services/new/why.jpg";
 
 const BENEFITS = [
     "SAP-certified support teams",

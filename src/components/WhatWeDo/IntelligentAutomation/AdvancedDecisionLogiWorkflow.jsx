@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import processMiningPhoto from "@/assets/WhatWeDo/Intelligent Automation/Section6_Bg.svg";
+import processMiningPhoto from "@/assets/WhatWeDo/Intelligent Automation/new/Advanced_Decision.jpg";
 
 const CARDS = [
     { title: "Workflow Automation", desc: "Automated approval and routing workflows that eliminate delays across departments." },

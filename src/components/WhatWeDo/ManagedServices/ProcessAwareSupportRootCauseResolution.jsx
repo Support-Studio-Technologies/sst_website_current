@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import skylinePhoto from "@/assets/WhatWeDo/Managed Services/Secton5_Image.svg";
+import skylinePhoto from "@/assets/WhatWeDo/Managed Services/new/Process.jpg";
 
 const TIERS = [
     {

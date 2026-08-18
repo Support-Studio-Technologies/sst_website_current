@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import overviewImage from "@/assets/WhatWeDo/Data Inteligent/Section12_HighComplianceOverview_Image.png";
+import overviewImage from "@/assets/WhatWeDo/Data Inteligent/new/High.jpg";
 
 export default function HighComplianceIndustrySolutions() {
     return (

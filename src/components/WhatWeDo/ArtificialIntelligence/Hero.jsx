@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import heroBg from "@/assets/WhatWeDo/Artificial Intelligence/Section1_Hero_Bg.jpg";
+import heroBg from "@/assets/WhatWeDo/Artificial Intelligence/AI_Imgs/AI_Hero_2560x1600.webp";
 
 export default function Hero() {
     return (

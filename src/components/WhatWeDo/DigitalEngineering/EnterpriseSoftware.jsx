@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import laptopPhoto from "@/assets/WhatWeDo/Digital Engineering/EnterpriseSoftware_Laptop_Photo.jpg";
+import laptopPhoto from "@/assets/WhatWeDo/Digital Engineering/new/Enterprise.jpg";
 
 const TABS = [
     {

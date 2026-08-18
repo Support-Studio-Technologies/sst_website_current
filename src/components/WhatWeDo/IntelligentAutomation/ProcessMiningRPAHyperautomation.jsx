@@ -2,12 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import rpaStrategyPhoto from "@/assets/WhatWeDo/Intelligent Automation/Section3_card1_RPA_Strategy_Consulting.svg";
-import processAutomationPhoto from "@/assets/WhatWeDo/Intelligent Automation/Section3_card2_Process_Automation.svg";
-import botDevelopmentPhoto from "@/assets/WhatWeDo/Intelligent Automation/Section3_card3_Bot_Development.svg";
-import legacySystemPhoto from "@/assets/WhatWeDo/Intelligent Automation/Section3_card4_Legacy_System_Automation.svg";
-import botMonitoringPhoto from "@/assets/WhatWeDo/Intelligent Automation/Section3_card5_Bot_Monitorin_Maintenance.svg";
-import rpaGovernancePhoto from "@/assets/WhatWeDo/Intelligent Automation/Section3_card6_RPA_Governance.svg";
+import rpaStrategyPhoto from "@/assets/WhatWeDo/Intelligent Automation/new/card_1.jpg";
+import processAutomationPhoto from "@/assets/WhatWeDo/Intelligent Automation/new/card_2.jpg";
+import botDevelopmentPhoto from "@/assets/WhatWeDo/Intelligent Automation/new/card_3.jpg";
+import legacySystemPhoto from "@/assets/WhatWeDo/Intelligent Automation/new/card_4.jpg";
 
 const CARDS = [
     {
@@ -35,7 +33,7 @@ const CARDS = [
 
 export default function ProcessMiningRPAHyperautomation() {
     return (
-        <section className="w-full py-10 sm:py-16 px-6 sm:px-[50px]">
+        <section className="w-full py-10 sm:py-16 px-6 sm:px-[64px]">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +56,7 @@ export default function ProcessMiningRPAHyperautomation() {
                 and fill the row like the rest of the page, keeping the same
                 tight x-axis padding relationship Figma shows rather than
                 leaving a big unused margin on typical desktop widths. */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-[59px] gap-y-6 sm:gap-y-16 max-w-[1280px] mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 max-w-full mx-auto">
                 {CARDS.map((card, index) => {
 
                     return (
@@ -68,13 +66,18 @@ export default function ProcessMiningRPAHyperautomation() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.3 }}
                             transition={{ duration: 0.5, ease: "easeOut", delay: (index % 3) * 0.08 }}
-                            className="bg-[#e8ebef] flex flex-col gap-4 px-[19px] py-4">
-                            <div className="relative w-full h-[138px] shrink-0">
-                                <Image src={card.image} alt="" fill className="object-cover" />
+                            className="bg-[#f3f6f9] flex flex-col gap-8 sm:gap-12 p-6 h-[340px] sm:h-[400px]">
+                            <div className="relative w-full flex-1 min-h-0 border-[0.5px] border-[#1c5f85]">
+                                <Image
+                                    src={card.image}
+                                    alt=""
+                                    fill
+                                    className={`object-cover ${index === 0 ? "object-bottom" : ""}`}
+                                />
                             </div>
-                            <div className="border border-[#d4d3d3] p-[10px] flex flex-col gap-4 sm:gap-[41px] flex-1">
-                                <p className="text-black text-xl sm:text-2xl font-normal max-w-[268px]">{card.title}</p>
-                                <p className="text-[#7f7f7f] text-sm sm:text-base max-w-[268px] font-light">{card.desc}</p>
+                            <div className="flex flex-col gap-6 shrink-0">
+                                <p className="text-black text-xl sm:text-2xl font-normal">{card.title}</p>
+                                <p className="text-[#4a5568] text-base sm:text-lg font-light">{card.desc}</p>
                             </div>
                         </motion.div>
                     );
@@ -83,3 +86,4 @@ export default function ProcessMiningRPAHyperautomation() {
         </section>
     );
 }
+

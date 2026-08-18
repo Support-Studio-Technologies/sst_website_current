@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import oneViewIcon from "@/assets/WhatWeDo/Customer Experience/icons/Section4_icon1_OneView.svg";
-import journeysIcon from "@/assets/WhatWeDo/Customer Experience/icons/Section4_icon2_Journeys.svg";
-import platformExpertiseIcon from "@/assets/WhatWeDo/Customer Experience/icons/Section4_icon3_PlatformExpertise.svg";
-import insightDrivenIcon from "@/assets/WhatWeDo/Customer Experience/icons/Section4_icon4_InsightDriven.svg";
+import oneViewIcon from "@/assets/WhatWeDo/Customer Experience/Icons/Section4_icon1_OneView.svg";
+import journeysIcon from "@/assets/WhatWeDo/Customer Experience/Icons/Section4_icon2_Journeys.svg";
+import platformExpertiseIcon from "@/assets/WhatWeDo/Customer Experience/Icons/Section4_icon3_PlatformExpertise.svg";
+import insightDrivenIcon from "@/assets/WhatWeDo/Customer Experience/Icons/Section4_icon4_InsightDriven.svg";
 
 const ITEMS = [
     { icon: oneViewIcon, title: " One View of the Customer", desc: "We unify sales, service, and marketing data so every team works from the same customer context." },

@@ -1,12 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import contentGenPhoto from "@/assets/WhatWeDo/Artificial Intelligence/Section3_Card1_ContentGeneration.jpg";
-import documentIntelPhoto from "@/assets/WhatWeDo/Artificial Intelligence/Section3_Card2_DocumentIntelligence.jpg";
-import knowledgeMgmtPhoto from "@/assets/WhatWeDo/Artificial Intelligence/Section3_Card3_KnowledgeManagement.jpg";
-import codeGenPhoto from "@/assets/WhatWeDo/Artificial Intelligence/Section3_Card4_CodeGeneration.jpg";
-import workflowAutoPhoto from "@/assets/WhatWeDo/Artificial Intelligence/Section3_Card5_WorkflowAutomation.jpg";
+import contentGenPhoto from "@/assets/WhatWeDo/Artificial Intelligence/AI_Imgs/AI_Strategy.webp";
+import documentIntelPhoto from "@/assets/WhatWeDo/Artificial Intelligence/AI_Imgs/Generative_AI.webp";
+import knowledgeMgmtPhoto from "@/assets/WhatWeDo/Artificial Intelligence/AI_Imgs/AI_Agents.webp";
+import codeGenPhoto from "@/assets/WhatWeDo/Artificial Intelligence/AI_Imgs/AI_Integration.webp";
+// import workflowAutoPhoto from "@/assets/WhatWeDo/Artificial Intelligence/AI_Imgs/Workflow_Automation.webp";
 
 const CARDS = [
     {
@@ -32,6 +33,12 @@ const CARDS = [
 ];
 
 export default function OurAIServices() {
+    // First card (AI Strategy) is open by default so users see the cards are
+    // expandable. Hovering another card opens it and closes the rest; moving
+    // the mouse off the row entirely falls back to the first card again.
+    const [hoveredIndex, setHoveredIndex] = useState(null);
+    const activeIndex = hoveredIndex ?? 0;
+
     return (
         <section className="w-full py-10 sm:py-20 px-6 sm:px-[70px]">
             <motion.div
@@ -67,36 +74,51 @@ export default function OurAIServices() {
                 ))}
             </div>
 
-            {/* Desktop: hover-to-grow row */}
-            <div className="hidden sm:flex sm:items-end gap-3 sm:gap-[13px] max-w-screen mx-auto">
-                {CARDS.map((card, index) => (
-                    <div key={card.title} className="relative h-[322px] flex-1">
-                        <motion.div
-                            initial={{ opacity: 0, y: 24 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{ duration: 0.5, delay: index * 0.08 }}
-                            className="group absolute bottom-0 inset-x-0 h-[200px] overflow-hidden transition-[height] duration-500 ease-out hover:h-[322px] z-10 hover:z-20"
-                        >
-                            <Image
-                                src={card.image}
-                                alt=""
-                                fill
-                                className="object-cover"
-                            />
+            {/* Desktop: hover-to-grow row — first card open by default */}
+            <div
+                className="hidden sm:flex sm:items-end gap-3 sm:gap-[13px] max-w-screen mx-auto"
+                onMouseLeave={() => setHoveredIndex(null)}
+            >
+                {CARDS.map((card, index) => {
+                    const isActive = index === activeIndex;
+                    return (
+                        <div key={card.title} className="relative h-[322px] flex-1">
+                            <motion.div
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                                transition={{ duration: 0.5, delay: index * 0.08 }}
+                                onMouseEnter={() => setHoveredIndex(index)}
+                                className={`absolute bottom-0 inset-x-0 overflow-hidden transition-[height] duration-500 ease-out ${isActive ? "h-[322px] z-20" : "h-[200px] z-10"
+                                    }`}
+                            >
+                                <Image
+                                    src={card.image}
+                                    alt=""
+                                    fill
+                                    className="object-cover"
+                                />
 
-                            <div className="absolute inset-0 bg-black/50 transition-colors duration-500 group-hover:bg-black/70" />
+                                <div
+                                    className={`absolute inset-0 transition-colors duration-500 ${isActive ? "bg-black/70" : "bg-black/50"
+                                        }`}
+                                />
 
-                            <div className="absolute inset-0 flex flex-col justify-start gap-3 px-4 pt-5">
-                                <p className="text-white text-xl sm:text-2xl font-normal max-w-[170px]">{card.title}</p>
-                                <p className="text-white/85 text-sm font-light max-w-[200px] max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-out group-hover:delay-500 group-hover:max-h-32 group-hover:opacity-100">
-                                    {card.desc}
-                                </p>
-                            </div>
-                        </motion.div>
-                    </div>
-                ))}
+                                <div className="absolute inset-0 flex flex-col justify-start gap-3 px-4 pt-5">
+                                    <p className="text-white text-xl sm:text-2xl font-normal max-w-[170px]">{card.title}</p>
+                                    <p
+                                        className={`text-white/85 text-sm font-light max-w-[200px] overflow-hidden transition-all duration-300 ease-out ${isActive ? "max-h-32 opacity-100 delay-500" : "max-h-0 opacity-0"
+                                            }`}
+                                    >
+                                        {card.desc}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </div>
+                    );
+                })}
             </div>
         </section>
     );
 }
+
