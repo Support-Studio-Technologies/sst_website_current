@@ -21,7 +21,7 @@ import BusinessEnablementThroughSecurity from "@/components/WhatWeDo/CyberSecuri
 import AccessControlSimulatedAttacks from "@/components/WhatWeDo/CyberSecurityDigitalTrust/AccessControlSimulatedAttacks";
 import SecurityArchitectureResilience from "@/components/WhatWeDo/CyberSecurityDigitalTrust/SecurityArchitectureResilience";
 import DataProtectionPrivacy from "@/components/WhatWeDo/CyberSecurityDigitalTrust/DataProtectionPrivacy";
-import customBg from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/new/footercta.jpg";
+import customBg from "@/assets/WhatWeDo/Cybersecurity & Digital Trust/webp/Cybersecurity_CTA.webp";
 
 const page = () => {
     return (

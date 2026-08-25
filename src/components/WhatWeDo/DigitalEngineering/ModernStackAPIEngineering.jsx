@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import changeBg from "@/assets/WhatWeDo/Digital Engineering/new/Modern.jpg";
+import changeBg from "@/assets/WhatWeDo/Digital Engineering/webp/Digital_ModernStack.webp";
 
 const STEPS = [
     { title: "Web Development", desc: "Enterprise-grade web platforms built for performance, security, and scale." },
@@ -14,7 +14,20 @@ const STEPS = [
 ];
 
 export default function ModernStackAPIEngineering() {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
+    // First step is active by default; hovering another step takes over,
+    // and the last-hovered step stays open (no reset to nothing). When the
+    // user isn't interacting, it auto-advances every few seconds, pausing
+    // while the row is hovered.
+    const [hoveredIndex, setHoveredIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+
+    useEffect(() => {
+        if (isPaused) return;
+        const id = setInterval(() => {
+            setHoveredIndex((prev) => (prev + 1) % STEPS.length);
+        }, 3000);
+        return () => clearInterval(id);
+    }, [isPaused]);
 
     return (
         <section className="w-full py-10 sm:py-16 flex flex-col items-center gap-8 sm:gap-[50px]">
@@ -23,10 +36,10 @@ export default function ModernStackAPIEngineering() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col items-center gap-4 max-w-[841px] text-center px-6"
+                className="flex flex-col items-center gap-2 max-w-[841px] text-center px-6"
             >
-                <h2 className="text-black text-2xl font-normal">Modern Stack & API Engineering</h2>
-                <p className="text-[#515151] text-base sm:text-lg font-light">
+                <h2 className="text-[#10161D] text-[28px] font-medium">Modern Stack & API Engineering</h2>
+                <p className="text-[#4a5568] text-lg sm:text-lg font-light">
                     Specialized engineering services from mobile to microservices.
                 </p>
             </motion.div>
@@ -46,8 +59,8 @@ export default function ModernStackAPIEngineering() {
                             {index + 1}
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-black text-base font-medium">{step.title}</p>
-                            <p className="text-[#515151] text-sm font-light leading-snug">{step.desc}</p>
+                            <p className="text-[#10161D] text-base font-medium">{step.title}</p>
+                            <p className="text-[#4A5568] text-sm font-light leading-snug">{step.desc}</p>
                         </div>
                     </motion.div>
                 ))}
@@ -58,24 +71,29 @@ export default function ModernStackAPIEngineering() {
                 <Image src={changeBg} alt="" fill className="object-cover" />
                 <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(to bottom, rgba(102,102,102,0) 0%, rgba(0,0,0,0.77) 85.6%)" }} />
 
-                <div className="absolute inset-0 flex">
+                <div
+                    className="absolute inset-0 flex"
+                    onMouseLeave={() => setIsPaused(false)}
+                >
                     {STEPS.map((step, index) => {
                         const isHovered = index === hoveredIndex;
                         return (
                             <div
                                 key={step.title}
-                                onMouseEnter={() => setHoveredIndex(index)}
-                                onMouseLeave={() => setHoveredIndex(null)}
+                                onMouseEnter={() => {
+                                    setIsPaused(true);
+                                    setHoveredIndex(index);
+                                }}
                                 className={`relative flex-1 flex flex-col items-center justify-center gap-5 px-4 text-left transition-colors duration-300 ${isHovered ? "bg-[#2d8ec5]/75 cursor-pointer" : "cursor-pointer"
                                     }`}
                             >
-                                <p className="text-white text-xl font-medium w-[240px]">{step.title}</p>
+                                <h2 className="text-white text-2xl font-medium w-[240px]">{step.title}</h2>
                                 {isHovered && (
                                     <motion.p
                                         initial={{ opacity: 0, y: 8 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.3 }}
-                                        className="text-white text-base font-light leading-snug w-[240px]"
+                                        className="text-white text-lg font-light leading-snug w-[240px]"
                                     >
                                         {step.desc}
                                     </motion.p>

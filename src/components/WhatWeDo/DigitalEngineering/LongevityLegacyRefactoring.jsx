@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import serviceDesignPhoto from "@/assets/WhatWeDo/Digital Engineering/new/Longevity.jpg";
+import serviceDesignPhoto from "@/assets/WhatWeDo/Digital Engineering/webp/Digital_Longevity.webp";
 
 const BOXES = [
     {
@@ -17,7 +17,7 @@ const BOXES = [
 
 export default function LongevityLegacyRefactoring() {
     return (
-        <section className="w-full py-10 px-6 sm:px-[64px] bg-[#f3f6f9]">
+        <section className="w-full py-10 px-6 sm:p-[64px] bg-[#f3f6f9]">
             {/* Two columns fill the full padded width via proportional flex-grow (≈654:475,
                 the Figma ratio) instead of fixed px, so they scale together on any desktop
                 width instead of leaving a mismatched gap between them. */}
@@ -29,10 +29,10 @@ export default function LongevityLegacyRefactoring() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="flex flex-col gap-3"
+                        className="flex flex-col gap-2"
                     >
-                        <h2 className="text-[#0d0c22] text-3xl font-medium">Longevity &amp; Legacy Refactoring</h2>
-                        <p className="text-black text-base sm:text-lg font-light">
+                        <h2 className="text-[#10161D] text-[28px] font-medium">Longevity &amp; Legacy Refactoring</h2>
+                        <p className="text-[#4a5568] text-base sm:text-lg font-light">
                             How we engineer software for scale and long-term stability.
                         </p>
                     </motion.div>
@@ -49,8 +49,8 @@ export default function LongevityLegacyRefactoring() {
                                 key={box.title}
                                 className="bg-white w-full sm:flex-1 lg:h-full flex flex-col items-start gap-12 lg:gap-16 px-6 py-8"
                             >
-                                <p className="text-black text-3xl font-medium">{box.title}</p>
-                                <p className="text-[#4a5568] text-xl font-light">{box.desc}</p>
+                                <p className="text-[#10161D] text-2xl font-medium">{box.title}</p>
+                                <p className="text-[#4a5568] text-lg font-light">{box.desc}</p>
                             </div>
                         ))}
                     </motion.div>

@@ -20,7 +20,7 @@ import HighComplianceIndustrySolutions from "@/components/WhatWeDo/DataIntellige
 import IndustryImpact from "@/components/WhatWeDo/DataIntelligence/IndustryImpact";
 import RealTimeAnalyticsAndMasterDataManagement from "@/components/WhatWeDo/DataIntelligence/RealTimeAnalyticsAndMasterDataManagement";
 import DataModernizationIntegration from "@/components/WhatWeDo/DataIntelligence/DataModernizationIntegration"
-import customBg from "@/assets/WhatWeDo/Data Inteligent/new/footercta.jpg";
+import customBg from "@/assets/WhatWeDo/Data Inteligent/webp/Data_CTA.webp";
 
 const page = () => {
     return (

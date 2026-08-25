@@ -10,7 +10,7 @@ import CRMStrategy from "@/components/WhatWeDo/CustomerExperience/CRMStrategy";
 import SalesAutomation from "@/components/WhatWeDo/CustomerExperience/SalesAutomation";
 import CustomerServiceSolutions from "@/components/WhatWeDo/CustomerExperience/CustomerServiceSolutions";
 import MarketingAutomation from "@/components/WhatWeDo/CustomerExperience/MarketingAutomation";
-import SalesforceConsulting from "@/components/WhatWeDo/CustomerExperience/SalesforceConsulting";
+import OurExpertise from "@/components/WhatWeDo/CustomerExperience/OurExpertise";
 import ConnectedCRMAndOmnichannelStrategy from "@/components/WhatWeDo/CustomerExperience/ConnectedCRMAndOmnichannelStrategy";
 import OmnichannelExperience from "@/components/WhatWeDo/CustomerExperience/OmnichannelExperience";
 import CustomerAnalytics from "@/components/WhatWeDo/CustomerExperience/CustomerAnalytics";
@@ -19,7 +19,7 @@ import SingleCustomerView from "@/components/WhatWeDo/CustomerExperience/SingleC
 import SpecializedCXAutomationAnalytics from "@/components/WhatWeDo/CustomerExperience/SpecializedCXAutomationAnalytics";
 import TeamAdoption from "@/components/WhatWeDo/CustomerExperience/TeamAdoption";
 import CustomerPersonalizationEngagement from "@/components/WhatWeDo/CustomerExperience/CustomerPersonalizationEngagement";
-import customBg from "@/assets/WhatWeDo/Customer Experience/new/footercta.jpg";
+import customBg from "@/assets/WhatWeDo/Customer Experience/webp/Customer_CTA.webp";
 
 const page = () => {
     return (
@@ -42,7 +42,7 @@ const page = () => {
             {/* <CustomerServiceSolutions /> */}
             <TeamAdoption />
             <CustomerPersonalizationEngagement />
-            <SalesforceConsulting />
+            <OurExpertise />
             <SpecializedCXAutomationAnalytics />
             <ReadyToTransform
                 title="Ready to design a customer experience that earns loyalty?"

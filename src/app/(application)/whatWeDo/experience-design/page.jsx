@@ -19,7 +19,9 @@ import DesignToolsTechnologies from "@/components/WhatWeDo/ExperienceDesign/Desi
 import UserResearchAndDesignSystems from "@/components/WhatWeDo/ExperienceDesign/UserResearchAndDesignSystems";
 import DesignPhilosophy from "@/components/WhatWeDo/ExperienceDesign/DesignPhilosophy";
 import OurDesignCapabilities from "@/components/WhatWeDo/ExperienceDesign/OurDesignCapabilities";
-import customBg from "@/assets/WhatWeDo/Experience Design/new/footercta.jpg";
+import DesignOperationsExperienceOptimization from "@/components/WhatWeDo/ExperienceDesign/DesignOperationsExperienceOptimization";
+import DesignStrategyValidation from "@/components/WhatWeDo/ExperienceDesign/DesignStrategyValidation";
+import customBg from "@/assets/WhatWeDo/Experience Design/webp/Experience_CTA.webp";
 
 const page = () => {
     return (
@@ -39,7 +41,9 @@ const page = () => {
                 {/* <UIUXDesign /> */}
             </div>
             {/* <ServiceDesign /> */}
+            <DesignOperationsExperienceOptimization />
             <EnterpriseUXModernization />
+            <DesignStrategyValidation />
             <DesignPhilosophy />
             <SpecializedDesignDisciplines />
             <OurDesignCapabilities />

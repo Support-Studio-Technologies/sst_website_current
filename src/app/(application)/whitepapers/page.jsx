@@ -2,7 +2,7 @@
 
 import React from "react";
 import InsightsListing from "@/components/Insights/InsightsListing";
-import backgroundImage from "@/assets/Insights/Whitepapers.jpg";
+import backgroundImage from "@/assets/Insights/Whitepapers_hero.webp";
 import { whitepapersData } from "@/data/whitepapersData";
 import Hero from "@/components/Insights/Hero";
 import HeroText from "@/components/Insights/HeroText";

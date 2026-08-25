@@ -25,7 +25,7 @@ import ModernStackAPIEngineering from "@/components/WhatWeDo/DigitalEngineering/
 import SoftwareScalability from "@/components/WhatWeDo/DigitalEngineering/SoftwareScalability";
 import QualityPerformanceEngineering from "@/components/WhatWeDo/DigitalEngineering/QualityPerformanceEngineering";
 import ProductPlatformEngineering from "@/components/WhatWeDo/DigitalEngineering/ProductPlatformEngineering";
-import customBg from "@/assets/WhatWeDo/Digital Engineering/new/footercta.jpg";
+import customBg from "@/assets/WhatWeDo/Digital Engineering/webp/Digital_CTA.webp";
 
 const page = () => {
     return (

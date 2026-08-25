@@ -17,22 +17,22 @@ const BOXES = [
 
 export default function EnterpriseUXModernization() {
     return (
-        <section className="w-full py-10 px-6 sm:px-[64px] bg-[#f3f6f9]">
+        <section className="w-full py-16 px-6 sm:px-[64px] bg-[#f3f6f9]">
             {/* Two columns fill the full padded width via proportional flex-grow (≈654:475,
                 the Figma ratio) instead of fixed px, so they scale together on any desktop
                 width instead of leaving a mismatched gap between them. */}
-            <div className="flex flex-col lg:flex-row lg:items-stretch gap-10 lg:gap-6 w-full">
+            <div className="flex flex-col lg:flex-row lg:items-stretch gap-10 lg:gap-8 w-full">
                 {/* Left column: title/description sits only above the cards, level with the image's top */}
-                <div className="flex flex-col gap-10 lg:gap-[75px] w-full lg:flex-[654_1_0%]">
+                <div className="flex flex-col gap-10 lg:gap-16 w-full lg:flex-[654_1_0%]">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="flex flex-col gap-3"
+                        className="flex flex-col gap-2"
                     >
-                        <h2 className="text-[#0d0c22] text-3xl font-medium">Enterprise UX Modernization</h2>
-                        <p className="text-black text-base sm:text-lg font-light">
+                        <h2 className="text-[#10161D] text-[28px] font-medium">Enterprise UX Modernization</h2>
+                        <p className="text-[#4A5568] text-base sm:text-lg font-light">
                             Eliminating unnecessary complexity in software and scaling interface standards.
                         </p>
                     </motion.div>
@@ -42,15 +42,15 @@ export default function EnterpriseUXModernization() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="flex flex-col sm:flex-row gap-6 w-full lg:flex-1"
+                        className="flex flex-col sm:flex-row gap-8 w-full lg:flex-1"
                     >
                         {BOXES.map((box) => (
                             <div
                                 key={box.title}
                                 className="bg-white w-full sm:flex-1 lg:h-full flex flex-col items-start gap-12 lg:gap-16 px-6 py-8"
                             >
-                                <p className="text-black text-3xl font-medium">{box.title}</p>
-                                <p className="text-[#4a5568] text-xl font-light">{box.desc}</p>
+                                <h2 className="text-[#10161D] text-2xl font-medium">{box.title}</h2>
+                                <p className="text-[#4A5568] text-lg font-light">{box.desc}</p>
                             </div>
                         ))}
                     </motion.div>

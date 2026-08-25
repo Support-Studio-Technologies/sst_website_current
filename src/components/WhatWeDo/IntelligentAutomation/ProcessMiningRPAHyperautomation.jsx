@@ -33,16 +33,16 @@ const CARDS = [
 
 export default function ProcessMiningRPAHyperautomation() {
     return (
-        <section className="w-full py-10 sm:py-16 px-6 sm:px-[64px]">
+        <section className="w-full pt-10 sm:pt-16 pb-10 sm:pb-8 px-6 sm:px-[64px]">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col items-center gap-4 max-w-[1055px] mx-auto text-center mb-10 sm:mb-[45px]"
+                className="flex flex-col items-center gap-2 max-w-[1055px] mx-auto text-center mb-10 sm:mb-16"
             >
-                <h2 className="text-black text-2xl font-medium">Process Mining, RPA & Hyperautomation</h2>
-                <p className="text-[#6c6c6c] text-base sm:text-lg font-light">
+                <h2 className="text-[#10161D] text-[28px] font-medium">Process Mining, RPA & Hyperautomation</h2>
+                <p className="text-[#4A5568] text-base sm:text-lg font-light">
                     Primary technologies for modernizing enterprise processes.
                 </p>
             </motion.div>
@@ -56,7 +56,7 @@ export default function ProcessMiningRPAHyperautomation() {
                 and fill the row like the rest of the page, keeping the same
                 tight x-axis padding relationship Figma shows rather than
                 leaving a big unused margin on typical desktop widths. */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 max-w-full mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-full mx-auto">
                 {CARDS.map((card, index) => {
 
                     return (
@@ -76,7 +76,7 @@ export default function ProcessMiningRPAHyperautomation() {
                                 />
                             </div>
                             <div className="flex flex-col gap-6 shrink-0">
-                                <p className="text-black text-xl sm:text-2xl font-normal">{card.title}</p>
+                                <h2 className="text-[#10161D] text-xl sm:text-2xl font-medium">{card.title}</h2>
                                 <p className="text-[#4a5568] text-base sm:text-lg font-light">{card.desc}</p>
                             </div>
                         </motion.div>

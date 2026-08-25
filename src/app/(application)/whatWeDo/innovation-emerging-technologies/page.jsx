@@ -19,8 +19,8 @@ import SmartEnterpriseSolutions from "@/components/WhatWeDo/InnovationEmergingTe
 import OurInnovationFramework from "@/components/WhatWeDo/InnovationEmergingTechnologies/OurInnovationFramework";
 import ScalingPilotsSmartOperations from "@/components/WhatWeDo/InnovationEmergingTechnologies/ScalingPilotsSmartOperations";
 import IndustryDigitalTwins from "@/components/WhatWeDo/InnovationEmergingTechnologies/IndustryDigitalTwins";
-import customBg from "@/assets/WhatWeDo/Innovation & Emerging Technologies/new/footercta.jpg";
 import EmergingTechnologyAssessment from "@/components/WhatWeDo/InnovationEmergingTechnologies/EmergingTechnologyAssessment";
+import customBg from "@/assets/WhatWeDo/Innovation & Emerging Technologies/webp/Innovation_CTA.webp";
 
 const page = () => {
     return (

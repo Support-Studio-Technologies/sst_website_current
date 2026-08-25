@@ -15,7 +15,7 @@ const BENEFITS = [
 
 export default function WhyPartnerWithUs() {
     return (
-        <section className="relative z-10 w-full py-14 sm:py-20">
+        <section className="relative z-10 w-full pt-10 sm:pt:16 pb-10 sm:pb-0">
             {/* The image is a full-bleed element like the photo bands in the
                 other Managed Services sections — it must reach the real
                 browser edge, not just the edge of a centered/padded container,
@@ -43,7 +43,7 @@ export default function WhyPartnerWithUs() {
                     {/* Text sits in the image's lower-left, inset as a % of the
                         image itself (not the viewport) so it stays proportionally
                         placed as the image scales between breakpoints. */}
-                    <div className="absolute inset-x-6 bottom-6 flex flex-col gap-3 sm:bottom-8 lg:inset-x-auto lg:bottom-[24%] lg:left-[20.8%] lg:right-[14.5%]">
+                    <div className="absolute inset-x-6 bottom-6 flex flex-col gap-2 sm:bottom-8 lg:inset-x-auto lg:bottom-[24%] lg:left-[20.8%] lg:right-[14.5%]">
                         <h2 className="font-heading text-2xl font-medium text-white">
                             Why Partner With Us
                         </h2>
@@ -60,7 +60,7 @@ export default function WhyPartnerWithUs() {
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                     className="relative w-full lg:max-w-[800px] self-center min-h-[400px] lg:h-[480px] bg-white shadow-[2px_2px_46px_rgba(0,0,0,0.15)] flex flex-col justify-center px-6 sm:px-12 py-12" >
 
-                    <ul className="list-disc pl-5 text-lg font-light leading-[48px] text-black sm:pl-6">
+                    <ul className="list-disc pl-5 text-lg font-light leading-[48px] text-[#4A5568] sm:pl-6">
                         {BENEFITS.map((benefit) => (
                             <li key={benefit}>{benefit}</li>
                         ))}

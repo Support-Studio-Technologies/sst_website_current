@@ -32,16 +32,16 @@ const CARDS = [
 
 export default function CustomerPersonalizationEngagement() {
     return (
-        <section className="w-full py-10 px-6 sm:px-[50px] bg-white">
+        <section className="w-full py-10 px-6 sm:p-16 bg-white">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col items-center gap-5 max-w-[767px] mx-auto text-center mb-14 sm:mb-16"
+                className="flex flex-col items-center gap-2 max-w-[767px] mx-auto text-center mb-14 sm:mb-16"
             >
-                <h2 className="text-[#0d0c22] text-2xl font-medium">Customer Personalization &amp; Engagement</h2>
-                <p className="text-black text-base sm:text-lg font-light">
+                <h2 className="text-[#10161D] text-[28px] font-medium">Customer Personalization &amp; Engagement</h2>
+                <p className="text-[#4a5568] text-base sm:text-lg font-light">
                     Data-driven capabilities that help enterprises deliver relevant and consistent customer
                     experiences at scale.
                 </p>
@@ -61,8 +61,8 @@ export default function CustomerPersonalizationEngagement() {
                             <Image src={card.icon} alt="" width={48} height={48} className="size-[48px]" />
                         </div>
                         <div className="flex flex-col flex-1 gap-4 px-8 pt-16 sm:pt-20 pb-10">
-                            <p className="text-black text-xl sm:text-2xl font-normal">{card.title}</p>
-                            <p className="text-[#6c6c6c] text-base sm:text-lg font-light">{card.desc}</p>
+                            <h2 className="text-[#10161D] text-xl sm:text-2xl font-medium">{card.title}</h2>
+                            <p className="text-[#4a5568] text-base sm:text-lg font-light">{card.desc}</p>
                         </div>
                     </motion.div>
                 ))}

@@ -114,7 +114,7 @@ const Navbar = () => {
 
   const servicesMenu = {
     capabilities: [
-      { name: "Enterprise Transformation", href: "/services/enterpriseTransformation" },
+      { name: "Enterprise Transformation", href: "/whatWeDo/enterprise-transformation-practice" },
       { name: "Artificial Intelligence", href: "/whatWeDo/artificial-intelligence" },
       { name: "Cloud & Infrastructure", href: "/whatWeDo/cloud-infrastructure" },
       { name: "Data & Intelligence", href: "/whatWeDo/data-intelligence" },

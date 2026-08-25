@@ -18,11 +18,11 @@ import ContinuousImprovement from "@/components/WhatWeDo/ManagedServices/Continu
 import OurManagedCloudServices from "@/components/WhatWeDo/ManagedServices/OurManagedCloudServices";
 import WhyPartnerWithUs from "@/components/WhatWeDo/ManagedServices/WhyPartnerWithUs";
 import ProactiveSystemOperations from "@/components/WhatWeDo/ManagedServices/ProactiveSystemOperations";
-import customBg from "@/assets/WhatWeDo/Managed Services/new/footercta.jpg";
+import customBg from "@/assets/WhatWeDo/Managed Services/webp/CTA.webp";
 
 const page = () => {
     return (
-        <div className="min-h-screen overflow-x-hidden bg-white flex flex-col font-sans">
+        <div className="min-h-screen  bg-white flex flex-col font-sans">
             <Navbar />
 
             <div className="relative -mt-[64px] lg:-mt-[68px] h-[680px] sm:h-[200vh]">

@@ -97,10 +97,10 @@ export default function ProactiveSystemOperations() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col gap-4 w-full lg:w-[340px] shrink-0 lg:pt-8"
+                    className="flex flex-col gap-2 w-full lg:w-[340px] shrink-0 lg:pt-8"
                 >
-                    <h2 className="text-[#0d0c22] text-2xl font-medium">Proactive System Operations</h2>
-                    <p className="text-[#4a5568] text-xl font-normal">
+                    <h2 className="text-[#10161D] text-[28px] font-medium">Proactive System Operations</h2>
+                    <p className="text-[#4A5568] text-xl font-normal">
                         Ongoing operational capabilities that help enterprise systems remain stable, available, and
                         performant.
                     </p>
@@ -127,7 +127,7 @@ export default function ProactiveSystemOperations() {
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.2 }}
                         variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
-                        className="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-2"
+                        className="flex gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-2"
                     >
                         {CARDS.map((card, index) => (
                             <motion.div
@@ -138,8 +138,8 @@ export default function ProactiveSystemOperations() {
                                 className="snap-start shrink-0 w-[260px] sm:w-[335px] h-[280px] sm:h-[360px] bg-white border border-black/[0.35] shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)] flex flex-col items-center text-center px-6 sm:px-7 py-7 sm:py-8"
                             >
                                 <Image src={card.icon} alt="" width={44} height={44} className="mb-5" />
-                                <p className="text-black text-xl sm:text-2xl font-normal">{card.title}</p>
-                                <p className="text-[#6c6c6c] text-base sm:text-lg font-light mt-5">{card.desc}</p>
+                                <p className="text-[#10161D] text-xl sm:text-2xl font-normal">{card.title}</p>
+                                <p className="text-[#4A5568] text-base sm:text-lg font-light mt-5">{card.desc}</p>
                             </motion.div>
                         ))}
                     </motion.div>

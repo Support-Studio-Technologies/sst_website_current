@@ -23,7 +23,7 @@ export default function ReadyToTransform({
         <>
             <section className="relative z-0 w-full overflow-hidden">
                 <Image src={bgImage} alt="" fill className="object-cover" />
-                <div className="absolute inset-0 bg-black/20" />
+
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

@@ -32,22 +32,22 @@ const ITEMS = [
 
 export default function DataProtectionPrivacy() {
     return (
-        <section className="w-full py-10 sm:py-16 px-6 sm:px-[64px] bg-[#f3f6f9] flex flex-col items-center gap-10">
+        <section className="w-full py-10 sm:py-16 px-6 sm:px-[64px] bg-[#f3f6f9] flex flex-col items-center gap-16">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col items-center gap-4 max-w-[900px] text-center"
+                className="flex flex-col items-center gap-2 max-w-[900px] text-center"
             >
-                <h2 className="text-black text-2xl font-medium">Data Protection &amp; Privacy</h2>
+                <h2 className="text-[#10161D] text-[28px] font-medium">Data Protection &amp; Privacy</h2>
                 <p className="text-[#4a5568] text-lg font-light">
                     Security controls that help enterprises protect sensitive information and maintain appropriate
                     access throughout the data lifecycle.
                 </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8 lg:gap-x-[57px] w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-8 w-full">
                 {ITEMS.map((item, index) => (
                     <motion.div
                         key={item.title}
@@ -60,8 +60,8 @@ export default function DataProtectionPrivacy() {
                     >
                         <Image src={item.icon} alt="" width={32} height={32} />
                         <div className="flex flex-col gap-5">
-                            <p className="text-black text-xl sm:text-2xl font-light">{item.title}</p>
-                            <p className="text-[#515151] text-base sm:text-lg font-light">{item.desc}</p>
+                            <p className="text-[#10161D] text-xl sm:text-2xl font-light">{item.title}</p>
+                            <p className="text-[#4A5568] text-base sm:text-lg font-light">{item.desc}</p>
                         </div>
                     </motion.div>
                 ))}

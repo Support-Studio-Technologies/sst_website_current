@@ -18,17 +18,17 @@ const INDUSTRIES = [
 
 export default function IndustryImpact() {
     return (
-        <section className="w-full bg-[#F3F6F9] py-10 sm:py-16 px-6 sm:px-[70px]">
+        <section className="w-full bg-[#F3F6F9] py-10 sm:p-16 px-6 ">
             <div className="w-full mx-auto flex flex-col items-center gap-10 sm:gap-16">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col items-center gap-4 max-w-[780px] mx-auto text-center"
+                    className="flex flex-col items-center gap-2 max-w-[780px] mx-auto text-center"
                 >
-                    <h2 className="text-black text-2xl font-medium">Industry Impact</h2>
-                    <p className="text-[#6c6c6c] text-base sm:text-lg font-light">
+                    <h2 className="text-[#10161D] text-2xl font-medium">Industry Impact</h2>
+                    <p className="text-[#4A5568] text-base sm:text-lg font-light">
                         Sectors where we deploy enterprise-grade AI solutions
                     </p>
                 </motion.div>
@@ -38,14 +38,14 @@ export default function IndustryImpact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-                    className="flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-25 gap-y-6"
+                    className="flex flex-wrap w-full justify-between items-center gap-x-6 sm:gap-x-8 gap-y-6"
                 >
                     {INDUSTRIES.map((industry) => (
                         <div key={industry.name} className="flex items-center gap-2">
                             <div className="relative shrink-0 size-10 sm:size-12">
                                 <Image src={industry.icon} alt="" fill className="object-contain" />
                             </div>
-                            <p className="text-[#10161d] text-sm sm:text-base font-light whitespace-nowrap">
+                            <p className="text-[#10161d] text-sm sm:text-lg font-light whitespace-nowrap">
                                 {industry.name}
                             </p>
                         </div>

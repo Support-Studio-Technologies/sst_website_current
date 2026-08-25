@@ -32,17 +32,17 @@ const ITEMS = [
 
 export default function DataModernizationIntegration() {
     return (
-        <section className="w-full py-10 sm:py-16 px-6 sm:px-[50px]">
-            <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row lg:justify-between lg:items-center gap-10 lg:gap-16">
+        <section className="w-full py-10 sm:px-16 px-6 sm:pt-8 sm:pb-16">
+            <div className="max-w-[1300px] flex flex-col lg:flex-row lg:justify-between lg:items-center gap-10 lg:gap-16">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col gap-4 w-full lg:max-w-[430px] shrink-0"
+                    className="flex flex-col gap-2 w-full lg:max-w-[430px] shrink-0"
                 >
-                    <h2 className="text-black text-2xl font-medium">Data Modernization &amp; Integration</h2>
-                    <p className="text-[#4a5568] text-lg font-light">
+                    <h2 className="text-[#10161D] text-[28px] font-medium">Data Modernization &amp; Integration</h2>
+                    <p className="text-[#4A5568] text-lg font-light">
                         Modern data capabilities that bring fragmented enterprise information together for
                         analytics, reporting, and AI.
                     </p>
@@ -59,7 +59,7 @@ export default function DataModernizationIntegration() {
                             className="flex flex-col gap-6"
                         >
                             <Image src={item.icon} alt="" width={48} height={48} />
-                            <p className="text-black text-xl font-light">{item.title}</p>
+                            <p className="text-[#10161D] text-xl font-light">{item.title}</p>
                             <p className="text-[#4a5568] text-lg font-light">{item.desc}</p>
                         </motion.div>
                     ))}

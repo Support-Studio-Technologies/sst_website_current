@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import serviceDesignPhoto from "@/assets/WhatWeDo/Customer Experience/new/Team.jpg";
+import serviceDesignPhoto from "@/assets/WhatWeDo/Customer Experience/webp/Customer_Team_Adoption.webp";
 
 const BOXES = [
     {
@@ -17,7 +17,7 @@ const BOXES = [
 
 export default function TeamAdoption() {
     return (
-        <section className="w-full py-10 px-6 sm:px-[64px] bg-[#f3f6f9]">
+        <section className="w-full py-10 px-6 sm:p-[64px] bg-[#f3f6f9]">
             {/* Two columns fill the full padded width via proportional flex-grow (≈654:475,
                 the Figma ratio) instead of fixed px, so they scale together on any desktop
                 width instead of leaving a mismatched gap between them. */}
@@ -29,10 +29,10 @@ export default function TeamAdoption() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="flex flex-col gap-3"
+                        className="flex flex-col gap23"
                     >
-                        <h2 className="text-[#0d0c22] text-3xl font-medium">Team Adoption &amp; Seamless Context</h2>
-                        <p className="text-black text-base sm:text-lg font-light">
+                        <h2 className="text-[#10161D] text-[28px] font-medium">Team Adoption &amp; Seamless Context</h2>
+                        <p className="text-[#4a5568] text-base sm:text-lg font-light">
                             Why our approach to customer experience drives long-term adoption.
                         </p>
                     </motion.div>
@@ -49,8 +49,8 @@ export default function TeamAdoption() {
                                 key={box.title}
                                 className="bg-white w-full sm:flex-1 lg:h-full flex flex-col items-start gap-12 lg:gap-16 px-6 py-8"
                             >
-                                <p className="text-black text-3xl font-medium">{box.title}</p>
-                                <p className="text-[#4a5568] text-xl font-light">{box.desc}</p>
+                                <h2 className="text-[#10161D] text-2xl font-medium">{box.title}</h2>
+                                <p className="text-[#4a5568] text-lg font-light">{box.desc}</p>
                             </div>
                         ))}
                     </motion.div>

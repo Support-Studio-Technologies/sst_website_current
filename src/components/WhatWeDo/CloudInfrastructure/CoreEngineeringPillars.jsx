@@ -165,16 +165,16 @@ export default function CoreEngineeringPillars() {
     };
 
     return (
-        <section className="w-full bg-white py-10 sm:py-16 px-6 sm:px-[50px] flex flex-col items-center gap-10 sm:gap-[62px]">
+        <section className="w-full bg-white py-10 sm:p-16 px-6  flex flex-col items-center gap-10 sm:gap-[64px]">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col items-center gap-4 max-w-[880px] text-center"
+                className="flex flex-col items-center gap-2 max-w-[880px] text-center"
             >
-                <h2 className="text-[#0d0c22] text-2xl font-medium">Core Engineering Pillars</h2>
-                <p className="text-[#3d3d4e] text-base sm:text-lg font-light">
+                <h2 className="text-[#10161D] text-[28px] font-medium">Core Engineering Pillars</h2>
+                <p className="text-[#4A5568] text-base sm:text-lg font-light">
                     What sets our cloud and infrastructure delivery apart
                 </p>
             </motion.div>
@@ -203,8 +203,8 @@ export default function CoreEngineeringPillars() {
                                 </div>
                                 <div className="w-px h-[50px] sm:h-[60px] shrink-0 bg-[#7F7F7F]" />
                                 <div className="flex flex-col gap-3">
-                                    <p className="text-black text-xl sm:text-2xl font-normal">{item.title}</p>
-                                    <p className="text-[#7f7f7f] text-base sm:text-lg font-light">{item.desc}</p>
+                                    <p className="text-[#0D0C22] text-xl sm:text-2xl font-medium">{item.title}</p>
+                                    <p className="text-[#4a5568] text-base sm:text-lg font-light">{item.desc}</p>
                                 </div>
                             </div>
                         </div>

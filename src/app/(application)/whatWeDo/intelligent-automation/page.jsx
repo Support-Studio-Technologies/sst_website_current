@@ -19,11 +19,11 @@ import AIPoweredAutomation from "@/components/WhatWeDo/IntelligentAutomation/AIP
 import OurAutomationApproach from "@/components/WhatWeDo/IntelligentAutomation/OurAutomationApproach";
 import CostofInefficiency from "@/components/WhatWeDo/IntelligentAutomation/CostofInefficiency";
 import AutomationOperationsControl from "@/components/WhatWeDo/IntelligentAutomation/AutomationOperationsControl";
-import customBg from "@/assets/WhatWeDo/Intelligent Automation/new/footercta.jpg";
+import customBg from "@/assets/WhatWeDo/Intelligent Automation/webp/Intelligent_CTA.webp";
 
 const page = () => {
     return (
-        <div className="min-h-screen overflow-x-hidden bg-white flex flex-col font-sans">
+        <div className="min-h-screen bg-white flex flex-col font-sans">
             <Navbar />
 
             <div className="relative -mt-[64px] lg:-mt-[68px] h-[680px] sm:h-[200vh]">

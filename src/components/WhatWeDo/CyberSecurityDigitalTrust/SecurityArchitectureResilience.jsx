@@ -23,23 +23,23 @@ const CARDS = [
 
 export default function SecurityArchitectureResilience() {
     return (
-        <section className="w-full pt-10 sm:pt-14 pb-6 sm:pb-8 px-6 sm:px-[0px] flex flex-col items-center gap-10 sm:gap-12">
+        <section className="w-full pt-10 sm:pt-8 pb-6 sm:pb-8 px-6 sm:px-[0px] flex flex-col items-center gap-10 sm:gap-16">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col items-center gap-3 max-w-[767px] text-center px-6 sm:px-0"
+                className="flex flex-col items-center gap-2 max-w-[767px] text-center px-6 sm:px-0"
             >
-                <h2 className="text-black text-2xl font-medium">Security Architecture &amp; Resilience</h2>
-                <p className="text-[#4a5568] text-lg font-light">
+                <h2 className="text-[#10161D] text-[28px] font-medium">Security Architecture &amp; Resilience</h2>
+                <p className="text-[#4A5568] text-lg font-light">
                     Security capabilities that protect enterprise applications, infrastructure, identities, and
                     data throughout transformation.
                 </p>
             </motion.div>
 
             {/* Mobile / tablet layout */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:hidden gap-6 w-full px-6 sm:px-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:hidden gap-8 w-full px-6 sm:px-0">
                 {CARDS.map((card, index) => (
                     <motion.div
                         key={card.title}
@@ -59,7 +59,7 @@ export default function SecurityArchitectureResilience() {
             <div className="hidden lg:block relative w-full lg:min-h-[303px]">
                 <div className="absolute inset-x-0 top-[99px] bottom-0 bg-[#f3f6f9]" />
 
-                <div className="relative z-10 max-w-full mx-auto px-6 sm:px-[64px] grid grid-cols-4 gap-x-6 lg:gap-x-[50px]">
+                <div className="relative z-10 max-w-full mx-auto px-6 sm:px-[64px] grid grid-cols-4 gap-x-6 lg:gap-x-8">
                     {CARDS.map((card, index) => (
                         <motion.div
                             key={card.title}
@@ -70,9 +70,9 @@ export default function SecurityArchitectureResilience() {
                             className="flex flex-col"
                         >
                             <div className="bg-white border border-[#a5a5a5] min-h-[121px] flex items-center px-8">
-                                <p className="text-black text-xl font-medium leading-tight">{card.title}</p>
+                                <h2 className="text-[#10161D] text-xl font-medium leading-tight">{card.title}</h2>
                             </div>
-                            <p className="text-[#4a5568] text-lg font-light pt-6 pb-10 pr-4">{card.desc}</p>
+                            <p className="text-[#4A5568] text-lg font-light pt-6 pb-10 pr-4">{card.desc}</p>
                         </motion.div>
                     ))}
                 </div>

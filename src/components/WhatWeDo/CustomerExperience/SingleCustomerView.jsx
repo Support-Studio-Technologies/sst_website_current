@@ -16,17 +16,17 @@ const ITEMS = [
 
 export default function SingleCustomerView() {
     return (
-        <section className="w-full py-10 sm:py-16 px-6 sm:px-[50px] flex flex-col lg:flex-row gap-10 lg:gap-[83px] items-center">
+        <section className="w-full py-10  px-6 sm:p-16 flex flex-col lg:flex-row gap-10 lg:gap-[83px] items-center">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col gap-4 w-full lg:w-[518px] shrink-0"
+                className="flex flex-col gap-2 w-full lg:w-[518px] shrink-0"
             >
-                <h2 className="text-black text-2xl sm:text-[32px] font-normal">Single Customer View & Evidence-Based Design
+                <h2 className="text-[#10161D] text-2xl sm:text-[28px] font-medium">Single Customer View & Evidence-Based Design
                 </h2>
-                <p className="text-[#6c6c6c] text-lg font-light">
+                <p className="text-[#4a5568] text-lg font-light">
                     Why our approach to customer experience drives long-term adoption.
                 </p>
             </motion.div>

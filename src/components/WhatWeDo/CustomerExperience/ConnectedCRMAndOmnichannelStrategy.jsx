@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import journeyMapImg from "@/assets/WhatWeDo/Customer Experience/new/Connected.jpg";
+import journeyMapImg from "@/assets/WhatWeDo/Customer Experience/webp/Customer_Connected_CRM.webp";
 
 const ITEMS = [
     {
@@ -29,17 +29,17 @@ const ITEMS = [
 
 export default function ConnectedCRMAndOmnichannelStrategy() {
     return (
-        <section className="w-full py-14 sm:py-20 px-6 sm:px-[50px] bg-[#F3F6F9] flex flex-col gap-12 sm:gap-16">
+        <section className="w-full py-14  px-6 sm:p-16 bg-[#F3F6F9] flex flex-col gap-12 sm:gap-16">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col items-center gap-4 max-w-[1074px] mx-auto  text-center"
+                className="flex flex-col items-center gap-2 max-w-[1074px] mx-auto  text-center"
             >
-                <h2 className="text-black text-2xl font-medium">Connected CRM & Omnichannel Strategy
+                <h2 className="text-#10161D text-[28px] font-medium">Connected CRM & Omnichannel Strategy
                 </h2>
-                <p className="text-[#3d3d4e] text-base sm:text-lg font-light">
+                <p className="text-[#4a5568] text-base sm:text-lg font-light">
                     Primary capabilities across CRM platforms, Salesforce, and journey execution.
                 </p>
             </motion.div>
@@ -56,8 +56,8 @@ export default function ConnectedCRMAndOmnichannelStrategy() {
                             className="flex flex-col gap-5"
                         >
                             <div className="flex flex-col gap-3">
-                                <p className="text-black text-xl sm:text-2xl font-medium">{item.title}</p>
-                                <p className="text-[#3d3d4e] text-base sm:text-lg font-light">{item.desc}</p>
+                                <h2 className="text-#10161D text-xl sm:text-2xl font-medium">{item.title}</h2>
+                                <p className="text-[#4a5568] text-base sm:text-lg font-light">{item.desc}</p>
                             </div>
                             <div className="h-px w-[139px] bg-[#3d3d4e]/40" />
                         </motion.div>

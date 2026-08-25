@@ -23,15 +23,15 @@ const CARDS = [
 
 export default function ProductPlatformEngineering() {
     return (
-        <section className="w-full pt-10 sm:pt-14 pb-6 sm:pb-8 px-6 sm:px-[0px] flex flex-col items-center gap-10 sm:gap-12">
+        <section className="w-full pt-10 sm:pt-16 pb-6 sm:pb-0 px-6 sm:px-[0px] flex flex-col items-center gap-10 sm:gap-12">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col items-center gap-3 max-w-[767px] text-center px-6 sm:px-0"
+                className="flex flex-col items-center gap-2 max-w-[767px] text-center px-6 sm:px-0"
             >
-                <h2 className="text-black text-2xl font-medium">Product &amp; Platform Engineering</h2>
+                <h2 className="text-[#10161D] text-[28px] font-medium">Product &amp; Platform Engineering</h2>
                 <p className="text-[#4a5568] text-lg font-light">
                     Engineering capabilities that help enterprises build scalable digital products and platforms.
                 </p>
@@ -48,7 +48,7 @@ export default function ProductPlatformEngineering() {
                         transition={{ duration: 0.4, delay: index * 0.06 }}
                         className="border border-[#a5a5a5] bg-[#f3f6f9] flex flex-col gap-4 px-6 py-8"
                     >
-                        <p className="text-black text-lg font-medium">{card.title}</p>
+                        <h2 className="text-[#10161D] text-lg font-medium">{card.title}</h2>
                         <p className="text-[#4a5568] text-sm font-light">{card.desc}</p>
                     </motion.div>
                 ))}
@@ -68,8 +68,8 @@ export default function ProductPlatformEngineering() {
                             transition={{ duration: 0.4, delay: index * 0.06 }}
                             className="flex flex-col"
                         >
-                            <div className="bg-white border border-[#a5a5a5] min-h-[121px] flex items-center px-8">
-                                <p className="text-black text-xl font-medium leading-tight">{card.title}</p>
+                            <div className="bg-white border border-[#a5a5a5] min-h-[121px] flex items-center px-13">
+                                <h2 className="text-[#10161D] text-2xl font-medium ">{card.title}</h2>
                             </div>
                             <p className="text-[#4a5568] text-lg font-light pt-6 pb-10 pr-4">{card.desc}</p>
                         </motion.div>

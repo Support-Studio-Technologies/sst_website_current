@@ -2,7 +2,7 @@
 
 import React from "react";
 import InsightsListing from "@/components/Insights/InsightsListing";
-import backgroundImage from "@/assets/Insights/Case_Studies.jpg";
+import backgroundImage from "@/assets/Insights/CaseStudies_Hero.webp";
 import { caseStudiesData } from "@/data/caseStudiesData";
 import Hero from "@/components/Insights/Hero";
 import HeroText from "@/components/Insights/HeroText";

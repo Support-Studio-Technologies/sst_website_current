@@ -9,7 +9,7 @@ import integrationImage2 from "@/assets/WhatWeDo/Artificial Intelligence/AI_Imgs
 const STATS = [
     { value: "50+", label: "AI Solutions Delivered" },
     { value: "40%", label: "Faster Decision Cycles" },
-    { value: "60%+", label: "Processes Automated" },
+    { value: "60%", label: "Processes Automated" },
     { value: "99.9%", label: "AI Operations Availability" },
 ];
 
@@ -63,9 +63,9 @@ function AnimatedStat({ value }) {
 
 export default function ScalableAIDeployment() {
     return (
-        <section className="w-full py-10 sm:py-10 px-6 sm:px-0 border-y-2 border-[#cac9c9]/70">
+        <section className="w-full py-10 px-6 sm:p-16 border-t-2 border-[#cac9c9]/70">
             {/* Outer container — this creates the Figma-style x-axis spacing */}
-            <div className="w-full max-w-[1400px] mx-auto px-7 sm:px-8 lg:px-10">
+            <div className="w-full max-w-[1400px]">
 
                 {/* Heading */}
                 <motion.div
@@ -73,13 +73,13 @@ export default function ScalableAIDeployment() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col items-center gap-4 w-full mx-auto text-center mb-14"
+                    className="flex flex-col items-center gap-2 w-full mx-auto text-center mb-16"
                 >
-                    <h2 className="text-black text-xl sm:text-2xl font-normal">
+                    <h2 className="text-[#10161D] text-xl sm:text-2xl font-medium">
                         Scalable AI Deployment & Operational Workflows
                     </h2>
 
-                    <p className="text-[#515151] text-sm sm:text-base font-light">
+                    <p className="text-[#4A5568] text-sm sm:text-lg font-light">
                         Detailed look at moving AI from proof-of-concept to production and agent-led automation.
                     </p>
                 </motion.div>

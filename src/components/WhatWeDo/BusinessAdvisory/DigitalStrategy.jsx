@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import card1 from "@/assets/WhatWeDo/Business Advisory/new/card_1.jpg";
-import card2 from "@/assets/WhatWeDo/Business Advisory/new/card_2.jpg";
-import card3 from "@/assets/WhatWeDo/Business Advisory/new/card_3.jpg";
-import card4 from "@/assets/WhatWeDo/Business Advisory/new/card_4.jpg";
+import card1 from "@/assets/WhatWeDo/Business Advisory/webp/Business_Business_Strategy.webp";
+import card2 from "@/assets/WhatWeDo/Business Advisory/webp/Business_Enterprise_architecture.webp";
+import card3 from "@/assets/WhatWeDo/Business Advisory/webp/Business_Transformation_Roadmap.webp";
+import card4 from "@/assets/WhatWeDo/Business Advisory/webp/Business_Business_process.webp";
 
 const CARDS = [
     {
@@ -42,23 +42,23 @@ const itemVariants = {
 
 export default function DigitalStrategy() {
     return (
-        <div className="w-full h-full flex flex-col items-center justify-center gap-10 sm:gap-[82px] px-6 sm:px-[70px] py-10 sm:py-[40px] pb-0">
+        <div className="w-full h-full flex flex-col items-center justify-center gap-10 sm:gap-[64px] px-6 sm:px-[64px] pt-10 sm:pt-[64px] pb-10 sm:pb-[32px]">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col items-center gap-4 text-center"
+                className="flex flex-col items-center gap-2 text-center"
             >
-                <h2 className="font-heading text-[#0d0c22] text-2xl font-medium">Strategic Planning & Architecture</h2>
-                <p className="text-[#6c6c6c] text-base sm:text-lg font-light">
+                <h2 className="font-heading text-[#10161D] text-[28px] font-medium">Strategic Planning & Architecture</h2>
+                <p className="text-[#4A5568] text-base sm:text-lg font-light">
                     Defining transformation roadmaps, business architecture, and process change.
                 </p>
             </motion.div>
 
             {/* Mobile: simple static stacked cards — no hover, description always visible.
                 Layout/design ported from OurAIServices' mobile treatment. */}
-            <div className="flex sm:hidden flex-col gap-4 w-full max-w-[1280px] mx-auto">
+            <div className="flex sm:hidden flex-col gap-8 w-full max-w-[1280px] mx-auto">
                 {CARDS.map((card, index) => (
                     <motion.div
                         key={card.title}
@@ -71,7 +71,7 @@ export default function DigitalStrategy() {
                         <Image src={card.image} alt="" fill className="object-cover" />
                         <div className="absolute inset-0 bg-black/60" />
                         <div className="absolute inset-0 flex flex-col justify-start gap-2 px-4 pt-5">
-                            <p className="text-white text-xl font-normal">{card.title}</p>
+                            <h2 className="text-white text-xl font-medium">{card.title}</h2>
                             <p className="text-white/85 text-sm font-light max-w-[280px]">{card.desc}</p>
                         </div>
                     </motion.div>
@@ -84,7 +84,7 @@ export default function DigitalStrategy() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                className="hidden sm:grid lg:grid-cols-4 sm:grid-cols-2 gap-4 sm:gap-[18px] w-full"
+                className="hidden sm:grid lg:grid-cols-4 sm:grid-cols-2 gap-8 w-full"
             >
                 {CARDS.map((card) => (
                     <motion.div
@@ -98,7 +98,7 @@ export default function DigitalStrategy() {
                             Anchoring to `bottom` instead of `top` means the block grows upward as the
                             description expands, matching the Identity Management card behavior. */}
                         <div className="absolute left-[12%] right-[12%] bottom-[12%] flex flex-col text-white">
-                            <p className="text-2xl font-light">{card.title}</p>
+                            <h2 className="text-2xl font-medium">{card.title}</h2>
                             <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out">
                                 <div className="overflow-hidden">
                                     <p className="text-base font-light pt-2">{card.desc}</p>

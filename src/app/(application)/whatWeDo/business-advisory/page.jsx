@@ -20,7 +20,7 @@ import TechnologyAssessment from "@/components/WhatWeDo/BusinessAdvisory/Technol
 import TransformationRoadmap from "@/components/WhatWeDo/BusinessAdvisory/TransformationRoadmap";
 import SoftwareScalability from "@/components/WhatWeDo/BusinessAdvisory/SoftwareScalability";
 import SalesforceConsulting from "@/components/WhatWeDo/BusinessAdvisory/SalesforceConsulting";
-import customBg from "@/assets/WhatWeDo/Business Advisory/new/footercta.jpg";
+import customBg from "@/assets/WhatWeDo/Business Advisory/webp/Business_CTA.webp";
 
 const page = () => {
     return (

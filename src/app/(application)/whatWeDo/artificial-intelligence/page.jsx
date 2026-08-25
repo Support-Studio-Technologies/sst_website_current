@@ -47,14 +47,14 @@ const page = () => {
             {/* <AIStrategy /> */}
             {/* <PredictiveIntelligence /> */}
             {/* <ConversationalAI /> */}
-            <IndustryImpact />
             {/* <AIGovernance /> */}
             {/* <AILifecycle /> */}
-            <AdvancedMachineLearning />
             {/* <IntelligentAssistantsBanner /> */}
+            {/* <FutureFocusedInsights /> */}
+            <IndustryImpact />
+            <AdvancedMachineLearning />
             <AIUseCaseValueEnablement />
             <WhyPartnerWithUs />
-            {/* <FutureFocusedInsights /> */}
             <ReadyToTransform
                 title="Ready to build infrastructure that scales with you?"
                 description="Talk to our infrastructure team about the environment your business actually needs."

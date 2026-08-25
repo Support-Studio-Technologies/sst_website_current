@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Navbar from "../Navbar/Navbar";
 import RectangleHeader from "../../../public/blog/2807cc98147a21e2764581df7af98cfbb12fa24a.jpg";
-import contact from "src/assets/contactus/contus.jpg";
+import contact from "src/assets/contactus/ContactUs_Hero.webp";
 
 
 const ContactHeader = () => {

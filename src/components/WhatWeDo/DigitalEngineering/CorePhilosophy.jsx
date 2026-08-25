@@ -15,7 +15,7 @@ export default function CorePhilosophy() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="text-2xl font-medium text-black"
+                            className="text-[28px] font-medium text-[#10161D]"
                         >
                             Core Philosophy
                         </motion.h2>
@@ -25,7 +25,7 @@ export default function CorePhilosophy() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="mb-4 text-[#3D3D4E] text-[18px] leading-[140%] tracking-[0%]"
+                            className="mt-2 text-[#4a5568] text-[18px] leading-[140%] tracking-[0%]"
                         >
                             Defining the stakes of software engineering in growing businesses.
                         </motion.p>
@@ -44,7 +44,7 @@ export default function CorePhilosophy() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="justify-self-start max-w-[467px] pl-16"
                     >
-                        <p className="text-[#3D3D4E] text-base sm:text-lg font-light">
+                        <p className="text-[#4a5568] text-base sm:text-lg font-light">
                             Software that cannot scale with the business becomes the business's next constraint.
                         </p>
                     </motion.div>

@@ -32,21 +32,21 @@ const ITEMS = [
 
 export default function AutomationOperationsControl() {
     return (
-        <section className="w-full py-10 sm:py-16 px-6 sm:px-[64px] flex flex-col lg:flex-row gap-10 lg:gap-[72px] items-center">
+        <section className="w-full pt-10 sm:pt-8 pb-10 sm:pb-16 px-6 sm:px-[64px] flex flex-col lg:flex-row gap-10 lg:gap-[72px] items-center">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="flex flex-col gap-4 w-full lg:flex-1"
+                className="flex flex-col gap-2 w-full lg:flex-1"
             >
-                <h2 className="text-black text-2xl font-medium">Automation Operations &amp; Control</h2>
-                <p className="text-[#6c6c6c] text-lg font-light">
+                <h2 className="text-[#10161D] text-[28px] font-medium">Automation Operations &amp; Control</h2>
+                <p className="text-[#4A5568] text-lg font-light">
                     Capabilities that keep enterprise automation reliable, measurable, and manageable at scale.
                 </p>
             </motion.div>
 
-            <div className="grid grid-cols-2 gap-x-6 sm:gap-x-10 gap-y-10 sm:gap-y-12 w-full lg:flex-1">
+            <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-8 w-full lg:flex-1">
                 {ITEMS.map((item, index) => (
                     <motion.div
                         key={item.title}
@@ -57,7 +57,7 @@ export default function AutomationOperationsControl() {
                         className="flex flex-col gap-6"
                     >
                         <Image src={item.icon} alt="" width={48} height={48} />
-                        <p className="text-black text-xl sm:text-2xl font-light">{item.title}</p>
+                        <p className="text-[#10161D] text-xl sm:text-2xl font-light">{item.title}</p>
                         <p className="text-[#4a5568] text-base sm:text-lg font-light">{item.desc}</p>
                     </motion.div>
                 ))}

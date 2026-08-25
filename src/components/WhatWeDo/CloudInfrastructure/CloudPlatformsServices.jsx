@@ -106,8 +106,8 @@ export default function CloudPlatformsServices() {
     const activeTab = TABS[active];
 
     return (
-        <section className="w-full bg-white py-10 sm:py-20 px-6 sm:px-[50px]">
-            <div className="max-w-[1300px] mx-auto flex flex-col items-center gap-10 sm:gap-16 lg:gap-20">
+        <section className="w-full bg-white py-10 sm:p-16 px-6">
+            <div className="w-full flex flex-col items-center gap-10 sm:gap-16 lg:gap-20">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -115,8 +115,8 @@ export default function CloudPlatformsServices() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="flex flex-col items-center gap-3 text-center"
                 >
-                    <h2 className="text-black text-2xl font-medium">Cloud Platforms &amp; Services</h2>
-                    <p className="text-[#4a5568] text-lg font-light max-w-[700px]">
+                    <h2 className="text-[#10161D] text-[28px] font-medium">Cloud Platforms &amp; Services</h2>
+                    <p className="text-[#4A5568] text-lg font-light max-w-[700px]">
                         Cloud solutions built around the right platform, workload, security requirements, and
                         business objectives.
                     </p>
@@ -132,15 +132,15 @@ export default function CloudPlatformsServices() {
                                     type="button"
                                     aria-pressed={isActive}
                                     onClick={() => setActive(index)}
-                                    className={`bg-white border h-[93px] flex items-center justify-center transition-all duration-300 ${isActive
-                                        ? "border-black shadow-[2px_4px_20px_0px_rgba(0,0,0,0.25)]"
-                                        : "border-black/40 hover:border-black/70"
+                                    className={`bg-white h-[93px] flex items-center justify-center transition-all duration-300 ${isActive
+                                        ? "shadow-[2px_4px_20px_0px_rgba(0,0,0,0.25)]"
+                                        : ""
                                         }`}
                                 >
                                     <Image
                                         src={tab.logo}
                                         alt={`${tab.name} logo`}
-                                        className="max-h-[60px] sm:max-h-[70px] lg:max-h-[78px] w-auto max-w-[75%] object-contain"
+                                        className="max-h-[60px] sm:max-h-[55px] lg:max-h-[55px] w-auto max-w-[75%] object-contain"
                                     />
                                 </button>
                             );
@@ -156,13 +156,20 @@ export default function CloudPlatformsServices() {
                             transition={{ duration: 0.35, ease: "easeOut" }}
                             className="flex flex-col gap-4 sm:gap-5"
                         >
-                            <p className="text-black text-lg sm:text-xl lg:text-2xl font-medium">{activeTab.intro}</p>
-                            {activeTab.categories.map((cat) => (
-                                <p key={cat.label} className="text-lg sm:text-xl lg:text-2xl font-light">
-                                    <span className="font-medium text-black">{cat.label}:</span>{" "}
-                                    <span className="text-[#4a5568]">{cat.desc}</span>
-                                </p>
-                            ))}
+                            <h2 className="text-[#10161D] text-lg sm:text-xl lg:text-2xl font-medium">{activeTab.intro}</h2>
+                            <ul className="flex flex-col gap-4 sm:gap-5 list-disc pl-6">
+                                {activeTab.categories.map((cat) => (
+                                    <li
+                                        key={cat.label}
+                                        className="text-lg font-light text-[#4A5568] pl-2"
+                                    >
+                                        <span className="font-medium text-[#10161D]">
+                                            {cat.label}:
+                                        </span>{" "}
+                                        {cat.desc}
+                                    </li>
+                                ))}
+                            </ul>
                         </motion.div>
                     </AnimatePresence>
                 </div>
@@ -170,4 +177,5 @@ export default function CloudPlatformsServices() {
         </section>
     );
 }
+
 
